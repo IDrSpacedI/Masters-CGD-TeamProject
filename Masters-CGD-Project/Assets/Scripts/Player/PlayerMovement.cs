@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //get the character controller component
-    public CharacterController controller;
 
     //allows other script to access and turn off player input (incase we need in future)
     public static bool disableMovement = false;
@@ -28,8 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool playerIdle = true;
 
-    // Awake is called before start()
-    private void Awake()
+    [SerializeField]private Rigidbody playerRigBod;
+	private float horizontalIn;
+    private bool jumping = false;
+
+	// Awake is called before start()
+	private void Awake()
     {
         //just to make sure when the game starts the player is allowed to move (redundent, but just incase UwU)
         disableMovement = false;
@@ -37,37 +39,47 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //playerAnimtor = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //allow player movement function to be stopped when needed
-        if(disableMovement == false)
+        if(!disableMovement)
         {
-            PlayerMove();
             PlayerJump();
-            PlayerGravity();
+            PlayerMove();
+            //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         }
 
-        /**if (playerIdle == true)
+        /**if (playerIdle)
         {
             playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
         }**/
+    }
+
+    private void FixedUpdate()
+    {
+		if (jumping)
+		{
+            playerRigBod.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
+            jumping = false;
+        }
+        
+        playerRigBod.velocity = new Vector3(0, playerRigBod.velocity.y, horizontalIn);
+        Debug.Log(playerRigBod.velocity);
     }
 
     //function used to move the player
     public void PlayerMove()
     {
         //get player A&D input
-        float x = Input.GetAxis("Horizontal");
-
-        //move the player on the button press
-        Vector3 move = transform.forward * x;
-        controller.Move(move * speed * Time.deltaTime);
+        
+        horizontalIn = Input.GetAxis("Horizontal") * speed;
+        
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -92,10 +104,11 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerJump()
     {
         //add up velocity when the jump button is pressed
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        //if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump"))
         {
             //jump velocity calculation
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumping = true;
         }
     }
 
@@ -112,7 +125,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //moves player
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        //velocity.y += gravity * Time.deltaTime;
+        //controller.Move(velocity * Time.deltaTime);
     }
+
+	
 }
