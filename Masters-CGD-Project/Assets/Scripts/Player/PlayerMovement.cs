@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool playerIdle = true;
 
-    [SerializeField]private Rigidbody playerRigBod;
+    private Rigidbody playerRigBod;
 	private float horizontalIn;
     private bool jumping = false;
 
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        playerRigBod = GetComponent<Rigidbody>();
         //playerAnimtor = GetComponentInChildren<Animator>();
     }
 
@@ -70,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         }
         
         playerRigBod.velocity = new Vector3(0, playerRigBod.velocity.y, horizontalIn);
-        Debug.Log(playerRigBod.velocity);
     }
 
     //function used to move the player
@@ -129,5 +129,8 @@ public class PlayerMovement : MonoBehaviour
         //controller.Move(velocity * Time.deltaTime);
     }
 
-	
-}
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject);
+    }
+    }
