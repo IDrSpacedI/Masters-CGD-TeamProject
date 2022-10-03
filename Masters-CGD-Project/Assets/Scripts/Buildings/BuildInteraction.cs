@@ -13,6 +13,11 @@ public class BuildInteraction : MonoBehaviour
     public GameObject level2;
     public GameObject level3;
 
+    public GameObject level1FX;
+    public GameObject level2FX;
+    public GameObject level3FX;
+
+
     public bool level1build = false;
     public bool level2build = false;
     public bool level3build = false;
@@ -33,6 +38,10 @@ public class BuildInteraction : MonoBehaviour
         level1.SetActive(false);
         level2.SetActive(false);
         level3.SetActive(false);
+
+        level1FX.SetActive(false);
+        level2FX.SetActive(false);
+        level3FX.SetActive(false);
 
         interactText.text = "";
         buildTimerText.text = "";
@@ -65,18 +74,21 @@ public class BuildInteraction : MonoBehaviour
             if (Input.GetKey(KeyCode.E) && level1build == false && level2build == false && level3build == false)
             {
                 level1.SetActive(true);
+                level1FX.SetActive(true);
                 level1build = true;
                 buildTimeLeft = buildTime;
             }
             else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == false && level3build == false && buildTimeLeft <= 0)
             {
                 level2.SetActive(true);
+                level2FX.SetActive(true);
                 level2build = true;
                 buildTimeLeft = buildTime;
             }
             else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == true && level3build == false && buildTimeLeft <= 0)
             {
                 level3.SetActive(true);
+                level3FX.SetActive(true);
                 level3build = true;
                 interactButton.SetActive(false);
                 interactCollider.enabled = false;
