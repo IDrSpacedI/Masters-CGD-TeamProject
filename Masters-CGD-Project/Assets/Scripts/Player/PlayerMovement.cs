@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public float turnSmoothTime = 0.1f;
-    public float turnSmoothVelocity;
+    float turnSmoothVelocity;
 
     //define and set up ground check system for gravity
     public Transform groundCheck;
@@ -73,10 +73,10 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerMove()
     {
         //get player A&D input
-        float x = Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxisRaw("Horizontal");
         //float y = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(x, 0, 0).normalized;
+        Vector3 direction = new Vector3(horizontal, 0f, 0).normalized;
 
         if(direction.magnitude >= 0.1f)
         {
@@ -86,11 +86,26 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             //apply rotation
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            //gives the right direction to move with the camera's calculation
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             //apply move
-            controller.Move(direction * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
-       
+        /**
+        //Calculation for turning /direction angles
+        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        //smoothing turn rotation
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        //apply rotation
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+        Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+        //apply move
+        controller.Move(direction.normalized * speed * Time.deltaTime);
+        **/
+
+
 
 
         //move the player on the button press
@@ -138,5 +153,15 @@ public class PlayerMovement : MonoBehaviour
         //moves player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //only work if the object trigger has the "Player" tag
+        if (other.tag == "Build")
+        {
+            Debug.Log("Touching Build");
+
+        }
     }
 }

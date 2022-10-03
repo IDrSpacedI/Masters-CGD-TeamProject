@@ -79,7 +79,7 @@ public class BuildInteraction : MonoBehaviour
         if (other.tag == "Player")
         {
             interactText.text = "Press E to interact";
-            Debug.Log("Interact time");
+            //Debug.Log("Interact time");
 
             //list of If loops, could be more better but it works now, fix later xD
             if (Input.GetKey(KeyCode.E) && level1build == false && level2build == false && level3build == false)
@@ -115,7 +115,7 @@ public class BuildInteraction : MonoBehaviour
         if (other.tag == "Player")
         {
             interactText.text = "";
-            Debug.Log("Interact time");
+            //Debug.Log("Interact time");
         }
     }
     
