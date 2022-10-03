@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 2f;
     bool isGrounded;
 
+    public float turnSmoothTime = 0.1f;
+    public float turnSmoothVelocity;
+
     //define and set up ground check system for gravity
     public Transform groundCheck;
     public float groundDistance = 0.3f;
@@ -40,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //playerAnimtor = GetComponentInChildren<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -53,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
             PlayerGravity();
         }
 
+        if (isGrounded == false)
+        {
+            playerAnimtor.SetBool("Jump", false);
+        }
+
         /**if (playerIdle == true)
         {
             playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
@@ -64,28 +74,40 @@ public class PlayerMovement : MonoBehaviour
     {
         //get player A&D input
         float x = Input.GetAxis("Horizontal");
+        //float y = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(x, 0, 0).normalized;
+
+        if(direction.magnitude >= 0.1f)
+        {
+            //Calculation for turning /direction angles
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            //smoothing turn rotation
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            //apply rotation
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            //apply move
+            controller.Move(direction * speed * Time.deltaTime);
+        }
+
+       
+
 
         //move the player on the button press
-        Vector3 move = transform.forward * x;
-        controller.Move(move * speed * Time.deltaTime);
+        //Vector3 move = transform.forward * x;
+        //controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerIdle = false;
-            playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            playerAnimtor.SetFloat("Speed", 0.25f, 0.1f, Time.deltaTime);
 
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            playerIdle = false;
-            playerAnimtor.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
         }
         else
         {
-            playerIdle = true;
-            playerAnimtor.SetFloat("Speed", 0.25f, 0.1f, Time.deltaTime);
+            playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
         }
-
     }
 
     //function used to allow the player to jump
@@ -96,6 +118,8 @@ public class PlayerMovement : MonoBehaviour
         {
             //jump velocity calculation
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+            playerAnimtor.SetBool("Jump", true);
         }
     }
 
