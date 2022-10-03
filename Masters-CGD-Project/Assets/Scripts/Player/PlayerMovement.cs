@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            playerAnimtor.SetFloat("Speed", 0f, 0.25f, Time.deltaTime);
         }
     }
 
