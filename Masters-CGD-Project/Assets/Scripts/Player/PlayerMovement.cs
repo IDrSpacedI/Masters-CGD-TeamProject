@@ -61,6 +61,22 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == false)
         {
             playerAnimtor.SetBool("Jump", false);
+            //movementAnim.SetBool("Fall", true);
+        }
+        else
+        {
+            //movementAnim.SetBool("Fall", false);
+        }
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            playerAnimtor.SetBool("Torch", true);
+            playerAnimtor.SetTrigger("Torch Trigger");
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            playerAnimtor.SetBool("Torch", false);
         }
 
         /**if (playerIdle == true)
@@ -116,12 +132,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerIdle = false;
-            playerAnimtor.SetFloat("Speed", 0.25f, 0.1f, Time.deltaTime);
+            playerAnimtor.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
 
         }
         else
         {
-            playerAnimtor.SetFloat("Speed", 0f, 0.25f, Time.deltaTime);
+            playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
         }
     }
 
@@ -148,6 +164,15 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+        }
+
+        if (velocity.y < -4.5f)
+        {
+            playerAnimtor.SetBool("Fall", true);
+        }
+        else
+        {
+            playerAnimtor.SetBool("Fall", false);
         }
 
         //moves player
