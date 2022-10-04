@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerIdle = false;
-            playerAnimtor.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+            playerAnimtor.SetFloat("Speed", 0.25f, 0.1f, Time.deltaTime);
 
         }
         else
