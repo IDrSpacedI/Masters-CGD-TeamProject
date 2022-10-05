@@ -1,18 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-public class CamerSwticher : MonoBehaviour
+public static class CamerSwticher
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    static List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
+    public static cinemachiev
 }
