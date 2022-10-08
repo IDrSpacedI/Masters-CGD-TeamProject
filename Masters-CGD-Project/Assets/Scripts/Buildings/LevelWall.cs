@@ -6,7 +6,9 @@ public class LevelWall : MonoBehaviour
 {
 
     public GameObject levelFX;
+    //To play the animation;
     [SerializeField] public GameObject mainUpgrade;
+    //TODO
     [SerializeField] private int health;
 
     // Start is called before the first frame update

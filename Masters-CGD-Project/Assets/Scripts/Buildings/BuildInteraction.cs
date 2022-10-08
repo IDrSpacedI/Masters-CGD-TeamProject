@@ -147,10 +147,12 @@ public class BuildInteraction : MonoBehaviour, IInteractable
     {
         for (int i = 0; i < levels.Length; i++)
         {
+            //Sets current level inactive
             if (i == currentLevel)
                 levels[i].SetActive(false);
             else if (i == currentLevel + 1)
             {
+                //sets the next level to active and activate the FX and the main building for animation
                 levels[i].SetActive(true);
                 LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
                 iLevelWall.levelFX.SetActive(true);
