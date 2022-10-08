@@ -8,6 +8,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable
     //What the prompt says
     [SerializeField] private string prompt;
 
+    [SerializeField] private GameObject[] levels;
+
+    [SerializeField] private int currentLevel = -1;
+
+
     //Collider to detect player
     public Collider interactCollider;
 
@@ -49,6 +54,12 @@ public class BuildInteraction : MonoBehaviour, IInteractable
         //Enable and disable objects
         interactButton.SetActive(true);
 
+
+        for (int i = 0; i < levels.Length; i++)
+        {
+            levels[i].SetActive(false);
+        }
+
         level1.SetActive(false);
         level2.SetActive(false);
         level3.SetActive(false);
@@ -61,6 +72,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable
         interactText.text = "";
         buildTimerText.text = "";
     }
+
+  
 
     // Update is called once per frame
     void Update()
@@ -78,6 +91,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable
 
 
     }
+
     /*
     //trigger system to detect when the collider is touching the player :) old
     private void OnTriggerStay(Collider other)
@@ -127,6 +141,23 @@ public class BuildInteraction : MonoBehaviour, IInteractable
     }*/
 
 
+    
+    //Changes which object is active in the image (current level is always -1 the real level)
+    void Upgrade()
+    {
+        for (int i = 0; i < levels.Length; i++)
+        {
+            if (i == currentLevel)
+                levels[i].SetActive(false);
+            else if (i == currentLevel + 1)
+            {
+                levels[i].SetActive(true);
+                LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
+                iLevelWall.levelFX.SetActive(true);
+                iLevelWall.mainUpgrade.SetActive(true);
+            }
+        }
+    }
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)
     {
@@ -134,10 +165,16 @@ public class BuildInteraction : MonoBehaviour, IInteractable
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
-        if (moneySystem == null || !moneySystem.spendMoney(5))
+        if (moneySystem == null || !moneySystem.spendMoney(5) || currentLevel == levels.Length - 1)
             return false;
 
-        //list of If loops, could be more better but it works now, fix later xD
+        Upgrade();
+        currentLevel++;
+
+
+
+
+        /*//list of If loops, could be more better but it works now, fix later xD
         if (Input.GetKey(KeyCode.E) && level1build == false && level2build == false && level3build == false)
         {
             level1.SetActive(true);
@@ -163,8 +200,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable
             interactCollider.enabled = false;
             interactText.text = "";
             return true;
-        }
-        return false;
+        }*/
+        return true;
     }
    
 }

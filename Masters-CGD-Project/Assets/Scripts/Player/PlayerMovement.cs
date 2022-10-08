@@ -185,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         //only work if the object trigger has the "Player" tag
         if (other.tag == "Build")
         {
-            Debug.Log("Touching Build");
+            //Debug.Log("Touching Build");
 
         }
     }
