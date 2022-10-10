@@ -7,6 +7,8 @@ public class MoneySystem : MonoBehaviour
     [SerializeField] private int currentMoney = 10;
     [SerializeField] private int maxMoney = 30;
 
+
+
     //Spend money impossible if player doesnt have enough money
     public bool spendMoney(int amount)
     {
@@ -28,4 +30,15 @@ public class MoneySystem : MonoBehaviour
         }
         return false;
     }
+
+    //Add Money
+    public void AddMoney()
+    {
+        currentMoney = currentMoney + 10;
+
+    }
+    
+    
+
+
 }
