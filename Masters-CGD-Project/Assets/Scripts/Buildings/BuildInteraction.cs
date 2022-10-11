@@ -183,6 +183,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable
             level1FX.SetActive(true);
             level1build = true;
             buildTimeLeft = buildTime;
+            FindObjectOfType<SoundManager>().Play("coin");
             return true;
         }
         else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == false && level3build == false && buildTimeLeft <= 0)
