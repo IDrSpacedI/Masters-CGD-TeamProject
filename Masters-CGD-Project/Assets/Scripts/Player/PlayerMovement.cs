@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        if (velocity.y < -4.5f)
+        if (velocity.y < -6.5f)
         {
             playerAnimtor.SetBool("Fall", true);
         }
