@@ -11,26 +11,22 @@ public class GetMoney : MonoBehaviour
     //public TextMeshProUGUI Pickup;
 
     //bool to activate and diactivate script
-    bool active = true;
-    bool action = false;
+    public bool active = true;
+    public bool action = false;
 
-    void Update(Interactor interactor)
+    private void Update()
     {
-        var moneySystem = interactor.GetComponent<MoneySystem>();
-
-        //sets UI elements to not active
-        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
+        //add money and destroys plant on E Press
+        if (Input.GetKey(KeyCode.E) && active == true && action == true)
         {
             Debug.Log("ADD MONEY PLEASE");
-            moneySystem.AddMoney();
+            MoneySystem.playerMoney += 10;
+            Destroy(gameObject);
         }
-
-      
-
     }
 
     //sets UI elemt to active when player enters
-    void OnTriggerStay(Collider collision)
+    void OnTriggerEnter(Collider collision)
     {
         Debug.Log("TRIGGER!!!!!!!!!!");
         if (active == true)
@@ -40,6 +36,7 @@ public class GetMoney : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
+            Debug.Log("touching");
             action = true;
         }
 
