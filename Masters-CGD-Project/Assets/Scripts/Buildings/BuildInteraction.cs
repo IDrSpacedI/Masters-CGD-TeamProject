@@ -157,6 +157,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable
                 LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
                 iLevelWall.levelFX.SetActive(true);
                 iLevelWall.mainUpgrade.SetActive(true);
+                FindObjectOfType<SoundManager>().Play("coin");
             }
         }
     }
