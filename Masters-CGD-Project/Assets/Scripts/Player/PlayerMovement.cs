@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //allow player movement function to be stopped when needed
-        if(disableMovement == false)
+        if (disableMovement == false)
         {
             PlayerMove();
             PlayerJump();
@@ -68,11 +68,11 @@ public class PlayerMovement : MonoBehaviour
             //movementAnim.SetBool("Fall", false);
         }
 
-        if (Input.GetKey(KeyCode.T))
+        /*if (Input.GetKey(KeyCode.T))
         {
             playerAnimtor.SetBool("Torch", true);
             playerAnimtor.SetTrigger("Torch Trigger");
-        }
+        }*/
 
         if (Input.GetKey(KeyCode.Y))
         {
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, 0f, 0).normalized;
 
-        if(direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f)
         {
             //Calculation for turning /direction angles
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;

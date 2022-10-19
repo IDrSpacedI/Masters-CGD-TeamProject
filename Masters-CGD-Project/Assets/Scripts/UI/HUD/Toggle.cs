@@ -5,29 +5,40 @@ using TMPro;
 
 public class Toggle : MonoBehaviour
 {
-    public bool[] toggle;
-    public TextMeshProUGUI[] UIText;
+    public bool toggler;
+    public GameObject[] canvas;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            for (int i = 0; i < toggle.Length; i++)
+            if (toggler == true)
             {
-                for (int t = 0; t < UIText.Length; t++)
+                for (int i = 0; i < canvas.Length; i++)
                 {
-                    if (toggle[i] == false)
+                    if (canvas[i])
                     {
-                        UIText[t].gameObject.SetActive(true);
+                        canvas[i].SetActive(true);
                     }
-                    else if (toggle[i] == true)
-                    {
-                        UIText[t].gameObject.SetActive(false);
-                    }
+                    else
+                        break;
                 }
+                toggler = !toggler;
+            }
+            else if (toggler == false)
+            {
+                for (int i = 0; i < canvas.Length; i++)
+                {
+                    if (canvas[i])
+                    {
+                        canvas[i].SetActive(false);
+                    }
+                    else
+                        break;
+                }
+                toggler = !toggler;
             }
         }
-      
+
     }
 }
