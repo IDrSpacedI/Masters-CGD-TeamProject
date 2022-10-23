@@ -5,14 +5,20 @@ using TMPro;
 
 public class GetMoney : MonoBehaviour
 {
-    
     //UI text
-    
+
     //public TextMeshProUGUI Pickup;
+
+    private MoneySystem Money;
 
     //bool to activate and diactivate script
     public bool active = true;
     public bool action = false;
+
+    private void Start()
+    {
+        GetComponent<MoneySystem>(); 
+    }
 
     private void Update()
     {
@@ -20,7 +26,7 @@ public class GetMoney : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && active == true && action == true)
         {
             Debug.Log("ADD MONEY PLEASE");
-            MoneySystem.playerMoney += 10;
+            Money.getMoney(10);
             Destroy(gameObject);
         }
     }
