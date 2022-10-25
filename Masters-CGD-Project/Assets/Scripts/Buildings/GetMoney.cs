@@ -5,11 +5,12 @@ using TMPro;
 
 public class GetMoney : MonoBehaviour
 {
-    //UI text
+    public int amount;
+    public GameObject player;
 
     //public TextMeshProUGUI Pickup;
 
-    private MoneySystem Money;
+    //public MoneySystem Money;
 
     //bool to activate and diactivate script
     public bool active = true;
@@ -20,15 +21,13 @@ public class GetMoney : MonoBehaviour
         GetComponent<MoneySystem>(); 
     }
 
-    private void Update()
+    void Update()
     {
-        //add money and destroys plant on E Press
-        if (Input.GetKey(KeyCode.E) && active == true && action == true)
-        {
+       if (Input.GetKey(KeyCode.E) && active == true && action == true)
+       {
             Debug.Log("ADD MONEY PLEASE");
-            Money.getMoney(10);
-            Destroy(gameObject);
-        }
+            player.gameObject.GetComponent<IMoney>().addMoney(amount);
+       }
     }
 
     //sets UI elemt to active when player enters
@@ -46,5 +45,11 @@ public class GetMoney : MonoBehaviour
             action = true;
         }
 
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        Debug.Log("Exitted");
+        action = false;
     }
 }

@@ -9,8 +9,6 @@ public class HealthSysytem : MonoBehaviour,IHealth
     [SerializeField] private int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
 
-    //public static float playerHealth;
-
     void Update()
     {
         //check();
