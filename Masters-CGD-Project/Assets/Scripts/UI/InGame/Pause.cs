@@ -45,7 +45,8 @@ public class Pause : MonoBehaviour
             Hud.SetActive(false);
             timer.SetActive(false);
             InteractiveText.SetActive(false);
-
+            Time.timeScale = 1;
+            Cursor.visible = true;
         }
     }
 

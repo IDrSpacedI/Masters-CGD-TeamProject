@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+
 public class mainMenu : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera rotation;
@@ -24,11 +25,14 @@ public class mainMenu : MonoBehaviour
     public void Awake()
     {
         Time.timeScale = 1;
+        Cursor.visible = true;
+        
     }
 
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Space))
+        Time.timeScale = 1;
+        if (Input.GetKeyDown(KeyCode.Space))
        {
             if (CamerSwticher.IsActiveCamera(rotation))
             {

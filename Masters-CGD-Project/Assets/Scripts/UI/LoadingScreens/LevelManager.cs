@@ -16,8 +16,13 @@ public class LevelManager : MonoBehaviour
     private float target;
 
 
+    public void Awake()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = true;
+    }
 
-  public async void LoadScene (string sceneName)
+    public async void LoadScene (string sceneName)
   {
         target = 0;
         _progressBar.fillAmount = 0;
