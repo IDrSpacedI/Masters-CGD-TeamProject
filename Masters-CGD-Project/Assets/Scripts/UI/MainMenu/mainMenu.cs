@@ -21,6 +21,10 @@ public class mainMenu : MonoBehaviour
         CamerSwticher.UnRegister(mainMenus);
     }
 
+    public void Awake()
+    {
+        Time.timeScale = 1;
+    }
 
     void Update()
     {

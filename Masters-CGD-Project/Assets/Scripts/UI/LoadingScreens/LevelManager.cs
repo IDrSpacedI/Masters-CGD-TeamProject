@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,18 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Image _progressBar;
     private float target;
 
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+
 
   public async void LoadScene (string sceneName)
   {
@@ -38,9 +28,13 @@ public class LevelManager : MonoBehaviour
 
         do
         {
+            await Task.Delay(100);
             target = scene.progress;
 
         } while (scene.progress < 0.9f);
+
+        await Task.Delay(1000);
+
 
         scene.allowSceneActivation = true;
         _LoadScreen.SetActive(false);
