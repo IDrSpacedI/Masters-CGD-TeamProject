@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BuildInteraction : MonoBehaviour, IInteractable
+public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 {   
     //What the prompt says
     [SerializeField] private string prompt;
 
     [SerializeField] private GameObject[] levels;
 
-    [SerializeField] private int currentLevel = -1;
+    [SerializeField] public int currentLevel = -1;
 
 
     //Collider to detect player
@@ -45,6 +45,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable
     //Assigning the text
     public string InteractionPrompt => prompt;
 
+
+
+    public int Building_health=10;
 
 
 
@@ -207,5 +210,23 @@ public class BuildInteraction : MonoBehaviour, IInteractable
         }*/
         return true;
     }
-   
+
+    public void reducehealth(int i)
+    {
+        if (currentLevel >=0)
+        {
+            Building_health-=i;
+            if (Building_health == 0)
+            {
+                currentLevel = -1;
+                for (int j = 0; j < levels.Length; j++)
+                    levels[j].SetActive(false);
+            }
+        }
+    }
+
+    public void increasehealth(int i)
+    {
+       // throw new System.NotImplementedException();
+    }
 }
