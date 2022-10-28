@@ -23,9 +23,9 @@ public class GetMoney : MonoBehaviour
 
     void Update()
     {
-       if (Input.GetKey(KeyCode.E) && active == true && action == true)
+       if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
        {
-            Debug.Log("ADD MONEY PLEASE");
+            //Debug.Log("ADD MONEY PLEASE");
             player.gameObject.GetComponent<IMoney>().addMoney(amount);
        }
     }
@@ -33,7 +33,7 @@ public class GetMoney : MonoBehaviour
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("TRIGGER!!!!!!!!!!");
+        //Debug.Log("TRIGGER!!!!!!!!!!");
         if (active == true)
         {
             //Pickup.gameObject.SetActive(true);
@@ -41,7 +41,7 @@ public class GetMoney : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("touching");
+            //Debug.Log("touching");
             action = true;
         }
 
@@ -49,7 +49,7 @@ public class GetMoney : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        Debug.Log("Exitted");
+       // Debug.Log("Exitted");
         action = false;
     }
 }
