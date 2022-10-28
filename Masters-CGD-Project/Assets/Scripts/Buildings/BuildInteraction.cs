@@ -165,7 +165,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         }
     }
     //Function called by interactor, contains the behaviour when interacted
-    public bool Inter act(Interactor interactor)
+    public bool Interact(Interactor interactor)
     {
         Debug.Log("Interact time");
 
