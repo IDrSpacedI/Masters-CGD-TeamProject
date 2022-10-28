@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class MoneySystem : MonoBehaviour
+public class MoneySystem : MonoBehaviour,IMoney
 {
-    [SerializeField] private int currentMoney = 10;
+    [SerializeField] public TextMeshProUGUI text;
+    [SerializeField] private int currentMoney;
     [SerializeField] private int maxMoney = 30;
 
-    public static float playerMoney;
+    //public static float playerMoney;
 
-    private void Update()
+    void Update()
     {
-        Debug.Log(playerMoney);   
+        text.text = currentMoney.ToString();
     }
 
     //Spend money impossible if player doesnt have enough money
@@ -31,15 +33,28 @@ public class MoneySystem : MonoBehaviour
         if (currentMoney + amount <= maxMoney)
         {
             currentMoney = currentMoney + amount;
+            Debug.Log("Money Added : "+amount);
             return true;
         }
-        return false;
+        else
+        {
+            currentMoney = maxMoney;
+            return true;
+        }
+    }
+    public void reduceMoney(int i)
+    {
+        spendMoney(i);
     }
 
+    public void addMoney(int i)
+    {
+        getMoney(i);
+    }
+}
 
-
-
-
-
-
+public interface IMoney
+{
+    void reduceMoney(int i);
+    void addMoney(int i);
 }

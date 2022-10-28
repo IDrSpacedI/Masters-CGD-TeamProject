@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class HealthSysytem : MonoBehaviour
+public class HealthSysytem : MonoBehaviour,IHealth
 {
     [SerializeField] public TextMeshProUGUI text;
     [SerializeField] private int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
 
-    //public static float playerHealth;
-
     void Update()
     {
-        check();
+        //check();
         text.text = currentHealth.ToString();
     }
 
@@ -48,7 +46,7 @@ public class HealthSysytem : MonoBehaviour
         }
     }
 
-    public void check()
+   /* public void check()
     {
         if(Input.GetMouseButtonDown(0))
         {
@@ -65,7 +63,7 @@ public class HealthSysytem : MonoBehaviour
             increaseMaxHealth(10);
             Debug.Log("Max Health increased by 10");
         }
-    }
+    }*/
 
     //Function if player is dead
     public void playerDead()
@@ -80,4 +78,19 @@ public class HealthSysytem : MonoBehaviour
         addHealth(amount);
         Debug.Log("Health increased by : "+amount);
     }
+
+    public  void  reducehealth(int i)
+    {
+        removeHealth(i);
+    }
+
+     public  void  increasehealth(int i)
+    {
+       addHealth(i);
+    }
+}
+public interface IHealth
+{
+    void  reducehealth(int i);
+     void  increasehealth(int i);
 }

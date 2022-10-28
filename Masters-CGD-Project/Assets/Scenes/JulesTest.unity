@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.31910825, g: 0.86382425, b: 0.9528302, a: 1}
+  m_FogColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 0.5403075, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 218016498}
   - component: {fileID: 218016497}
   - component: {fileID: 218016496}
+  - component: {fileID: 218016499}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1146,7 +1147,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.44352385, g: 0.4716981, b: 0.44277322, a: 1}
   m_Intensity: 10000
   m_Range: 10
   m_SpotAngle: 30
@@ -1212,6 +1213,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 27.548, y: 103.337, z: 6.257}
+--- !u!114 &218016499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218016495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &228332297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,7 +3558,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752223409}
-  m_LocalRotation: {x: 0.015093021, y: 0.00000001720442, z: -2.5969626e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093021, y: -0.000000017204423, z: 2.5969632e-10, w: 0.9998861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8263,7 +8284,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737323471}
-  m_LocalRotation: {x: 0.033277933, y: -0.000000017196852, z: 5.725928e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277933, y: 0.000000017196852, z: -5.725928e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9114,6 +9135,7 @@ GameObject:
   - component: {fileID: 1908651961}
   - component: {fileID: 1908651960}
   - component: {fileID: 1908651959}
+  - component: {fileID: 1908651963}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -9337,7 +9359,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908651957}
-  m_LocalRotation: {x: 0.015093022, y: 0.00000003440884, z: -5.193926e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093022, y: -0.000000034408842, z: 5.1939264e-10, w: 0.9998861}
   m_LocalPosition: {x: -1, y: 2.0700002, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9345,6 +9367,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1908651963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908651957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1909588021
 GameObject:
   m_ObjectHideFlags: 0
