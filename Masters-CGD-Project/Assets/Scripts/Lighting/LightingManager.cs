@@ -7,7 +7,7 @@ public class LightingManager : MonoBehaviour
 {
     [SerializeField] private Light DirectionslLight;
     [SerializeField] private DayNightCycle present;
-    [SerializeField,Range(0,24)] private float TimeOfDay;
+    [SerializeField,Range(0,24)] public float TimeOfDay;
 
     private void Update()
     {
