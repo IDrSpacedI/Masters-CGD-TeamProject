@@ -7,7 +7,7 @@ public class LightingManager : MonoBehaviour
 {
     [SerializeField] private Light DirectionslLight;
     [SerializeField] private DayNightCycle present;
-    [SerializeField,Range(0,24)] public float TimeOfDay;
+    [SerializeField,Range(0, 24)] public float TimeOfDay;
 
     private void Update()
     {
@@ -15,7 +15,7 @@ public class LightingManager : MonoBehaviour
             return;
         if (Application.isPlaying)
         {
-            TimeOfDay += Time.deltaTime / 80;
+            TimeOfDay += Time.deltaTime;
             TimeOfDay %= 24;
             if (TimeOfDay > 20)
                 Gamemanager.Instance.Time_to_attac = true;
