@@ -27,6 +27,7 @@ public class GetMoney : MonoBehaviour
        {
             //Debug.Log("ADD MONEY PLEASE");
             player.gameObject.GetComponent<IMoney>().addMoney(amount);
+            Destroy(gameObject);
        }
     }
 
