@@ -6,10 +6,13 @@ using UnityEngine.Rendering.Universal;
 
 public class ChangeGlow : MonoBehaviour
 {
-    [SerializeField] float lerpDuration = 10;
-    public float startValue = 0;
-    public float endValue = 0f;
+    [SerializeField] float lerpDuration;
+    private float startValue = 0f;
+    private float endValue = 0f;
     public float timeElapsed = 0f;
+
+    [SerializeField] float maxValueGlow;
+    [SerializeField] float minValue;
 
     public float glow = 0;
     public bool transition = false;
@@ -18,6 +21,11 @@ public class ChangeGlow : MonoBehaviour
     [SerializeField] Volume globalVolume;
     [SerializeField] LightingManager lightningManager;
 
+
+    [SerializeField] Light[] lightsTurnOff;
+    [SerializeField] float maxValueLight;
+
+    [SerializeField] GameObject fireflies;
 
     private void Start()
     {
@@ -36,25 +44,41 @@ public class ChangeGlow : MonoBehaviour
             timeElapsed += Time.deltaTime;
         }
         //Start Transition if it's sunrise
-        else if (!transition && lightningManager.TimeOfDay >= 5f && lightningManager.TimeOfDay < 5.02f)
+        else if (!transition && lightningManager.TimeOfDay >= 5.5f && lightningManager.TimeOfDay < 5.52f)
         {
             Debug.Log("sunrise");
             transition = true;
-            startValue = 4f;
-            endValue = 0f;
+            startValue = maxValueGlow;
+            endValue = minValue;
+
+            //turn down the lanterns
+            for (int i = 0; i < lightsTurnOff.Length; i++)
+            {
+                lightsTurnOff[i].intensity = 0.5f;
+            }
+
+            //Turn off fireflies
+            fireflies.SetActive(false);
         }
         //Start Transition if it's sundown
         else if (!transition && lightningManager.TimeOfDay >= 18.5f && lightningManager.TimeOfDay < 18.52f)
         {
             Debug.Log("sundown");
             transition = true;
-            startValue = 0f;
-            endValue = 4f;
+            startValue = minValue;
+            endValue = maxValueGlow;
+
+            for (int i = 0; i < lightsTurnOff.Length; i++)
+            {
+                lightsTurnOff[i].intensity = maxValueLight;
+            }
+            fireflies.SetActive(true);
         }
         //Transition over
         if (lerpDuration <= timeElapsed)
         {
             Debug.Log("reset");
+
             transition = false;
             timeElapsed = 0f;
         }
