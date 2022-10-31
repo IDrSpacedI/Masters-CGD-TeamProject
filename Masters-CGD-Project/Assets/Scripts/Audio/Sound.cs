@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEditor;
 
 //alloes sliders and buttons in the inspector
 [System.Serializable]
@@ -9,6 +10,8 @@ public class Sound
     public string name;
 
     public AudioClip clip;
+
+    public GameObject audioSource;
 
 	[Range(0f, 1f)]
     public float volume;
@@ -20,4 +23,9 @@ public class Sound
     public AudioSource source;
 
     public bool loop;
+
+    public bool randomArray;
+
+    public AudioClip[] soundsArray;
 }
+

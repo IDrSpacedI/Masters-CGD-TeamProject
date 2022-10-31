@@ -1,4 +1,3 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
@@ -29,8 +28,19 @@ public class SoundManager : MonoBehaviour
 
         //creates and populates an audio source for each sound
         foreach (Sound s in sounds){
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+            if (s.audioSource != null)
+            {
+                s.source = s.audioSource.AddComponent<AudioSource>();
+			}
+			else
+			{
+                s.source = gameObject.AddComponent<AudioSource>();
+            }
+
+            if (s.clip != null && !s.randomArray)
+            {
+                s.source.clip = s.clip;
+            }
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
@@ -50,7 +60,21 @@ public class SoundManager : MonoBehaviour
                 Debug.LogWarning("Sound: " + name + " not found!!");
                 return;
             }
-            sound.source.Play();
+            if (!sound.randomArray)
+            {
+                sound.source.Play();
+			}
+			else
+			{
+                var p = sound.source.pitch;
+                var v = sound.source.volume;
+                sound.source.pitch = UnityEngine.Random.Range(p - .2f, p + .2f);
+                sound.source.volume = UnityEngine.Random.Range(v - .2f, v + .2f);
+                sound.source.clip = sound.soundsArray[UnityEngine.Random.Range(0, s.soundsArray.Length)];
+                sound.source.Play();
+                sound.source.pitch = p;
+                sound.source.volume = v;
+            }
         }
     }
 }

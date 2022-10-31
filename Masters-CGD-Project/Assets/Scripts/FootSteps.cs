@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FootSteps : MonoBehaviour
@@ -17,13 +15,8 @@ public class FootSteps : MonoBehaviour
 
 	private void Step()
     {
-        if (moving)
-        {
-            AudioClip step1 = stepsSoft[Random.Range(0, stepsSoft.Length)];
-            AudioSource.PlayClipAtPoint(step1, player.transform.position);
-            AudioClip step2 = stepsGrass[Random.Range(0, stepsGrass.Length)];
-            AudioSource.PlayClipAtPoint(step2, player.transform.position);
-        }
+        FindObjectOfType<SoundManager>().Play("footStepsGrass");
+        FindObjectOfType<SoundManager>().Play("footStepsSoft");
     }
 
 	private void Update()

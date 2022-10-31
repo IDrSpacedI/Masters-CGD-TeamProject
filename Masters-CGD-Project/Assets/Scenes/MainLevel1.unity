@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000018812625, g: 0.0000000356898, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8245,6 +8245,7 @@ GameObject:
   - component: {fileID: 288239798}
   - component: {fileID: 288239799}
   - component: {fileID: 288239800}
+  - component: {fileID: 288239801}
   m_Layer: 0
   m_Name: Character_Dummy_Male_01
   m_TagString: Untagged
@@ -8324,6 +8325,102 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 962abd42fac56104598092fd597b3781, type: 3}
   - {fileID: 8300000, guid: e57bdbb74c1e8934a895333ab0684061, type: 3}
   - {fileID: 8300000, guid: 29956e22f34e87143aa6f5d4ab709ac4, type: 3}
+--- !u!82 &288239801
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288239797}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &290412668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8499,7 +8596,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.85
+  m_fontSize: 53.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8602,8 +8699,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
-  - {fileID: 6968166934974111975, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
+  - {fileID: 6306889282384484782, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35716,9 +35812,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: 2f050d06626916c498e333456c03adea, type: 3}
-  - {fileID: 3416040558764317622, guid: 2f050d06626916c498e333456c03adea, type: 3}
-  - {fileID: -5375345835708900783, guid: 2f050d06626916c498e333456c03adea, type: 3}
+  - {fileID: 2963291636794517507, guid: 2f050d06626916c498e333456c03adea, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41136,7 +41230,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945588528}
-  m_LocalRotation: {x: 0.033277933, y: -0.000000017196852, z: 5.725928e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.03327792, y: 0.000000017196852, z: -5.725927e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43193,7 +43287,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071270069}
-  m_LocalRotation: {x: 0.015093022, y: -0.000000034425636, z: 5.196461e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093022, y: 0.000000034425636, z: -5.196461e-10, w: 0.9998861}
   m_LocalPosition: {x: -40.39, y: 2.0970001, z: -19.106482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44727,7 +44821,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178078840}
-  m_LocalRotation: {x: 0.015093022, y: -0.000000017212816, z: 2.59823e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093022, y: 0.00000001721282, z: -2.5982305e-10, w: 0.9998861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44820,18 +44914,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: coin
-    clip: {fileID: 8300000, guid: a4c05adbc106d034f908a785b9106eaf, type: 3}
+  - name: NULL
+    clip: {fileID: 0}
+    audioSource: {fileID: 0}
     volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
+    randomArray: 0
+    soundsArray: []
   - name: coin
     clip: {fileID: 8300000, guid: a4c05adbc106d034f908a785b9106eaf, type: 3}
+    audioSource: {fileID: 0}
     volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
+    randomArray: 0
+    soundsArray: []
+  - name: footStepsGrass
+    clip: {fileID: 0}
+    audioSource: {fileID: 1841814631}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    randomArray: 1
+    soundsArray:
+    - {fileID: 8300000, guid: 0e7694e90d0c7b545b7d60d52c8e4023, type: 3}
+    - {fileID: 8300000, guid: e34aa713f8c1e774e894b6db6a551b7c, type: 3}
+    - {fileID: 8300000, guid: 8fd8275c61bc501428aaa447d6682a37, type: 3}
+    - {fileID: 8300000, guid: c8407c9abbeb50248b7c0707437961ba, type: 3}
+    - {fileID: 8300000, guid: 02251a1c8f4a78d46ad086bacd601f74, type: 3}
+    - {fileID: 8300000, guid: 5f3fe0e32c1ae8045a48a0b7ce6205d1, type: 3}
+    - {fileID: 8300000, guid: ac4a87ae453fb8141a1046a18833d21e, type: 3}
+    - {fileID: 8300000, guid: ee2136999abb4cb4c9ea523a58ae6bab, type: 3}
+  - name: footStepsSoft
+    clip: {fileID: 0}
+    audioSource: {fileID: 1841814631}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    randomArray: 1
+    soundsArray:
+    - {fileID: 8300000, guid: 7daecc3ae2d42a24cb94ba3360644d43, type: 3}
+    - {fileID: 8300000, guid: 903870abe7ba4f449afd16915b5b61ba, type: 3}
+    - {fileID: 8300000, guid: d77fa8f4406042547b5fa91bedd63f3c, type: 3}
+    - {fileID: 8300000, guid: fd2cd803f988c2745808beb9e5ac98fa, type: 3}
+    - {fileID: 8300000, guid: a126a609968f123429e364cfa2991a14, type: 3}
+    - {fileID: 8300000, guid: 962abd42fac56104598092fd597b3781, type: 3}
+    - {fileID: 8300000, guid: e57bdbb74c1e8934a895333ab0684061, type: 3}
+    - {fileID: 8300000, guid: 29956e22f34e87143aa6f5d4ab709ac4, type: 3}
 --- !u!4 &1185330620
 Transform:
   m_ObjectHideFlags: 0
@@ -44900,8 +45034,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
-  - {fileID: 6968166934974111975, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
+  - {fileID: 6306889282384484782, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45041,9 +45174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: 2f050d06626916c498e333456c03adea, type: 3}
-  - {fileID: 3416040558764317622, guid: 2f050d06626916c498e333456c03adea, type: 3}
-  - {fileID: -5375345835708900783, guid: 2f050d06626916c498e333456c03adea, type: 3}
+  - {fileID: 2963291636794517507, guid: 2f050d06626916c498e333456c03adea, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46626,7 +46757,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.25
+  m_fontSize: 54.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -52113,7 +52244,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329831437}
-  m_LocalRotation: {x: -0.003048857, y: -0.000000017258733, z: -5.2619645e-11, w: 0.99999535}
+  m_LocalRotation: {x: -0.003048857, y: 0.00000001725873, z: 5.2619634e-11, w: 0.99999535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52249,8 +52380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
-  - {fileID: 6968166934974111975, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
+  - {fileID: 6306889282384484782, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -59110,8 +59240,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
-  - {fileID: 6968166934974111975, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
+  - {fileID: 6306889282384484782, guid: c6be8678c8c30934cb89f30ac03f1e5b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -64679,7 +64808,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: c011850578f10de42b1a4d69d21ef593, type: 3}
+  - {fileID: 6525914767025962811, guid: c011850578f10de42b1a4d69d21ef593, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
