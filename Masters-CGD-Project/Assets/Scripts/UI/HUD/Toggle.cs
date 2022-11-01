@@ -7,6 +7,12 @@ public class Toggle : MonoBehaviour
 {
     public bool toggler;
     public GameObject[] canvas;
+    public Animator animator;
+
+    public void Awake()
+    {
+        animator.Play("HUD");
+    }
 
     void Update()
     {
