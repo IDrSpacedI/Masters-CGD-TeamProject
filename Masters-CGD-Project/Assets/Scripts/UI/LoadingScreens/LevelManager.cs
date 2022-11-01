@@ -4,51 +4,42 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
-// Script Reference - Scene Manager - Load between scenes and show a progress bar - [ Unity Tutorial ] by Tarodev
+// Script Reference How to make a LOADING BAR in Unity - Brackeys
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instance;
-
-    [SerializeField] private GameObject _LoadScreen;
-    [SerializeField] private Image _progressBar;
-    private float target;
-
+    public GameObject loadScreen;
+    public Slider slider;
+    public TextMeshProUGUI percent;
 
     public void Awake()
     {
-        Time.timeScale = 1;
-        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
-
-    public async void LoadScene (string sceneName)
-  {
-        target = 0;
-        _progressBar.fillAmount = 0;
-        var scene = SceneManager.LoadSceneAsync(sceneName);
-        scene.allowSceneActivation = false;
-
-        _LoadScreen.SetActive(true);
-
-        do
-        {
-            await Task.Delay(100);
-            target = scene.progress;
-
-        } while (scene.progress < 0.9f);
-
-        await Task.Delay(1000);
-
-
-        scene.allowSceneActivation = true;
-        _LoadScreen.SetActive(false);
-  }
-
-    public void Update()
+    public void LoadLevel(int sceneIndex)
     {
-        _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, target, 3 * Time.deltaTime);
+
+        StartCoroutine(LoadAsynchronously(sceneIndex));
+
+    }
+
+    public IEnumerator LoadAsynchronously(int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        loadScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            slider.value = progress;
+            percent.text = progress * 100f + "%";
+
+            yield return null;
+        }
     }
 
 }
