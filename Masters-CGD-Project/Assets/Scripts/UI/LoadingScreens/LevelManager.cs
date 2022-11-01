@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public async void LoadScene (string sceneName)

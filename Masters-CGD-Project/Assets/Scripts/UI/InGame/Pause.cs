@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour {
 
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public LevelManager manager;
 
     public void Update()
     {
@@ -26,7 +27,11 @@ public class Pause : MonoBehaviour {
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        PlayerMovement.disableMovement = false;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        GameIsPaused = false;
+
     }
 
     public void Pause_()
@@ -35,6 +40,14 @@ public class Pause : MonoBehaviour {
         Time.timeScale = 0f;
         Cursor.visible = true;
         GameIsPaused = true;
+        PlayerMovement.disableMovement = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
+
+    public void QuitGame()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        manager.LoadScene("MainMenu");
+    }
 }
