@@ -18,7 +18,7 @@ public class spawner : MonoBehaviour
     {
         if (Gamemanager.Instance.Time_to_attac)
         {
-            if (time < 10)
+            if (time < 5)
                 time += Time.deltaTime;
             else
             {
