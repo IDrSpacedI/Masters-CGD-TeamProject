@@ -38,7 +38,7 @@ public class ChangeGlow : MonoBehaviour
         //Continue Transition
         if (transition && lerpDuration >= timeElapsed)
         {
-            Debug.Log("transition");
+            //Debug.Log("transition");
             glow = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
             bloom.intensity.value = glow;
             timeElapsed += Time.deltaTime;
@@ -46,7 +46,7 @@ public class ChangeGlow : MonoBehaviour
         //Start Transition if it's sunrise
         else if (!transition && lightningManager.TimeOfDay >= 5.5f && lightningManager.TimeOfDay < 5.52f)
         {
-            Debug.Log("sunrise");
+            //Debug.Log("sunrise");
             transition = true;
             startValue = maxValueGlow;
             endValue = minValue;
@@ -63,7 +63,7 @@ public class ChangeGlow : MonoBehaviour
         //Start Transition if it's sundown
         else if (!transition && lightningManager.TimeOfDay >= 18.5f && lightningManager.TimeOfDay < 18.52f)
         {
-            Debug.Log("sundown");
+            //Debug.Log("sundown");
             transition = true;
             startValue = minValue;
             endValue = maxValueGlow;
@@ -77,7 +77,7 @@ public class ChangeGlow : MonoBehaviour
         //Transition over
         if (lerpDuration <= timeElapsed)
         {
-            Debug.Log("reset");
+            //Debug.Log("reset");
 
             transition = false;
             timeElapsed = 0f;
