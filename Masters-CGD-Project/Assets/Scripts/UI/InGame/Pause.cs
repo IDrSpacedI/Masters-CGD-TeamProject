@@ -47,7 +47,7 @@ public class Pause : MonoBehaviour {
 
     }
 
-
+    
 
     public void QuitGame()
     {
