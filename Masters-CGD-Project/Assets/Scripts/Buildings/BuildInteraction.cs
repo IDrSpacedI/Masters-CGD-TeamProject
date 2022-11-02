@@ -171,7 +171,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
-        if (moneySystem == null || !moneySystem.spendMoney(5) || currentLevel == levels.Length - 1)
+        if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
             return false;
 
         Upgrade();
