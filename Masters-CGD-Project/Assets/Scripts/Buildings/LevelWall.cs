@@ -14,8 +14,8 @@ public class LevelWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelFX.SetActive(false);
-        mainUpgrade.SetActive(false);
+        //levelFX.SetActive(false);
+        //mainUpgrade.SetActive(false);
     }
 
 }

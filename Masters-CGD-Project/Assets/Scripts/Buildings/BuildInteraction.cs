@@ -24,15 +24,15 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public GameObject level2;
     public GameObject level3;
 
-    ////VFX for the objects
-    //public GameObject level1FX;
-    //public GameObject level2FX;
-    //public GameObject level3FX;
+    //VFX for the objects
+    public GameObject level1FX;
+    public GameObject level2FX;
+    public GameObject level3FX;
 
-    ////Bool to let the game know which levels are build
-    //public bool level1build = false;
-    //public bool level2build = false;
-    //public bool level3build = false;
+    //Bool to let the game know which levels are build
+    public bool level1build = false;
+    public bool level2build = false;
+    public bool level3build = false;
 
     //reference for HUD text
     public TextMeshProUGUI interactText;
@@ -63,13 +63,13 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             levels[i].SetActive(false);
         }
 
-        //level1.SetActive(false);
-        //level2.SetActive(false);
-        //level3.SetActive(false);
+        level1.SetActive(false);
+        level2.SetActive(false);
+        level3.SetActive(false);
 
-        //level1FX.SetActive(false);
-        //level2FX.SetActive(false);
-        //level3FX.SetActive(false);
+        level1FX.SetActive(false);
+        level2FX.SetActive(false);
+        level3FX.SetActive(false);
 
         //make sure the text are invisible
         interactText.text = "";
@@ -148,7 +148,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Changes which object is active in the image (current level is always -1 the real level)
     void Upgrade()
     {
-        Debug.Log("Upgrading");
         for (int i = 0; i < levels.Length; i++)
         {
             //Sets current level inactive
@@ -162,17 +161,17 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 iLevelWall.levelFX.SetActive(true);
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().Play("coin");
-                Debug.Log(i);
             }
         }
     }
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)
     {
+        Debug.Log("Interact time");
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
-        if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5)) 
+        if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
             return false;
 
         Upgrade();
@@ -214,7 +213,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public void reducehealth(int i)
     {
-        Debug.Log("test");
         if (currentLevel >=0)
         {
             Building_health-=i;
