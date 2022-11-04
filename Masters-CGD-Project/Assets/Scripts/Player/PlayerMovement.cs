@@ -137,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            playerIdle = true;
             playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
         }
     }
