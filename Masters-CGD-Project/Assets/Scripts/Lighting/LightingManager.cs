@@ -15,7 +15,7 @@ public class LightingManager : MonoBehaviour
             return;
         if (Application.isPlaying)
         {
-            TimeOfDay += Time.deltaTime / 20;
+            TimeOfDay += Time.deltaTime;
             TimeOfDay %= 24;
             if (TimeOfDay > 20)
                 Gamemanager.Instance.Time_to_attac = true;

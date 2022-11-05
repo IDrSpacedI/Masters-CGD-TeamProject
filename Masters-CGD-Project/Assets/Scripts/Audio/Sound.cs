@@ -27,5 +27,7 @@ public class Sound
     public bool randomArray;
 
     public AudioClip[] soundsArray;
+
+    public AudioMixerGroup audioType;
 }
 
