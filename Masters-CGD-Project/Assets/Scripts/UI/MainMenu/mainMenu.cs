@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 
 
 public class mainMenu : MonoBehaviour
@@ -41,5 +42,19 @@ public class mainMenu : MonoBehaviour
             }
 
        }
+    }
+
+    public void onClickEnter(TextMeshProUGUI txt)
+    {
+        txt.fontSize = 120;
+
+
+    }
+
+    public void onClickExit(TextMeshProUGUI txt)
+    {
+        txt.fontSize = 90;
+
+
     }
 }
