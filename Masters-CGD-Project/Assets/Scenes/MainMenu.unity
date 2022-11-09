@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017787219, g: 0.00000003034425, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017787203, g: 0.00000003034425, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2524,7 +2524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00097797, y: -42}
+  m_AnchoredPosition: {x: -0.00097797, y: -0.0025253}
   m_SizeDelta: {x: 845.65, y: 243.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147732563
@@ -2557,8 +2557,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4288453805
+  m_fontColor: {r: 0.6792453, g: 0.61302954, b: 0.61302954, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5577,8 +5577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0.000015259}
-  m_SizeDelta: {x: 359.1237, y: 96.0621}
+  m_AnchoredPosition: {x: 0.00058746, y: -0.00099564}
+  m_SizeDelta: {x: 742.55, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301455267
 MonoBehaviour:
@@ -5627,8 +5627,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11000,8 +11000,9 @@ GameObject:
   - component: {fileID: 579808118}
   - component: {fileID: 579808117}
   - component: {fileID: 579808116}
+  - component: {fileID: 579808119}
   m_Layer: 5
-  m_Name: Play (3)
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11025,8 +11026,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 62, y: -670}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 62, y: -737}
+  m_SizeDelta: {x: 742.552, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579808116
 MonoBehaviour:
@@ -11097,14 +11098,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 531ec83020de24b7f80dd45b4fca5db6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11122,6 +11123,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579808114}
   m_CullTransparentMesh: 1
+--- !u!114 &579808119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579808114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &582151113
 GameObject:
   m_ObjectHideFlags: 0
@@ -12415,8 +12461,9 @@ GameObject:
   - component: {fileID: 650917746}
   - component: {fileID: 650917745}
   - component: {fileID: 650917744}
+  - component: {fileID: 650917747}
   m_Layer: 5
-  m_Name: Play (1)
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12440,8 +12487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 842, y: -670}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 913.276, y: -715}
+  m_SizeDelta: {x: 742.552, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650917744
 MonoBehaviour:
@@ -12512,14 +12559,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 531ec83020de24b7f80dd45b4fca5db6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12537,6 +12584,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650917742}
   m_CullTransparentMesh: 1
+--- !u!114 &650917747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650917742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1466421384}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1466421384}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &652903597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4894668660362644, guid: a8c705c57a34d7943ac6f8d99d393d57, type: 3}
@@ -15563,8 +15655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000030518}
-  m_SizeDelta: {x: 359.1237, y: 96.0621}
+  m_AnchoredPosition: {x: 0.00054169, y: -0.00099564}
+  m_SizeDelta: {x: 742.55, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800185137
 MonoBehaviour:
@@ -15615,8 +15707,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17563,6 +17655,7 @@ MonoBehaviour:
   loadScreen: {fileID: 1673370692}
   slider: {fileID: 1673370694}
   percent: {fileID: 1673370693}
+  mainMenu: {fileID: 0}
 --- !u!4 &914782130
 Transform:
   m_ObjectHideFlags: 0
@@ -26440,8 +26533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: 0.000019073}
-  m_SizeDelta: {x: 359.1237, y: 96.0621}
+  m_AnchoredPosition: {x: 0.00053406, y: -0.0005188}
+  m_SizeDelta: {x: 742.55, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381570095
 MonoBehaviour:
@@ -26490,8 +26583,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -28147,8 +28240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000015259}
-  m_SizeDelta: {x: 359.1237, y: 96.0621}
+  m_AnchoredPosition: {x: 0.00049591, y: -0.00097275}
+  m_SizeDelta: {x: 742.55, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466421384
 MonoBehaviour:
@@ -28199,8 +28292,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -36835,8 +36928,9 @@ GameObject:
   - component: {fileID: 1871907334}
   - component: {fileID: 1871907333}
   - component: {fileID: 1871907332}
+  - component: {fileID: 1871907335}
   m_Layer: 5
-  m_Name: Play (2)
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36860,8 +36954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 62.00003, y: -443}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 62, y: -414.47998}
+  m_SizeDelta: {x: 742.552, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871907332
 MonoBehaviour:
@@ -36932,14 +37026,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 531ec83020de24b7f80dd45b4fca5db6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -36957,6 +37051,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871907330}
   m_CullTransparentMesh: 1
+--- !u!114 &1871907335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871907330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 800185137}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 800185137}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1874841887
 GameObject:
   m_ObjectHideFlags: 0
@@ -37919,8 +38058,9 @@ GameObject:
   - component: {fileID: 1919166539}
   - component: {fileID: 1919166538}
   - component: {fileID: 1919166537}
+  - component: {fileID: 1919166540}
   m_Layer: 5
-  m_Name: Play
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37944,8 +38084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 842, y: -443}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 913.276, y: -414.48}
+  m_SizeDelta: {x: 742.552, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1919166537
 MonoBehaviour:
@@ -38016,14 +38156,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 531ec83020de24b7f80dd45b4fca5db6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38041,6 +38181,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919166535}
   m_CullTransparentMesh: 1
+--- !u!114 &1919166540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919166535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1381570095}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355559875}
+          m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+          m_MethodName: onClickExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1381570095}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1921270470
 GameObject:
   m_ObjectHideFlags: 0
