@@ -12487,7 +12487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 913.276, y: -715}
+  m_AnchoredPosition: {x: 913.276, y: -739}
   m_SizeDelta: {x: 742.552, y: 257.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650917744
@@ -12603,7 +12603,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1355559875}
           m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
-          m_MethodName: onClickEnter
+          m_MethodName: onClickExit
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1466421384}
@@ -12619,7 +12619,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1355559875}
           m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
-          m_MethodName: onClickExit
+          m_MethodName: onClickEnter
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1466421384}
