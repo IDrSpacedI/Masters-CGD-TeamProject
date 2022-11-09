@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public GameObject loadScreen;
     public Slider slider;
     public TextMeshProUGUI percent;
+    public GameObject mainMenu;
 
     public void Awake()
     {
@@ -29,6 +30,7 @@ public class LevelManager : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
+        mainMenu.SetActive(false);
         loadScreen.SetActive(true);
 
         while (!operation.isDone)
