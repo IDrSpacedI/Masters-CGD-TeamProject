@@ -12,6 +12,10 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     [SerializeField] public int currentLevel = -1;
 
+    [SerializeField] public bool basebuilding;
+
+    //[SerializeField] private GameObject BaseBuilding;
+
 
     //Collider to detect player
     public Collider interactCollider;
@@ -171,11 +175,27 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
-        if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
-            return false;
-
-        Upgrade();
-        currentLevel++;
+        if(basebuilding == false)
+        {
+            if (GameObject.Find("Base").GetComponent<BuildInteraction>().currentLevel == this.currentLevel)
+            {
+                if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
+                    return false;
+                Upgrade();
+                currentLevel++;
+            }
+            else
+            {
+                Debug.Log("Base Building needs to be upgraded");
+            }
+        }
+        else
+        {
+            if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
+                return false;
+            Upgrade();
+            currentLevel++;
+        }
 
 
 
