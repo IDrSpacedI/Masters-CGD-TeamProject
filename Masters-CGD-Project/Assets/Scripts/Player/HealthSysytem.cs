@@ -6,6 +6,7 @@ using TMPro;
 public class HealthSysytem : MonoBehaviour,IHealth
 {
     [SerializeField] public TextMeshProUGUI text;
+    public TextMeshProUGUI Debugtext;
     [SerializeField] private int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
 
@@ -13,6 +14,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     {
         //check();
         text.text = currentHealth.ToString();
+        Debugtext.text = "Health" + ":" + currentHealth.ToString();
     }
 
     //Cant remove health if dead

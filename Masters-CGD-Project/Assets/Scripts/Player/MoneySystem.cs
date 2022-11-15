@@ -6,6 +6,7 @@ using TMPro;
 public class MoneySystem : MonoBehaviour,IMoney
 {
     [SerializeField] public TextMeshProUGUI text;
+    public TextMeshProUGUI DebugText;
     [SerializeField] private int currentMoney;
     [SerializeField] private int maxMoney = 30;
 
@@ -14,6 +15,7 @@ public class MoneySystem : MonoBehaviour,IMoney
     void Update()
     {
         text.text = currentMoney.ToString();
+        DebugText.text = "Coins" + ":" + currentMoney.ToString();
     }
 
     //Spend money impossible if player doesnt have enough money
