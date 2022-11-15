@@ -8,10 +8,12 @@ public class Toggle : MonoBehaviour
     public bool toggler;
     public GameObject[] canvas;
     public Animator animator;
+    public Animator c_anim;
 
     public void Awake()
     {
         animator.Play("HUD");
+        c_anim.Play("LoadClock");
     }
 
     void Update()
