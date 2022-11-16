@@ -31196,6 +31196,7 @@ MonoBehaviour:
   player: {fileID: 1841814631}
   active: 1
   action: 0
+  TextPrompt: {fileID: 808753991}
 --- !u!65 &709013395
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32541,6 +32542,11 @@ MonoBehaviour:
   levelFX: {fileID: 329227171}
   mainUpgrade: {fileID: 711221917}
   health: 10
+--- !u!1 &808753991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6820384931481146184, guid: 553714cbd8e23a64e81d6df7cfc32eed, type: 3}
+  m_PrefabInstance: {fileID: 1260217729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &813505145
 GameObject:
   m_ObjectHideFlags: 0
@@ -55511,7 +55517,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329831437}
-  m_LocalRotation: {x: -0.0030488553, y: 0.000000017206302, z: 5.2459773e-11, w: 0.99999535}
+  m_LocalRotation: {x: -0.0030488553, y: -0.000000017206302, z: -5.2459773e-11, w: 0.99999535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -80036,6 +80042,7 @@ MonoBehaviour:
   player: {fileID: 1841814631}
   active: 1
   action: 0
+  TextPrompt: {fileID: 0}
 --- !u!1001 &1665714736
 PrefabInstance:
   m_ObjectHideFlags: 0
