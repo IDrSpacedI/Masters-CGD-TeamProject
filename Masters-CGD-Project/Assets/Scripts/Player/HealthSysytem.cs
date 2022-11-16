@@ -5,10 +5,16 @@ using TMPro;
 
 public class HealthSysytem : MonoBehaviour,IHealth
 {
+    [Header("UI")]
     [SerializeField] public TextMeshProUGUI text;
     public TextMeshProUGUI Debugtext;
+    public GameObject gameOverScreen;
+    [Header("Health")]
     [SerializeField] private int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
+
+    
+
 
     void Update()
     {
@@ -71,6 +77,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     public void playerDead()
     {
         Debug.Log("Player Dead");
+        gameOverScreen.SetActive(true);
     }
 
     //Fucntion to increase max health

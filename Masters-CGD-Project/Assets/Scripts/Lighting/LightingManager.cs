@@ -50,7 +50,7 @@ public class LightingManager : MonoBehaviour
             UpdateLighting(TimeOfDay / 24);
         }
 
-        stateText.text = "Sate" + ":" + state.ToString();
+        stateText.text = "State" + ":" + state.ToString();
     }
 
     private void UpdateLighting(float timePercent)
