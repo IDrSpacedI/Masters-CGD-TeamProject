@@ -16,6 +16,8 @@ public class GetMoney : MonoBehaviour
     public bool active = true;
     public bool action = false;
 
+    public GameObject TextPrompt;
+
     private void Start()
     {
         GetComponent<MoneySystem>(); 
@@ -39,6 +41,7 @@ public class GetMoney : MonoBehaviour
         //Debug.Log("TRIGGER!!!!!!!!!!");
         if (active == true)
         {
+            TextPrompt.SetActive(true);
             //Pickup.gameObject.SetActive(true);
         }
 
@@ -52,7 +55,8 @@ public class GetMoney : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-       // Debug.Log("Exitted");
+        // Debug.Log("Exitted");
+        TextPrompt.SetActive(false);
         action = false;
     }
 }
