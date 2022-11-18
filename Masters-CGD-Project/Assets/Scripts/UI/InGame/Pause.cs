@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Pause : MonoBehaviour {
 
@@ -48,8 +49,17 @@ public class Pause : MonoBehaviour {
     }
 
 
-
-    public void QuitGame()
+    public void onClickEnter(TextMeshProUGUI txt)
     {
+        txt.fontSize = 120;
+
+
+    }
+
+    public void onClickExit(TextMeshProUGUI txt)
+    {
+        txt.fontSize = 90;
+
+
     }
 }
