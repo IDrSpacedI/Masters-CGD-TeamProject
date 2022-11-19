@@ -6,6 +6,7 @@ using UnityEditor;
 [System.Serializable]
 public class Sound
 {
+    public bool active;
     //name of sound for reference when playing
     public string name;
 
@@ -29,5 +30,15 @@ public class Sound
     public AudioClip[] soundsArray;
 
     public AudioMixerGroup audioType;
+
+    public bool playOnStart;
+
+    public bool fadeIn;
+    [Range(.1f, 3f)]
+    public float fadeInTime;
+
+    public bool fadeOut;
+    [Range(.1f, 3f)]
+    public float fadeOutTime;
 }
 

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 79769b979f240cb4bafb65ac4d4240c0, type: 2}
+--- !u!1 &681168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4891306089354855253, guid: 2dc7d2af49c0d24458563e1089010d0c, type: 3}
+  m_PrefabInstance: {fileID: 1357024911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1504142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4149138138926650, guid: 2e46678e6e7acb74dae8fd8a1d79601b, type: 3}
@@ -9385,7 +9390,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945588528}
-  m_LocalRotation: {x: 0.033277918, y: 0.000000017196852, z: -5.7259264e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.03327793, y: 0.000000017196852, z: -5.725928e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10661,7 +10666,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071270069}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1071270072
 Camera:
   m_ObjectHideFlags: 0
@@ -11130,6 +11135,11 @@ MonoBehaviour:
     randomArray: 0
     soundsArray: []
     audioType: {fileID: 0}
+    playOnStart: 0
+    fadeIn: 0
+    fadeInTime: 0
+    fadeOut: 0
+    fadeOutTime: 0
   - name: coin
     clip: {fileID: 8300000, guid: a4c05adbc106d034f908a785b9106eaf, type: 3}
     audioSource: {fileID: 0}
@@ -11140,6 +11150,11 @@ MonoBehaviour:
     randomArray: 0
     soundsArray: []
     audioType: {fileID: -2044010266024803804, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
+    playOnStart: 0
+    fadeIn: 0
+    fadeInTime: 0
+    fadeOut: 0
+    fadeOutTime: 0
   - name: footStepsGrass
     clip: {fileID: 0}
     audioSource: {fileID: 1841814631}
@@ -11158,6 +11173,11 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ac4a87ae453fb8141a1046a18833d21e, type: 3}
     - {fileID: 8300000, guid: ee2136999abb4cb4c9ea523a58ae6bab, type: 3}
     audioType: {fileID: -2044010266024803804, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
+    playOnStart: 0
+    fadeIn: 0
+    fadeInTime: 0
+    fadeOut: 0
+    fadeOutTime: 0
   - name: footStepsSoft
     clip: {fileID: 0}
     audioSource: {fileID: 1841814631}
@@ -11176,6 +11196,34 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e57bdbb74c1e8934a895333ab0684061, type: 3}
     - {fileID: 8300000, guid: 29956e22f34e87143aa6f5d4ab709ac4, type: 3}
     audioType: {fileID: -2044010266024803804, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
+    playOnStart: 0
+    fadeIn: 0
+    fadeInTime: 0
+    fadeOut: 0
+    fadeOutTime: 0
+  - name: backgroundBase
+    clip: {fileID: 8300000, guid: 8066a6f16849cc548a913fef1dee2261, type: 3}
+    audioSource: {fileID: 681168}
+    volume: 0.511
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    randomArray: 0
+    soundsArray:
+    - {fileID: 8300000, guid: 7daecc3ae2d42a24cb94ba3360644d43, type: 3}
+    - {fileID: 8300000, guid: 903870abe7ba4f449afd16915b5b61ba, type: 3}
+    - {fileID: 8300000, guid: d77fa8f4406042547b5fa91bedd63f3c, type: 3}
+    - {fileID: 8300000, guid: fd2cd803f988c2745808beb9e5ac98fa, type: 3}
+    - {fileID: 8300000, guid: a126a609968f123429e364cfa2991a14, type: 3}
+    - {fileID: 8300000, guid: 962abd42fac56104598092fd597b3781, type: 3}
+    - {fileID: 8300000, guid: e57bdbb74c1e8934a895333ab0684061, type: 3}
+    - {fileID: 8300000, guid: 29956e22f34e87143aa6f5d4ab709ac4, type: 3}
+    audioType: {fileID: 8624589858745438518, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
+    playOnStart: 1
+    fadeIn: 1
+    fadeInTime: 3
+    fadeOut: 0
+    fadeOutTime: 0
 --- !u!4 &1185330620
 Transform:
   m_ObjectHideFlags: 0
@@ -12592,7 +12640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329831437}
-  m_LocalRotation: {x: -0.0030488567, y: -0.000000017211027, z: -5.2474202e-11, w: 0.99999535}
+  m_LocalRotation: {x: -0.0030488567, y: 0.000000017211027, z: 5.2474202e-11, w: 0.99999535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35617,6 +35665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1826533536}
   - component: {fileID: 1826533535}
+  - component: {fileID: 1826533537}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -35746,6 +35795,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1826533537
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826533534}
+  m_Enabled: 1
 --- !u!1 &1835383237
 GameObject:
   m_ObjectHideFlags: 0

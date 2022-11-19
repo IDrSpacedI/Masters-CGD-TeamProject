@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -25,13 +27,15 @@ public class SoundManager : MonoBehaviour
 
         //manager persists between scenes
         DontDestroyOnLoad(gameObject);
-
         //creates and populates an audio source for each sound
         foreach (Sound s in sounds){
             if (s.audioSource != null)
             {
                 s.source = s.audioSource.AddComponent<AudioSource>();
-			}
+                s.source.rolloffMode = AudioRolloffMode.Linear;
+                s.source.maxDistance = 2f;
+                s.source.minDistance = 0f;
+            }
 			else
 			{
                 s.source = gameObject.AddComponent<AudioSource>();
@@ -46,25 +50,38 @@ public class SoundManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = s.audioType;
+            if (s.playOnStart && s.active)
+			{
+                PlaySound(s.name);
+			}
 		}
     }
 
     //public function to play any loaded sound
-    public void Play(string name)
+    public void PlaySound(string name)
     {
         //finds and plays specified sound "name"
         foreach (Sound s in sounds)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == name);
-            if (sound == null)
+            if (sound == null )
 			{
                 Debug.LogWarning("Sound: " + name + " not found!!");
                 return;
             }
             if (!sound.randomArray)
             {
-                sound.source.Play();
-			}
+				if (sound.fadeIn)
+				{
+                    sound.source.volume = 0;
+                    sound.source.Play();
+                    StartCoroutine(FadeSound.StartFade(sound.source, sound.fadeInTime, sound.volume));
+                }
+				else
+				{
+                    sound.source.Play();
+                }
+            }
 			else
 			{
                 var p = sound.source.pitch;
@@ -77,5 +94,36 @@ public class SoundManager : MonoBehaviour
                 sound.source.volume = v;
             }
         }
+    }
+
+	public void StopSound(string name)
+	{
+        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        if (sound == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!!");
+            return;
+        }
+        if (sound.fadeOut)
+		{
+            StartCoroutine(FadeSound.StartFade(sound.source, sound.fadeOutTime, 0)); 
+		}
+        sound.source.Stop();
+    }
+}
+
+public static class FadeSound
+{
+    public static IEnumerator StartFade(AudioSource source, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = source.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            source.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
     }
 }

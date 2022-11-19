@@ -29,7 +29,7 @@ public class GetMoney : MonoBehaviour
        {
             //Debug.Log("ADD MONEY PLEASE");
             player.gameObject.GetComponent<IMoney>().addMoney(amount);
-            FindObjectOfType<SoundManager>().Play("coin");
+            FindObjectOfType<SoundManager>().PlaySound("coin");
             Destroy(gameObject);
             
        }

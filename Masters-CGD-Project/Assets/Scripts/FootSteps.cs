@@ -16,8 +16,8 @@ public class FootSteps : MonoBehaviour
     {
         if (!pMov.playerIdle)
         {
-            FindObjectOfType<SoundManager>().Play("footStepsGrass");
-            FindObjectOfType<SoundManager>().Play("footStepsSoft");
+            FindObjectOfType<SoundManager>().PlaySound("footStepsGrass");
+            FindObjectOfType<SoundManager>().PlaySound("footStepsSoft");
         }
     }
 }
