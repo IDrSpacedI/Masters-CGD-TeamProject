@@ -32,9 +32,6 @@ public class SoundManager : MonoBehaviour
             if (s.audioSource != null)
             {
                 s.source = s.audioSource.AddComponent<AudioSource>();
-                s.source.rolloffMode = AudioRolloffMode.Linear;
-                s.source.maxDistance = 2f;
-                s.source.minDistance = 0f;
             }
 			else
 			{
@@ -44,6 +41,14 @@ public class SoundManager : MonoBehaviour
             if (s.clip != null && !s.randomArray)
             {
                 s.source.clip = s.clip;
+            }
+
+            if (s.spactialSound)
+			{
+                s.source.rolloffMode = AudioRolloffMode.Linear;
+                s.source.spatialBlend = 1f;
+                s.source.maxDistance = s.maxDistance;
+                s.source.minDistance = s.minDistance;
             }
 
             s.source.volume = s.volume;
@@ -64,9 +69,9 @@ public class SoundManager : MonoBehaviour
         foreach (Sound s in sounds)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == name);
-            if (sound == null )
+            if (sound == null || !sound.active)
 			{
-                Debug.LogWarning("Sound: " + name + " not found!!");
+                Debug.LogWarning("Sound: " + name + " cannot be played");
                 return;
             }
             if (!sound.randomArray)

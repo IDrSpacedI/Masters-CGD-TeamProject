@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FogColor: {r: 0.8045153, g: 0.70699406, b: 0.5451069, a: 1}
   m_FogMode: 1
   m_FogDensity: 0
   m_LinearFogStart: 0
   m_LinearFogEnd: 350
-  m_AmbientSkyColor: {r: 0.65484583, g: 0.24313723, b: 0.8784314, a: 1}
+  m_AmbientSkyColor: {r: 0.86193544, g: 0.76970375, b: 0.71714026, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18306574, g: 0.22874404, b: 0.30669406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9390,7 +9390,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945588528}
-  m_LocalRotation: {x: 0.03327793, y: 0.000000017196852, z: -5.725928e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.03327793, y: -0.000000017196852, z: 5.725928e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10666,7 +10666,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071270069}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1071270072
 Camera:
   m_ObjectHideFlags: 0
@@ -10717,7 +10717,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071270069}
-  m_LocalRotation: {x: 0.015093018, y: -0.000000034408842, z: 5.1939253e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093018, y: 0.00000003440884, z: -5.193925e-10, w: 0.9998861}
   m_LocalPosition: {x: -40.39, y: 2.003, z: -19.106482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11086,7 +11086,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178078840}
-  m_LocalRotation: {x: 0.015093017, y: -0.000000017204423, z: 2.5969626e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093017, y: 0.00000001720442, z: -2.596962e-10, w: 0.9998861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11125,9 +11125,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: NULL
+  - active: 0
+    name: NULL
     clip: {fileID: 0}
     audioSource: {fileID: 0}
+    spactialSound: 0
+    minDistance: 0
+    maxDistance: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -11140,9 +11144,13 @@ MonoBehaviour:
     fadeInTime: 0
     fadeOut: 0
     fadeOutTime: 0
-  - name: coin
+  - active: 1
+    name: coin
     clip: {fileID: 8300000, guid: a4c05adbc106d034f908a785b9106eaf, type: 3}
     audioSource: {fileID: 0}
+    spactialSound: 0
+    minDistance: 0
+    maxDistance: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -11155,9 +11163,13 @@ MonoBehaviour:
     fadeInTime: 0
     fadeOut: 0
     fadeOutTime: 0
-  - name: footStepsGrass
+  - active: 1
+    name: footStepsGrass
     clip: {fileID: 0}
     audioSource: {fileID: 1841814631}
+    spactialSound: 0
+    minDistance: 0
+    maxDistance: 100
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
@@ -11175,12 +11187,16 @@ MonoBehaviour:
     audioType: {fileID: -2044010266024803804, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
     playOnStart: 0
     fadeIn: 0
-    fadeInTime: 0
+    fadeInTime: 0.01
     fadeOut: 0
     fadeOutTime: 0
-  - name: footStepsSoft
+  - active: 1
+    name: footStepsSoft
     clip: {fileID: 0}
     audioSource: {fileID: 1841814631}
+    spactialSound: 0
+    minDistance: 0
+    maxDistance: 100
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
@@ -11198,26 +11214,22 @@ MonoBehaviour:
     audioType: {fileID: -2044010266024803804, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
     playOnStart: 0
     fadeIn: 0
-    fadeInTime: 0
+    fadeInTime: 0.01
     fadeOut: 0
     fadeOutTime: 0
-  - name: backgroundBase
+  - active: 1
+    name: backgroundBase
     clip: {fileID: 8300000, guid: 8066a6f16849cc548a913fef1dee2261, type: 3}
     audioSource: {fileID: 681168}
-    volume: 0.511
+    spactialSound: 0
+    minDistance: 20
+    maxDistance: 35
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
     loop: 1
     randomArray: 0
-    soundsArray:
-    - {fileID: 8300000, guid: 7daecc3ae2d42a24cb94ba3360644d43, type: 3}
-    - {fileID: 8300000, guid: 903870abe7ba4f449afd16915b5b61ba, type: 3}
-    - {fileID: 8300000, guid: d77fa8f4406042547b5fa91bedd63f3c, type: 3}
-    - {fileID: 8300000, guid: fd2cd803f988c2745808beb9e5ac98fa, type: 3}
-    - {fileID: 8300000, guid: a126a609968f123429e364cfa2991a14, type: 3}
-    - {fileID: 8300000, guid: 962abd42fac56104598092fd597b3781, type: 3}
-    - {fileID: 8300000, guid: e57bdbb74c1e8934a895333ab0684061, type: 3}
-    - {fileID: 8300000, guid: 29956e22f34e87143aa6f5d4ab709ac4, type: 3}
+    soundsArray: []
     audioType: {fileID: 8624589858745438518, guid: 7fd839332ed0d4c4aa379f36bafeb610, type: 2}
     playOnStart: 1
     fadeIn: 1
@@ -12061,7 +12073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirectionslLight: {fileID: 1381023086}
   present: {fileID: 11400000, guid: a6a7e9363bdff0b45b46c9f039467734, type: 2}
-  TimeOfDay: 0
+  TimeOfDay: 8.51
   state: 0
   stateText: {fileID: 1847682942}
 --- !u!4 &1274806914
@@ -12640,7 +12652,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329831437}
-  m_LocalRotation: {x: -0.0030488567, y: 0.000000017211027, z: 5.2474202e-11, w: 0.99999535}
+  m_LocalRotation: {x: -0.0030488567, y: -0.000000017211027, z: -5.2474202e-11, w: 0.99999535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13250,7 +13262,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.70887464, g: 0.70887464, b: 0.70887464, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -13308,7 +13320,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381023084}
-  m_LocalRotation: {x: -0.061628457, y: 0.70441604, z: 0.70441604, w: 0.061628457}
+  m_LocalRotation: {x: 0.028123325, y: 0.9429068, z: -0.32145086, w: 0.082493715}
   m_LocalPosition: {x: -7.91612, y: 14.341039, z: 1.1905855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35802,7 +35814,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826533534}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &1835383237
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,11 @@ public class Sound
 
     public GameObject audioSource;
 
+    public bool spactialSound;
+
+    public float minDistance;
+    public float maxDistance;
+
 	[Range(0f, 1f)]
     public float volume;
 
@@ -34,11 +39,11 @@ public class Sound
     public bool playOnStart;
 
     public bool fadeIn;
-    [Range(.1f, 3f)]
+    [Range(.01f, 3f)]
     public float fadeInTime;
 
     public bool fadeOut;
-    [Range(.1f, 3f)]
+    [Range(.01f, 3f)]
     public float fadeOutTime;
 }
 
