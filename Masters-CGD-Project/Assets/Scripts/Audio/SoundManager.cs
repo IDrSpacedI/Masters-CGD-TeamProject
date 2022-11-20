@@ -91,8 +91,8 @@ public class SoundManager : MonoBehaviour
 			{
                 var p = sound.source.pitch;
                 var v = sound.source.volume;
-                sound.source.pitch = UnityEngine.Random.Range(p - .2f, p + .2f);
-                sound.source.volume = UnityEngine.Random.Range(v - .2f, v + .2f);
+                sound.source.pitch = UnityEngine.Random.Range(p - (p*0.05f), p + (p * 0.05f));
+                sound.source.volume = UnityEngine.Random.Range(v - (v * 0.05f), v + (v * 0.05f));
                 sound.source.clip = sound.soundsArray[UnityEngine.Random.Range(0, s.soundsArray.Length)];
                 sound.source.Play();
                 sound.source.pitch = p;
