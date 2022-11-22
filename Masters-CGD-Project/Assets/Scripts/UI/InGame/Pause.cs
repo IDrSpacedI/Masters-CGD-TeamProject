@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Pause : MonoBehaviour {
+public class Pause : MonoBehaviour
+{
 
     public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
@@ -17,7 +18,7 @@ public class Pause : MonoBehaviour {
         {
             if (GameIsPaused)
             {
-                Resume();      
+                Resume();
             }
             else
             {
@@ -44,12 +45,12 @@ public class Pause : MonoBehaviour {
 
     public void Pause_()
     {
-        for(int i = 0; i< HUDElements.Length; i++)
+        for (int i = 0; i < HUDElements.Length; i++)
         {
             HUDElements[i].SetActive(false);
         }
         clock.SetActive(false);
-        
+
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Cursor.visible = true;
@@ -74,3 +75,5 @@ public class Pause : MonoBehaviour {
 
     }
 }
+
+    

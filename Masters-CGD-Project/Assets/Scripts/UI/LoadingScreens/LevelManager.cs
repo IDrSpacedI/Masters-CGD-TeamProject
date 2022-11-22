@@ -56,4 +56,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void onClickEnter(TextMeshProUGUI txt)
+    {
+        txt.fontSize = 80;
+
+
+    }
+
+    public void onClickExit(TextMeshProUGUI txt)
+    {
+        txt.fontSize = 70;
+
+
+    }
 }
+
+
