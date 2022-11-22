@@ -8,6 +8,8 @@ public class Pause : MonoBehaviour {
     public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public LevelManager manager;
+    public GameObject[] HUDElements;
+    public GameObject clock;
 
     public void Update()
     {
@@ -26,7 +28,11 @@ public class Pause : MonoBehaviour {
 
     public void Resume()
     {
-       
+        clock.SetActive(true);
+        for (int i = 0; i < HUDElements.Length; i++)
+        {
+            HUDElements[i].SetActive(true);
+        }
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
@@ -38,6 +44,11 @@ public class Pause : MonoBehaviour {
 
     public void Pause_()
     {
+        for(int i = 0; i< HUDElements.Length; i++)
+        {
+            HUDElements[i].SetActive(false);
+        }
+        clock.SetActive(false);
         
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -51,14 +62,14 @@ public class Pause : MonoBehaviour {
 
     public void onClickEnter(TextMeshProUGUI txt)
     {
-        txt.fontSize = 120;
+        txt.fontSize = 80;
 
 
     }
 
     public void onClickExit(TextMeshProUGUI txt)
     {
-        txt.fontSize = 90;
+        txt.fontSize = 70;
 
 
     }

@@ -13,7 +13,7 @@ public class Toggle : MonoBehaviour
     public void Awake()
     {
         animator.Play("HUD");
-        c_anim.Play("LoadClock");
+        c_anim.Play("Clock");
     }
 
     void Update()

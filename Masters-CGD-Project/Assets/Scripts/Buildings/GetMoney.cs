@@ -33,6 +33,11 @@ public class GetMoney : MonoBehaviour
             Destroy(gameObject);
             
        }
+       if(this.gameObject == null)
+        {
+            TextPrompt.SetActive(false);
+            action = false;
+        }
     }
 
     //sets UI elemt to active when player enters
@@ -58,5 +63,9 @@ public class GetMoney : MonoBehaviour
         // Debug.Log("Exitted");
         TextPrompt.SetActive(false);
         action = false;
+        if(collision == null)
+        {
+            TextPrompt.SetActive(false);
+        }
     }
 }
