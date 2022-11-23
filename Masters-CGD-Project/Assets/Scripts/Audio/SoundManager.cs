@@ -14,19 +14,8 @@ public class SoundManager : MonoBehaviour
     // Awake is called before the start function
     void Awake()
     {
-        //makes sure there is only ever one instance of the manager in a scene
-        if (instance == null)
-		{
-            instance = this;
-		}
-		else
-		{
-            Destroy(gameObject);
-            return;
-		}
-
-        //manager persists between scenes
-        DontDestroyOnLoad(gameObject);
+        instance = this;
+        
         //creates and populates an audio source for each sound
         foreach (Sound s in sounds){
             if (s.audioSource != null)
