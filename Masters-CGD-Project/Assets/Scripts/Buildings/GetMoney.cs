@@ -28,6 +28,7 @@ public class GetMoney : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
        {
             //Debug.Log("ADD MONEY PLEASE");
+            TextPrompt.SetActive(false);
             player.gameObject.GetComponent<IMoney>().addMoney(amount);
             FindObjectOfType<SoundManager>().PlaySound("coin");
             Destroy(gameObject);
