@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.AI;
 
 public class FriendlyAI : MonoBehaviour
@@ -18,8 +19,14 @@ public class FriendlyAI : MonoBehaviour
     bool idleNow;
     public float idleTime = 3f;
 
+    public Transform armorPoint;
+
     //animation
     public Animator aiAnimation;
+
+    public TextMeshProUGUI interactText;
+
+    public bool hired = false;
 
     private void Awake()
     {
@@ -35,15 +42,24 @@ public class FriendlyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(idleNow == false)
+        if (hired == true && AIBuildInteract.armorAmount > 0)
         {
-            Patroling();
+            agent.SetDestination(armorPoint.position);
         }
         else
         {
-            aiAnimation.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            if (idleNow == false)
+            {
+                Patroling();
+            }
+            else
+            {
+                aiAnimation.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            }
         }
     }
+
+        
 
     void SearchWalkPoint()
     {
@@ -93,4 +109,25 @@ public class FriendlyAI : MonoBehaviour
         yield return new WaitForSeconds(idleTime);
         idleNow = false;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            //Debug.Log("NPCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+
+            if (hired == false)
+            {
+                interactText.text = "Press E to recruit";
+                if (Input.GetKey(KeyCode.E))
+                {
+                    interactText.text = "";
+                    hired = true;
+                }
+            }
+
+        }
+    }
+
+
 }
