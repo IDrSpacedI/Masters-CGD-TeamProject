@@ -61,7 +61,7 @@ public class LightingManager : MonoBehaviour
         if(DirectionslLight != null)
         {
             DirectionslLight.color = present.DirectionalColor.Evaluate(timePercent);
-            DirectionslLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f)-90,170f,0));
+            DirectionslLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f)-90,90,0));
         }
     }
 
