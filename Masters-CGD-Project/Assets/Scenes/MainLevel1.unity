@@ -2149,7 +2149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3897968335052196174, guid: bdc6480a2b0b770478f0c0bb641eb134, type: 3}
       propertyPath: prewarm
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3897968335052196174, guid: bdc6480a2b0b770478f0c0bb641eb134, type: 3}
       propertyPath: ShapeModule.m_Scale.x
@@ -14466,6 +14466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2038987928377946945, guid: 04fd58306cfa1934186dbcc1fa714855, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2038987928377946948, guid: 04fd58306cfa1934186dbcc1fa714855, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -17295,6 +17299,7 @@ MonoBehaviour:
   TimeOfDay: 0
   state: 0
   stateText: {fileID: 1847682942}
+  speedFactor: 0.1
 --- !u!4 &1274806914
 Transform:
   m_ObjectHideFlags: 0
@@ -18057,7 +18062,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329831437}
-  m_LocalRotation: {x: -0.0030488567, y: 0.000000017211027, z: 5.2474202e-11, w: 0.99999535}
+  m_LocalRotation: {x: -0.0030488567, y: -0.000000017211027, z: -5.2474202e-11, w: 0.99999535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
