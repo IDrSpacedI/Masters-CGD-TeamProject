@@ -15,9 +15,16 @@ public class TimeManager : MonoBehaviour
     public float nightDuration = .4f;
     public float sunriseHour = 6;
 
-    void Update()
+    private float speedFactor;
+
+	private void Start()
+	{
+        speedFactor = FindObjectOfType<LightingManager>().speedFactor;
+	}
+
+	void Update()
     {
-        totalTime += Time.deltaTime;
+        totalTime += Time.deltaTime * speedFactor;
         currentTime = totalTime % dayDuration;
     }
 

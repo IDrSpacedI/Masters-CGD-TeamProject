@@ -18,6 +18,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField,Range(0, 24)] public float TimeOfDay;
     public States state;
     public TextMeshProUGUI stateText;
+    public float speedFactor = 0.1f;
 
     public void Start()
     {
@@ -30,7 +31,7 @@ public class LightingManager : MonoBehaviour
             return;
         if (Application.isPlaying)
         {
-            TimeOfDay += Time.deltaTime;
+            TimeOfDay += Time.deltaTime * speedFactor;
             TimeOfDay %= 24;
             if (TimeOfDay > 20)
             {
