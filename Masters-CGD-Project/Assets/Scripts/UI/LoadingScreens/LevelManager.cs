@@ -127,7 +127,7 @@ public class LevelManager : MonoBehaviour
 
             }
         }
-        Debug.Log(allowGameStart);
+        //Debug.Log(allowGameStart);
     }
 
 
