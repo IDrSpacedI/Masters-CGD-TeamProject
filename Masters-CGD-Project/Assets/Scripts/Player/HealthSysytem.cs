@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HealthSysytem : MonoBehaviour,IHealth
 {
@@ -74,7 +75,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     public void playerDead()
     {
         Debug.Log("Player Dead");
-        gameOverScreen.SetActive(true);
+        SceneManager.GetSceneByBuildIndex(3);
     }
 
     //Fucntion to increase max health
