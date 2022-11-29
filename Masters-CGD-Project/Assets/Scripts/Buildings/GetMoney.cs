@@ -27,18 +27,24 @@ public class GetMoney : MonoBehaviour
     {
        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
        {
-            //Debug.Log("ADD MONEY PLEASE");
-            TextPrompt.SetActive(false);
-            player.gameObject.GetComponent<IMoney>().addMoney(amount);
-            FindObjectOfType<SoundManager>().PlaySound("coin");
-            Destroy(gameObject);
+            //Debug.Log("ADD MONEY PLEASE");          
+            if(player.gameObject.GetComponent<IMoney>().addMoney(amount) == true)
+            {
+                TextPrompt.SetActive(false);
+                FindObjectOfType<SoundManager>().PlaySound("coin");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Max amount reached");
+            }
             
        }
        if(this.gameObject == null)
-        {
+       {
             TextPrompt.SetActive(false);
             action = false;
-        }
+       }
     }
 
     //sets UI elemt to active when player enters

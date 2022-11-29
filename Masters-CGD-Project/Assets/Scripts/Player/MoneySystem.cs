@@ -38,25 +38,35 @@ public class MoneySystem : MonoBehaviour,IMoney
             Debug.Log("Money Added : "+amount);
             return true;
         }
+        if(currentMoney == maxMoney)
+        {
+            return false;
+        }
         else
         {
             currentMoney = maxMoney;
             return true;
         }
     }
-    public void reduceMoney(int i)
+    public bool reduceMoney(int i)
     {
-        spendMoney(i);
+        if (spendMoney(i) == true)
+            return true;
+        else
+            return false;
     }
 
-    public void addMoney(int i)
+    public bool addMoney(int i)
     {
-        getMoney(i);
+        if (getMoney(i) == true)
+            return true;
+        else
+            return false;
     }
 }
 
 public interface IMoney
 {
-    void reduceMoney(int i);
-    void addMoney(int i);
+    bool reduceMoney(int i);
+    bool addMoney(int i);
 }
