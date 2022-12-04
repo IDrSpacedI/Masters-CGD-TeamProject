@@ -33,6 +33,8 @@ public class LightingManager : MonoBehaviour
         {
             TimeOfDay += Time.deltaTime * speedFactor;
             TimeOfDay %= 24;
+            
+
             if (TimeOfDay > 20)
             {
                 state = States.night;
