@@ -73,7 +73,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     public void playerDead()
     {
         Debug.Log("Player Dead");
-        SceneManager.GetSceneByBuildIndex(3);
+        SceneManager.LoadScene(3);
     }
 
     //Fucntion to increase max health

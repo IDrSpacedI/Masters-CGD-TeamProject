@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     public bool MainLevel;
     public bool Mainmenu;
     public Animator P_bar;
+    public Image[] backGrounds;
 
 
 
@@ -70,7 +71,10 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator LoadScene()
     {
-
+        for(int i = 0; i< backGrounds.Length; i++) 
+        {
+            backGrounds[i].gameObject.SetActive(true);
+        }
         Loadscreen.SetActive(true);
         P_bar.Play("Progress");
         tipText.text = tips[Random.Range(0, tips.Length)];
