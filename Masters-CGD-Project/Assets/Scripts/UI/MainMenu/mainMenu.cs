@@ -44,6 +44,7 @@ public class mainMenu : MonoBehaviour
        }
     }
 
+  
     public void onClickEnter(TextMeshProUGUI txt)
     {
         txt.fontSize = 120;

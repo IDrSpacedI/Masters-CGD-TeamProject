@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class Coins_HUD : MonoBehaviour
 {
-
+    [Header("Int reference")]
     public int Coins;
+    [Header("array reference")]
     public GameObject[] Coin;
+    [Header("money system")]
     public MoneySystem M_System;
 
     void Update()
     {
-      
+      // checks how many coins there are and corresponds with UI
        Coins = M_System.currentMoney;
         if(Coins == 0)
         {

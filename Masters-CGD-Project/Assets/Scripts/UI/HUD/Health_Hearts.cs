@@ -49,12 +49,12 @@ public class Health_Hearts : MonoBehaviour
 
             }
         }
-
+        // checks how many hearts there are
         if(numOfHearts == 0)
         {
             health.playerDead();
         }
-
+        //health test
         if (Input.GetKeyDown(KeyCode.F))
         {
             health.reducehealth(1);
