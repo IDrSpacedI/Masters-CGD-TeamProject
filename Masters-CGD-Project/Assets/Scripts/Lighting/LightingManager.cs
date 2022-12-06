@@ -16,10 +16,6 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Light DirectionslLight;
     [SerializeField] private DayNightCycle present;
     [SerializeField,Range(0, 24)] public float TimeOfDay;
-    [SerializeField] private GameObject rainEffects;
-    public bool Rain;
-    public bool Night;
-    public int random;
     public States state;
     public TextMeshProUGUI stateText;
     public float speedFactor = 0.1f;
@@ -40,28 +36,11 @@ public class LightingManager : MonoBehaviour
             if (TimeOfDay > 20)
             {
                 state = States.night;
-                if (Night == false)
-                {
-                    if (Rain == false)
-                    {
-                        //rainEffects.SetActive(true);
-                        random = Random.Range(0, 3);
-                        if (random != 0)
-                        {
-                            rainEffects.SetActive(true);
-                            Rain = true;
-                        }
-                    }
-                    Night = true;
-                }
                 Gamemanager.Instance.Time_to_attac = true;
             }
             else if (TimeOfDay > 5)
             {
                 state = States.day;
-                rainEffects.SetActive(false);
-                Night = false;
-                Rain = false;
                 Gamemanager.Instance.Time_to_attac = false;
             }
 
