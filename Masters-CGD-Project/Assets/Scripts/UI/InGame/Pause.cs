@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class Pause : MonoBehaviour
     [Header("Health Reference")]
     public GameObject[] HUDElements;
  
-
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
     public void Update()
     {
         // pause and un pause function

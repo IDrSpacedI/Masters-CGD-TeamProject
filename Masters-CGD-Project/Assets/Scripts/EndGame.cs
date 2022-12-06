@@ -15,7 +15,7 @@ public class EndGame : MonoBehaviour
 
     private void Start()
     {
-        
+     
     }
 
     void Update()
