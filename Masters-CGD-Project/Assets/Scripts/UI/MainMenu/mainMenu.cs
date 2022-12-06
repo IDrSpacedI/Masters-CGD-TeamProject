@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class mainMenu : MonoBehaviour
@@ -56,6 +57,12 @@ public class mainMenu : MonoBehaviour
     {
         txt.fontSize = 90;
 
+
+    }
+
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
 
     }
 }
