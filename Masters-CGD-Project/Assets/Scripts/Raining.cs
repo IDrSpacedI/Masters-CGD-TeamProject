@@ -39,6 +39,7 @@ public class Raining : MonoBehaviour
                 mist.Play();
                 if (storm)
 				{
+                    Debug.Log("lightning");
                     lightning.Play();
 				}
                 return;
@@ -60,10 +61,7 @@ public class Raining : MonoBehaviour
 	public void Rain(bool light)
     {
         raining = true;
-        if (light)
-		{
-            storm = true;
-		}
+        storm = light;
     }
 
 }
