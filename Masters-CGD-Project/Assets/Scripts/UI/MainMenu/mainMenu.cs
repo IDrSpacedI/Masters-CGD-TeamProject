@@ -12,6 +12,8 @@ public class mainMenu : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera rotation;
     [SerializeField] CinemachineVirtualCamera mainMenus;
 
+    public Animator Text;
+
     public void OnEnable()
     {
         // registering all cams
@@ -70,6 +72,12 @@ public class mainMenu : MonoBehaviour
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
+
+    }
+
+    public void ButtonHover(int selection)
+    {
+        Text.SetInteger("Selection", selection);
 
     }
 }

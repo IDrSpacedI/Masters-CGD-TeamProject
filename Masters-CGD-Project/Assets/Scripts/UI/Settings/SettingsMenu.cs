@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;                                                           
 
+// script reference by Brackeys
 public class SettingsMenu : MonoBehaviour
 {
     [Header("Audio")]
