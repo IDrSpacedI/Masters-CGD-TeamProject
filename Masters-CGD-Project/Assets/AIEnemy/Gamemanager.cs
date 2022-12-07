@@ -8,6 +8,8 @@ public class Gamemanager : MonoBehaviour
     public  GameObject Enemy_Destination;
     public bool Time_to_attac;
     public static Gamemanager Instance;
+    public TimeManager timemanager;
+    public int Days;
 
 void Awake()
     {

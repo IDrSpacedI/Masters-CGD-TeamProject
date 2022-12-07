@@ -32,25 +32,15 @@ public class AIenemybotctrl : MonoBehaviour
             DestroyImmediate(this.gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void  OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if(other.gameObject.tag=="Player")
         {
-            // Debug.Log("Melvin collided something  "+other.gameObject.name);
-            GetComponent<BoxCollider>().enabled = false;
+           Debug.Log("Melvin collided something  "+other.gameObject.name);
+           GetComponent<BoxCollider>().enabled = false; 
             GetComponent<NavMeshAgent>().isStopped = true;
             other.gameObject.GetComponent<IHealth>().reducehealth(25);
-            Invoke("enablecollider", 5f);
-        }
-        else if (other.gameObject.tag == "Build" && other.GetComponent<BuildInteraction>())
-        {
-            if (other.GetComponent<BuildInteraction>().currentLevel >= 0)
-            {
-                GetComponent<BoxCollider>().enabled = false;
-                GetComponent<NavMeshAgent>().isStopped = true;
-                other.gameObject.GetComponent<IHealth>().reducehealth(1);
-                Invoke("enablecollider", 5f);
-            }
+            Invoke("enablecollider",5f);
         }
     }
 
