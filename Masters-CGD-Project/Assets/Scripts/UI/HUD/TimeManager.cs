@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
         totalTime += Time.deltaTime * speedFactor;
         currentTime = totalTime % dayDuration;
         if (getHour() > 23 && GetMinutes() > 59)
-            Gamemanager.Instance.Days++;
+            FindObjectOfType<DaysCounter>().dayCount++;
     }
 
     public float getHour()

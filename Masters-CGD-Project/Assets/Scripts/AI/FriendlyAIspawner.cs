@@ -21,9 +21,9 @@ public class FriendlyAIspawner : MonoBehaviour
     void Update()
     {
         if(Gamemanager.Instance)
-        if(tempday!=Gamemanager.Instance.Days)
+        if(tempday != FindObjectOfType<DaysCounter>().dayCount)
         {
-            tempday=Gamemanager.Instance.Days;
+            tempday = FindObjectOfType<DaysCounter>().dayCount;
             spawneNPC();
         }
     }
