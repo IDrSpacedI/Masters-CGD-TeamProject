@@ -7,17 +7,15 @@ using UnityEngine.SceneManagement;
 public class HealthSysytem : MonoBehaviour,IHealth
 {
     [Header("UI")]
-    [SerializeField] public TextMeshProUGUI text;
     public TextMeshProUGUI Debugtext;
-    public GameObject gameOverScreen;
     [Header("Health")]
-    [SerializeField] private int currentHealth = 100;
+    [SerializeField] public int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
 
     void Update()
     {
         //check();
-        text.text = currentHealth.ToString();
+        
         Debugtext.text = "Health" + ":" + currentHealth.ToString();
     }
 
@@ -75,7 +73,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     public void playerDead()
     {
         Debug.Log("Player Dead");
-        SceneManager.GetSceneByBuildIndex(3);
+        SceneManager.LoadScene(3);
     }
 
     //Fucntion to increase max health

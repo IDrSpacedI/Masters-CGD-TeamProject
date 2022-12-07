@@ -5,19 +5,24 @@ using TMPro;
 
 public class Toggle : MonoBehaviour
 {
+    [Header("Bool")]
     public bool toggler;
+    [Header("Array")]
     public GameObject[] canvas;
+    [Header("Animators")]
     public Animator animator;
     public Animator c_anim;
 
     public void Awake()
     {
+        // play animation
         animator.Play("HUD");
         c_anim.Play("Clock");
     }
 
     void Update()
     {
+        // toggles text on and off
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (toggler == true)

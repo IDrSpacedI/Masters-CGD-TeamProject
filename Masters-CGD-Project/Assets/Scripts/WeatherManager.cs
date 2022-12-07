@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class WeatherManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool lightning;
 
     // Update is called once per frame
     void Update()
     {
         if (FindObjectOfType<DaysCounter>().dayCount == FindObjectOfType<Raining>().nextRain && FindObjectOfType<LightingManager>().TimeOfDay >= FindObjectOfType<Raining>().rainStartTime)
 		{
-            FindObjectOfType<Raining>().Rain();
+            if (FindObjectOfType<Raining>().nextRain == FindObjectOfType<Raining>().nextLightning)
+			{
+                lightning = true;
+			}
+			else
+			{
+                lightning = false;
+			}
+            FindObjectOfType<Raining>().Rain(lightning);
 		}
     }
 }

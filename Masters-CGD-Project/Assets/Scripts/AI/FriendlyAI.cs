@@ -121,7 +121,7 @@ public class FriendlyAI : MonoBehaviour
                 interactText.text = "Press E to recruit";
                 if (Input.GetKey(KeyCode.E))
                 {
-                    interactText.text = "";
+                    interactText.text = "Hired!";
                     hired = true;
                 }
             }

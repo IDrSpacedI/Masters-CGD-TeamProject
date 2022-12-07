@@ -2,18 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-
+    [Header("Pause Bool")]
     public bool GameIsPaused = false;
+    [Header("Game object references")]
     public GameObject pauseMenuUI;
-    public LevelManager manager;
-    public GameObject[] HUDElements;
     public GameObject clock;
-
+    [Header("References")]
+    public LevelManager manager;
+    [Header("Health Reference")]
+    public GameObject[] HUDElements;
+ 
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
     public void Update()
     {
+        // pause and un pause function
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -28,7 +37,7 @@ public class Pause : MonoBehaviour
     }
 
     public void Resume()
-    {
+    {//  sets the needed values to true
         clock.SetActive(true);
         for (int i = 0; i < HUDElements.Length; i++)
         {
@@ -45,6 +54,7 @@ public class Pause : MonoBehaviour
 
     public void Pause_()
     {
+        // sets the values to false
         for (int i = 0; i < HUDElements.Length; i++)
         {
             HUDElements[i].SetActive(false);
@@ -60,14 +70,17 @@ public class Pause : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// increases font size
+    /// </summary>
+    /// <param name="txt"></param>
     public void onClickEnter(TextMeshProUGUI txt)
     {
         txt.fontSize = 80;
 
 
     }
-
+    // decreases font size
     public void onClickExit(TextMeshProUGUI txt)
     {
         txt.fontSize = 70;

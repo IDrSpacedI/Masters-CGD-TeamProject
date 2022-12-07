@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4859727800238899498}
   - component: {fileID: 4859727800238899496}
   - component: {fileID: 4859727800238899495}
+  - component: {fileID: -6510488627528526393}
   m_Layer: 0
   m_Name: HUD Controller
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animator: {fileID: 0}
+  c_anim: {fileID: 0}
 --- !u!114 &4859727800238899496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,8 @@ MonoBehaviour:
   GameIsPaused: 0
   pauseMenuUI: {fileID: 0}
   manager: {fileID: 4859727800238899495}
+  HUDElements: []
+  clock: {fileID: 0}
 --- !u!114 &4859727800238899495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +88,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2e3744814ea6247a349217ba214f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadScreen: {fileID: 0}
-  slider: {fileID: 0}
-  percent: {fileID: 0}
+  Loadscreen: {fileID: 0}
+  PressSpace: {fileID: 0}
+  text: {fileID: 0}
+  bar: {fileID: 0}
+  allowGameStart: 0
+  flash: {fileID: 0}
+  tips: []
+  tipText: {fileID: 0}
+  MainLevel: 0
+  Mainmenu: 0
+  P_bar: {fileID: 0}
+--- !u!114 &-6510488627528526393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4859727800238899500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417d27b2b91513947b353270a2517756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  numOfHearts: 0
+  hearts: []

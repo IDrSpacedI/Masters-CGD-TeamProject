@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &640028032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 981363340448120872, guid: 34bebd2055f85334490687d3ce0ca54a, type: 3}
+  m_PrefabInstance: {fileID: 1627619696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &730596664 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 50665992378864378, guid: 34bebd2055f85334490687d3ce0ca54a, type: 3}
+  m_PrefabInstance: {fileID: 1627619696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1627619696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +248,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4832727083651388480, guid: 34bebd2055f85334490687d3ce0ca54a, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34bebd2055f85334490687d3ce0ca54a, type: 3}
 --- !u!1 &1627619697 stripped
@@ -248,7 +274,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5042723249208580658, guid: 34bebd2055f85334490687d3ce0ca54a, type: 3}
   m_PrefabInstance: {fileID: 1627619696}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1833439319}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -265,6 +291,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2e3744814ea6247a349217ba214f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1833439319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364708833322220356, guid: 34bebd2055f85334490687d3ce0ca54a, type: 3}
+  m_PrefabInstance: {fileID: 1627619696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &314398280498677606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,7 +519,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 1833439319}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
       propertyPath: text
+      value: 
+      objectReference: {fileID: 1627619698}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: P_bar
+      value: 
+      objectReference: {fileID: 1627619698}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: flash
       value: 
       objectReference: {fileID: 1627619698}
     - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
@@ -499,6 +542,14 @@ PrefabInstance:
       propertyPath: percent
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: tipText
+      value: 
+      objectReference: {fileID: 730596664}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 640028032}
     - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
       propertyPath: Loadscreen
       value: 
@@ -515,6 +566,26 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 1627619700}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: tips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: tips.Array.data[0]
+      value: Press E To Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: f5ab3d6abd13f9e46b51b5a267b887cc, type: 3}
+    - target: {fileID: 6418863286280612213, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea8a9604c7236241a8657c5825b08da, type: 3}
     - target: {fileID: 6418863286280612218, guid: af5e0a9401dc90b40bf8d201e065e557, type: 3}
       propertyPath: m_Name
       value: Levelmanager
@@ -617,6 +688,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7412647887487413803, guid: 7dfaac0746756e546bd16c092ab004bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412647887487413803, guid: 7dfaac0746756e546bd16c092ab004bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1731956568}
@@ -633,12 +708,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1731956568}
     - target: {fileID: 7412647888162792079, guid: 7dfaac0746756e546bd16c092ab004bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412647888162792079, guid: 7dfaac0746756e546bd16c092ab004bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1731956568}
     - target: {fileID: 7412647888162792079, guid: 7dfaac0746756e546bd16c092ab004bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScenes
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7412647888162792082, guid: 7dfaac0746756e546bd16c092ab004bc, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target

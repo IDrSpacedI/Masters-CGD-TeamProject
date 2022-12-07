@@ -10,28 +10,41 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Reference")]
     public static LevelManager Instance;
+    [Header("GameObjects")]
     public GameObject Loadscreen;
     public GameObject PressSpace;
-    public Animator text;
+    public GameObject sound;
     public GameObject bar;
+    [Header("bools")]
     public bool allowGameStart = false;
-    public Animator flash;
-    public string[] tips;
-    public TextMeshProUGUI tipText;
     public bool MainLevel;
     public bool Mainmenu;
+    [Header("UI")]
+    public TextMeshProUGUI tipText;
+    public Image Background;
+    [Header("Arrays")]
+    public string[] tips;
+    public Sprite[] sprites;
+    [Header("Animators")]
     public Animator P_bar;
-
-
+    public Animator text;
+    [Header("Int")]
+    public int x;
 
     private void Awake()
     {
-        Instance = this;
-        allowGameStart = false;
+        Instance = this; // static reference
+        allowGameStart = false; // bool set to faluse
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
-  
+  /// <summary>
+  /// / hover over to increase font size
+  /// </summary>
+  /// <param name="txt"></param>
     public void onClickEnter(TextMeshProUGUI txt)
     {
         txt.fontSize = 80;
@@ -39,23 +52,34 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// shrink text slize back to original
+    /// </summary>
+    /// <param name="txt"></param>
     public void onClickExit(TextMeshProUGUI txt)
     {
         txt.fontSize = 70;
 
 
     }
-
+    /// <summary>
+    ///  load  back to main scene
+    /// </summary>
     public void LoadScenes()
     {
         StartCoroutine(LoadScene());
         MainLevel = true;
     }
+
+    /// <summary>
+    /// load main leve scene
+    /// </summary>
     public void MainLoadScenes()
     {
         StartCoroutine(scene_Load());
         PlayerMovement.disableMovement = false;
         Time.timeScale = 1;
+        // stop all sound
         SoundManager.instance.StopSound("backgroundForest1");
         SoundManager.instance.StopSound("footStepsGrass");
         SoundManager.instance.StopSound("backgroundForest2");
@@ -63,14 +87,22 @@ public class LevelManager : MonoBehaviour
         SoundManager.instance.StopSound("backgroundForest4");
         SoundManager.instance.StopSound("Music1");
         SoundManager.instance.StopSound("coin");
+        SoundManager.instance.StopSound("BackgroundSoft");
+        sound.SetActive(false);
         Mainmenu = true;
-        
-        
-    }
 
+    }
+    
+
+    /// <summary>
+    /// load scene main game scene with loading screen
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator LoadScene()
     {
 
+        x = Random.Range(0, 1);
+        Background.sprite = sprites[x];
         Loadscreen.SetActive(true);
         P_bar.Play("Progress");
         tipText.text = tips[Random.Range(0, tips.Length)];
@@ -83,10 +115,14 @@ public class LevelManager : MonoBehaviour
         allowGameStart = true;
     }
 
-
+    /// <summary>
+    /// load scene main game scene with loading screen
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator scene_Load()
     {
-
+        x = Random.Range(0, 1);
+        Background.sprite = sprites[x];
         Loadscreen.SetActive(true);
         P_bar.Play("Progress");
         tipText.text = tips[Random.Range(0, tips.Length)];
@@ -96,19 +132,22 @@ public class LevelManager : MonoBehaviour
         PressSpace.SetActive(true);
         text.Play("SpaceBar");
     }
-
-
-    public IEnumerator delay()
+    /// <summary>
+    /// Loads mainMenu
+    /// </summary>
+    public void MainMenu()
     {
-        flash.Play("FlashTransition");
-        yield return new WaitForSeconds(4f);
+        StartCoroutine(scene_Load());
+        Time.timeScale = 1;
+        Mainmenu = true;
     }
-  
+
     public void Update()
     {
-
+        // checks if bools are true
         if (allowGameStart == true && MainLevel == true)
         {
+            // activate level load
             if (Input.GetKey(KeyCode.Space))
             {
                
@@ -117,11 +156,13 @@ public class LevelManager : MonoBehaviour
 
             }
         }
+        // checks is bool is true
         if(Mainmenu == true)
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                StartCoroutine(delay());
+                // activates level loading
+          
                 SceneManager.LoadScene("MainMenu");
 
 
