@@ -12,7 +12,7 @@ public class mainMenu : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera rotation;
     [SerializeField] CinemachineVirtualCamera mainMenus;
 
-    public Animator Text;
+
 
     public void OnEnable()
     {
@@ -75,9 +75,5 @@ public class mainMenu : MonoBehaviour
 
     }
 
-    public void ButtonHover(int selection)
-    {
-        Text.SetInteger("Selection", selection);
-
-    }
+   
 }
