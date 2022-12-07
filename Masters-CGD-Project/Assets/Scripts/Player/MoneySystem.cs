@@ -7,7 +7,7 @@ public class MoneySystem : MonoBehaviour,IMoney
 {
     public TextMeshProUGUI DebugText;
     [SerializeField] public int currentMoney;
-    [SerializeField] private int maxMoney = 30;
+    [SerializeField] public int maxMoney = 30;
 
     //public static float playerMoney;
 

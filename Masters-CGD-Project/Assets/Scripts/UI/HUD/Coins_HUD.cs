@@ -11,12 +11,38 @@ public class Coins_HUD : MonoBehaviour
     public GameObject[] Coin;
     [Header("money system")]
     public MoneySystem M_System;
+    private int MaxMoney;
+    private int i;
+
+    void Start()
+    {
+        MaxMoney = M_System.maxMoney;
+        Coins = M_System.currentMoney;
+        for (i = 0; i < Coins; i++)
+        {
+            Coin[i].SetActive(true);
+        }
+        for (; i < MaxMoney; i++)
+        {
+            Coin[i].SetActive(false);
+        }
+    }
 
     void Update()
     {
-      // checks how many coins there are and corresponds with UI
-       Coins = M_System.currentMoney;
-        if(Coins == 0)
+        // checks how many coins there are and corresponds with UI
+
+        Coins = M_System.currentMoney;
+            for (i = 0; i < Coins; i++)
+            {
+                Coin[i].SetActive(true);
+            }
+            for (; i < MaxMoney; i++)
+            {
+                Coin[i].SetActive(false);
+            }
+
+        /*if(Coins == 0)
         {
             Coin[0].gameObject.SetActive(false);
             Coin[1].gameObject.SetActive(false);
@@ -84,11 +110,24 @@ public class Coins_HUD : MonoBehaviour
             Coin[2].gameObject.SetActive(true); 
             Coin[4].gameObject.SetActive(true);
             Coin[5].gameObject.SetActive(true);
-         }
+         }*/
 
 
 
     }  
+
+    public void check()
+    {
+        Debug.Log("Check called");
+        for (i = 0; i < Coins; i++)
+        {
+            Coin[i].SetActive(true);
+        }
+        for (; i < MaxMoney; i++)
+        {
+            Coin[i].SetActive(false);
+        }
+    }
     
 
 }
