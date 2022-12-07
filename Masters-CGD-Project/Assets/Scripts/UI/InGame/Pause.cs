@@ -10,12 +10,10 @@ public class Pause : MonoBehaviour
     public bool GameIsPaused = false;
     [Header("Game object references")]
     public GameObject pauseMenuUI;
-    public GameObject clock;
     [Header("References")]
     public LevelManager manager;
-    [Header("Health Reference")]
-    public GameObject[] HUDElements;
- 
+
+
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
@@ -38,11 +36,6 @@ public class Pause : MonoBehaviour
 
     public void Resume()
     {//  sets the needed values to true
-        clock.SetActive(true);
-        for (int i = 0; i < HUDElements.Length; i++)
-        {
-            HUDElements[i].SetActive(true);
-        }
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
@@ -55,12 +48,6 @@ public class Pause : MonoBehaviour
     public void Pause_()
     {
         // sets the values to false
-        for (int i = 0; i < HUDElements.Length; i++)
-        {
-            HUDElements[i].SetActive(false);
-        }
-        clock.SetActive(false);
-
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Cursor.visible = true;
