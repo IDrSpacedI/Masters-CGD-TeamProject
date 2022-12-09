@@ -39,7 +39,7 @@ public class AIenemybotctrl : MonoBehaviour
            Debug.Log("Melvin collided something  "+other.gameObject.name);
            GetComponent<BoxCollider>().enabled = false; 
             GetComponent<NavMeshAgent>().isStopped = true;
-            other.gameObject.GetComponent<IHealth>().reducehealth(25);
+            other.gameObject.GetComponent<IHealth>().reducehealth(1);
             Invoke("enablecollider",5f);
         }
     }
