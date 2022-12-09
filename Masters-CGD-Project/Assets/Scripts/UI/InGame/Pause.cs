@@ -40,11 +40,6 @@ public class Pause : MonoBehaviour
 
     public void Resume()
     {//  sets the needed values to true
-        clock.SetActive(true);
-        for (int i = 0; i < HUDElements.Length; i++)
-        {
-            HUDElements[i].SetActive(true);
-        }
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
@@ -57,12 +52,6 @@ public class Pause : MonoBehaviour
     public void Pause_()
     {
         // sets the values to false
-        for (int i = 0; i < HUDElements.Length; i++)
-        {
-            HUDElements[i].SetActive(false);
-        }
-        clock.SetActive(false);
-
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Cursor.visible = true;
@@ -79,15 +68,11 @@ public class Pause : MonoBehaviour
     public void onClickEnter(TextMeshProUGUI txt)
     {
         txt.fontSize = 80;
-
-
     }
     // decreases font size
     public void onClickExit(TextMeshProUGUI txt)
     {
         txt.fontSize = 70;
-
-
     }
 }
 
