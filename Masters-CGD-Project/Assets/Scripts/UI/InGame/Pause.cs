@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+// script by Oliver lancashire
+// sid 1901981
 public class Pause : MonoBehaviour
 {
     [Header("Pause Bool")]
     public bool GameIsPaused = false;
+
     [Header("Game object references")]
     public GameObject pauseMenuUI;
     public GameObject clock;
     [Header("References")]
     public LevelManager manager;
 
-
     [Header("Health Reference")]
     public GameObject[] HUDElements;
+
  
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
+      
     }
     public void Update()
     {

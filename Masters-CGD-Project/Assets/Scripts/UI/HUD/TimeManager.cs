@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// script by Oliver Lancashire
+// sid 1901981
 
+// day and night clock by Dan Pos - Game Dev Tutorials!
 public class TimeManager : MonoBehaviour
 {
 

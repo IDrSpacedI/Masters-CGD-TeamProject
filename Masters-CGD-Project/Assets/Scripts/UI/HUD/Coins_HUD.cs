@@ -13,6 +13,7 @@ public class Coins_HUD : MonoBehaviour
     public MoneySystem M_System;
     private int MaxMoney;
     private int i;
+    public Animator[] Coin_Anim;
 
     void Start()
     {
@@ -42,76 +43,8 @@ public class Coins_HUD : MonoBehaviour
                 Coin[i].SetActive(false);
             }
 
-        /*if(Coins == 0)
-        {
-            Coin[0].gameObject.SetActive(false);
-            Coin[1].gameObject.SetActive(false);
-            Coin[2].gameObject.SetActive(false);
-            Coin[3].gameObject.SetActive(false);
-            Coin[4].gameObject.SetActive(false);
-            Coin[5].gameObject.SetActive(false);
-        }
-        if(Coins == 5)
-        {
-            Coin[0].gameObject.SetActive(true);
-            Coin[1].gameObject.SetActive(false);
-            Coin[2].gameObject.SetActive(false);
-            Coin[3].gameObject.SetActive(false);
-            Coin[4].gameObject.SetActive(false);
-            Coin[5].gameObject.SetActive(false);
-
-        }
-        if(Coins == 10)
-        {
-            Coin[0].gameObject.SetActive(true);
-            Coin[1].gameObject.SetActive(true);
-            Coin[2].gameObject.SetActive(false);
-            Coin[3].gameObject.SetActive(false);
-            Coin[4].gameObject.SetActive(false);
-            Coin[5].gameObject.SetActive(false);
-
-        }
-        if (Coins == 15)
-        {
-            Coin[0].gameObject.SetActive(true);
-            Coin[1].gameObject.SetActive(true);
-            Coin[2].gameObject.SetActive(true);
-            Coin[3].gameObject.SetActive(false);
-            Coin[4].gameObject.SetActive(false);
-            Coin[4].gameObject.SetActive(false);
-            Coin[5].gameObject.SetActive(false);
-
-        }
-        if (Coins == 20)
-        {
-            Coin[0].gameObject.SetActive(true);
-            Coin[1].gameObject.SetActive(true);
-            Coin[2].gameObject.SetActive(true);
-            Coin[3].gameObject.SetActive(true);
-            Coin[4].gameObject.SetActive(false);
-            Coin[4].gameObject.SetActive(false);
-            Coin[5].gameObject.SetActive(false);
-
-        }
-         if (Coins == 25)
-         {
-            Coin[0].gameObject.SetActive(true);
-            Coin[1].gameObject.SetActive(true);
-            Coin[2].gameObject.SetActive(true);
-            Coin[4].gameObject.SetActive(true);
-            Coin[5].gameObject.SetActive(false);
-
-         }
-
-         if( Coins == 30)
-         {
-            Coin[0].gameObject.SetActive(true);
-            Coin[1].gameObject.SetActive(true);
-            Coin[2].gameObject.SetActive(true); 
-            Coin[4].gameObject.SetActive(true);
-            Coin[5].gameObject.SetActive(true);
-         }*/
-
+          
+      
 
 
     }  

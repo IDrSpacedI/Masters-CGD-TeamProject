@@ -21295,7 +21295,11 @@ MonoBehaviour:
   tipText: {fileID: 130256047}
   Background: {fileID: 524729867}
   tips:
-  - press E to interact
+  - Collect coins by harvesting trees
+  - Recruit helpers
+  - Press ESC to pause
+  - Press E to intereact
+  - WASD to move
   sprites:
   - {fileID: 21300000, guid: f5ab3d6abd13f9e46b51b5a267b887cc, type: 3}
   - {fileID: 21300000, guid: f5ab3d6abd13f9e46b51b5a267b887cc, type: 3}
@@ -30849,9 +30853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defb9f1ad277b4b4b9864d2c1cfb772f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {fileID: 1386444461}
-  mainMenus: {fileID: 613939664}
-  Text: {fileID: 0}
 --- !u!4 &1355559876
 Transform:
   m_ObjectHideFlags: 0
@@ -52848,6 +52849,22 @@ PrefabInstance:
     - target: {fileID: 3239781875900232909, guid: 01545572c447e2b418e8061bb20214fd, type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 0.02787039
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239781875900232909, guid: 01545572c447e2b418e8061bb20214fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 914782129}
+    - target: {fileID: 3239781875900232909, guid: 01545572c447e2b418e8061bb20214fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnApplicationQuit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239781875900232909, guid: 01545572c447e2b418e8061bb20214fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239781875900232909, guid: 01545572c447e2b418e8061bb20214fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3239781875900232910, guid: 01545572c447e2b418e8061bb20214fd, type: 3}
       propertyPath: m_Color.b

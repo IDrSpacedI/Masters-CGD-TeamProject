@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// script by Oliver lancashire
+// sid 1901981
+// script reference by BlackThornProd
 public class Health_Hearts : MonoBehaviour
 {
     [Header("Health Reference")]

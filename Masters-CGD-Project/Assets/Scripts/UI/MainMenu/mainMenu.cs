@@ -4,31 +4,12 @@ using UnityEngine;
 using Cinemachine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+// script by Oliver Lancashire
+// sid 1901981
 
 public class mainMenu : MonoBehaviour
 {
-    [Header("Cameras")]
-    [SerializeField] CinemachineVirtualCamera rotation;
-    [SerializeField] CinemachineVirtualCamera mainMenus;
-
-
-
-    public void OnEnable()
-    {
-        // registering all cams
-        CamerSwticher.Register(rotation);
-        CamerSwticher.Register(mainMenus);
-        CamerSwticher.CamPriority(rotation);
-    }
-
-    public void OnDisable()
-    {
-        // un register the cams
-        CamerSwticher.UnRegister(rotation);
-        CamerSwticher.UnRegister(mainMenus);
-    }
-
+ 
     public void Awake()
     {
         // sets curser visible
@@ -37,19 +18,7 @@ public class mainMenu : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        // switching round cams
-        if (Input.GetKeyDown(KeyCode.Space))
-       {
-            if (CamerSwticher.IsActiveCamera(rotation))
-            {
-                CamerSwticher.CamPriority(mainMenus);
-                rotation.gameObject.SetActive(false);
-            }
-
-       }
-    }
+ 
 
     // hover on button to increase or decrease size
     public void onClickEnter(TextMeshProUGUI txt)

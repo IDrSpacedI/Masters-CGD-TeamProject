@@ -5,7 +5,8 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;                                                           
-
+// script by 1901981
+// sid 1901981
 // script reference by Brackeys
 public class SettingsMenu : MonoBehaviour
 {

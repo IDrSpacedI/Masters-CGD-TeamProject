@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-
+// scipt by Oliver Lancashire
+//sid 1901981
 // Script Reference How to make a LOADING BAR in Unity - Brackeys
 
 public class LevelManager : MonoBehaviour
@@ -92,7 +93,11 @@ public class LevelManager : MonoBehaviour
         Mainmenu = true;
 
     }
-    
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
 
     /// <summary>
     /// load scene main game scene with loading screen
@@ -169,6 +174,8 @@ public class LevelManager : MonoBehaviour
             }
         }
         //Debug.Log(allowGameStart);
+
+       
     }
 
 

@@ -12,12 +12,15 @@ public class Toggle : MonoBehaviour
     [Header("Animators")]
     public Animator animator;
     public Animator c_anim;
+    public GameObject debug;
 
     public void Awake()
     {
         // play animation
         animator.Play("HUD");
         c_anim.Play("Clock");
+        debug.SetActive(false);
+
     }
 
     void Update()
