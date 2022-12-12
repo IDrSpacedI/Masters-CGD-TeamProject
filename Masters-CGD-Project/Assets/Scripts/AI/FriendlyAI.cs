@@ -123,11 +123,26 @@ public class FriendlyAI : MonoBehaviour
                 {
                     interactText.text = "Hired!";
                     hired = true;
+                    StartCoroutine(Text());
+                   
                 }
             }
 
         }
     }
+ 
+    public IEnumerator Text()
+    {
+        yield return new WaitForSeconds(2f);
+        interactText.text = "";
+    }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            interactText.text = "";
+        }
+    }
 
 }
