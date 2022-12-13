@@ -13,14 +13,16 @@ public class EndGame : MonoBehaviour
 
     public GameObject TextPrompt;
 
+    public BuildInteraction build;
+
     private void Start()
     {
-     
+         
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
+        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true && build.level3 == true)
         {
             //load endgame scene
             SceneManager.LoadScene("EndGame");
