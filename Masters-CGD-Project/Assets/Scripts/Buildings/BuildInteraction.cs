@@ -152,7 +152,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Changes which object is active in the image (current level is always -1 the real level)
     void Upgrade()
     {
-        /*for (int i = 0; i < levels.Length; i++)
+        for (int i = 0; i < levels.Length; i++)
         {
             //Sets current level inactive
             if (i == currentLevel)
@@ -166,9 +166,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
             }
-        }*/
-
-        GameObject.Find("GameManager").GetComponent<Gamemanager>().read(this);
+        }
     }
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)
@@ -184,7 +182,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
                 Upgrade();
-                //currentLevel++;
+                currentLevel++;
             }
             else
             {
@@ -196,7 +194,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
             Upgrade();
-            //currentLevel++;
+            currentLevel++;
         }
 
 
