@@ -105,6 +105,7 @@ public class FriendlyAI : MonoBehaviour
 
     IEnumerator IdleTimer()
     {
+        
         yield return new WaitForSeconds(idleTime);
         idleNow = false;
     }
