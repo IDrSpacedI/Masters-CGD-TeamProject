@@ -20,15 +20,16 @@ public class FriendlySpawn : MonoBehaviour
         day = FindObjectOfType<DaysCounter>().dayCount;
         if (day == nextday)
         {
+            nextday++;
             SpawnPeasant();
+            
         }
     }
 
     void SpawnPeasant()
 	{
-        peasants.Add(Instantiate(AI, transform.position, Quaternion.identity));
-        peasants[peasants.Count - 1].GetComponent<FriendlyAI>().walkPoint = transform.position;
-        peasants[peasants.Count - 1].GetComponent<FriendlyAI>().walkPointRange = 10;
-        peasants[peasants.Count - 1].GetComponent<FriendlyAI>().walkPointRange = 2;
+        float randomX = Random.Range(-5, 5);
+        Vector3 spawnPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z - 3);
+        peasants.Add(Instantiate(AI, spawnPoint, Quaternion.identity));
     }
 }
