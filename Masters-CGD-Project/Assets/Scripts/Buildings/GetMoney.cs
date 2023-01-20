@@ -32,7 +32,9 @@ public class GetMoney : MonoBehaviour
             {
                 TextPrompt.SetActive(false);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                this.gameObject.SetActive(false);
+                Invoke("respawn",10);
             }
             else
             {
@@ -46,7 +48,10 @@ public class GetMoney : MonoBehaviour
             action = false;
        }
     }
-
+    void respawn()
+    {
+        this.gameObject.SetActive(true);
+    }
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
     {
