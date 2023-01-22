@@ -45,7 +45,10 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Build Timer, needed to prevent all levels are build at once
     public float buildTime = 3f;
     public float buildTimeLeft;
-    
+
+    //public GameObject gamemanager;
+    //static public Vector3 pos;
+
     //Assigning the text
     public string InteractionPrompt => prompt;
 
@@ -60,6 +63,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
         //Enable and disable objects
         interactButton.SetActive(true);
+
+        //gamemanager = GameObject.Find("GameManager");
 
 
         for (int i = 0; i < levels.Length; i++)
@@ -78,6 +83,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         //make sure the text are invisible
         interactText.text = "";
         buildTimerText.text = "";
+
+        //pos = this.transform.position;
     }
 
   
@@ -150,7 +157,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     
     //Changes which object is active in the image (current level is always -1 the real level)
-    void Upgrade()
+    public void Upgrade()
     {
         for (int i = 0; i < levels.Length; i++)
         {
@@ -165,6 +172,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 iLevelWall.levelFX.SetActive(true);
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
+                currentLevel++;
             }
         }
     }
@@ -181,8 +189,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             {
                 if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
-                Upgrade();
-                currentLevel++;
+                //Upgrade();
+                Gamemanager.Instance.tower = this.gameObject;
+               // currentLevel++;
             }
             else
             {
@@ -193,8 +202,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
-            Upgrade();
-            currentLevel++;
+            Gamemanager.Instance.tower = this.gameObject;
+           // currentLevel++;
         }
 
 
