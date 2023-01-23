@@ -8,20 +8,21 @@ public class Hiring : MonoBehaviour
 
     public bool hired;
     public TextMeshProUGUI interactText;
+    public Friend_Travel_State travelState;
+    public Transform baseTrans;
 
     // Start is called before the first frame update
     void Start()
     {
         hired = false;
         interactText = GameObject.Find("AI_Text").GetComponent<TextMeshProUGUI>();
+        baseTrans = GameObject.Find("Base").GetComponent<Transform>();
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            //Debug.Log("NPCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-
             if (hired == false)
             {
                 interactText.text = "Press E to recruit";
@@ -29,6 +30,8 @@ public class Hiring : MonoBehaviour
                 {
                     interactText.text = "Hired!";
                     hired = true;
+                    travelState.destination = new Vector3 (baseTrans.position.x, transform.position.y, transform.position.z);
+                    travelState.go = true;
                     StartCoroutine(Text());
                 }
             }

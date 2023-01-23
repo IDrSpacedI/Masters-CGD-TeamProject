@@ -16,7 +16,6 @@ public class Friend_Idle_State : State
 		if (travelState.go)
 		{
 			wonderState.wonderPoint = travelState.destination;
-			travelState.go = false;
 			return travelState;
 		}
 		
