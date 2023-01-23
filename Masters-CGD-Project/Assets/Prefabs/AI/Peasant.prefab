@@ -293,9 +293,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1373212062936862353}
   - component: {fileID: 1373212062936862358}
-  - component: {fileID: 1373212062936862359}
   - component: {fileID: 1373212062936862352}
   - component: {fileID: 2563309796140329215}
+  - component: {fileID: 5640611057772802494}
   m_Layer: 0
   m_Name: Peasant
   m_TagString: Untagged
@@ -342,31 +342,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1373212062936862359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373212062936862356}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc907d8b91230542aeea5e8275b11d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1373212062936862358}
-  toolShed: {fileID: 0}
-  armory: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 20
-  idleTime: 3
-  armorPoint: {fileID: 0}
-  aiAnimation: {fileID: 4784006643171363463}
-  interactText: {fileID: 0}
-  hired: 0
 --- !u!65 &1373212062936862352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -378,8 +353,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.019928, y: 1.6119347, z: 1.9442966}
-  m_Center: {x: 0.0663389, y: 0.79088926, z: 0.4721483}
+  m_Size: {x: 2.5, y: 1.6119347, z: 1.9442966}
+  m_Center: {x: 0, y: 0.79088926, z: 0.4721483}
 --- !u!114 &2563309796140329215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +368,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 688971201752118169}
+--- !u!114 &5640611057772802494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373212062936862356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ed4fbe1ca89404c99cd79988395baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hired: 0
+  interactText: {fileID: 0}
 --- !u!1 &1382099349920545263
 GameObject:
   m_ObjectHideFlags: 0

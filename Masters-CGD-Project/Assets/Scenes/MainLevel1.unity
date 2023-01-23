@@ -5539,6 +5539,10 @@ PrefabInstance:
       propertyPath: AI
       value: 
       objectReference: {fileID: 1373212062936862356, guid: dbed112ad7fe74e4ba3e8ec310e09939, type: 3}
+    - target: {fileID: 6717856984949315471, guid: bab09dc1838df344d99d48d8b7c09e0b, type: 3}
+      propertyPath: interactText
+      value: 
+      objectReference: {fileID: 670889963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab09dc1838df344d99d48d8b7c09e0b, type: 3}
 --- !u!1 &201132699
@@ -27698,7 +27702,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945588528}
-  m_LocalRotation: {x: 0.03327793, y: 0.000000017196852, z: -5.725928e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277944, y: 0.000000017196852, z: -5.7259303e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36574,6 +36578,10 @@ PrefabInstance:
       value: 552.5
       objectReference: {fileID: 0}
     - target: {fileID: 4287662882436243591, guid: 553714cbd8e23a64e81d6df7cfc32eed, type: 3}
+      propertyPath: m_Name
+      value: AI_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287662882436243591, guid: 553714cbd8e23a64e81d6df7cfc32eed, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -39098,7 +39106,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-42654
+  m_Name: pb_Mesh-32518
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39773,7 +39781,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329831437}
-  m_LocalRotation: {x: -0.0030488556, y: 0.000000017206828, z: 5.246138e-11, w: 0.99999535}
+  m_LocalRotation: {x: -0.0030488556, y: -0.000000017206824, z: -5.246137e-11, w: 0.99999535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -61588,7 +61596,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh45344
+  m_Name: pb_Mesh39572
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

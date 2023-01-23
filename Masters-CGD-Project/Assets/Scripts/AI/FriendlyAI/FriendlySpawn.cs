@@ -22,7 +22,6 @@ public class FriendlySpawn : MonoBehaviour
         {
             nextday++;
             SpawnPeasant();
-            
         }
     }
 
@@ -30,6 +29,7 @@ public class FriendlySpawn : MonoBehaviour
 	{
         float randomX = Random.Range(-5, 5);
         Vector3 spawnPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z - 3);
-        peasants.Add(Instantiate(AI, spawnPoint, Quaternion.identity));
+        var newPeasant = Instantiate(AI, spawnPoint, Quaternion.identity);
+        peasants.Add(newPeasant);
     }
 }
