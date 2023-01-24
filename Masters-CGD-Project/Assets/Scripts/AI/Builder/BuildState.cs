@@ -10,7 +10,7 @@ public class BuildState : State
     {
         target = Gamemanager.Instance.tower;
         target.GetComponent<BuildInteraction>().Upgrade();
-
+        Debug.Log("Build");
         //Return to the Gostate here?
         return this;
     }
