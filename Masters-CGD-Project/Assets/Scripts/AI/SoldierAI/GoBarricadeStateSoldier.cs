@@ -8,7 +8,7 @@ public class GoBarricadeStateSoldier : State
 {
     public GameObject barricade;
     public NavMeshAgent navMeshAgent;
-
+    [SerializeField] private Animator aiAnimation;
     [SerializeField] private GuardBarricadeStateSoldier guardBarricadeStateSoldier;
     public override State RunCurrentState()
     {
@@ -21,6 +21,7 @@ public class GoBarricadeStateSoldier : State
             guardBarricadeStateSoldier.GetComponent<CapsuleCollider>().enabled = true;
             return guardBarricadeStateSoldier;
         }
+        aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
         navMeshAgent.destination = barricadePosition;
         return this;
     }

@@ -8,9 +8,14 @@ public class GuardBarricadeStateSoldier : State
     [SerializeField] private AttackBarricadeSoldierState attackBarricadeSoldierState;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private LightingManager lightingManager;
-
+    [SerializeField] private Animator aiAnimation;
+    public void Start()
+    {
+        lightingManager = GameObject.Find("LightingManager").GetComponent<LightingManager>();
+    }
     public override State RunCurrentState()
     {
+        aiAnimation.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
         if (enemy != null)
         {
             //turn off the collision detection

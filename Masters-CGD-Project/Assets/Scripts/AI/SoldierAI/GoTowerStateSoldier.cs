@@ -11,6 +11,9 @@ public class GoTowerStateSoldier : State
     [SerializeField] private GameObject thisSoldier;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private GuardTowerStateSoldier guardTowerStateSoldier;
+    [SerializeField] private Animator aiAnimation;
+
+
 
     public override State RunCurrentState()
     {
@@ -21,9 +24,10 @@ public class GoTowerStateSoldier : State
         }
         //Position with the right z
         Vector3 towerPosition = new Vector3(tower.transform.position.x, tower.transform.position.y, this.transform.position.z);
-
+        //Getting distance between the two
+        float distance = Vector3.Distance(towerPosition, this.transform.position);
         //If player reached position guard tower
-        if (this.transform.position == towerPosition)
+        if (distance <= 0.5)
         {
             //teleport to top of tower
             this.transform.position = new Vector3(this.transform.position.x, 4.024f, this.transform.position.y);
@@ -35,6 +39,7 @@ public class GoTowerStateSoldier : State
         }
 
         //Go to tower 
+        aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
         navMeshAgent.destination = towerPosition;
         return this;
 

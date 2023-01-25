@@ -11,6 +11,12 @@ public class IdleStateSoldier : State
 
     GameObject currentBarricade = null;
     float distance;
+
+    public void Start()
+    {
+        entityManager = GameObject.Find("GameManager").GetComponent<EntityManager>();
+        lightingManager = GameObject.Find("LightingManager").GetComponent<LightingManager>();
+    }
     public override State RunCurrentState()
     {
         //Checking if any tower is available
