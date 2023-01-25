@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class GoState : State
 {
-    public GameObject target;
-    public Transform _target;
-    public float _speed;
+    //public GameObject target;
+
+
     public IdleState I_state;
+    public BuildState B_State;
+    public BuilderManager state;
+    public Transform target;
+    public bool correct;
 
     public override State RunCurrentState()
     {
-        if(I_state.Move == true)
+        if (I_state.Move == true)
         {
-            target = Gamemanager.Instance.tower;
-            _target = target.transform;
-            transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+            //target = Gamemanager.Instance.tower;
+            //_target = target.transform;
+            return B_State;
+
         }
-        
+        else
+        {
+            return this;
+        }
 
-        //Move code here
 
-        return this;
+
     }
 }
+
+   
