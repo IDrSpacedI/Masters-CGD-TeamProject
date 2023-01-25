@@ -15,21 +15,15 @@ public class GoState : State
 
     public override State RunCurrentState()
     {
-        if (I_state.Move == true)
-        {
+        
             //target = Gamemanager.Instance.tower;
             //_target = target.transform;
+            Debug.Log("Move");
             return B_State;
 
-        }
-        else
-        {
-            return this;
-        }
-
-
-
     }
+
+    // not sure if this works. need's some testing. not fun logic xd
 }
 
-   
+

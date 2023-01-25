@@ -37,5 +37,8 @@ public class BuilderManager : MonoBehaviour
     public void MovingBack()
     {
         transform.position = Vector3.MoveTowards(transform.position, PreviousSpot.position, _speed * Time.deltaTime);
+       
     }
+
+    // not sure if this works. need's some testing. not fun logic xd
 }

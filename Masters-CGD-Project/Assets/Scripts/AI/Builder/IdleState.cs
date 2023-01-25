@@ -8,12 +8,12 @@ public class IdleState : State
     public bool Move;
     public BuildState BuildState;
     public BuilderManager manager;
+     public BuildingInteration interation;
 
     public override State RunCurrentState()
     {
 
-   
-        if (Move)
+        if (interation.Flagged == true)
         {
             return goState;
 
@@ -23,7 +23,6 @@ public class IdleState : State
             return this;
         }
 
-        
         //if (Gamemanager.Instance.tower != null)
         //{
 
@@ -36,6 +35,8 @@ public class IdleState : State
         //    return this;
         //    Debug.Log("IdleState");
         //}
+
+        // not sure if this works. need's some testing. not fun logic xd
 
     }
 }

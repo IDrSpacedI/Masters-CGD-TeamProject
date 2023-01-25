@@ -27,4 +27,6 @@ public class BuildingInteration : MonoBehaviour
             }
         }
     }
+
+    // not sure if this works. need's some testing. not fun logic xd
 }

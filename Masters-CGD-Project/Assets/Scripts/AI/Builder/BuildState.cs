@@ -13,6 +13,7 @@ public class BuildState : State
     public BuildingInteration interaction;
     public EnterTrigger trigger;
     public bool back;
+    public bool build;
 
     public override State RunCurrentState()
     {
@@ -26,38 +27,37 @@ public class BuildState : State
 
         if (interaction.Flagged == true)
         {
-          if(Position.transform == Position.transform)
-          {
-                if (trigger.AI != null)
-                {
-                    Debug.Log("Build");
-                    return this;
-                }
-                else if (trigger.AI == null)
-                {
-                    back = true;
-                    return IdleState;
-                }
+            if (Position.transform == Position.transform)
+            {
+                build = true;
+                Debug.Log("Build");
+
+            }
+            else
+            {
+                return IdleState;
                 
-          }
+            }
+          
             return this;
+
         }
         else if(interaction.Flagged == false)
         {
-            state.MovingBack();
+           
             return IdleState;
         }
         else
         {
             return this;
         }
-        //if(interacts == true)
-        //{
-        //    state.MovingBack();
-        //    return IdleState;
-        //}
+        ////if(interacts == true)
+        ////{
+        ////    state.MovingBack();
+        ////    return IdleState;
+        ////}
        
-
+        // not sure if this works. need's some testing. not fun logic xd
     
     }
 }
