@@ -52,7 +52,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Assigning the text
     public string InteractionPrompt => prompt;
 
-
+    public bool finished;
+    public bool Available;
 
     public int Building_health=10;
 
@@ -170,9 +171,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 levels[i].SetActive(true);
                 LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
                 iLevelWall.levelFX.SetActive(true);
+                finished = true;
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
                 currentLevel++;
+              
             }
         }
     }
@@ -190,7 +193,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
                 //Upgrade();
-                Gamemanager.Instance.tower = this.gameObject;
+                Available = true;
+                Gamemanager.Instance.tower.Add(this.gameObject);
                // currentLevel++;
             }
             else
@@ -202,8 +206,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
-            Gamemanager.Instance.tower = this.gameObject;
-           // currentLevel++;
+            Available = true;
+            Gamemanager.Instance.tower.Add(this.gameObject);
+            // currentLevel++;
         }
 
 
@@ -258,4 +263,16 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
        // throw new System.NotImplementedException();
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Builder"))
+        {
+     
+            Available = false;
+
+        }
+    }
+
+ 
 }

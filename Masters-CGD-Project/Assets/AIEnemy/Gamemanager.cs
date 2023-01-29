@@ -11,14 +11,14 @@ public class Gamemanager : MonoBehaviour
     public TimeManager timemanager;
     public int Days;
     //public Vector3 towerposition;
-    public GameObject tower;
+    public List<GameObject> tower;
 
     void Awake()
     {
         Instance=this;
         DontDestroyOnLoad(this.gameObject);
         //towerposition = Vector3.zero;
-        tower = null;
+        tower = new List<GameObject>();
     }
     // Start is called before the first frame update
     void Start()

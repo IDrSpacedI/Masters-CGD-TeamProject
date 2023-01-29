@@ -5,22 +5,37 @@ using UnityEngine;
 public class BuildState : State
 {
 
-    public bool interact;
     public BuilderManager state;
     public GoState goState;
     public IdleState IdleState;
+    public IntialState intial;
+    public bool ReturnState;
+    public Animator animator;
 
 
     public override State RunCurrentState()
     {
 
+      
+            goState.destination.GetComponent<BuildInteraction>().Upgrade();
+     
 
-        goState.destination = Gamemanager.Instance.tower;
-        goState.destination.GetComponent<BuildInteraction>().Upgrade();
+ 
 
+        if (goState.destination.GetComponent<BuildInteraction>().finished == true)
+        {
 
-        return this;
+            animator.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
+            return IdleState;
 
+          
+        }
+        else
+        {
+            return this;
+        }
+
+       
     
     }
 }

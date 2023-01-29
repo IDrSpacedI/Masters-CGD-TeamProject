@@ -10,16 +10,24 @@ public class IdleState : State
     public Animator aiAnimation;
     public float idleTime;
     private float time;
+    public WonderingState wonderingState;
+    
 
     public override State RunCurrentState()
     {
 
         aiAnimation.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
-        if (Gamemanager.Instance.tower != null)
+
+        foreach (GameObject tower in Gamemanager.Instance.tower)
         {
-            goState.destination = Gamemanager.Instance.tower;
-            return goState;
-                       
+
+            if (tower.GetComponent<BuildInteraction>().Available == true )
+            {
+                goState.destination = tower;
+                return goState;
+
+            }
+      
         }
         if (time < idleTime)
         {
@@ -28,7 +36,7 @@ public class IdleState : State
         else
         {
             time = 0;
-            //return wonderState;
+            return wonderingState;
         }
         return this;
 
