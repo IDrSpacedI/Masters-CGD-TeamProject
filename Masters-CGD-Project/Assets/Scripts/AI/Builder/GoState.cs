@@ -19,11 +19,23 @@ public class GoState : State
 
     public override State RunCurrentState()
     {
-        if(destination.GetComponent<BuildInteraction>().Available == false)
+        try
         {
-            return I_state;
+            if (destination.GetComponent<BuildInteraction>().Available == false)
+            {
+                return I_state;
+            }
         }
- 
+        catch
+        {
+            if (destination.GetComponent<GetMoney>().Available == false)
+            {
+                return I_state;
+            }
+        }
+      
+     
+
         Vector3 destinationVector = new Vector3(destination.transform.position.x, transform.position.y, transform.position.z);
         agent.SetDestination(destinationVector);
 

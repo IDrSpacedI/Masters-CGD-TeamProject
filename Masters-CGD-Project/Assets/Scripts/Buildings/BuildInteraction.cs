@@ -62,7 +62,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     // Start is called before the first frame update
     void Start()
     {
-        Gamemanager.Instance.tower.Add(this.gameObject);
+        Gamemanager.Instance.Objects.Add(this.gameObject);
         //Enable and disable objects
         interactButton.SetActive(true);
 

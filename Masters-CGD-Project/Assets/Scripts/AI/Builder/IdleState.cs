@@ -18,13 +18,27 @@ public class IdleState : State
 
         aiAnimation.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
 
-        foreach (GameObject tower in Gamemanager.Instance.tower)
+        foreach (GameObject objects in Gamemanager.Instance.Objects)
         {
-            if (tower.GetComponent<BuildInteraction>().Available == true )
+            try
             {
-                goState.destination = tower;
-                return goState;
+                if (objects.GetComponent<BuildInteraction>().Available == true)
+                {
+                    goState.destination = objects;
+                    return goState;
+                }
+
             }
+            catch
+            {
+                if (objects.GetComponent<GetMoney>().Available == true)
+                {
+                    goState.destination = objects;
+                    return goState;
+                }
+            }
+
+
         }
         if (time < idleTime)
         {

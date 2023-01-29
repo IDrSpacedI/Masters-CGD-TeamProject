@@ -18,9 +18,12 @@ public class GetMoney : MonoBehaviour
 
     public GameObject TextPrompt;
 
+    public bool Available;
+
     private void Start()
     {
-        GetComponent<MoneySystem>(); 
+        GetComponent<MoneySystem>();
+        Gamemanager.Instance.Objects.Add(this.gameObject);
     }
 
     void Update()
@@ -32,7 +35,9 @@ public class GetMoney : MonoBehaviour
             {
                 TextPrompt.SetActive(false);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
-                Destroy(gameObject);
+                Available = true;
+                //Destroy(gameObject);
+                
             }
             else
             {

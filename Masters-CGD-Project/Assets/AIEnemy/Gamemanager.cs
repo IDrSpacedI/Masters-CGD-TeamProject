@@ -11,14 +11,15 @@ public class Gamemanager : MonoBehaviour
     public TimeManager timemanager;
     public int Days;
     //public Vector3 towerposition;
-    public List<GameObject> tower;
+    [SerializeField] public ArrayList Objects = new ArrayList();
 
     void Awake()
     {
         Instance=this;
         DontDestroyOnLoad(this.gameObject);
         //towerposition = Vector3.zero;
-        tower = new List<GameObject>();
+        Objects = new ArrayList();
+
     }
     // Start is called before the first frame update
     void Start()
