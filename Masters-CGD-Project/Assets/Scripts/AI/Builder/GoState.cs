@@ -24,10 +24,10 @@ public class GoState : State
             return I_state;
         }
  
-        Vector3 destinatiuonVector = new Vector3(destination.transform.position.x, transform.position.y, transform.position.z);
-        agent.SetDestination(destinatiuonVector);
+        Vector3 destinationVector = new Vector3(destination.transform.position.x, transform.position.y, transform.position.z);
+        agent.SetDestination(destinationVector);
 
-        Vector3 distanceToPoint = transform.position - destinatiuonVector;
+        Vector3 distanceToPoint = transform.position - destinationVector;
 
         if(distanceToPoint.magnitude < 1f)
         {

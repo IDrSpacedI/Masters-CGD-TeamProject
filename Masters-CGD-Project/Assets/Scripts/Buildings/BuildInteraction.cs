@@ -62,6 +62,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     // Start is called before the first frame update
     void Start()
     {
+        Gamemanager.Instance.tower.Add(this.gameObject);
         //Enable and disable objects
         interactButton.SetActive(true);
 
@@ -175,7 +176,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
                 currentLevel++;
-              
             }
         }
     }
@@ -192,10 +192,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             {
                 if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
-                //Upgrade();
                 Available = true;
-                Gamemanager.Instance.tower.Add(this.gameObject);
-               // currentLevel++;
             }
             else
             {
@@ -206,9 +203,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
-            Available = true;
-            Gamemanager.Instance.tower.Add(this.gameObject);
-            // currentLevel++;
         }
 
 
@@ -264,15 +258,15 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
        // throw new System.NotImplementedException();
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Builder"))
-        {
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Builder"))
+    //    {
      
-            Available = false;
+    //        Available = false;
 
-        }
-    }
+    //    }
+    //}
 
  
 }

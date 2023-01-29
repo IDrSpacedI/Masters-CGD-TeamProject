@@ -20,14 +20,11 @@ public class IdleState : State
 
         foreach (GameObject tower in Gamemanager.Instance.tower)
         {
-
             if (tower.GetComponent<BuildInteraction>().Available == true )
             {
                 goState.destination = tower;
                 return goState;
-
             }
-      
         }
         if (time < idleTime)
         {

@@ -15,27 +15,14 @@ public class BuildState : State
 
     public override State RunCurrentState()
     {
-
-      
-            goState.destination.GetComponent<BuildInteraction>().Upgrade();
-     
-
- 
+        goState.destination.GetComponent<BuildInteraction>().Upgrade();
+        goState.destination.GetComponent<BuildInteraction>().Available = false;
 
         if (goState.destination.GetComponent<BuildInteraction>().finished == true)
         {
-
-            animator.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
             return IdleState;
-
-          
-        }
-        else
-        {
-            return this;
         }
 
-       
-    
+        return this;
     }
 }
