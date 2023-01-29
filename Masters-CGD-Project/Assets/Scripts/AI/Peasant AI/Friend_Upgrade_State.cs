@@ -13,34 +13,19 @@ public class Friend_Upgrade_State : State
 
 	public override State RunCurrentState()
 	{
-		if (builder)
+		if (builder && toolRef.GetComponent<ToolManager>().available)
 		{
-			if (toolRef.GetComponent<ToolManager>().available)
-			{
-				toolRef.GetComponent<ToolManager>().RemoveTools(1);
-				//destroy and change
-			}
-			else
-			{
-				builder = false;
-				return idleState;
-			}
+			toolRef.GetComponent<ToolManager>().RemoveTools(1);
+			return idleState;
 		}
-
-		if (soldier)
+		else if (soldier && armRef.GetComponent<ToolManager>().available)
 		{
-			if (armRef.GetComponent<ToolManager>().available)
-			{
-				armRef.GetComponent<ToolManager>().RemoveTools(1);
-				//destroy and chage
-			}
-			else
-			{
-				soldier = false;
-				return idleState;
-			}
+			armRef.GetComponent<ToolManager>().RemoveTools(1);
+			return idleState;
 		}
-
-		return this;
+		else
+		{
+			return idleState;
+		}
 	}
 }

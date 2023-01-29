@@ -7,6 +7,7 @@ public class Friend_Idle_State : State
 	public Friend_Wonder_State wonderState;
 	public Friend_Travel_State travelState;
 	public Friend_Upgrade_State upgradeState;
+	public GameObject peasantRef;
 	public Hiring hiringScript;
 	public GameObject toolRef;
 	public GameObject armRef;
@@ -25,7 +26,7 @@ public class Friend_Idle_State : State
 
 		if (hiringScript.hired)
 		{
-			if (armRef.GetComponent<ToolManager>().available)
+			if (armRef.GetComponent<ToolManager>().available && !upgradeState.soldier)
 			{
 				travelState.destination = armRef;
 				travelState.go = true;
@@ -34,13 +35,18 @@ public class Friend_Idle_State : State
 				return travelState;
 			}
 
-			if (toolRef.GetComponent<ToolManager>().available)
+			if (toolRef.GetComponent<ToolManager>().available && !upgradeState.builder)
 			{
 				travelState.destination = toolRef;
 				travelState.go = true;
 				travelState.upgrade = true;
 				upgradeState.builder = true;
 				return travelState;
+			}
+
+			if (upgradeState.builder || upgradeState.soldier)
+			{
+				Destroy(peasantRef);
 			}
 		}
 		
