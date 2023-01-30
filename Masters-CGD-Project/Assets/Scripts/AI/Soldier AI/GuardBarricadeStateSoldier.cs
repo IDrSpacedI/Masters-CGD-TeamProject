@@ -9,6 +9,7 @@ public class GuardBarricadeStateSoldier : State
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private LightingManager lightingManager;
     [SerializeField] private Animator aiAnimation;
+
     public void Start()
     {
         lightingManager = GameObject.Find("LightingManager").GetComponent<LightingManager>();
