@@ -30,7 +30,7 @@ public class GoTowerStateSoldier : State
         if (distance <= 0.5)
         {
             //teleport to top of tower
-            this.transform.position = new Vector3(this.transform.position.x, 4.024f, this.transform.position.y);
+            this.transform.position = new Vector3(this.transform.position.x, 4.024f, this.transform.position.z);
             //add soldier to tower list
             tower.GetComponent<LevelWall>().guards.Add(thisSoldier);
             //Turn on collision detection
