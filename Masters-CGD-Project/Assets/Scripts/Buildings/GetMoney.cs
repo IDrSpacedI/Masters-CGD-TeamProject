@@ -18,12 +18,9 @@ public class GetMoney : MonoBehaviour
 
     public GameObject TextPrompt;
 
-    public bool Available;
-
     private void Start()
     {
-        GetComponent<MoneySystem>();
-        Gamemanager.Instance.Objects.Add(this.gameObject);
+        GetComponent<MoneySystem>(); 
     }
 
     void Update()
@@ -35,9 +32,9 @@ public class GetMoney : MonoBehaviour
             {
                 TextPrompt.SetActive(false);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
-                Available = true;
                 //Destroy(gameObject);
-                
+                this.gameObject.SetActive(false);
+                Invoke("respawn",Random.Range(10,15));
             }
             else
             {
@@ -51,7 +48,10 @@ public class GetMoney : MonoBehaviour
             action = false;
        }
     }
-
+    void respawn()
+    {
+        this.gameObject.SetActive(true);
+    }
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
     {

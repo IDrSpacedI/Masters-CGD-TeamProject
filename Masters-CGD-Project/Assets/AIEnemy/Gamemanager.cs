@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class Gamemanager : MonoBehaviour
     public static Gamemanager Instance;
     public TimeManager timemanager;
     public int Days;
-    //public Vector3 towerposition;
-    [SerializeField] public ArrayList Objects = new ArrayList();
+    public GameObject toolRef;
+    public GameObject armRef;
+    public TextMeshProUGUI AI_Interact;
+    public GameObject mainBase;
 
-    void Awake()
+void Awake()
     {
         Instance=this;
         DontDestroyOnLoad(this.gameObject);
-        //towerposition = Vector3.zero;
-        Objects = new ArrayList();
-
     }
     // Start is called before the first frame update
     void Start()

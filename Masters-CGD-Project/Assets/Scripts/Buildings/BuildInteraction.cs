@@ -8,7 +8,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //What the prompt says
     [SerializeField] private string prompt;
 
-    [SerializeField] private GameObject[] levels;
+    [SerializeField] public GameObject[] levels;
 
     [SerializeField] public int currentLevel = -1;
 
@@ -182,7 +182,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Interact time");
+        //Debug.Log("Interact time");
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
