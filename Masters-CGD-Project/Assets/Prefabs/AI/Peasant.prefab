@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 5640611057772802494}
   m_Layer: 0
   m_Name: Peasant
-  m_TagString: Untagged
+  m_TagString: Peasant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
   hired: 0
   interactText: {fileID: 0}
   travelState: {fileID: 6001871030512384474}
-  baseTrans: {fileID: 0}
+  mainBase: {fileID: 0}
 --- !u!1 &1382099349920545263
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +416,55 @@ Transform:
   m_Father: {fileID: 1592668397256730489}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1980712658843603895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186022574943403543}
+  - component: {fileID: 135664791763117108}
+  m_Layer: 0
+  m_Name: Upgrade State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186022574943403543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980712658843603895}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.79088926, z: -0.47214818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7032001643051396563}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135664791763117108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980712658843603895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8300be99ff79fe846a2243d85210334d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 5090624610720285169}
+  toolRef: {fileID: 0}
+  builder: 0
+  armRef: {fileID: 0}
+  soldier: 0
 --- !u!1 &2008405471531979646
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f400439f8e35ef74abefb676af9dc1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleState: {fileID: 5440736679420980806}
+  idleState: {fileID: 5090624610720285169}
   wonderPoint: {x: 0, y: 0, z: 0}
   wonderRange: 0
   whatIsGround:
@@ -1476,9 +1525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad695d695523004b86d54def6d572a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleState: {fileID: 5440736679420980806}
+  idleState: {fileID: 5090624610720285169}
   wonderState: {fileID: 495840613361194973}
   travelState: {fileID: 6001871030512384474}
+  upgradeState: {fileID: 135664791763117108}
 --- !u!1 &5667673295883187759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1686,7 @@ Transform:
   - {fileID: 1210226963503202323}
   - {fileID: 8647897207130240364}
   - {fileID: 6304785716569644874}
+  - {fileID: 186022574943403543}
   m_Father: {fileID: 1373212062936862353}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1717,9 +1768,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa8d47447241949b1e948bfc0a4c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleState: {fileID: 5440736679420980806}
-  destination: {x: 0, y: 0, z: 0}
+  idleState: {fileID: 5090624610720285169}
+  upgradeState: {fileID: 135664791763117108}
+  toolRef: {fileID: 0}
+  armRef: {fileID: 0}
+  destination: {fileID: 0}
   go: 0
+  upgrade: 0
   agent: {fileID: 1373212062936862358}
   aiAnimation: {fileID: 4784006643171363463}
 --- !u!1 &7393953198723972997
@@ -1955,7 +2010,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1210226963503202323}
-  - component: {fileID: 5440736679420980806}
+  - component: {fileID: 5090624610720285169}
   m_Layer: 0
   m_Name: Idle State
   m_TagString: Untagged
@@ -1978,7 +2033,7 @@ Transform:
   m_Father: {fileID: 7032001643051396563}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5440736679420980806
+--- !u!114 &5090624610720285169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1992,6 +2047,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wonderState: {fileID: 495840613361194973}
   travelState: {fileID: 6001871030512384474}
+  upgradeState: {fileID: 135664791763117108}
+  peasantRef: {fileID: 1373212062936862356}
+  hiringScript: {fileID: 5640611057772802494}
+  toolRef: {fileID: 0}
+  armRef: {fileID: 0}
   aiAnimation: {fileID: 4784006643171363463}
   idleTime: 0
 --- !u!1 &8886353007903457111

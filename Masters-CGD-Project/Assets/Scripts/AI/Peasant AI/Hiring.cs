@@ -9,14 +9,14 @@ public class Hiring : MonoBehaviour
     public bool hired;
     public TextMeshProUGUI interactText;
     public Friend_Travel_State travelState;
-    public Transform baseTrans;
+    public GameObject mainBase;
 
     // Start is called before the first frame update
     void Start()
     {
         hired = false;
-        interactText = GameObject.Find("AI_Text").GetComponent<TextMeshProUGUI>();
-        baseTrans = GameObject.Find("Base").GetComponent<Transform>();
+        interactText = GameObject.Find("GameManager").GetComponent<Gamemanager>().AI_Interact;
+        mainBase = GameObject.Find("GameManager").GetComponent<Gamemanager>().mainBase;
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,7 +30,7 @@ public class Hiring : MonoBehaviour
                 {
                     interactText.text = "Hired!";
                     hired = true;
-                    travelState.destination = new Vector3 (baseTrans.position.x, transform.position.y, transform.position.z);
+                    travelState.destination = mainBase;
                     travelState.go = true;
                     StartCoroutine(Text());
                 }

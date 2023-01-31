@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class Gamemanager : MonoBehaviour
     public static Gamemanager Instance;
     public TimeManager timemanager;
     public int Days;
+    public GameObject toolRef;
+    public GameObject armRef;
+    public TextMeshProUGUI AI_Interact;
+    public GameObject mainBase;
 
 void Awake()
     {
