@@ -24,6 +24,7 @@ public class IdleStateSoldier : State
         {
             //Get the level of the wall
             GameObject currentLevel = GetTowerLevel(entityManager.towerList[i]);
+            Debug.Log(currentLevel);
             //check the numbers of slots if different from the count of the guards 
             if (currentLevel != null && currentLevel.GetComponent<LevelWall>().slots != currentLevel.GetComponent<LevelWall>().guards.Count)
             {

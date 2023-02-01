@@ -38,12 +38,12 @@ public class LightingManager : MonoBehaviour
             if (TimeOfDay > 20)
             {
                 state = States.night;
-                //Gamemanager.Instance.Time_to_attac = true;
+                Gamemanager.Instance.Time_to_attac = true;
             }
             else if (TimeOfDay > 5)
             {
                 state = States.day;
-                //Gamemanager.Instance.Time_to_attac = false;
+                Gamemanager.Instance.Time_to_attac = false;
             }
 
             UpdateLighting(TimeOfDay/24f);
