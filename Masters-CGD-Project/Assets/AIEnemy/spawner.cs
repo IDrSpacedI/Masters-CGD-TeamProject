@@ -12,34 +12,55 @@ public class spawner : MonoBehaviour
     void Start()
     {
         currentenemycount = 3;
-        enemyupdatecount = 0;
+        enemyupdatecount = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemies.Count== 0)
+        if (Gamemanager.Instance.Time_to_attac)
         {
-            //if (time < 10)
-            //    time += Time.deltaTime;
-            //else
-            //{
-            currentenemycount += enemyupdatecount;
-            for (int i = 0; i < currentenemycount; i++)
-            {
-                enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
-                enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().destination = Gamemanager.Instance.Enemy_Destination;
-                enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().Go_and_attack();
-            }
-            enemyupdatecount++;
-               // time = 0;
-               // }
+            Gamemanager.Instance.Time_to_attac = false;
+            spawnenemies();
         }
-        else
+        if (enemyupdatecount > 5 && enemies.Count == 0)
+            Gamemanager.Instance.gameWinUI.SetActive(true);
+    }
+        //    if (enemies.Count== 0)
+        //    {
+        //        //if (time < 10)
+        //        //    time += Time.deltaTime;
+        //        //else
+        //        //{
+        //        currentenemycount += enemyupdatecount;
+        //        for (int i = 0; i < currentenemycount; i++)
+        //        {
+        //            enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
+        //            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().destination = Gamemanager.Instance.Enemy_Destination;
+        //            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().Go_and_attack();
+        //        }
+        //        enemyupdatecount++;
+        //           // time = 0;
+        //           // }
+        //    }
+        //    else
+        //    {
+        //        for (int i = 0; i < enemies.Count; i++)
+        //            if (!enemies[i])
+        //                enemies.RemoveAt(i);
+        //    }
+        //}
+
+
+        void spawnenemies()
+    {
+        currentenemycount += enemyupdatecount;
+        for (int i = 0; i < currentenemycount; i++)
         {
-            for (int i = 0; i < enemies.Count; i++)
-                if (!enemies[i])
-                    enemies.RemoveAt(i);
+            enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
+            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().destination = Gamemanager.Instance.Enemy_Destination;
+            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().Go_and_attack();
         }
+        enemyupdatecount++;
     }
 }
