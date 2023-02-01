@@ -15,11 +15,13 @@ public class Gamemanager : MonoBehaviour
     public GameObject armRef;
     public TextMeshProUGUI AI_Interact;
     public GameObject mainBase;
+    public ArrayList Object = new ArrayList();
 
 void Awake()
     {
         Instance=this;
         DontDestroyOnLoad(this.gameObject);
+        Object = new ArrayList();
     }
     // Start is called before the first frame update
     void Start()

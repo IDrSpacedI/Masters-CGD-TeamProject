@@ -7,6 +7,7 @@ public class GetMoney : MonoBehaviour
 {
     public int amount;
     public GameObject player;
+    public bool Available;
 
     //public TextMeshProUGUI Pickup;
 
@@ -20,7 +21,8 @@ public class GetMoney : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<MoneySystem>(); 
+        GetComponent<MoneySystem>();
+        Gamemanager.Instance.Object.Add(this.gameObject);
     }
 
     void Update()
@@ -33,7 +35,8 @@ public class GetMoney : MonoBehaviour
                 TextPrompt.SetActive(false);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
                 //Destroy(gameObject);
-                this.gameObject.SetActive(false);
+                //this.gameObject.SetActive(false);
+                Available = true;
                 Invoke("respawn",Random.Range(10,15));
             }
             else

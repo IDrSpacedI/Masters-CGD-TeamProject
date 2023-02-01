@@ -45,11 +45,15 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Build Timer, needed to prevent all levels are build at once
     public float buildTime = 3f;
     public float buildTimeLeft;
-    
+
+    //public GameObject gamemanager;
+    //static public Vector3 pos;
+
     //Assigning the text
     public string InteractionPrompt => prompt;
 
-
+    public bool finished;
+    public bool Available;
 
     public int Building_health=10;
 
@@ -58,8 +62,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     // Start is called before the first frame update
     void Start()
     {
+        Gamemanager.Instance.Object.Add(this.gameObject);
         //Enable and disable objects
         interactButton.SetActive(true);
+
+        //gamemanager = GameObject.Find("GameManager");
 
 
         for (int i = 0; i < levels.Length; i++)
@@ -78,6 +85,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         //make sure the text are invisible
         interactText.text = "";
         buildTimerText.text = "";
+
+        //pos = this.transform.position;
     }
 
   
@@ -150,7 +159,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     
     //Changes which object is active in the image (current level is always -1 the real level)
-    void Upgrade()
+    public void Upgrade()
     {
         for (int i = 0; i < levels.Length; i++)
         {
@@ -163,8 +172,10 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 levels[i].SetActive(true);
                 LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
                 iLevelWall.levelFX.SetActive(true);
+                finished = true;
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
+                currentLevel++;
             }
         }
     }
@@ -177,12 +188,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
         if(basebuilding == false)
         {
-            if (GameObject.Find("Base1").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
+            if (GameObject.Find("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
                 if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
-                Upgrade();
-                currentLevel++;
+                Available = true;
             }
             else
             {
@@ -193,8 +203,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
-            Upgrade();
-            currentLevel++;
+            Available = true;
         }
 
 
@@ -249,4 +258,16 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
        // throw new System.NotImplementedException();
     }
+
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Builder"))
+    //    {
+     
+    //        Available = false;
+
+    //    }
+    //}
+
+ 
 }
