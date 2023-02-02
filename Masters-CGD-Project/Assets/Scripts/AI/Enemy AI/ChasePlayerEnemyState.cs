@@ -32,8 +32,9 @@ public class ChasePlayerEnemyState : State
         if (enemiesInRange.barricades.Count >= 1)
         {
             finalTarget = enemiesInRange.barricades[0];
-            enemiesInRange.barricades.Remove(finalTarget);
+            enemiesInRange.barricades.Remove(enemiesInRange.barricades[0]);
             attackEnemyState.target = finalTarget;
+            navMeshAgent.destination = this.transform.position;
             return attackEnemyState;
         }
         //Then check for towers                      Tower is built enough to destroy
@@ -42,6 +43,7 @@ public class ChasePlayerEnemyState : State
             finalTarget = enemiesInRange.towers[0];
             enemiesInRange.towers.Remove(enemiesInRange.towers[0]);
             attackEnemyState.target = finalTarget;
+            navMeshAgent.destination = this.transform.position;
             return attackEnemyState;
         }
         //Finally check for friendly AI
@@ -52,12 +54,14 @@ public class ChasePlayerEnemyState : State
             enemiesInRange.AIFriendly.Remove(enemiesInRange.AIFriendly[0]);
             attackNPCState.target = finalTarget;
             Debug.Log(finalTarget);
+            navMeshAgent.destination = this.transform.position;
             return attackNPCState;
         }
         //If player is in range...
         else if(enemiesInRange.playerInRange == true)
         {
             attackPlayerState.player = player;
+            navMeshAgent.destination = this.transform.position;
             return attackPlayerState;
         }
 

@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 6660826743310439286}
   - component: {fileID: 6660826743310439287}
   - component: {fileID: 6660826743310439280}
+  - component: {fileID: 4906385613562961075}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Build
@@ -225,6 +226,8 @@ MonoBehaviour:
   buildTimerText: {fileID: 0}
   buildTime: 3
   buildTimeLeft: 0
+  finished: 0
+  Available: 0
   Building_health: 10
 --- !u!54 &6660826743310439287
 Rigidbody:
@@ -255,6 +258,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: -3.75, y: 1, z: 0}
+--- !u!114 &4906385613562961075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660826743310439281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec80590c6be49ac46a09929caa6ae1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  dead: 0
 --- !u!1001 &3061529498582796674
 PrefabInstance:
   m_ObjectHideFlags: 0
