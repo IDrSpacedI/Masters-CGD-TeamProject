@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6660826742453991137
 Transform:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6660826742877042725
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6660826743310439281}
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -213,15 +213,6 @@ MonoBehaviour:
   basebuilding: 0
   interactCollider: {fileID: 6660826743310439280}
   interactButton: {fileID: 6662424492197578853}
-  level1: {fileID: 8560652567688270250}
-  level2: {fileID: 6145994833735982840}
-  level3: {fileID: 2791621584516117715}
-  level1FX: {fileID: 6662629573262761489}
-  level2FX: {fileID: 6662629572505803793}
-  level3FX: {fileID: 6662629571363791977}
-  level1build: 0
-  level2build: 0
-  level3build: 0
   interactText: {fileID: 0}
   buildTimerText: {fileID: 0}
   buildTime: 3
@@ -323,10 +314,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7776596864705275680, guid: 0b415da31b0954b4987fc970870b9dbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a006d34aaf9cc4544b8013b7eb597ad3, type: 2}
+    - target: {fileID: -5116601523079587575, guid: 0b415da31b0954b4987fc970870b9dbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b752d1b6ce877745b06ee303c2944f6, type: 2}
     - target: {fileID: 919132149155446097, guid: 0b415da31b0954b4987fc970870b9dbb, type: 3}
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 3841095688167983193, guid: 0b415da31b0954b4987fc970870b9dbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8025ab70cc12344a8e0c9a74b8bd7e9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b415da31b0954b4987fc970870b9dbb, type: 3}
 --- !u!1 &2791621584516117715 stripped
@@ -410,6 +413,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6702703106440051325, guid: 3978f4298a981b74297b58a65da43bd3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a8f5045a818d564dbe657dd012775f5, type: 2}
+    - target: {fileID: -3826114529551722102, guid: 3978f4298a981b74297b58a65da43bd3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59171256bb52e2642b780d056e9430fd, type: 2}
     - target: {fileID: 919132149155446097, guid: 3978f4298a981b74297b58a65da43bd3, type: 3}
       propertyPath: m_Name
       value: TowerMidPhase
@@ -889,6 +900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buildinginteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 6007229572315965982, guid: ae7db859b3577424ea50e532d1778339, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8cd37d56b6bdff340a7fd608b8f6ce98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae7db859b3577424ea50e532d1778339, type: 3}
 --- !u!1 &8560652567688270250 stripped

@@ -22,7 +22,7 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true && build.level3 == true)
+        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true && build.finished == true)
         {
             //load endgame scene
             SceneManager.LoadScene("EndGame");

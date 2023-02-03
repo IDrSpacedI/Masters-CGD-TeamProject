@@ -7,6 +7,8 @@ public class Friend_Idle_State : State
 	public Friend_Wonder_State wonderState;
 	public Friend_Travel_State travelState;
 	public Friend_Upgrade_State upgradeState;
+	public GameObject builderPrefab;
+	public GameObject soldierPrefab;
 	public GameObject peasantRef;
 	public Hiring hiringScript;
 	public GameObject toolRef;
@@ -44,8 +46,17 @@ public class Friend_Idle_State : State
 				return travelState;
 			}
 
-			if (upgradeState.builder || upgradeState.soldier)
+			
+			if (upgradeState.soldier)
 			{
+				Vector3 spawnPoint = transform.position;
+				Instantiate(soldierPrefab, spawnPoint, Quaternion.identity);
+				Destroy(peasantRef);
+			}
+			else if (upgradeState.builder)
+			{
+				Vector3 spawnPoint = transform.position;
+				Instantiate(builderPrefab, spawnPoint, Quaternion.identity);
 				Destroy(peasantRef);
 			}
 		}

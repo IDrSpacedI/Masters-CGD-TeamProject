@@ -19,6 +19,7 @@ public class ToolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TextPrompt.SetActive(false);
         foreach (GameObject tool in tools)
 		{
             tool.SetActive(false);
@@ -82,6 +83,7 @@ public class ToolManager : MonoBehaviour
 			if (tools[randomTool].activeSelf)
 			{
                 tools[randomTool].SetActive(false);
+                amount--;
                 i++;
 			}
             temp[randomTool] = tools[randomTool];
