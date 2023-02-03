@@ -44,6 +44,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public GameObject upgradeTent;
 
+
     //Different level objects
     //public GameObject level1;
     //public GameObject level2;
@@ -103,7 +104,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             buildTimerText.text = "";
         }
     }
-
+    
     //Changes which object is active in the image (current level is always -1 the real level)
     public void Upgrade()
     {
@@ -119,12 +120,42 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 levels[i].SetActive(true);
                 LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
                 iLevelWall.levelFX.SetActive(true);
+                iLevelWall.levelFX.GetComponent<ParticleSystem>().Play();
                 finished = true;
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
             }
         }
         currentLevel++;
+    }
+
+    public void DeUpgrade()
+    {
+        for (int i = 0; i < levels.Length; i++)
+        {
+            LevelWall iLevelWall;
+            //Deactivates currentLevel
+            if (i == currentLevel)
+            {
+                levels[i].SetActive(false);
+                iLevelWall = levels[i].GetComponent<LevelWall>();
+                iLevelWall.levelFX.SetActive(true);
+                iLevelWall.levelFX.GetComponent<ParticleSystem>().Play();
+            }
+            else if (i == 0)
+            {
+                //sets the next level to active and activate the FX and the main building for animation
+                levels[i].SetActive(true);
+                iLevelWall = levels[i].GetComponent<LevelWall>();
+                iLevelWall.levelFX.SetActive(true);
+                iLevelWall.mainUpgrade.SetActive(true);
+
+                //TODO play different sound
+
+                //FindObjectOfType<SoundManager>().PlaySound("coin");
+            }
+        }
+        currentLevel = 0;
     }
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)

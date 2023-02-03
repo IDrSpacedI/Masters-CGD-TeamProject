@@ -220,6 +220,7 @@ MonoBehaviour:
   finished: 0
   Available: 0
   Building_health: 10
+  upgradeTent: {fileID: 0}
 --- !u!54 &6660826743310439287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -263,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   dead: 0
+  buildInteraction: {fileID: 6660826743310439286}
 --- !u!1001 &3061529498582796674
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class HealthManagment : MonoBehaviour
 {
     public int health;
     public bool dead = false;
+    public BuildInteraction buildInteraction;  
 
     //Attack from the outside
     public void attack(int damage)
@@ -13,7 +14,7 @@ public class HealthManagment : MonoBehaviour
         if (health - damage <= 0)
         {
             //TODO kill entity or deactivate it depending if it's a structure
-            gameObject.SetActive(false);
+            buildInteraction.DeUpgrade();
             dead = true;
             return;
         }
