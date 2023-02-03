@@ -12,6 +12,7 @@ public class Friend_Init_State : State
 	public override State RunCurrentState()
 	{
 		idleState.idleTime = 1;
+		idleState.spawnEffect.SetActive(false);
 		idleState.toolRef = upgradeState.toolRef = travelState.toolRef = GameObject.Find("GameManager").GetComponent<Gamemanager>().toolRef;
 		idleState.armRef = upgradeState.armRef = travelState.armRef = GameObject.Find("GameManager").GetComponent<Gamemanager>().armRef;
 		wonderState.wonderPoint = transform.position;

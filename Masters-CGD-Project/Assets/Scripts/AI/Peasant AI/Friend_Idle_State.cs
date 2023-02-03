@@ -10,12 +10,18 @@ public class Friend_Idle_State : State
 	public GameObject builderPrefab;
 	public GameObject soldierPrefab;
 	public GameObject peasantRef;
+	public GameObject spawnEffect;
 	public Hiring hiringScript;
 	public GameObject toolRef;
 	public GameObject armRef;
 	public Animator aiAnimation;
 	public float idleTime;
 	private float time;
+
+	IEnumerator WaitCoroutine()
+	{
+		yield return new WaitForSeconds(0.5f);
+	}
 
 	public override State RunCurrentState()
 	{
@@ -49,12 +55,16 @@ public class Friend_Idle_State : State
 			if (upgradeState.soldier)
 			{
 				Vector3 spawnPoint = transform.position;
+				spawnEffect.SetActive(true);
+				StartCoroutine(WaitCoroutine());
 				Instantiate(soldierPrefab, spawnPoint, Quaternion.identity);
 				Destroy(peasantRef);
 			}
 			else if (upgradeState.builder)
 			{
 				Vector3 spawnPoint = transform.position;
+				spawnEffect.SetActive(true);
+				StartCoroutine(WaitCoroutine());
 				Instantiate(builderPrefab, spawnPoint, Quaternion.identity);
 				Destroy(peasantRef);
 			}

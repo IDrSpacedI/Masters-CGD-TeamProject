@@ -10,22 +10,46 @@ public class Friend_Upgrade_State : State
 	public bool builder;
 	public GameObject armRef;
 	public bool soldier;
+	IEnumerator WaitCoroutine()
+	{
+		yield return new WaitForSeconds(0.5f);
+	}
 
 	public override State RunCurrentState()
 	{
+		StartCoroutine(WaitCoroutine());
+
 		if (builder && toolRef.GetComponent<ToolManager>().available)
 		{
-			toolRef.GetComponent<ToolManager>().RemoveTools(1);
-			return idleState;
+			if (toolRef.GetComponent<ToolManager>().RemoveTools(1))
+			{
+				return idleState;
+			}
+			else
+			{
+				builder = false;
+				return idleState;
+			}
 		}
 		else if (soldier && armRef.GetComponent<ToolManager>().available)
 		{
-			armRef.GetComponent<ToolManager>().RemoveTools(1);
-			return idleState;
+			if (armRef.GetComponent<ToolManager>().RemoveTools(1))
+			{
+				return idleState;
+			}
+			else
+			{
+				soldier = false;
+				return idleState;
+			}
 		}
 		else
 		{
+			soldier = false;
+			builder = false;
 			return idleState;
 		}
 	}
 }
+
+

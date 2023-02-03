@@ -32,7 +32,7 @@ public class ToolManager : MonoBehaviour
         if (amount < max)
         {
             active = true;
-            if (Input.GetKeyDown(KeyCode.E) && active && action)
+            if (Input.GetKeyDown(KeyCode.E) && action)
             {
                 FindObjectOfType<SoundManager>().PlaySound("coin");
                 AddTools(1);
@@ -73,9 +73,10 @@ public class ToolManager : MonoBehaviour
         }
 	}
 
-	public void RemoveTools(int num)
+	public bool RemoveTools(int num)
 	{
         int i = 0;
+        bool success = false;
         GameObject[] temp = new GameObject[max];
         while (i < num)
 		{
@@ -84,26 +85,27 @@ public class ToolManager : MonoBehaviour
 			{
                 tools[randomTool].SetActive(false);
                 amount--;
+                success = true;
                 i++;
 			}
             temp[randomTool] = tools[randomTool];
             if (temp == tools)
 			{
-                return;
+                return success;
 			}
         }
+        return success;
     }
 
 	//sets UI elemt to active when player enters
 	void OnTriggerEnter(Collider collision)
     {
-        if (active == true)
-        {
-            TextPrompt.SetActive(true);
-        }
-
         if (collision.transform.tag == "Player")
         {
+            if (active == true)
+            {
+                TextPrompt.SetActive(true);
+            }
             //Debug.Log("touching");
             action = true;
         }
