@@ -42,6 +42,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public int Building_health=10;
 
+    public GameObject upgradeTent;
+
     //Different level objects
     //public GameObject level1;
     //public GameObject level2;
@@ -120,9 +122,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 finished = true;
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
-                currentLevel++;
             }
         }
+        currentLevel++;
     }
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)
@@ -149,6 +151,10 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
+            if (currentLevel == -1)
+            {
+                upgradeTent.SetActive(true);
+            }
             Upgrade();
         }
 
