@@ -28,7 +28,7 @@ public class Friend_Idle_State : State
 
 		if (hiringScript.hired)
 		{
-			if (armRef.GetComponent<ToolManager>().available && !upgradeState.soldier)
+			if (armRef.GetComponent<ToolManager>().available && !upgradeState.soldier && !upgradeState.builder)
 			{
 				travelState.destination = armRef;
 				travelState.go = true;
@@ -36,8 +36,7 @@ public class Friend_Idle_State : State
 				upgradeState.soldier = true;
 				return travelState;
 			}
-
-			if (toolRef.GetComponent<ToolManager>().available && !upgradeState.builder)
+			else if (toolRef.GetComponent<ToolManager>().available && !upgradeState.builder && !upgradeState.soldier)
 			{
 				travelState.destination = toolRef;
 				travelState.go = true;
