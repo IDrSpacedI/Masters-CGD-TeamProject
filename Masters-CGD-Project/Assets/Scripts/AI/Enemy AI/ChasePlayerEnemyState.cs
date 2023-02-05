@@ -29,7 +29,7 @@ public class ChasePlayerEnemyState : State
     {
 
         //First check for barricades
-        if (enemiesInRange.barricades.Count >= 1)
+        if (enemiesInRange.barricades.Count >= 1 && enemiesInRange.barricades[0].GetComponent<BuildInteraction>().currentLevel == 1)
         {
             finalTarget = enemiesInRange.barricades[0];
             enemiesInRange.barricades.Remove(enemiesInRange.barricades[0]);

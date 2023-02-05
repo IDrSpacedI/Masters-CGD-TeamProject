@@ -7,13 +7,23 @@ public class AttackBarricadeSoldierState : State
     public GameObject enemy;
     [SerializeField] private GuardBarricadeStateSoldier guardBarricadeStateSoldier;
 
+    //Damage and time between attacks
+    [SerializeField] private int damage;
+    public float elapsedTime;
+    [SerializeField] private float TimeAttack;
+
     public override State RunCurrentState()
     {
         if (enemy == null)
             return guardBarricadeStateSoldier;
 
-        //TODO if not take health from enemy every x seconds 
-
+        if (elapsedTime >= TimeAttack)
+        {
+            //Attack enemy
+            Debug.Log("attack");
+            enemy.GetComponent<HealthManagmentNPC>().attack(damage);
+            elapsedTime = 0f;
+        }
         return this;
     }
 

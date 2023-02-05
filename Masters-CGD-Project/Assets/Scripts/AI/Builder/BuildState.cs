@@ -20,21 +20,17 @@ public class BuildState : State
             goState.destination.GetComponent<BuildInteraction>().Available = false;
             if (goState.destination.GetComponent<BuildInteraction>().finished == true)
             {
+                goState.destination.GetComponent<BuildInteraction>().finished = false;
                 return IdleState;
             }
         }
         catch
-        {
+        {/*
             goState.destination.GetComponent<GetMoney>().gameObject.SetActive(false);
             goState.destination.GetComponent<GetMoney>().Available = false;
-            return IdleState;
+            return IdleState;*/
         }
         
-       
-
-       
-        
-
         return this;
     }
 }

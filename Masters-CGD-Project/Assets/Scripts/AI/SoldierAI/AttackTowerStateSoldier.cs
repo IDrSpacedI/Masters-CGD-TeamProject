@@ -7,13 +7,23 @@ public class AttackTowerStateSoldier : State
     public GameObject enemy;
     [SerializeField] private GuardTowerStateSoldier guardTowerStateSoldier;
 
+    //Damage and time between attacks
+    [SerializeField] private int damage;
+    public float elapsedTime;
+    [SerializeField] private float TimeAttack;
+
     public override State RunCurrentState()
     {
-        //If enemy dies??? TO BE DISCUSSED 
         if (enemy == null)
             return guardTowerStateSoldier;
 
-        //TODO if not take health from enemy every x seconds 
+        if (elapsedTime >= TimeAttack)
+        {
+            //Attack enemy
+            Debug.Log("attack");
+            enemy.GetComponent<HealthManagmentNPC>().attack(damage);
+            elapsedTime = 0f;
+        }
 
         return this;
     }
