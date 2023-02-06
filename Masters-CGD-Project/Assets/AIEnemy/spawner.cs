@@ -13,7 +13,7 @@ public class spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentenemycount = 3;
+        currentenemycount = 0;
         enemyupdatecount = 1;
     }
 
