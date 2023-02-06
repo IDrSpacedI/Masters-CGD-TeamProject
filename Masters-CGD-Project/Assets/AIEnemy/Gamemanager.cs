@@ -5,8 +5,7 @@ using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
-
-    public  GameObject Enemy_Destination;
+    public GameObject Enemy_Destination, gameWinUI;
     public bool Time_to_attac;
     public static Gamemanager Instance;
     public TimeManager timemanager;
