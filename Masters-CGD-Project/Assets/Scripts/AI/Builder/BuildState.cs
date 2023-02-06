@@ -20,7 +20,6 @@ public class BuildState : State
             goState.destination.GetComponent<BuildInteraction>().Available = false;
             if (goState.destination.GetComponent<BuildInteraction>().finished == true)
             {
-                goState.destination.GetComponent<BuildInteraction>().finished = false;
                 return IdleState;
             }
         }

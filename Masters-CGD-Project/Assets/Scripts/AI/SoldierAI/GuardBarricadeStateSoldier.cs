@@ -24,7 +24,7 @@ public class GuardBarricadeStateSoldier : State
             return attackBarricadeSoldierState;
         }
 
-        if (lightingManager.TimeOfDay >= 6)
+        if (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18)
         {
             //turn off the collision detection
             GetComponent<CapsuleCollider>().enabled = false;

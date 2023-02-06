@@ -24,7 +24,6 @@ public class IdleStateSoldier : State
         {
             //Get the level of the wall
             GameObject currentLevel = GetTowerLevel(entityManager.towerList[i]);
-            Debug.Log(currentLevel);
             //check the numbers of slots if different from the count of the guards 
             if (currentLevel != null && currentLevel.GetComponent<LevelWall>().slots != currentLevel.GetComponent<LevelWall>().guards.Count)
             {
@@ -40,7 +39,10 @@ public class IdleStateSoldier : State
             //Check for the closest barricade
             for (int i = 0; i < entityManager.barricadeList.Count; i++)
             {
-                currentBarricade = CompareBarricadeDistance(entityManager.barricadeList[i]);
+                if (entityManager.barricadeList[i].GetComponent<BuildInteraction>().currentLevel >= 1)
+                {
+                    currentBarricade = CompareBarricadeDistance(entityManager.barricadeList[i]);
+                }
             }
             //If there's no barricades anywhere do nothing
             if(currentBarricade != null)

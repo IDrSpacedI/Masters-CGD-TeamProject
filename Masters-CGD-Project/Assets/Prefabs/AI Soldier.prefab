@@ -132,9 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   guardTowerStateSoldier: {fileID: 4759438627478677119}
-  damage: 0
-  elapsedTime: 0
-  TimeAttack: 0
+  damage: 10
+  elapsedTime: 5
+  TimeAttack: 5
 --- !u!1 &5281489942065297381
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,8 +241,8 @@ CapsuleCollider:
   m_GameObject: {fileID: 5786991958950516391}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 3
+  m_Enabled: 1
+  m_Radius: 7
   m_Height: 1.52
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
@@ -327,7 +327,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ee5180dcdb6124cb6ed7a177888777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 10
 --- !u!1 &8111969726361549120
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,9 +440,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   guardBarricadeStateSoldier: {fileID: 9107731802081385002}
-  damage: 0
-  elapsedTime: 0
-  TimeAttack: 0
+  damage: 5
+  elapsedTime: 5
+  TimeAttack: 5
 --- !u!1 &8131893068618507220
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +485,8 @@ CapsuleCollider:
   m_GameObject: {fileID: 8131893068618507220}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 3
+  m_Enabled: 1
+  m_Radius: 5
   m_Height: 1.52
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}

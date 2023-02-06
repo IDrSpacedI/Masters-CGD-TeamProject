@@ -15,7 +15,9 @@ public class GoBarricadeStateSoldier : State
         //get final destination
         Vector3 barricadePosition = new Vector3(barricade.transform.position.x-1, barricade.transform.position.y, this.transform.position.z);
 
-        if (this.transform.position == barricadePosition)
+        float distance = Vector3.Distance(barricadePosition, this.transform.position);
+
+        if (distance <= 0.5)
         {
             //Turn on collision detection
             guardBarricadeStateSoldier.GetComponent<CapsuleCollider>().enabled = true;

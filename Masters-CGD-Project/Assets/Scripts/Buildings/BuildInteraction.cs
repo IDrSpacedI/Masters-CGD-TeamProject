@@ -108,7 +108,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Changes which object is active in the image (current level is always -1 the real level)
     public void Upgrade()
     {
-        
+        finished = false;
         for (int i = 0; i < levels.Length; i++)
         {
             //Sets current level inactive
@@ -170,7 +170,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
            
             if (GameObject.Find("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
-                if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5) && Available == false)
+                if (moneySystem == null || Available == true || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
                 Available = true;
             }
