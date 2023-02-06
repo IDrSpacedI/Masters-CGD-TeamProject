@@ -13,7 +13,6 @@ public class Coins_HUD : MonoBehaviour
     public MoneySystem M_System;
     private int MaxMoney;
     private int i;
-    public Animator[] Coin_Anim;
 
     void Start()
     {
@@ -31,10 +30,14 @@ public class Coins_HUD : MonoBehaviour
 
     void Update()
     {
+
+
+
         // checks how many coins there are and corresponds with UI
 
         Coins = M_System.currentMoney;
-            for (i = 0; i < Coins; i++)
+     
+        for (i = 0; i < Coins; i++)
             {
                 Coin[i].SetActive(true);
             }
