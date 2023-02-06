@@ -15,6 +15,7 @@ public class Gamemanager : MonoBehaviour
     public TextMeshProUGUI AI_Interact;
     public GameObject mainBase;
     public ArrayList Object = new ArrayList();
+    //public GameObject gameWinUI;
 
 void Awake()
     {

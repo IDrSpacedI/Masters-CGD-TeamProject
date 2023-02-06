@@ -31,11 +31,11 @@ public class IdleState : State
             }
             catch
             {
-                if (objects.GetComponent<GetMoney>().Available == true)
+                /*if (objects.GetComponent<GetMoney>().Available == true)
                 {
                     goState.destination = objects;
                     return goState;
-                }
+                }*/
             }
 
 
@@ -44,14 +44,13 @@ public class IdleState : State
         {
             time += Time.deltaTime;
         }
-        else
+        /*else
         {
             time = 0;
             return wonderingState;
-        }
+        }*/
         return this;
 
     
-
     }
 }

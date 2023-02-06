@@ -124,6 +124,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 finished = true;
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
+                Available = false;
             }
         }
         currentLevel++;
@@ -169,7 +170,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
            
             if (GameObject.Find("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
-                if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
+                if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5) && Available == false)
                     return false;
                 Available = true;
             }

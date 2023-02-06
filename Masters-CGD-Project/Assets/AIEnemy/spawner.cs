@@ -8,6 +8,8 @@ public class spawner : MonoBehaviour
     float time;
     List<GameObject> enemies = new List<GameObject>();
     int enemyupdatecount,currentenemycount;
+    //Checks if it has spawned for the day
+    bool hasSpawnedForTheDay = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,14 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Gamemanager.Instance.Time_to_attac)
+        if (Gamemanager.Instance.Time_to_attac && hasSpawnedForTheDay == false)
         {
-            Gamemanager.Instance.Time_to_attac = false;
+            hasSpawnedForTheDay = true;
             spawnenemies();
+        }
+        else if (!Gamemanager.Instance.Time_to_attac)
+        {
+            hasSpawnedForTheDay = false;
         }
         if (enemyupdatecount > 5 && enemies.Count == 0)
             Gamemanager.Instance.gameWinUI.SetActive(true);
@@ -58,8 +64,6 @@ public class spawner : MonoBehaviour
         for (int i = 0; i < currentenemycount; i++)
         {
             enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
-            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().destination = Gamemanager.Instance.Enemy_Destination;
-            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().Go_and_attack();
         }
         enemyupdatecount++;
     }

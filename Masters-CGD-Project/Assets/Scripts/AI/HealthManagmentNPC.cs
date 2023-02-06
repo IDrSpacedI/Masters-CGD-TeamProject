@@ -11,9 +11,11 @@ public class HealthManagmentNPC : MonoBehaviour
     {
         if (health - damage <= 0)
         {
+            Debug.Log(this.name + " died");
             Destroy(gameObject);
             return;
         }
         health = health - damage;
+        Debug.Log(this.name + " took damage; Current health: " + health);
     }
 }

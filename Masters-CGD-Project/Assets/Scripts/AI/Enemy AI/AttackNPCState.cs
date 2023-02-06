@@ -18,7 +18,6 @@ public class AttackNPCState : State
         //If target was deleted
         if (target == null)
         {
-            Debug.Log("Target NULL");
             return chasePlayerEnemyState;
         }
         elapsedTime += Time.deltaTime;
@@ -26,7 +25,6 @@ public class AttackNPCState : State
         if (elapsedTime >= TimeAttack)
         {
             //Attack enemy
-            Debug.Log("attack");
             target.GetComponent<HealthManagmentNPC>().attack(damage);
             elapsedTime = 0f;
         }
