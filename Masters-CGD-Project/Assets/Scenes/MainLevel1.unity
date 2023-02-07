@@ -23100,7 +23100,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945588528}
-  m_LocalRotation: {x: 0.03327793, y: 0.000000017196852, z: -5.725928e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277918, y: -0.000000017196852, z: 5.7259264e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25829,7 +25829,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071270069}
-  m_LocalRotation: {x: 0.015093018, y: -0.000000034425636, z: 5.196459e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093018, y: 0.000000034425636, z: -5.196459e-10, w: 0.9998861}
   m_LocalPosition: {x: -40.39, y: 2.003, z: -19.106482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28143,7 +28143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178078840}
-  m_LocalRotation: {x: 0.015093018, y: -0.000000017212816, z: 2.5982297e-10, w: 0.9998861}
+  m_LocalRotation: {x: 0.015093018, y: 0.00000001721282, z: -2.5982302e-10, w: 0.9998861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44204,6 +44204,7 @@ GameObject:
   - component: {fileID: 1765031978}
   - component: {fileID: 1765031979}
   - component: {fileID: 1765031980}
+  - component: {fileID: 1765031981}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44312,6 +44313,25 @@ MonoBehaviour:
   peasantList: []
   builderList: []
   soldierList: []
+--- !u!114 &1765031981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765031974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86db23eb605a4524db46d58d4b047df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lm: {fileID: 1274806913}
+  soldierPF: {fileID: 7216224356668882134, guid: cb5c20d07fd1939488dee7549c5ad280, type: 3}
+  builderPF: {fileID: 3201445268114940366, guid: e317f076b84eb94499bab3122a368121, type: 3}
+  peasantPF: {fileID: 1373212062936862356, guid: 057e773540fb2a64ebcc55491def8904, type: 3}
+  enemyPF: {fileID: 1304774361300961868, guid: f3573e4255afd1345878a1a029e8b401, type: 3}
+  player: {fileID: 1841814631}
+  cheats: 1
 --- !u!1 &1769680192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8560652567688270250, guid: b70cbc0f0da563c47aec2a97957106f9, type: 3}

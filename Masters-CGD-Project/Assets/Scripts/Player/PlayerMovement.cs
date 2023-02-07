@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (disableMovement == false)
         {
             PlayerMove();
-            PlayerJump();
+            //PlayerJump();
             PlayerGravity();
         }
 
