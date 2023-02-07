@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Cheats : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Cheats : MonoBehaviour
     public GameObject peasantPF;
     public GameObject enemyPF;
     public GameObject player;
+    public TextMeshProUGUI speedDebugText;
     public bool cheats = true;
 
     // Start is called before the first frame update
@@ -30,6 +32,7 @@ public class Cheats : MonoBehaviour
             SpawnEnemy();
             TimeTravel();
         }
+        speedDebugText.text = "Speed: " + Time.timeScale;
     }
 
     void TimeTravel()
@@ -42,7 +45,6 @@ public class Cheats : MonoBehaviour
         {
             Time.timeScale -= 0.1f;
         }
-
     }
 
     void SpawnSoldier()
