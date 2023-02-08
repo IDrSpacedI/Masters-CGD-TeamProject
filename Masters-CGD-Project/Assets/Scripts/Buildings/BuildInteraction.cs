@@ -108,7 +108,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
         if (currentLevel == 3)
         {
-            TextBox.SetActive(false);
+            //TextBox.SetActive(false);
             interactButton.SetActive(false);
             //Destroy(interactButton);
             //Destroy(TextBox);
