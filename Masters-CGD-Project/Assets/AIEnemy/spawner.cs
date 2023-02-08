@@ -7,9 +7,10 @@ public class spawner : MonoBehaviour
     public GameObject enemyAI;
     float time;
     List<GameObject> enemies = new List<GameObject>();
-    int enemyupdatecount,currentenemycount;
+    public int enemyupdatecount,currentenemycount;
     //Checks if it has spawned for the day
     bool hasSpawnedForTheDay = true;
+    public EndGame endgame;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,8 @@ public class spawner : MonoBehaviour
         {
             hasSpawnedForTheDay = false;
         }
-        if (enemyupdatecount > 5 && enemies.Count == 0)
-            Gamemanager.Instance.gameWinUI.SetActive(true);
+        if (enemyupdatecount == 6 && enemies.Count == 0)
+            endgame.ChangeScene();
     }
         //    if (enemies.Count== 0)
         //    {
