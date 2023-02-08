@@ -44,6 +44,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public GameObject upgradeTent;
 
+    public GameObject TextBox;
+
 
     //Different level objects
     //public GameObject level1;
@@ -103,6 +105,15 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             buildTimerText.text = "";
         }
+
+        if (currentLevel == 3)
+        {
+            TextBox.SetActive(false);
+            interactButton.SetActive(false);
+            //Destroy(interactButton);
+            //Destroy(TextBox);
+        }
+
     }
     
     //Changes which object is active in the image (current level is always -1 the real level)

@@ -23,6 +23,7 @@ public class GetMoney : MonoBehaviour
     {
         GetComponent<MoneySystem>();
         Gamemanager.Instance.Object.Add(this.gameObject);
+        
     }
 
     void Update()
