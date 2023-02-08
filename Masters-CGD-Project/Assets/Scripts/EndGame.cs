@@ -22,12 +22,7 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true && build.finished == true)
-        {
-            //load endgame scene
-            SceneManager.LoadScene("EndGame");
 
-        }
     }
 
     //sets UI elemt to active when player enters
@@ -53,5 +48,12 @@ public class EndGame : MonoBehaviour
         // Debug.Log("Exitted");
         TextPrompt.SetActive(false);
         action = false;
+    }
+
+    public void ChangeScene()
+    {
+            //load endgame scene
+            SceneManager.LoadScene("EndGame");
+
     }
 }
