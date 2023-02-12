@@ -6,7 +6,7 @@ using TMPro;
 public class GetMoney : MonoBehaviour
 {
     public int amount;
-    public GameObject player;
+    private GameObject player;
     public bool Available;
 
     //public TextMeshProUGUI Pickup;
@@ -21,6 +21,7 @@ public class GetMoney : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         GetComponent<MoneySystem>();
         Gamemanager.Instance.Object.Add(this.gameObject);
         
@@ -60,15 +61,16 @@ public class GetMoney : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("TRIGGER!!!!!!!!!!");
-        if (active == true)
-        {
-            TextPrompt.SetActive(true);
-            //Pickup.gameObject.SetActive(true);
-        }
+        //if (active == true)
+        //{
+        //    TextPrompt.SetActive(true);
+        //    //Pickup.gameObject.SetActive(true);
+        //}
 
         if (collision.transform.tag == "Player")
         {
             //Debug.Log("touching");
+            TextPrompt.SetActive(true);
             action = true;
         }
 

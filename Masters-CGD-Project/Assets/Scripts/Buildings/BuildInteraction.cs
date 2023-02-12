@@ -192,6 +192,16 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         }
         else
         {
+            //if (moneySystem == null || currentLevel == levels.Length - 1)
+            //    return false;
+            //if (currentLevel == -1)
+            //{
+            //    upgradeTent.SetActive(true);
+            //    if(moneySystem.reduceMoney(5) == true)
+            //    {
+            //        Upgrade();
+            //    }   
+            //}
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
             if (currentLevel == -1)

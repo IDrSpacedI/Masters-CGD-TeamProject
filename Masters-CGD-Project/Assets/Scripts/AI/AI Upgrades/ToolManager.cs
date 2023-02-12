@@ -9,6 +9,7 @@ public class ToolManager : MonoBehaviour
     private int amount;
     public int max;
     [SerializeField]private GameObject[] tools;
+    public GameObject player;
 
     private bool active = true;
     private bool action = false;
@@ -19,6 +20,7 @@ public class ToolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         TextPrompt.SetActive(false);
         foreach (GameObject tool in tools)
 		{
@@ -34,8 +36,11 @@ public class ToolManager : MonoBehaviour
             active = true;
             if (Input.GetKeyDown(KeyCode.E) && action)
             {
-                FindObjectOfType<SoundManager>().PlaySound("coin");
-                AddTools(1);
+                if (player.gameObject.GetComponent<IMoney>().reduceMoney(5) == true)
+                {
+                    FindObjectOfType<SoundManager>().PlaySound("coin");
+                    AddTools(1);
+                }        
             }
 		}
 		else
