@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Profiling;
 // script by Oliver lancashire
 // sid 1901981
 public class Pause : MonoBehaviour
@@ -61,6 +62,7 @@ public class Pause : MonoBehaviour
         GameIsPaused = true;
         PlayerMovement.disableMovement = true;
         Cursor.lockState = CursorLockMode.None;
+       
 
     }
 
