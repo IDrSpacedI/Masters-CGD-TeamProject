@@ -14,7 +14,7 @@ public class OpernBarricade : MonoBehaviour
 
 	private void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player" || collision.transform.tag == "FriendlyNPC")
         {
             anim.SetBool("Play", true);
         }
@@ -22,7 +22,7 @@ public class OpernBarricade : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player" || collision.transform.tag == "FriendlyNPC")
         {
             anim.SetBool("Play", false);
         }

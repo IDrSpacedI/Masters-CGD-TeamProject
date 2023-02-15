@@ -179,7 +179,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         if(basebuilding == false)
         {
            
-            if (GameObject.Find("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
+            if (GameObject.Find("NewBase").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
                 if (moneySystem == null || Available == true || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
