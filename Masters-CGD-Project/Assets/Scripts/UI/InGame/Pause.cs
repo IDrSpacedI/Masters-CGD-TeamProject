@@ -18,7 +18,7 @@ public class Pause : MonoBehaviour
     public LevelManager manager;
 
     [Header("Health Reference")]
-    public GameObject[] HUDElements;
+    public GameObject HUDElements;
 
  
     public void LoadLevel(int index)
@@ -45,6 +45,8 @@ public class Pause : MonoBehaviour
     public void Resume()
     {//  sets the needed values to true
         pauseMenuUI.SetActive(false);
+        HUDElements.SetActive(true);
+        clock.SetActive(true);
         Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
         Cursor.visible = false;
@@ -57,6 +59,8 @@ public class Pause : MonoBehaviour
     {
         // sets the values to false
         pauseMenuUI.SetActive(true);
+        HUDElements.SetActive(false);
+        clock.SetActive(false);
         Time.timeScale = 0f;
         Cursor.visible = true;
         GameIsPaused = true;
