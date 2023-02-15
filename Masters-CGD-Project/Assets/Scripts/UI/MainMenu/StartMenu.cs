@@ -8,6 +8,7 @@ public class StartMenu : MonoBehaviour
     public GameObject start;
     public GameObject menu;
     public GameObject transition;
+    public GameObject title;
 
     void Update()
     {
@@ -26,6 +27,7 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         start.SetActive(false);
         menu.SetActive(true);
+        title.SetActive(false);
        
     }
 }
