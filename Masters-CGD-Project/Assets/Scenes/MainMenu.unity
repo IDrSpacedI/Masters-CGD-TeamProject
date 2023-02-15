@@ -19538,13 +19538,14 @@ GameObject:
   - component: {fileID: 720542607}
   - component: {fileID: 720542609}
   - component: {fileID: 720542608}
+  - component: {fileID: 720542610}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &720542607
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19552,17 +19553,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720542606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6063299488702995860}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 2.487}
+  m_AnchoredPosition: {x: -453, y: 2.487}
   m_SizeDelta: {x: 100, y: 375.2774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720542608
@@ -19578,7 +19579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19603,6 +19604,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720542606}
   m_CullTransparentMesh: 1
+--- !u!95 &720542610
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720542606}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eddefc1ec237c5f4d8ec7a6953ef3b69, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &720724016
 GameObject:
   m_ObjectHideFlags: 0
@@ -60916,6 +60937,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3974818694558313379, guid: 9ca32510918745747b80e558e1fa49d7, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.018274536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974818694558313379, guid: 9ca32510918745747b80e558e1fa49d7, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.07298363
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974818694558313379, guid: 9ca32510918745747b80e558e1fa49d7, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974818694558313379, guid: 9ca32510918745747b80e558e1fa49d7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278522809
+      objectReference: {fileID: 0}
     - target: {fileID: 5856483803610503829, guid: 9ca32510918745747b80e558e1fa49d7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
