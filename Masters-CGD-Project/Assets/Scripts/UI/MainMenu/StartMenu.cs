@@ -14,10 +14,18 @@ public class StartMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             fade.Play("Fadein");
-            start.SetActive(false);
-            menu.SetActive(true);
-            transition.SetActive(false);
+            StartCoroutine(speed());
+          
+           
 
         }
+    }
+
+    public IEnumerator speed()
+    {
+        yield return new WaitForSeconds(1.3f);
+        start.SetActive(false);
+        menu.SetActive(true);
+       
     }
 }
