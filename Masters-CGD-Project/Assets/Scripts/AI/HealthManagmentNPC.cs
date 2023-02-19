@@ -16,6 +16,7 @@ public class HealthManagmentNPC : MonoBehaviour
             return;
         }
         health = health - damage;
+        FindObjectOfType<SoundManager>().PlaySound("NPCTakingDamage");
         Debug.Log(this.name + " took damage; Current health: " + health);
     }
 }
