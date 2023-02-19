@@ -24,13 +24,15 @@ public class HealthSysytem : MonoBehaviour,IHealth
     {
         if(currentHealth - amount >= 0)
         {
+            FindObjectOfType<SoundManager>().PlaySound("HurtPlayer");
             currentHealth = currentHealth - amount;
             return true;
         }
         else
         {
+            FindObjectOfType<SoundManager>().PlaySound("LoseGame");
             currentHealth = 0;
-            playerDead();    //Call a function if dead
+            Invoke("playerDead", 1f);
             return false;
         }
     }

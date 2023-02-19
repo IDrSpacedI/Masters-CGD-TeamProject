@@ -119,6 +119,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Changes which object is active in the image (current level is always -1 the real level)
     public void Upgrade()
     {
+        FindObjectOfType<SoundManager>().PlaySound("BuildingSound");
         finished = false;
         for (int i = 0; i < levels.Length; i++)
         {
@@ -177,12 +178,15 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
         if(basebuilding == false)
+            
         {
            
-            if (GameObject.Find("NewBase").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
+            if (GameObject.FindWithTag("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
+                //GameObject.Find("---NewBase---").GetComponent<BuildInteraction>().currentLevel
                 if (moneySystem == null || Available == true || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
+                FindObjectOfType<SoundManager>().PlaySound("UpgradeSound");
                 Available = true;
             }
             else

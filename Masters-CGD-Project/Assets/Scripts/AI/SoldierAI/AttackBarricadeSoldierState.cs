@@ -21,6 +21,7 @@ public class AttackBarricadeSoldierState : State
         {
             //Attack enemy
             Debug.Log("attack");
+            FindObjectOfType<SoundManager>().PlaySound("AttackNPC");
             enemy.GetComponent<HealthManagmentNPC>().attack(damage);
             elapsedTime = 0f;
         }
