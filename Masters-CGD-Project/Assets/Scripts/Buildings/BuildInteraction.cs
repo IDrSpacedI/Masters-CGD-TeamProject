@@ -177,10 +177,12 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
         if(basebuilding == false)
+            
         {
            
-            if (GameObject.Find("NewBase").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
+            if (GameObject.FindWithTag("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
+                //GameObject.Find("---NewBase---").GetComponent<BuildInteraction>().currentLevel
                 if (moneySystem == null || Available == true || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                     return false;
                 Available = true;
