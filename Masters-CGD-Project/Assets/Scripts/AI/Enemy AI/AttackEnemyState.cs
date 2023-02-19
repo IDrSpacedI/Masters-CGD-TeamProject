@@ -27,6 +27,7 @@ public class AttackEnemyState : State
         {
             //Attack enemy
             target.GetComponent<HealthManagment>().attack(damage);
+            FindObjectOfType<SoundManager>().PlaySound("DamageToBuilding");
             elapsedTime = 0f;
         }
         return this;

@@ -35,7 +35,8 @@ public class GetMoney : MonoBehaviour
             if(player.gameObject.GetComponent<IMoney>().addMoney(amount) == true)
             {
                 TextPrompt.SetActive(false);
-                FindObjectOfType<SoundManager>().PlaySound("coin");
+                //FindObjectOfType<SoundManager>().PlaySound("coin");
+                FindObjectOfType<SoundManager>().PlaySound("BreakTree");
                 //Destroy(gameObject);
                 this.gameObject.SetActive(false);
                 Available = true;
