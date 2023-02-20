@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
+
+    public Animator mainmenuTextAnim;
  
     public void Awake()
     {
@@ -23,14 +25,14 @@ public class mainMenu : MonoBehaviour
     // hover on button to increase or decrease size
     public void onClickEnter(TextMeshProUGUI txt)
     {
-        txt.fontSize = 120;
+        txt.fontSize = 90;
 
 
     }
 
     public void onClickExit(TextMeshProUGUI txt)
     {
-        txt.fontSize = 90;
+        txt.fontSize = 85;
 
 
     }
@@ -44,5 +46,10 @@ public class mainMenu : MonoBehaviour
 
     }
 
+
+    public void buttonHover(int selection)
+    {
+        mainmenuTextAnim.SetInteger("Selection", selection);
+    }
    
 }

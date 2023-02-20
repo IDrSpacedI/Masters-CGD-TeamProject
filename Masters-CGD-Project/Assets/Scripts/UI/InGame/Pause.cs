@@ -19,12 +19,14 @@ public class Pause : MonoBehaviour
 
     [Header("Health Reference")]
     public GameObject HUDElements;
+    public GameObject UIBlur;
+    public Animator Pause_Anim;
 
- 
+
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
-      
+
     }
     public void Update()
     {
@@ -44,10 +46,8 @@ public class Pause : MonoBehaviour
 
     public void Resume()
     {//  sets the needed values to true
-        pauseMenuUI.SetActive(false);
-        HUDElements.SetActive(true);
-        clock.SetActive(true);
-        Time.timeScale = 1f;
+
+        StartCoroutine(UnPaused());
         PlayerMovement.disableMovement = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -57,16 +57,11 @@ public class Pause : MonoBehaviour
 
     public void Pause_()
     {
-        // sets the values to false
-        pauseMenuUI.SetActive(true);
-        HUDElements.SetActive(false);
-        clock.SetActive(false);
-        Time.timeScale = 0f;
+        StartCoroutine(Paused());
         Cursor.visible = true;
         GameIsPaused = true;
         PlayerMovement.disableMovement = true;
         Cursor.lockState = CursorLockMode.None;
-       
 
     }
 
@@ -82,6 +77,28 @@ public class Pause : MonoBehaviour
     public void onClickExit(TextMeshProUGUI txt)
     {
         txt.fontSize = 70;
+    }
+
+    public IEnumerator Paused()
+    {
+        pauseMenuUI.SetActive(true);
+        Pause_Anim.Play("Pause");
+        yield return new WaitForSeconds(3f);
+        HUDElements.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
+    public IEnumerator UnPaused()
+    {
+        Time.timeScale = 1f;
+        UIBlur.SetActive(false);
+        Pause_Anim.Play("Unpause");
+        yield return new WaitForSeconds(3f);
+        pauseMenuUI.SetActive(false);
+        HUDElements.SetActive(true);
+        clock.SetActive(true);
+
+
     }
 }
 

@@ -11,6 +11,8 @@ public class LevelLoadingTest : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI progressText;
 
+    public Animator flash;
+
     public int x;
 
     public string[] tips;
@@ -18,6 +20,8 @@ public class LevelLoadingTest : MonoBehaviour
 
     public TextMeshProUGUI tipText;
     public Image Background;
+
+    public GameObject mainmenu;
 
     public void Start()
     {
@@ -27,6 +31,7 @@ public class LevelLoadingTest : MonoBehaviour
 
     public void LoadLevel (int sceneIndex)
     {
+
         StartCoroutine(LoadAsyncronouly(sceneIndex));
     }
 
@@ -35,6 +40,8 @@ public class LevelLoadingTest : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
         Loadscreen.SetActive(true);
+        mainmenu.SetActive(false);
+        flash.Play("FlashTransition");
         x = Random.Range(0, 1);
         Background.sprite = sprites[x];
 
@@ -44,6 +51,11 @@ public class LevelLoadingTest : MonoBehaviour
 
             slider.value = progress;
             progressText.text = progress * 100f + "%";
+
+            if(progress == 100)
+            {
+                flash.Play("FlashTransition");
+            }
 
             Debug.Log(operation.progress);
 
