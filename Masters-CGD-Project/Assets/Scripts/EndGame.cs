@@ -13,6 +13,8 @@ public class EndGame : MonoBehaviour
 
     public GameObject TextPrompt;
 
+    public Animator transition;
+
     public BuildInteraction build;
 
     private void Start()
