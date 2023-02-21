@@ -5,8 +5,10 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public State currentState;
+    [SerializeField] private Animator aiAnimation;
 
-	void Update()
+
+    void Update()
     {
         RunStateMachine();
     }
@@ -20,6 +22,13 @@ public class StateManager : MonoBehaviour
             currentState = nextState;
 
         }
-	}
+        else
+        {
+            aiAnimation.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            aiAnimation.SetBool("Attack", false);
+        }
+
+
+    }
 
 }

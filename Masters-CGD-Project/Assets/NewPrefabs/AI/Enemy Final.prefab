@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 5163592262059642658}
+  aiAnimation: {fileID: 1539846238390669303}
 --- !u!114 &5163592260621083169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +444,7 @@ MonoBehaviour:
   damage: 1
   elapsedTime: 5
   TimeAttack: 5
+  aiAnimation: {fileID: 1539846238390669303}
   chasePlayerEnemyState: {fileID: 5163592262059642658}
   enemiesInRange: {fileID: 5163592260621083169}
 --- !u!1 &5163592261263874168
@@ -541,7 +543,7 @@ MonoBehaviour:
   enemiesInRange: {fileID: 5163592260621083169}
   finalTarget: {fileID: 0}
   navMeshAgent: {fileID: 1318900214779027700}
-  aiAnimation: {fileID: 0}
+  aiAnimation: {fileID: 1539846238390669303}
   attackEnemyState: {fileID: 5163592260848783205}
   attackPlayerState: {fileID: 5163592261063067733}
   attackNPCState: {fileID: 5163592261263874171}
