@@ -19,7 +19,6 @@ public class Toggle : MonoBehaviour
         // play animation
         animator.Play("HUD");
         c_anim.Play("Clock");
-        debug.SetActive(false);
     }
 
     void Update()
