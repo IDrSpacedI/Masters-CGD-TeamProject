@@ -12,7 +12,8 @@ public class Gamemanager : MonoBehaviour
     public int Days;
     public GameObject toolRef;
     public GameObject armRef;
-    public TextMeshProUGUI AI_Interact;
+    public GameObject TextBox;
+    public GameObject HiredBox;
     public GameObject mainBase;
     public ArrayList Object = new ArrayList();
     //public GameObject gameWinUI;

@@ -18,6 +18,7 @@ public class GetMoney : MonoBehaviour
     public bool action = false;
 
     public GameObject TextPrompt;
+    public GameObject coinUI;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class GetMoney : MonoBehaviour
             if(player.gameObject.GetComponent<IMoney>().addMoney(amount) == true)
             {
                 TextPrompt.SetActive(false);
+                coinUI.SetActive(true);
                 //FindObjectOfType<SoundManager>().PlaySound("coin");
                 FindObjectOfType<SoundManager>().PlaySound("BreakTree");
                 //Destroy(gameObject);
@@ -50,13 +52,14 @@ public class GetMoney : MonoBehaviour
        }
        if(this.gameObject == null)
        {
-            TextPrompt.SetActive(false);
+            
             action = false;
        }
     }
     void respawn()
     {
         this.gameObject.SetActive(true);
+
     }
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
@@ -75,6 +78,12 @@ public class GetMoney : MonoBehaviour
             action = true;
         }
 
+    }
+
+    public IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3f);
+        coinUI.SetActive(false);
     }
 
     void OnTriggerExit(Collider collision)

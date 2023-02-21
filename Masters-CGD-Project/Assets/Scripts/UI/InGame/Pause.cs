@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Profiling;
 // script by Oliver lancashire
 // sid 1901981
 public class Pause : MonoBehaviour
@@ -17,13 +18,15 @@ public class Pause : MonoBehaviour
     public LevelManager manager;
 
     [Header("Health Reference")]
-    public GameObject[] HUDElements;
+    public GameObject HUDElements;
+    public GameObject UIBlur;
+    public Animator Pause_Anim;
 
- 
+
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
-      
+
     }
     public void Update()
     {
@@ -43,8 +46,8 @@ public class Pause : MonoBehaviour
 
     public void Resume()
     {//  sets the needed values to true
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+
+        StartCoroutine(UnPaused());
         PlayerMovement.disableMovement = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -54,9 +57,7 @@ public class Pause : MonoBehaviour
 
     public void Pause_()
     {
-        // sets the values to false
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        StartCoroutine(Paused());
         Cursor.visible = true;
         GameIsPaused = true;
         PlayerMovement.disableMovement = true;
@@ -70,12 +71,34 @@ public class Pause : MonoBehaviour
     /// <param name="txt"></param>
     public void onClickEnter(TextMeshProUGUI txt)
     {
-        txt.fontSize = 80;
+        txt.fontSize = 75;
     }
     // decreases font size
     public void onClickExit(TextMeshProUGUI txt)
     {
         txt.fontSize = 70;
+    }
+
+    public IEnumerator Paused()
+    {
+        pauseMenuUI.SetActive(true);
+        HUDElements.SetActive(false);
+        clock.SetActive(false);
+        Pause_Anim.Play("Pause");
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
+    }
+
+    public IEnumerator UnPaused()
+    {
+        Time.timeScale = 1f;
+        Pause_Anim.Play("Unpause");
+        yield return new WaitForSeconds(2f);
+        pauseMenuUI.SetActive(false);
+        HUDElements.SetActive(true);
+        clock.SetActive(true);
+
+
     }
 }
 
