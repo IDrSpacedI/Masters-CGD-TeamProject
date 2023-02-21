@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 5163592262059642658}
-  aiAnimation: {fileID: 1539846238390669303}
+  aiAnimation: {fileID: 6344383261301875463}
 --- !u!114 &5163592260621083169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   damage: 1
   elapsedTime: 5
   TimeAttack: 5
-  aiAnimation: {fileID: 1539846238390669303}
+  aiAnimation: {fileID: 6344383261301875463}
   chasePlayerEnemyState: {fileID: 5163592262059642658}
   enemiesInRange: {fileID: 5163592260621083169}
 --- !u!1 &5163592261263874168
@@ -543,7 +543,7 @@ MonoBehaviour:
   enemiesInRange: {fileID: 5163592260621083169}
   finalTarget: {fileID: 0}
   navMeshAgent: {fileID: 1318900214779027700}
-  aiAnimation: {fileID: 1539846238390669303}
+  aiAnimation: {fileID: 6344383261301875463}
   attackEnemyState: {fileID: 5163592260848783205}
   attackPlayerState: {fileID: 5163592261063067733}
   attackNPCState: {fileID: 5163592261263874171}
@@ -610,12 +610,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a873ff3a406c73b468f7fc0c04e9bbc8, type: 2}
+    - target: {fileID: 6941172727805799769, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b62936766890d13448590c4ddff015ff, type: 2}
     - target: {fileID: 7057615921258087622, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: adde665d782df3043a228bd93da42a64, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
+--- !u!95 &6344383261301875463 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6941172727805799769, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
+  m_PrefabInstance: {fileID: 4060057906923130462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8213414623102918630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5306313703277662648, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
