@@ -11,7 +11,9 @@ public class AttackPlayerState : State
     //Create some time between attacks
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
-    
+
+    [SerializeField] private Animator aiAnimation;
+
 
     [SerializeField] private ChasePlayerEnemyState chasePlayerEnemyState;
     public EnemiesInRange enemiesInRange;
@@ -30,6 +32,10 @@ public class AttackPlayerState : State
             player.GetComponent<IHealth>().reducehealth(damage);
             elapsedTime = 0f;
         }
+
+        aiAnimation.SetBool("Attack", true);
+        aiAnimation.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
         return this;
+
     }
 }

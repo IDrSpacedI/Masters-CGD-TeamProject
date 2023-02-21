@@ -66,7 +66,9 @@ public class ChasePlayerEnemyState : State
         }
 
         //Go to tower 
-        //aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+        aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+        aiAnimation.SetBool("Attack", false);
+
         //Debug.Log(player);
         navMeshAgent.destination = player.transform.position;
         return this;
