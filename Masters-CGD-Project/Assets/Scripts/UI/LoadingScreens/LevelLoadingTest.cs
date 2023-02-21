@@ -44,6 +44,7 @@ public class LevelLoadingTest : MonoBehaviour
         flash.Play("FlashTransition");
         x = Random.Range(0, 1);
         Background.sprite = sprites[x];
+        tipText.text = tips[Random.Range(0, tips.Length)];
 
         while (!operation.isDone)
         {
