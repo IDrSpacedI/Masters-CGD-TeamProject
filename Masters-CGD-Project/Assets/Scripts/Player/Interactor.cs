@@ -33,8 +33,8 @@ public class Interactor : MonoBehaviour
             if (interactable != null)
             {
                 //Displays the prompt if it's not being displayed
-                if (!InteractionPromptUI.isDisplayed)
-                    InteractionPromptUI.startPrompt(interactable.InteractionPrompt);
+                //if (!InteractionPromptUI.isDisplayed)
+                //    InteractionPromptUI.startPrompt(interactable.InteractionPrompt);
                 //Calls interactable if E is pressed
                 if (Input.GetKeyDown(KeyCode.E))
                     interactable.Interact(this);
