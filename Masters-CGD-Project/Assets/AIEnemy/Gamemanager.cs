@@ -17,7 +17,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject mainBase;
     public ArrayList Object = new ArrayList();
     //public GameObject gameWinUI;
-
+    public int totalrecruits, totalmoneyspend;
 void Awake()
     {
         Instance=this;

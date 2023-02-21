@@ -21,6 +21,7 @@ public class MoneySystem : MonoBehaviour,IMoney
     {
         if (currentMoney - amount >= 0)
         {
+            Gamemanager.Instance.totalmoneyspend += amount;
             currentMoney = currentMoney - amount;
             return true;
         }

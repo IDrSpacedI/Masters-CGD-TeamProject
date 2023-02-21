@@ -122,6 +122,7 @@ public class FriendlyAI : MonoBehaviour
                 if (Input.GetKey(KeyCode.E))
                 {
                     interactText.text = "Hired!";
+                    Gamemanager.Instance.totalrecruits++;
                     hired = true;
                     StartCoroutine(Text());
                    
