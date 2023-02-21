@@ -24,7 +24,10 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ChangeScene();
+        }
     }
 
     //sets UI elemt to active when player enters
@@ -41,6 +44,7 @@ public class EndGame : MonoBehaviour
         {
             //Debug.Log("touching");
             action = true;
+            
         }
 
     }
@@ -54,8 +58,15 @@ public class EndGame : MonoBehaviour
 
     public void ChangeScene()
     {
+        StartCoroutine(AnimDelay());
             //load endgame scene
             SceneManager.LoadScene("EndGame");
 
+    }
+
+    public IEnumerator AnimDelay()
+    {
+        transition.Play("EndGameTransition");
+        yield return new WaitForSeconds(3f);
     }
 }

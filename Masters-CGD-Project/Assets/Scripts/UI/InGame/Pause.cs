@@ -71,7 +71,7 @@ public class Pause : MonoBehaviour
     /// <param name="txt"></param>
     public void onClickEnter(TextMeshProUGUI txt)
     {
-        txt.fontSize = 80;
+        txt.fontSize = 75;
     }
     // decreases font size
     public void onClickExit(TextMeshProUGUI txt)
@@ -82,18 +82,18 @@ public class Pause : MonoBehaviour
     public IEnumerator Paused()
     {
         pauseMenuUI.SetActive(true);
-        Pause_Anim.Play("Pause");
-        yield return new WaitForSeconds(3f);
         HUDElements.SetActive(false);
+        clock.SetActive(false);
+        Pause_Anim.Play("Pause");
+        yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
     }
 
     public IEnumerator UnPaused()
     {
         Time.timeScale = 1f;
-        UIBlur.SetActive(false);
         Pause_Anim.Play("Unpause");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         pauseMenuUI.SetActive(false);
         HUDElements.SetActive(true);
         clock.SetActive(true);

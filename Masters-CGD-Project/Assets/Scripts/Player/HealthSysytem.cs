@@ -12,6 +12,8 @@ public class HealthSysytem : MonoBehaviour,IHealth
     [SerializeField] public int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
 
+    public GameObject heartsUI;
+
     void Update()
     {
         //check();
@@ -88,12 +90,22 @@ public class HealthSysytem : MonoBehaviour,IHealth
 
     public  void  reducehealth(int i)
     {
+        StartCoroutine(Delay());
         removeHealth(i);
     }
 
      public  void  increasehealth(int i)
     {
-       addHealth(i);
+        StartCoroutine(Delay());
+        addHealth(i);
+
+    }
+
+    public IEnumerator Delay()
+    {
+        heartsUI.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        heartsUI.SetActive(false);
     }
 }
 public interface IHealth

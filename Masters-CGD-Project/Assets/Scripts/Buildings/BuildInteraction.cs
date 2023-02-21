@@ -46,6 +46,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public GameObject TextBox;
 
+    public GameObject CoinsUI;
+
 
     //Different level objects
     //public GameObject level1;
@@ -188,6 +190,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                     return false;
                 FindObjectOfType<SoundManager>().PlaySound("UpgradeSound");
                 Available = true;
+                CoinsUI.SetActive(true);
             }
             else
             {
@@ -235,6 +238,33 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public void increasehealth(int i)
     {
        // throw new System.NotImplementedException();
+    }
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+
+            TextBox.SetActive(true);
+
+            if(Available == true)
+            {
+                TextBox.SetActive(false);
+            }
+        }
+    }
+
+
+    //make sure the text on Hud disappear after the player leaves it
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            TextBox.SetActive(false);
+            Debug.Log("Interact time");
+            CoinsUI.SetActive(false);
+        }
     }
 }
 

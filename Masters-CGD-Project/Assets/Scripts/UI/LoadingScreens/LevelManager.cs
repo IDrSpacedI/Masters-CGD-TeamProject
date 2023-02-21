@@ -48,9 +48,14 @@ public class LevelManager : MonoBehaviour
   /// <param name="txt"></param>
     public void onClickEnter(TextMeshProUGUI txt)
     {
-        txt.fontSize = 80;
+        txt.fontSize = 75;
 
 
+    }
+
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 
     /// <summary>

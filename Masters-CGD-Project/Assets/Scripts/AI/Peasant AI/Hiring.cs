@@ -10,12 +10,15 @@ public class Hiring : MonoBehaviour
     public TextMeshProUGUI interactText;
     public Friend_Travel_State travelState;
     public GameObject mainBase;
+    public GameObject Interactbox;
+    public GameObject Interactbox_hire;
 
     // Start is called before the first frame update
     void Start()
     {
         hired = false;
-        interactText = GameObject.Find("GameManager").GetComponent<Gamemanager>().AI_Interact;
+        Interactbox = GameObject.Find("GameManager").GetComponent<Gamemanager>().TextBox;
+        Interactbox_hire = GameObject.Find("GameManager").GetComponent<Gamemanager>().HiredBox;
         mainBase = GameObject.Find("GameManager").GetComponent<Gamemanager>().mainBase;
     }
 
@@ -25,10 +28,11 @@ public class Hiring : MonoBehaviour
         {
             if (hired == false)
             {
-                interactText.text = "Press E to recruit";
+                Interactbox.SetActive(true);
                 if (Input.GetKey(KeyCode.E))
                 {
-                    interactText.text = "Hired!";
+                    Interactbox.SetActive(false);
+                    Interactbox_hire.SetActive(true);
                     hired = true;
                     travelState.destination = mainBase;
                     travelState.go = true;
@@ -43,14 +47,14 @@ public class Hiring : MonoBehaviour
     public IEnumerator Text()
     {
         yield return new WaitForSeconds(2f);
-        interactText.text = "";
+        Interactbox_hire.SetActive(false);
     }
 
     public void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
-            interactText.text = "";
+            Interactbox.SetActive(false);
         }
     }
 }
