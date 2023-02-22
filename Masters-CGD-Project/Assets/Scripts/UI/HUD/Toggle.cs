@@ -14,6 +14,9 @@ public class Toggle : MonoBehaviour
     public Animator c_anim;
     public GameObject debug;
 
+    private bool toggleStateHealthMoney = false;
+    public GameObject[] healthMoney;
+
     public void Awake()
     {
         // play animation
@@ -51,6 +54,15 @@ public class Toggle : MonoBehaviour
                         break;
                 }
                 toggler = !toggler;
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            toggleStateHealthMoney = !toggleStateHealthMoney;
+            for (int i = 0; i < healthMoney.Length; i++)
+            {
+                healthMoney[i].SetActive(toggleStateHealthMoney);
             }
         }
 
