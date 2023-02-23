@@ -51,5 +51,10 @@ public class mainMenu : MonoBehaviour
     {
         mainmenuTextAnim.SetInteger("Selection", selection);
     }
-   
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
+
 }
