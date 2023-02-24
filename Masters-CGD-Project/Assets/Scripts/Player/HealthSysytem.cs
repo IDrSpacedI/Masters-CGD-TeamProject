@@ -11,13 +11,25 @@ public class HealthSysytem : MonoBehaviour,IHealth
     [Header("Health")]
     [SerializeField] public int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
+    public EntityManager manager;
+    public List<GameObject> enemy;
 
     public GameObject heartsUI;
+
+    void Start()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<EntityManager>();
+        enemy = manager.enemyList;
+    }
 
     void Update()
     {
         //check();
-        
+        if (enemy == null)
+        {
+            currentHealth = maxHealth;
+        }
+
         Debugtext.text = "Health" + ":" + currentHealth.ToString();
     }
 
