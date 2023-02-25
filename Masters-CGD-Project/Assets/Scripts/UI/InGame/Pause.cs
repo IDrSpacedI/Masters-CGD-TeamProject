@@ -9,7 +9,7 @@ using UnityEngine.Profiling;
 public class Pause : MonoBehaviour
 {
     [Header("Pause Bool")]
-    public bool GameIsPaused = false;
+    public bool GameIsPaused;
 
     [Header("Game object references")]
     public GameObject pauseMenuUI;
