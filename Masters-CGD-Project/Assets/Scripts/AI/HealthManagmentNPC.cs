@@ -6,6 +6,34 @@ public class HealthManagmentNPC : MonoBehaviour
 {
     public int health;
     public GameObject bloodvfx;
+    public EntityManager manager;
+    // public int day, currentday;
+    public List<GameObject> enemy;
+
+    void Start()
+    {
+        //manager = GameObject.Find("GameManager").GetComponent<EntitiyManager>();
+        //day = manager.dayCount;
+
+        manager = GameObject.Find("GameManager").GetComponent<EntityManager>();
+        enemy = manager.enemyList;
+
+    }
+
+    void Update()
+    {
+
+        if(enemy == null)
+        {
+            health = 10;
+        }
+        //currentday = manager.dayCount;
+        //if(day != currentday)
+        //{
+        //    health = 10;
+        //    day = currentday;
+        //}
+    }
 
     //Attack from the outside
     public void attack(int damage)

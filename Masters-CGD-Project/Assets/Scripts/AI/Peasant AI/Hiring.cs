@@ -12,6 +12,7 @@ public class Hiring : MonoBehaviour
     public GameObject mainBase;
     public GameObject Interactbox;
     public GameObject Interactbox_hire;
+    public GameObject moneysystem;
 
     // Start is called before the first frame update
     void Start()
@@ -26,17 +27,25 @@ public class Hiring : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            moneysystem = other.gameObject;
             if (hired == false)
             {
                 Interactbox.SetActive(true);
                 if (Input.GetKey(KeyCode.E))
                 {
-                    Interactbox.SetActive(false);
-                    Interactbox_hire.SetActive(true);
-                    hired = true;
-                    travelState.destination = mainBase;
-                    travelState.go = true;
-                    StartCoroutine(Text());
+                    if(moneysystem.GetComponent<MoneySystem>().reduceMoney(5) == true)
+                    {
+                        Interactbox.SetActive(false);
+                        Interactbox_hire.SetActive(true);
+                        hired = true;
+                        travelState.destination = mainBase;
+                        travelState.go = true;
+                        StartCoroutine(Text());
+                    }
+                    else
+                    {
+                        Debug.Log("Not Enough Money");
+                    }
                 }
             }
 
