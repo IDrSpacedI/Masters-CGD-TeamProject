@@ -251,7 +251,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7
+      scalar: 1.55
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -962,8 +962,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.02286902
-          value: 1
+          time: 0.07303992
+          value: 0.50769234
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1230,8 +1230,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.3372549, g: 0.32941177, b: 0.29411766, a: 1}
-        key1: {r: 0.3372549, g: 0.32941177, b: 0.29411766, a: 1}
+        key0: {r: 0.16037738, g: 0.06415095, b: 0, a: 1}
+        key1: {r: 0.34117648, g: 0.17788067, b: 0.027450982, a: 1}
         key2: {r: 0.42745098, g: 0, b: 0, a: 1}
         key3: {r: 0.42745098, g: 0, b: 0, a: 0}
         key4: {r: 1, g: 0, b: 0, a: 0}
@@ -4641,7 +4641,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 0001030405
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -9361,7 +9361,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 0001030405
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -9620,7 +9620,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 3
-      minScalar: 1
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9654,8 +9654,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0
+      scalar: 3
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9689,8 +9689,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0
+      scalar: 3
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9883,7 +9883,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 2000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -10147,7 +10147,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 350
+      scalar: 400
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10330,8 +10330,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.16412345
-          value: 0.8108101
+          time: 0.15409079
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14009,7 +14009,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 0001030405
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
