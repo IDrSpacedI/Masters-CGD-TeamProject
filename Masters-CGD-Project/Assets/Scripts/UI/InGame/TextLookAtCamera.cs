@@ -5,25 +5,9 @@ using UnityEngine;
 public class TextLookAtCamera : MonoBehaviour
 {
 
-    [SerializeField] public Transform lookAt;
-    [SerializeField] public Vector3 offset;
-
-    public Camera playerCamera;
-
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    private void LateUpdate()
     {
-        playerCamera = Camera.current;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //transform.LookAt(playerCamera.transform);
-
-        Vector3 pos = playerCamera.WorldToScreenPoint(lookAt.position + offset);
-
-        if (transform.position != pos)
-             transform.position = pos;
+        transform.LookAt(transform.position + player.transform.rotation * Vector3.forward, player.transform.rotation * Vector3.up);
     }
 }
