@@ -6,28 +6,26 @@ public class DaysCounter : MonoBehaviour
 {
 
     public int dayCount;
+    private LightingManager lm;
     private float time;
     private float temp;
 
     // Start is called before the first frame update
     void Start()
     {
-        time = FindObjectOfType<LightingManager>().TimeOfDay;
+        lm = FindObjectOfType<LightingManager>();
+        time = lm.TimeOfDay;
         temp = time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        temp = FindObjectOfType<LightingManager>().TimeOfDay;
+        temp = lm.TimeOfDay;
         if (temp < time)
 		{
             dayCount++;
-            time = FindObjectOfType<LightingManager>().TimeOfDay;
         }
-		else
-		{
-            time = FindObjectOfType<LightingManager>().TimeOfDay;
-        }
+        time = lm.TimeOfDay;
     }
 }

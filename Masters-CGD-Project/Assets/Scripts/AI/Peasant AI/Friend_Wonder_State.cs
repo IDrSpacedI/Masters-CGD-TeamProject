@@ -43,7 +43,7 @@ public class Friend_Wonder_State : State
 	private void SetWalkPoint()
 	{
 		float randomX = Random.Range(-wonderRange, wonderRange);
-		float randomZ = Random.Range(-1f , 1f);
+		float randomZ = Random.Range(-0.5f , 0.5f);
 		walkPoint = new Vector3(wonderPoint.x + randomX, transform.position.y, wonderPoint.z + randomZ);
 		if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
 		{
