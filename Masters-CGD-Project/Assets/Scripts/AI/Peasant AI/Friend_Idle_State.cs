@@ -25,7 +25,7 @@ public class Friend_Idle_State : State
 
 	public override State RunCurrentState()
 	{
-		aiAnimation.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
+		aiAnimation.SetFloat("speed", 0f, 0.5f, Time.deltaTime);
 		if (travelState.go)
 		{
 			wonderState.wonderPoint = new Vector3(travelState.destination.transform.position.x, transform.position.y, transform.position.z);

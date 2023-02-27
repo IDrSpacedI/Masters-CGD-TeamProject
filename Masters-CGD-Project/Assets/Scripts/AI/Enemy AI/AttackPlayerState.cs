@@ -33,8 +33,8 @@ public class AttackPlayerState : State
             elapsedTime = 0f;
         }
 
-        aiAnimation.SetBool("Attack", true);
-        aiAnimation.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+        aiAnimation.SetBool("attack", true);
+        aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
         return this;
 
     }

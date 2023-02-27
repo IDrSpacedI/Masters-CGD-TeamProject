@@ -22,7 +22,6 @@ public class Friend_Wonder_State : State
 		if (walkPointSet)
 		{
 			agent.SetDestination(walkPoint);
-			aiAnimation.SetFloat("speed", 1, 0.1f, Time.deltaTime);
 		}
 		else
 		{
@@ -37,7 +36,7 @@ public class Friend_Wonder_State : State
 			return idleState;
 		}
 
-		aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+		aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
 		return this;
 	}
 
