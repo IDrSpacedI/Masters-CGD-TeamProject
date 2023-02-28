@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   bloodvfx: {fileID: 4411470222038820331}
+  manager: {fileID: 0}
+  enemy: []
 --- !u!1 &2081785678215816771
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +615,7 @@ PrefabInstance:
     - target: {fileID: 6941172727805799769, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b62936766890d13448590c4ddff015ff, type: 2}
+      objectReference: {fileID: 9100000, guid: 17003a45122c24945be0fd1cf3578ac1, type: 2}
     - target: {fileID: 7057615921258087622, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

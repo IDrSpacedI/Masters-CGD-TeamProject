@@ -36,14 +36,14 @@ public class Friend_Wonder_State : State
 			return idleState;
 		}
 
-		aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+		aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
 		return this;
 	}
 
 	private void SetWalkPoint()
 	{
 		float randomX = Random.Range(-wonderRange, wonderRange);
-		float randomZ = Random.Range(-1f , 1f);
+		float randomZ = Random.Range(-0.5f , 0.5f);
 		walkPoint = new Vector3(wonderPoint.x + randomX, transform.position.y, wonderPoint.z + randomZ);
 		if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
 		{
