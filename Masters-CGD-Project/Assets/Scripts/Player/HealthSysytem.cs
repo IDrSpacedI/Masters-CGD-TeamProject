@@ -14,17 +14,41 @@ public class HealthSysytem : MonoBehaviour,IHealth
     [SerializeField] public int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
 
-    public GameObject heartsUI;
+   
     Color alpha;
     float tempvalue;
+    public EntityManager manager;
+    ///public List<GameObject> enemy;
+
+    public GameObject heartsUI,healeffect,healpointlight;
+   public bool healtheffected;
+
+    void Start()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<EntityManager>();
+       // enemy = manager.enemyList;
+    }
 
     void Update()
     {
         //check();
-        
+       // enemy = manager.enemyList;
+        if (manager.enemyList.Count==0 && healtheffected)
+        {
+            currentHealth = maxHealth;
+            healpointlight.SetActive(true);
+            Invoke("disablelight", 3);
+            healeffect.GetComponent<ParticleSystem>().Play();
+            healtheffected = false;
+        }
+
         Debugtext.text = "Health" + ":" + currentHealth.ToString();
     }
 
+    void disablelight()
+    {
+        healpointlight.SetActive(false);
+    }
     //Cant remove health if dead
     public bool removeHealth(int amount)
     {
@@ -38,6 +62,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
             
             FindObjectOfType<SoundManager>().PlaySound("HurtPlayer");
             currentHealth = currentHealth - amount;
+            healtheffected = true;
             return true;
         }
         else
