@@ -36,7 +36,7 @@ public class WonderingState : State
             return idleState;
         }
 
-        aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+        aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
         return this;
 
     }

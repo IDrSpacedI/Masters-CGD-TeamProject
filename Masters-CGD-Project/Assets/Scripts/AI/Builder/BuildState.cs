@@ -16,6 +16,9 @@ public class BuildState : State
     public override State RunCurrentState()
     {
         try {
+            animator.SetBool("building", true);
+            animator.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
+
             goState.destination.GetComponent<BuildInteraction>().Upgrade();
             goState.destination.GetComponent<BuildInteraction>().Available = false;
             if (goState.destination.GetComponent<BuildInteraction>().finished == true)
