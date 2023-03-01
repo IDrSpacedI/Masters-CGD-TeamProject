@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DaysCounter : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DaysCounter : MonoBehaviour
     private LightingManager lm;
     private float time;
     private float temp;
+
+    public TextMeshProUGUI dayTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class DaysCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        dayTxt.text = dayCount.ToString();
         temp = lm.TimeOfDay;
         if (temp < time)
 		{
