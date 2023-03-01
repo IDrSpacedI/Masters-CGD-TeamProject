@@ -10,6 +10,9 @@ public class AttackEnemyState : State
     public float elapsedTime = 0f;
     [SerializeField] private float TimeAttack;
 
+
+    [SerializeField] private Animator aiAnimation;
+    [SerializeField] private AttackAnimationEnemy attackAnimationEnemy;
     [SerializeField] private ChasePlayerEnemyState chasePlayerEnemyState;
 
     public override State RunCurrentState()
@@ -18,18 +21,20 @@ public class AttackEnemyState : State
         if (target.GetComponent<HealthManagment>().dead == true)
         {
             target.GetComponent<HealthManagment>().dead = false;
+            attackAnimationEnemy.building = false;
             return chasePlayerEnemyState;
         }
 
-        elapsedTime += Time.deltaTime;
-        //If x seconds passed 
-        if (elapsedTime >= TimeAttack)
-        {
-            //Attack enemy
-            target.GetComponent<HealthManagment>().attack(damage);
-            FindObjectOfType<SoundManager>().PlaySound("DamageToBuilding");
-            elapsedTime = 0f;
-        }
+        //Attack enemy
+        attackAnimationEnemy.building = true;
+        aiAnimation.SetBool("attack", true);
+        aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
         return this;
+    }
+    public void Attack()
+    {
+        //Attack enemy
+        target.GetComponent<HealthManagment>().attack(damage);
+        FindObjectOfType<SoundManager>().PlaySound("DamageToBuilding");
     }
 }

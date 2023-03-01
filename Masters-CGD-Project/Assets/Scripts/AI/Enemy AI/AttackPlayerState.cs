@@ -13,29 +13,30 @@ public class AttackPlayerState : State
     [SerializeField] private float TimeAttack;
 
     [SerializeField] private Animator aiAnimation;
-
-
     [SerializeField] private ChasePlayerEnemyState chasePlayerEnemyState;
+    [SerializeField] private AttackAnimationEnemy attackAnimationEnemy;
     public EnemiesInRange enemiesInRange;
 
     public override State RunCurrentState()
     {
-        elapsedTime += Time.deltaTime;
-        //If x seconds passed 
-        if (elapsedTime >= TimeAttack)
+       //check if player is still in range
+       if (!enemiesInRange.playerInRange)
         {
-            if (!enemiesInRange.playerInRange)
-            {
-                return chasePlayerEnemyState;
-            }
-            //Attack player
-            player.GetComponent<IHealth>().reducehealth(damage);
-            elapsedTime = 0f;
+            attackAnimationEnemy.player = false;
+            return chasePlayerEnemyState;
         }
 
+        //Play animation
+        attackAnimationEnemy.player = true;
         aiAnimation.SetBool("attack", true);
         aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
         return this;
 
     }
+    public void Attack()
+    {
+        //Attack player
+        player.GetComponent<IHealth>().reducehealth(damage);
+    }
+
 }

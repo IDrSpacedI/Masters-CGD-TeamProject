@@ -10,24 +10,29 @@ public class AttackNPCState : State
     //Create some time between attacks
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
+    public EnemiesInRange enemiesInRange;
 
-
+    [SerializeField] private Animator aiAnimation;
+    [SerializeField] private AttackAnimationEnemy attackAnimationEnemy;
     [SerializeField] private ChasePlayerEnemyState chasePlayerEnemyState;
     public override State RunCurrentState()
     {
         //If target was deleted
         if (target == null)
         {
+            attackAnimationEnemy.npc = false;
             return chasePlayerEnemyState;
         }
-        elapsedTime += Time.deltaTime;
-        //If x seconds passed 
-        if (elapsedTime >= TimeAttack)
-        {
-            //Attack enemy
-            target.GetComponent<HealthManagmentNPC>().attack(damage);
-            elapsedTime = 0f;
-        }
+
+        attackAnimationEnemy.npc = true;
+        aiAnimation.SetBool("attack", true);
+        aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
         return this;
+    }
+
+    public void Attack()
+    {
+        //Attack enemy
+        target.GetComponent<HealthManagmentNPC>().attack(damage);
     }
 }

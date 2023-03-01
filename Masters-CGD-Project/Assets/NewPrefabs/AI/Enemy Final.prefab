@@ -342,8 +342,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5163592260848783202}
   - {fileID: 5163592262059642661}
+  - {fileID: 5163592260848783202}
   - {fileID: 5163592261263874170}
   - {fileID: 5163592261063067730}
   m_Father: {fileID: 1301576879311367574}
@@ -379,7 +379,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5163592260532023103}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5163592260848783205
 MonoBehaviour:
@@ -397,6 +397,8 @@ MonoBehaviour:
   damage: 5
   elapsedTime: 0
   TimeAttack: 5
+  aiAnimation: {fileID: 6344383261301875463}
+  attackAnimationEnemy: {fileID: 6003248217479691576}
   chasePlayerEnemyState: {fileID: 5163592262059642658}
 --- !u!1 &5163592261063067731
 GameObject:
@@ -448,6 +450,7 @@ MonoBehaviour:
   TimeAttack: 5
   aiAnimation: {fileID: 6344383261301875463}
   chasePlayerEnemyState: {fileID: 5163592262059642658}
+  attackAnimationEnemy: {fileID: 6003248217479691576}
   enemiesInRange: {fileID: 5163592260621083169}
 --- !u!1 &5163592261263874168
 GameObject:
@@ -497,6 +500,9 @@ MonoBehaviour:
   damage: 5
   elapsedTime: 0
   TimeAttack: 5
+  enemiesInRange: {fileID: 0}
+  aiAnimation: {fileID: 6344383261301875463}
+  attackAnimationEnemy: {fileID: 6003248217479691576}
   chasePlayerEnemyState: {fileID: 5163592262059642658}
 --- !u!1 &5163592262059642659
 GameObject:
@@ -528,7 +534,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5163592260532023103}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5163592262059642658
 MonoBehaviour:
@@ -556,6 +562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1301576879311367574}
     m_Modifications:
+    - target: {fileID: 4465323058994081177, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
+      propertyPath: m_Name
+      value: Enemy2.0
+      objectReference: {fileID: 0}
     - target: {fileID: 4999762922109848848, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -622,6 +632,29 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: adde665d782df3043a228bd93da42a64, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
+--- !u!1 &405388349350126535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4465323058994081177, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}
+  m_PrefabInstance: {fileID: 4060057906923130462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6003248217479691576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405388349350126535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283c12620efb58a41b12ba9d5601fa5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackEnemyState: {fileID: 5163592260848783205}
+  attackNPCState: {fileID: 5163592261263874171}
+  attackPlayerState: {fileID: 5163592261063067733}
+  player: 0
+  building: 0
+  npc: 0
 --- !u!95 &6344383261301875463 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6941172727805799769, guid: ac1978a9bc51eb940a45d2d5bb3664fa, type: 3}

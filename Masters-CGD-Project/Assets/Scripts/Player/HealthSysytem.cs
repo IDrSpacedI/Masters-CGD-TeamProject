@@ -33,7 +33,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     {
         //check();
        // enemy = manager.enemyList;
-        if (manager.enemyList.Count==0 && healtheffected)
+        /*if (manager.enemyList.Count==0 && healtheffected)
         {
             currentHealth = maxHealth;
             healpointlight.SetActive(true);
@@ -41,8 +41,8 @@ public class HealthSysytem : MonoBehaviour,IHealth
             healeffect.GetComponent<ParticleSystem>().Play();
             healtheffected = false;
         }
-
-        Debugtext.text = "Health" + ":" + currentHealth.ToString();
+        
+        Debugtext.text = "Health" + ":" + currentHealth.ToString();*/
     }
 
     void disablelight()
@@ -108,6 +108,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
             return true;
         }
     }
+   
 
    /* public void check()
     {
