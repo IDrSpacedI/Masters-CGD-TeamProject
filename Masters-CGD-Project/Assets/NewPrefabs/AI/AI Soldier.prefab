@@ -48,6 +48,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8907019100164197201}
   - component: {fileID: 5044487520595335817}
+  - component: {fileID: 8353984231174512955}
   m_Layer: 0
   m_Name: IdleState
   m_TagString: Untagged
@@ -85,9 +86,22 @@ MonoBehaviour:
   entityManager: {fileID: 0}
   goTowerStateSoldier: {fileID: 7687882576227368020}
   goBarricadeStateSoldier: {fileID: 353824027399064963}
-  attackBarricadeSoldierState: {fileID: 0}
+  attackBarricadeSoldierState: {fileID: 706240326250193685}
   lightingManager: {fileID: 0}
   aiAnimation: {fileID: 8626638640706407138}
+--- !u!135 &8353984231174512955
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447969173787019333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0.89, z: 0}
 --- !u!1 &5116867535548880168
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,11 +459,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  guardBarricadeStateSoldier: {fileID: 9107731802081385002}
+  idle: 0
   damage: 5
-  elapsedTime: 5
-  TimeAttack: 5
   aiAnimation: {fileID: 8626638640706407138}
+  guardBarricadeStateSoldier: {fileID: 9107731802081385002}
+  idleStateSoldier: {fileID: 5044487520595335817}
 --- !u!1 &8131893068618507220
 GameObject:
   m_ObjectHideFlags: 0

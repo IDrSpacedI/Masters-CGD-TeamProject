@@ -5,13 +5,14 @@ using UnityEngine;
 public class AttackBarricadeSoldierState : State
 {
     public GameObject enemy;
-    [SerializeField] private GuardBarricadeStateSoldier guardBarricadeStateSoldier;
+    public bool idle = false;
 
-    //Damage and time between attacks
     [SerializeField] private int damage;
-    public float elapsedTime;
-    [SerializeField] private float TimeAttack;
+
     [SerializeField] private Animator aiAnimation;
+
+    [SerializeField] private GuardBarricadeStateSoldier guardBarricadeStateSoldier;
+    [SerializeField] private IdleStateSoldier idleStateSoldier;
 
     public override State RunCurrentState()
     {
@@ -19,6 +20,11 @@ public class AttackBarricadeSoldierState : State
         if (enemy == null)
         {
             aiAnimation.SetBool("attack", false);
+            if (idle == true)
+            {
+                idle = false;
+                return idleStateSoldier;
+            }
             return guardBarricadeStateSoldier;
         }
         return this;
@@ -27,6 +33,5 @@ public class AttackBarricadeSoldierState : State
     {
         FindObjectOfType<SoundManager>().PlaySound("AttackNPC");
         enemy.GetComponent<HealthManagmentNPC>().attack(damage);
-        elapsedTime = 0f;
     }
 }

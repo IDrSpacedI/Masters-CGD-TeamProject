@@ -22,9 +22,14 @@ public class IdleStateSoldier : State
     }
     public override State RunCurrentState()
     {
+        //If there are any enemies in range
         if (enemy != null)
         {
-
+            //Attack
+            attackBarricadeSoldierState.idle = true;
+            attackBarricadeSoldierState.enemy = enemy;
+            enemy = null;
+            return attackBarricadeSoldierState;
         }
         //Checking if any tower is available
         for (int i = 0; i < entityManager.towerList.Count; i++)
