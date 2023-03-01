@@ -19,6 +19,7 @@ public class GetMoney : MonoBehaviour
 
     public GameObject TextPrompt;
     public GameObject coinUI;
+    public GameObject MaxCoins;
 
     private void Start()
     {
@@ -47,6 +48,8 @@ public class GetMoney : MonoBehaviour
             else
             {
                 Debug.Log("Max amount reached");
+                MaxCoins.SetActive(true);
+                StartCoroutine(Delayv2());
             }
             
        }
@@ -78,6 +81,12 @@ public class GetMoney : MonoBehaviour
             action = true;
         }
 
+    }
+
+    public IEnumerator Delayv2()
+    {
+        yield return new WaitForSeconds(3f);
+        MaxCoins.SetActive(false);
     }
 
     public IEnumerator Delay()
