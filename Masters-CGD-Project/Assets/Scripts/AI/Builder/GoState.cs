@@ -46,7 +46,7 @@ public class GoState : State
             return B_State;
         }
 
-        animator.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+        animator.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
         return this;
 
     }
