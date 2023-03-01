@@ -26,6 +26,7 @@ public class GetMoney : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         GetComponent<MoneySystem>();
         Gamemanager.Instance.Object.Add(this.gameObject);
+        MaxCoins.SetActive(false);
         
     }
 
