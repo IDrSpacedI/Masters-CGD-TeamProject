@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class TextLookAtCamera : MonoBehaviour
 {
-    public Camera playerCamera;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    private void LateUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.LookAt(playerCamera.transform);
+        transform.LookAt(transform.position + player.transform.rotation * Vector3.forward, player.transform.rotation * Vector3.up);
     }
 }
