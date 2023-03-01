@@ -85,7 +85,9 @@ MonoBehaviour:
   entityManager: {fileID: 0}
   goTowerStateSoldier: {fileID: 7687882576227368020}
   goBarricadeStateSoldier: {fileID: 353824027399064963}
+  attackBarricadeSoldierState: {fileID: 0}
   lightingManager: {fileID: 0}
+  aiAnimation: {fileID: 8626638640706407138}
 --- !u!1 &5116867535548880168
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ MonoBehaviour:
   thisSoldier: {fileID: 7216224356668882134}
   idleStateSoldier: {fileID: 5044487520595335817}
   guardTowerStateSoldier: {fileID: 4759438627478677119}
-  aiAnimation: {fileID: 3841491834833715436}
+  aiAnimation: {fileID: 8626638640706407138}
 --- !u!1 &5786991958950516391
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 5044487520595335817}
+  aiAnimation: {fileID: 0}
 --- !u!114 &1678370301051757926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  bloodvfx: {fileID: 0}
+  manager: {fileID: 0}
+  enemy: []
 --- !u!1 &8111969726361549120
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +449,7 @@ MonoBehaviour:
   damage: 5
   elapsedTime: 5
   TimeAttack: 5
+  aiAnimation: {fileID: 8626638640706407138}
 --- !u!1 &8131893068618507220
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +512,7 @@ MonoBehaviour:
   attackBarricadeSoldierState: {fileID: 706240326250193685}
   idleStateSoldier: {fileID: 5044487520595335817}
   lightingManager: {fileID: 0}
-  aiAnimation: {fileID: 3841491834833715436}
+  aiAnimation: {fileID: 8626638640706407138}
 --- !u!1 &8684941417024771559
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barricade: {fileID: 0}
   navMeshAgent: {fileID: 7216224356668882132}
-  aiAnimation: {fileID: 3841491834833715436}
+  aiAnimation: {fileID: 8626638640706407138}
   guardBarricadeStateSoldier: {fileID: 9107731802081385002}
 --- !u!1001 &2800517184797177715
 PrefabInstance:
@@ -609,11 +616,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: FighterNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 491aac5cfc078b94b946792777eedb2f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 75e6c99ad4065614bae906d64a0c5ea5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 491aac5cfc078b94b946792777eedb2f, type: 3}
 --- !u!4 &2402625286019158168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 491aac5cfc078b94b946792777eedb2f, type: 3}
+  m_PrefabInstance: {fileID: 2800517184797177715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3034307238316165666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 491aac5cfc078b94b946792777eedb2f, type: 3}
+  m_PrefabInstance: {fileID: 2800517184797177715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &865142164996902890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034307238316165666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f722003328d0f4d9d9d52a162e6d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackBarricadeSoldierState: {fileID: 706240326250193685}
+--- !u!95 &8626638640706407138 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 491aac5cfc078b94b946792777eedb2f, type: 3}
   m_PrefabInstance: {fileID: 2800517184797177715}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7216224355835149693

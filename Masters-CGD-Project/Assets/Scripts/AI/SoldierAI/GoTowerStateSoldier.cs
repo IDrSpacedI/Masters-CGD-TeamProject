@@ -39,7 +39,7 @@ public class GoTowerStateSoldier : State
         }
 
         //Go to tower 
-        aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+        aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
         navMeshAgent.destination = towerPosition;
         return this;
 

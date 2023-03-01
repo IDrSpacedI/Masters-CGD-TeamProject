@@ -11,21 +11,22 @@ public class AttackBarricadeSoldierState : State
     [SerializeField] private int damage;
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
+    [SerializeField] private Animator aiAnimation;
 
     public override State RunCurrentState()
     {
+        aiAnimation.SetBool("attack", true);
         if (enemy == null)
-            return guardBarricadeStateSoldier;
-
-        if (elapsedTime >= TimeAttack)
         {
-            //Attack enemy
-            Debug.Log("attack");
-            FindObjectOfType<SoundManager>().PlaySound("AttackNPC");
-            enemy.GetComponent<HealthManagmentNPC>().attack(damage);
-            elapsedTime = 0f;
+            aiAnimation.SetBool("attack", false);
+            return guardBarricadeStateSoldier;
         }
         return this;
     }
-
+    public void Attack()
+    {
+        FindObjectOfType<SoundManager>().PlaySound("AttackNPC");
+        enemy.GetComponent<HealthManagmentNPC>().attack(damage);
+        elapsedTime = 0f;
+    }
 }

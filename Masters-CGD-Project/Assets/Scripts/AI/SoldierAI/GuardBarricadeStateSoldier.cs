@@ -15,7 +15,7 @@ public class GuardBarricadeStateSoldier : State
     }
     public override State RunCurrentState()
     {
-        aiAnimation.SetFloat("Speed", 0f, 0.5f, Time.deltaTime);
+        aiAnimation.SetFloat("speed", 0f, 0.5f, Time.deltaTime);
         if (enemy != null)
         {
             //turn off the collision detection

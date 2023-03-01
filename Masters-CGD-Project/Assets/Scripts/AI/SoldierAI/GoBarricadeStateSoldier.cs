@@ -23,7 +23,7 @@ public class GoBarricadeStateSoldier : State
             guardBarricadeStateSoldier.GetComponent<CapsuleCollider>().enabled = true;
             return guardBarricadeStateSoldier;
         }
-        aiAnimation.SetFloat("Speed", 1f, 0.1f, Time.deltaTime);
+        aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
         navMeshAgent.destination = barricadePosition;
         return this;
     }

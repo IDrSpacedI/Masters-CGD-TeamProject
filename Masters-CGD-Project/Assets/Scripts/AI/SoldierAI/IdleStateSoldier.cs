@@ -7,8 +7,11 @@ public class IdleStateSoldier : State
     public EntityManager entityManager;
     [SerializeField] private GoTowerStateSoldier goTowerStateSoldier;
     [SerializeField] private GoBarricadeStateSoldier goBarricadeStateSoldier;
+    [SerializeField] private AttackBarricadeSoldierState attackBarricadeSoldierState;
     [SerializeField] private LightingManager lightingManager;
-
+    [SerializeField] private Animator aiAnimation;
+    
+    private GameObject enemy = null;
     GameObject currentBarricade = null;
     float distance;
 
@@ -19,6 +22,10 @@ public class IdleStateSoldier : State
     }
     public override State RunCurrentState()
     {
+        if (enemy != null)
+        {
+
+        }
         //Checking if any tower is available
         for (int i = 0; i < entityManager.towerList.Count; i++)
         {
@@ -53,8 +60,10 @@ public class IdleStateSoldier : State
             }
         }
 
+
+
         //TODO WANDER 
-        
+        aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
         return this;
     }
 
@@ -84,5 +93,10 @@ public class IdleStateSoldier : State
             return tempBarricade;
         }
         return currentBarricade;
+    }
+
+     void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy") enemy = other.gameObject;
     }
 }
