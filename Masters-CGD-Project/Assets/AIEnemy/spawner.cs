@@ -66,6 +66,7 @@ public class spawner : MonoBehaviour
         {
             enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
         }
+        Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList = enemies;
         enemyupdatecount++;
     }
 }
