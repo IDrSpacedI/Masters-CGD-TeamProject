@@ -40,6 +40,7 @@ public class Friend_Idle_State : State
 				travelState.go = true;
 				travelState.upgrade = true;
 				upgradeState.soldier = true;
+				Gamemanager.Instance.totalsoldires++;
 				return travelState;
 			}
 			else if (toolRef.GetComponent<ToolManager>().available && !upgradeState.builder && !upgradeState.soldier)
@@ -48,6 +49,7 @@ public class Friend_Idle_State : State
 				travelState.go = true;
 				travelState.upgrade = true;
 				upgradeState.builder = true;
+				Gamemanager.Instance.totalbuilders++;
 				return travelState;
 			}
 
