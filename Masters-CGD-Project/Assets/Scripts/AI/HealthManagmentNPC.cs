@@ -41,6 +41,7 @@ public class HealthManagmentNPC : MonoBehaviour
         if (health - damage <= 0)
         {
             Debug.Log(this.name + " died");
+            Gamemanager.Instance.enemieskilled++;
             Destroy(gameObject);
             return;
         }
