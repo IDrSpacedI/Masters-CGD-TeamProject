@@ -5,7 +5,7 @@ using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
-    public GameObject Enemy_Destination, gameWinUI;
+    public GameObject Enemy_Destination;
     public bool Time_to_attac;
     public static Gamemanager Instance;
     public TimeManager timemanager;
@@ -17,7 +17,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject mainBase;
     public ArrayList Object = new ArrayList();
     //public GameObject gameWinUI;
-    public int totalrecruits, totalmoneyspend;
+    public int totalrecruits, totalmoneyspend,totalsoldires,totalbuilders,totalenemies,enemieskilled;
 void Awake()
     {
         Instance=this;
