@@ -41,7 +41,12 @@ public class HealthManagmentNPC : MonoBehaviour
         if (health - damage <= 0)
         {
             Debug.Log(this.name + " died");
-            Gamemanager.Instance.enemieskilled++;
+            if(this.gameObject.tag == "Enemy")
+            {
+                Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList.Remove(this.gameObject);
+                //Gamemanager.Instance.totalenemies = Gamemanager.Instance.totalenemies - 1 ;
+                Gamemanager.Instance.enemieskilled++;
+            }
             Destroy(gameObject);
             return;
         }

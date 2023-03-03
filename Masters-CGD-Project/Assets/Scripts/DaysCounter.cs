@@ -24,7 +24,7 @@ public class DaysCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dayTxt.text = dayCount.ToString();
+        dayTxt.text = (dayCount+1).ToString();
         temp = lm.TimeOfDay;
         if (temp < time)
 		{

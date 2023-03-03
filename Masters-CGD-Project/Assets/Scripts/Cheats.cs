@@ -73,7 +73,10 @@ public class Cheats : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            Instantiate(enemyPF, player.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
+            Gamemanager.Instance.totalenemies++;
+
+            GameObject testobj = Instantiate(enemyPF, player.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
+            Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList.Add(testobj);
         }
     }
 

@@ -13,36 +13,37 @@ public class HealthSysytem : MonoBehaviour,IHealth
     [Header("Health")]
     [SerializeField] public int currentHealth = 100;
     [SerializeField] private int maxHealth = 110;
-
+    public int startday, currentday;
    
     Color alpha;
     float tempvalue;
     public EntityManager manager;
-    ///public List<GameObject> enemy;
+    public List<GameObject> enemy;
 
     public GameObject heartsUI,healeffect,healpointlight;
    public bool healtheffected;
 
     void Start()
     {
+        startday = GameObject.Find("GameManager").GetComponent<DaysCounter>().dayCount;
         manager = GameObject.Find("GameManager").GetComponent<EntityManager>();
-       // enemy = manager.enemyList;
+        enemy = manager.enemyList;
     }
 
     void Update()
     {
-        //check();
-       // enemy = manager.enemyList;
-        /*if (manager.enemyList.Count==0 && healtheffected)
+        currentday = GameObject.Find("GameManager").GetComponent<DaysCounter>().dayCount;
+        if (enemy.Count == 0 && healtheffected && startday != currentday)
         {
             currentHealth = maxHealth;
             healpointlight.SetActive(true);
             Invoke("disablelight", 3);
             healeffect.GetComponent<ParticleSystem>().Play();
             healtheffected = false;
+            startday = currentday;
         }
         
-        Debugtext.text = "Health" + ":" + currentHealth.ToString();*/
+        Debugtext.text = "Health" + ":" + currentHealth.ToString();
     }
 
     void disablelight()
