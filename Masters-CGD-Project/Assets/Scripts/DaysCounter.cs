@@ -8,7 +8,7 @@ public class DaysCounter : MonoBehaviour
 
     public int dayCount;
     private LightingManager lm;
-    private float time;
+    public float time;
     private float temp;
 
     public TextMeshProUGUI dayTxt;
