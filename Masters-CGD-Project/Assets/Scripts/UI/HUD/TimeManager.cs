@@ -20,15 +20,19 @@ public class TimeManager : MonoBehaviour
 
     private float speedFactor;
 
+    private DaysCounter gmDc;
+
 	private void Start()
 	{
+        gmDc = GameObject.FindWithTag("GM").GetComponent<DaysCounter>();
         speedFactor = FindObjectOfType<LightingManager>().speedFactor;
 	}
 
 	void Update()
     {
         totalTime += Time.deltaTime * speedFactor;
-        currentTime = totalTime % dayDuration;
+        //currentTime = totalTime % dayDuration;\
+        currentTime = gmDc.time;
         if (getHour() > 23 && GetMinutes() > 59)
             FindObjectOfType<DaysCounter>().dayCount++;
     }

@@ -65,7 +65,9 @@ public class spawner : MonoBehaviour
         for (int i = 0; i < currentenemycount; i++)
         {
             Gamemanager.Instance.totalenemies++;
-            enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
+            var enemy = Instantiate(enemyAI, transform.position, Quaternion.identity);
+            enemy.GetComponentInChildren<ChasePlayerEnemyState>().home = gameObject;
+            enemies.Add(enemy);
         }
         Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList = enemies;
         enemyupdatecount++;
