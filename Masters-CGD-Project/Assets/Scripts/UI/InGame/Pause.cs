@@ -22,6 +22,8 @@ public class Pause : MonoBehaviour
     public GameObject UIBlur;
     public Animator Pause_Anim;
 
+    public SoundManager S_Manager;
+
 
     public void LoadLevel(int index)
     {
@@ -84,6 +86,7 @@ public class Pause : MonoBehaviour
         pauseMenuUI.SetActive(true);
         HUDElements.SetActive(false);
         clock.SetActive(false);
+        S_Manager.enabled = false;
         Pause_Anim.Play("Pause");
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
@@ -97,6 +100,7 @@ public class Pause : MonoBehaviour
         pauseMenuUI.SetActive(false);
         HUDElements.SetActive(true);
         clock.SetActive(true);
+        S_Manager.enabled = true;
 
 
     }
