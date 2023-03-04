@@ -129,13 +129,12 @@ public class PlayerMovement : MonoBehaviour
         //controller.Move(move * speed * Time.deltaTime);
 
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0)
         {
             playerIdle = false;
             playerAnimtor.SetFloat("Speed", 0.25f, 0.1f, Time.deltaTime);
-
         }
-        else
+        else if (Mathf.Abs(Input.GetAxis("Horizontal")) != 1)
         {
             playerIdle = true;
             playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
