@@ -37,7 +37,7 @@ public class GetMoney : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
        {
             //Debug.Log("ADD MONEY PLEASE");          
-            if(player.gameObject.GetComponent<IMoney>().addMoney(amount) && money.currentMoney >= money.maxMoney )
+            if(player.gameObject.GetComponent<IMoney>().addMoney(amount))
             {
                 MaxCoins.SetActive(false);
                 TextPrompt.SetActive(false);
