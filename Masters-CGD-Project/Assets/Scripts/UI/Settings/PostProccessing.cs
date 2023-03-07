@@ -13,5 +13,5 @@ public class PostProccessing : MonoBehaviour
         _postprocessVolume.profile.TryGetSettings(out _bloom);
     }
 
-   public void
+   
 }
