@@ -17,16 +17,22 @@ public class EndGame : MonoBehaviour
 
     public BuildInteraction build;
 
+    DaysCounter Day;
+
     private void Start()
     {
-         
+        references();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.E) && action == true && active == true)
         {
-            ChangeScene();
+            if(build.currentLevel == 3 && Day.dayCount == 6)
+            {
+                ChangeScene();
+            }
+            
         }
     }
 
@@ -60,7 +66,7 @@ public class EndGame : MonoBehaviour
     {
         StartCoroutine(AnimDelay());
             //load endgame scene
-            SceneManager.LoadScene("EndGame");
+            //SceneManager.LoadScene("EndGame");
 
     }
 
@@ -68,5 +74,12 @@ public class EndGame : MonoBehaviour
     {
         transition.Play("EndGameTransition");
         yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("EndGame");
+
+    }
+
+    private void references()
+    {
+        Day.GetComponent<DaysCounter>();
     }
 }
