@@ -19,10 +19,14 @@ public class LightingManager : MonoBehaviour
     public States state;
     public TextMeshProUGUI stateText;
     public float speedFactor = 0.1f;
+    public int dayCount;
+    public TextMeshProUGUI dayTxt;
+    private bool countCheck;
 
     public void Start()
     {
         state = States.none;
+        dayTxt.text = (dayCount + 1).ToString();
     }
 
     private void Update()
@@ -44,6 +48,7 @@ public class LightingManager : MonoBehaviour
             {
                 state = States.day;
                 Gamemanager.Instance.Time_to_attac = false;
+                countCheck = true;
             }
 
             UpdateLighting(TimeOfDay/24f);
@@ -51,6 +56,13 @@ public class LightingManager : MonoBehaviour
         else
         {
             UpdateLighting(TimeOfDay / 24);
+        }
+
+        if (!(TimeOfDay < 23.9f && TimeOfDay > 0.1) && countCheck)
+		{
+            countCheck = false;
+            dayCount++;
+            dayTxt.text = (dayCount + 1).ToString();
         }
 
         stateText.text = "State" + ":" + state.ToString();

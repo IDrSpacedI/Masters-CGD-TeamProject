@@ -9,27 +9,30 @@ public class DaysCounter : MonoBehaviour
     public int dayCount;
     private LightingManager lm;
     public float time;
-    private float temp;
+    private bool newDay = true;
 
-    public TextMeshProUGUI dayTxt;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         lm = FindObjectOfType<LightingManager>();
         time = lm.TimeOfDay;
-        temp = time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        dayTxt.text = (dayCount+1).ToString();
-        temp = lm.TimeOfDay;
-        if (temp < time)
-		{
-            dayCount++;
+        if (newDay && time < 2)
+        {
+            newDay = false;
+            dayCount ++;
+            //
         }
+        if (time >= 23f)
+		{
+            newDay = true;
+		}
         time = lm.TimeOfDay;
     }
 }

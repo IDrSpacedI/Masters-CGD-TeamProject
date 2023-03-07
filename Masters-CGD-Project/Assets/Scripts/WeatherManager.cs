@@ -5,13 +5,21 @@ using UnityEngine;
 public class WeatherManager : MonoBehaviour
 {
     private bool lightning;
+	private LightingManager lm;
+	private Raining rain;
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+		lm = GameObject.FindWithTag("GM").GetComponent<LightingManager>();
+		rain = FindObjectOfType<Raining>();
+	}
+
+	// Update is called once per frame
+	void Update()
     {
-        if (FindObjectOfType<DaysCounter>().dayCount == FindObjectOfType<Raining>().nextRain && FindObjectOfType<LightingManager>().TimeOfDay >= FindObjectOfType<Raining>().rainStartTime)
+        if (lm.dayCount == rain.nextRain && lm.TimeOfDay >= rain.rainStartTime)
 		{
-            if (FindObjectOfType<Raining>().nextRain == FindObjectOfType<Raining>().nextLightning)
+            if (rain.nextRain == rain.nextLightning)
 			{
                 lightning = true;
 			}
@@ -19,7 +27,7 @@ public class WeatherManager : MonoBehaviour
 			{
                 lightning = false;
 			}
-            FindObjectOfType<Raining>().Rain(lightning);
+            rain.Rain(lightning);
 		}
     }
 }

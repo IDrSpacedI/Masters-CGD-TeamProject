@@ -7,17 +7,19 @@ public class FriendlySpawn : MonoBehaviour
     public GameObject AI;
     private int day;
     private int nextday;
+    private LightingManager lm;
     [HideInInspector] public List<GameObject> peasants = new List<GameObject>();
 
     void Start()
     {
-        nextday = FindObjectOfType<DaysCounter>().dayCount;
+        lm = GameObject.FindGameObjectWithTag("GM").GetComponent<LightingManager>();
+        nextday = lm.dayCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        day = FindObjectOfType<DaysCounter>().dayCount;
+        day = lm.dayCount;
         if (day == nextday)
         {
             nextday++;
@@ -29,7 +31,7 @@ public class FriendlySpawn : MonoBehaviour
 
         foreach (GameObject peasant in peasants.ToArray())
 		{
-			if (peasant.GetComponent<Hiring>().hired)
+			if (peasant.GetComponentInChildren<Hiring>().hired)
 			{
                 peasants.Remove(peasant);
 			}

@@ -19,19 +19,22 @@ public class Raining : MonoBehaviour
     public ParticleSystem mist;
     public ParticleSystem lightning;
 
+    private LightingManager lm;
+
     void Awake()
     {
         rain.Stop();
         clouds.Stop();
         mist.Stop();
         lightning.Stop();
+        lm = GameObject.FindWithTag("GM").GetComponent<LightingManager>();
     }
 
 	private void Update()
 	{
         if (raining)
 		{
-            time = FindObjectOfType<LightingManager>().TimeOfDay;
+            time = lm.TimeOfDay;
             if (time >= rainStartTime || time <= rainStopTime)
 			{
                 rain.Play();
@@ -39,7 +42,7 @@ public class Raining : MonoBehaviour
                 mist.Play();
                 if (storm)
 				{
-                    Debug.Log("lightning");
+                    //Debug.Log("lightning");
                     lightning.Play();
 				}
                 return;
@@ -48,11 +51,11 @@ public class Raining : MonoBehaviour
             clouds.Stop();
             mist.Stop();
             lightning.Stop();
-            days = FindObjectOfType<DaysCounter>().dayCount;
+            days = lm.dayCount;
             nextRain = days + Mathf.RoundToInt(Random.Range(1f, 5f));
             nextLightning = days + Mathf.RoundToInt(Random.Range(nextRain-1, nextRain+1));
-            Debug.Log(nextRain);
-            Debug.Log(nextLightning);
+            //Debug.Log(nextRain);
+            //Debug.Log(nextLightning);
             raining = false;
             storm = false;
         }

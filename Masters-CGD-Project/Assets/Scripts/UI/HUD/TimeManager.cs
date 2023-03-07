@@ -15,16 +15,16 @@ public class TimeManager : MonoBehaviour
     float totalTime = 0;
     float currentTime = 0;
 
-    public float nightDuration = .4f;
+    public float nightDuration = 0.4f;
     public float sunriseHour = 6;
 
     private float speedFactor;
 
-    private DaysCounter gmDc;
+    private LightingManager lm;
 
 	private void Start()
 	{
-        gmDc = GameObject.FindWithTag("GM").GetComponent<DaysCounter>();
+        lm = GameObject.FindWithTag("GM").GetComponent<LightingManager>();
         speedFactor = FindObjectOfType<LightingManager>().speedFactor;
 	}
 
@@ -32,9 +32,7 @@ public class TimeManager : MonoBehaviour
     {
         totalTime += Time.deltaTime * speedFactor;
         //currentTime = totalTime % dayDuration;\
-        currentTime = gmDc.time;
-        if (getHour() > 23 && GetMinutes() > 59)
-            FindObjectOfType<DaysCounter>().dayCount++;
+        currentTime = lm.TimeOfDay;
     }
 
     public float getHour()

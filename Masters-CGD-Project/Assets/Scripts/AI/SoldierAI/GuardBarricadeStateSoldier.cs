@@ -11,7 +11,7 @@ public class GuardBarricadeStateSoldier : State
     [SerializeField] private Animator aiAnimation;
     public void Start()
     {
-        lightingManager = GameObject.Find("LightingManager").GetComponent<LightingManager>();
+        lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
     }
     public override State RunCurrentState()
     {
