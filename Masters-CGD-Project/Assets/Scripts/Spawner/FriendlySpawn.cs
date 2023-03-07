@@ -31,7 +31,7 @@ public class FriendlySpawn : MonoBehaviour
 
         foreach (GameObject peasant in peasants.ToArray())
 		{
-			if (peasant.GetComponent<Hiring>().hired)
+			if (peasant.GetComponentInChildren<Hiring>().hired)
 			{
                 peasants.Remove(peasant);
 			}

@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
     float totalTime = 0;
     float currentTime = 0;
 
-    public float nightDuration = .4f;
+    public float nightDuration = 0.4f;
     public float sunriseHour = 6;
 
     private float speedFactor;

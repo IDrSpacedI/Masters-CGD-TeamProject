@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 1373212062936862358}
   - component: {fileID: 1373212062936862352}
   - component: {fileID: 2563309796140329215}
-  - component: {fileID: 5640611057772802494}
   m_Layer: 0
   m_Name: Peasant
   m_TagString: Peasant
@@ -67,6 +66,7 @@ Transform:
   - {fileID: 1373212062549281057}
   - {fileID: 7032001643051396563}
   - {fileID: 3615943017442234182}
+  - {fileID: 5245295452297699582}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -119,25 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 688971201752118169}
   aiAnimation: {fileID: 0}
---- !u!114 &5640611057772802494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373212062936862356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0018ebe90247cc644b3628a5065b9be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hired: 0
-  interactText: {fileID: 0}
-  travelState: {fileID: 6001871030512384474}
-  mainBase: {fileID: 0}
-  Interactbox: {fileID: 0}
-  Interactbox_hire: {fileID: 0}
-  moneysystem: {fileID: 0}
 --- !u!1 &1980712658843603895
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +304,70 @@ Transform:
   m_Father: {fileID: 1373212062936862353}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6841280618926518841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5245295452297699582}
+  - component: {fileID: 7752962165083019729}
+  - component: {fileID: 6030623430844226514}
+  m_Layer: 0
+  m_Name: HireTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5245295452297699582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841280618926518841}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000035762784}
+  m_LocalPosition: {x: 0.10760207, y: 1.0814954, z: 0.2399394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1373212062936862353}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7752962165083019729
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841280618926518841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6030623430844226514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841280618926518841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0018ebe90247cc644b3628a5065b9be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hired: 0
+  travelState: {fileID: 6001871030512384474}
+  mainBase: {fileID: 0}
+  interactbox: {fileID: 0}
+  interactboxHire: {fileID: 0}
+  moneysystem: {fileID: 0}
 --- !u!1 &7342694108375596927
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +472,7 @@ MonoBehaviour:
   soldierPrefab: {fileID: 7216224356668882134, guid: cb5c20d07fd1939488dee7549c5ad280, type: 3}
   peasantRef: {fileID: 1373212062936862356}
   spawnEffect: {fileID: 8787888476491309524}
-  hiringScript: {fileID: 5640611057772802494}
+  hiringScript: {fileID: 6030623430844226514}
   toolRef: {fileID: 0}
   armRef: {fileID: 0}
   aiAnimation: {fileID: 4641478566582884425}
