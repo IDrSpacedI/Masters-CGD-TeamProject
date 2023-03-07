@@ -55,12 +55,12 @@ public class HealthSysytem : MonoBehaviour,IHealth
     {
         if(currentHealth - amount >= 0)
         {
-             alpha = damageui.GetComponent<RawImage>().color;
-            alpha.a = 1;
-            damageui.GetComponent<RawImage>().color = alpha;
-            tempvalue = 0;
-           StartCoroutine(delay(.5f));
-            
+            // alpha = damageui.GetComponent<RawImage>().color;
+            //alpha.a = 1;
+            //damageui.GetComponent<RawImage>().color = alpha;
+            // tempvalue = 0;
+            //StartCoroutine(delay(.5f));
+            damageui.GetComponent<Animator>().Play("damage effct");
             FindObjectOfType<SoundManager>().PlaySound("HurtPlayer");
             currentHealth = currentHealth - amount;
             healtheffected = true;
@@ -75,25 +75,25 @@ public class HealthSysytem : MonoBehaviour,IHealth
         }
     }
 
-    IEnumerator delay(float i)
-    {
-        yield return new WaitForSeconds(i);
-      //  damageui.GetComponent<RawImage>().enabled = false;
-        tempvalue += .5f;
-        alpha.a -= tempvalue;
-        damageui.GetComponent<RawImage>().color = alpha;
+    //IEnumerator delay(float i)
+    //{
+    //    yield return new WaitForSeconds(i);
+    //  //  damageui.GetComponent<RawImage>().enabled = false;
+    //    tempvalue += .5f;
+    //    alpha.a -= tempvalue;
+    //    damageui.GetComponent<RawImage>().color = alpha;
        
-        if (alpha.a<.5f)
-        {
-            alpha.a =0;
-            damageui.GetComponent<RawImage>().color = alpha;
-            //StopAllCoroutines();
-        }
-        else
-            StartCoroutine(delay(.2f));
+    //    if (alpha.a<.5f)
+    //    {
+    //        alpha.a =0;
+    //        damageui.GetComponent<RawImage>().color = alpha;
+    //        //StopAllCoroutines();
+    //    }
+    //    else
+    //        StartCoroutine(delay(.2f));
 
 
-    }
+    //}
 
     //Heal only till max amount reached
     public bool addHealth(int amount)
