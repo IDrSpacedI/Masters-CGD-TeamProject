@@ -21,6 +21,8 @@ public class GetMoney : MonoBehaviour
     public GameObject coinUI;
     public GameObject MaxCoins;
 
+    MoneySystem money;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -35,7 +37,7 @@ public class GetMoney : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
        {
             //Debug.Log("ADD MONEY PLEASE");          
-            if(player.gameObject.GetComponent<IMoney>().addMoney(amount) == true)
+            if(player.gameObject.GetComponent<IMoney>().addMoney(amount) && money.currentMoney >= money.maxMoney )
             {
                 MaxCoins.SetActive(false);
                 TextPrompt.SetActive(false);
