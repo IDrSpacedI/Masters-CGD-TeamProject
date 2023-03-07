@@ -18,29 +18,28 @@ public class EndGame : MonoBehaviour
     public BuildInteraction build;
 
     DaysCounter Day;
+    public int day;
+
+    private LightingManager lm;
 
     private void Start()
     {
-        references();
+         references();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && action == true && active == true)
         {
-            if(build.currentLevel == 3 && Day.dayCount == 6)
-            {
-                ChangeScene();
-            }
-            
+            ChangeScene();
         }
     }
 
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log("TRIGGER!!!!!!!!!!");
-        if (active == true)
+       // Debug.Log(day);
+        if (active == true && build.currentLevel == 3 && day == 6)
         {
             TextPrompt.SetActive(true);
             //Pickup.gameObject.SetActive(true);
@@ -80,6 +79,7 @@ public class EndGame : MonoBehaviour
 
     private void references()
     {
-        Day.GetComponent<DaysCounter>();
+        lm = GameObject.FindGameObjectWithTag("GM").GetComponent<LightingManager>();
+        day = lm.dayCount;
     }
 }
