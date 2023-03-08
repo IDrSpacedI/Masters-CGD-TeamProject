@@ -14,7 +14,6 @@ public class GetMoney : MonoBehaviour
     //public MoneySystem Money;
 
     //bool to activate and diactivate script
-    public bool active = true;
     public bool action = false;
 
     public GameObject TextPrompt;
@@ -34,7 +33,7 @@ public class GetMoney : MonoBehaviour
 
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.E) && active == true && action == true)
+       if (Input.GetKeyDown(KeyCode.E) && action == true)
        {
             //Debug.Log("ADD MONEY PLEASE");          
             if(player.gameObject.GetComponent<IMoney>().addMoney(amount))
@@ -58,14 +57,11 @@ public class GetMoney : MonoBehaviour
             }
             
        }
-       if(this.gameObject == null)
-       {
-            
-            action = false;
-       }
+      
     }
     void respawn()
     {
+        //active = true;
         this.gameObject.SetActive(true);
 
     }
