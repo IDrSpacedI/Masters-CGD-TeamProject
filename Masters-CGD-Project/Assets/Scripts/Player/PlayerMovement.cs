@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public static bool disableMovement = false;
 
     //basic player movement variables and pariameter
-    public float speed = 10f;
+    public float speed;
+    public float extraspeed;
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
     bool isGrounded;
@@ -91,6 +92,12 @@ public class PlayerMovement : MonoBehaviour
         //get player A&D input
         float horizontal = Input.GetAxisRaw("Horizontal");
         //float y = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            extraspeed = 3;  //rb.AddForce(0, UpSpeed, 0 * Time.deltaTime);
+        }
+        else
+            extraspeed = 0;
 
         Vector3 direction = new Vector3(horizontal, 0f, 0).normalized;
 
@@ -105,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
             //gives the right direction to move with the camera's calculation
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             //apply move
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized * (speed+ extraspeed) * Time.deltaTime);
         }
 
         /**
