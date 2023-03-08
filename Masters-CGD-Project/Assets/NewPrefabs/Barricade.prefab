@@ -200,6 +200,7 @@ Transform:
   - {fileID: 5256514756417756851}
   - {fileID: 3788502971654863991}
   - {fileID: 7655105584335425595}
+  - {fileID: 4990374938617089177}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -249,6 +250,7 @@ MonoBehaviour:
   health: 20
   dead: 0
   buildInteraction: {fileID: 2317720921482611005}
+  damageeffect: {fileID: 4990374938617089180}
 --- !u!65 &6749977801773811147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -846,6 +848,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 85d6a4956c647e44eba8699ecfb6eee9, type: 3}
   m_PrefabInstance: {fileID: 7265780247009710464}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7514941170744632418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5993082110246400054}
+    m_Modifications:
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421118, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_Name
+      value: buldingdamageeffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245741543792421118, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+--- !u!4 &4990374938617089177 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3245741543792421115, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+  m_PrefabInstance: {fileID: 7514941170744632418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4990374938617089180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3245741543792421118, guid: c42570a7309670345a67b1a2c8411326, type: 3}
+  m_PrefabInstance: {fileID: 7514941170744632418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7651032806620773957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,6 +1045,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5993082110246400054}
     m_Modifications:
+    - target: {fileID: 1828275473587384781, guid: c688c81e3eec16c46a76f275bfe2b9b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8920f656079217a499d2db597a9bc838, type: 2}
     - target: {fileID: 3264881227519776605, guid: c688c81e3eec16c46a76f275bfe2b9b7, type: 3}
       propertyPath: m_Name
       value: Flag

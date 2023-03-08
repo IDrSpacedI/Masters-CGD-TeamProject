@@ -6,7 +6,8 @@ public class HealthManagment : MonoBehaviour
 {
     public int health;
     public bool dead = false;
-    public BuildInteraction buildInteraction;  
+    public BuildInteraction buildInteraction;
+    public GameObject damageeffect;
 
     //Attack from the outside
     public void attack(int damage)
@@ -19,5 +20,16 @@ public class HealthManagment : MonoBehaviour
             return;
         }
         health = health - damage;
+        if(damageeffect)
+        {
+            damageeffect.SetActive(true);
+
+            Invoke("disable", 5);     
+        }
+    }
+    void disable()
+    {
+        damageeffect.SetActive(false);
+
     }
 }
