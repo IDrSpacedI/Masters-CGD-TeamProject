@@ -7,7 +7,7 @@ public class ChasePlayerEnemyState : State
     //Parent object
     public GameObject enemyParent;
     //Day counter script
-    private DaysCounter counter;
+    private LightingManager lm;
     //Time of day
     private float time;
     //Spawner
@@ -31,14 +31,14 @@ public class ChasePlayerEnemyState : State
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
-        counter = GameObject.FindWithTag("GM").GetComponent<DaysCounter>();
-        time = counter.time;
+        lm = GameObject.FindWithTag("GM").GetComponent<LightingManager>();
+        time = lm.TimeOfDay;
     }
 
     public override State RunCurrentState()
     {
         //Get current time
-        time = counter.time;
+        time = lm.TimeOfDay;
         //Check if night time
         if (!(time > 6f && time < 18f))
         {

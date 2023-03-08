@@ -18,7 +18,7 @@ public class IdleStateSoldier : State
     public void Start()
     {
         entityManager = GameObject.Find("GameManager").GetComponent<EntityManager>();
-        lightingManager = GameObject.Find("LightingManager").GetComponent<LightingManager>();
+        lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
     }
     public override State RunCurrentState()
     {

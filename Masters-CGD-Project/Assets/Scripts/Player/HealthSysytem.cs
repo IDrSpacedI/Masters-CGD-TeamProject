@@ -21,18 +21,21 @@ public class HealthSysytem : MonoBehaviour,IHealth
     public List<GameObject> enemy;
 
     public GameObject heartsUI,healeffect,healpointlight;
-   public bool healtheffected;
+    public bool healtheffected;
+
+    private LightingManager lm;
 
     void Start()
     {
-        startday = GameObject.Find("GameManager").GetComponent<DaysCounter>().dayCount;
+        lm = GameObject.FindGameObjectWithTag("GM").GetComponent<LightingManager>();
+        startday = lm.dayCount;
         manager = GameObject.Find("GameManager").GetComponent<EntityManager>();
         enemy = manager.enemyList;
     }
 
     void Update()
     {
-        currentday = GameObject.Find("GameManager").GetComponent<DaysCounter>().dayCount;
+        currentday = lm.dayCount;
         if (enemy.Count == 0 && healtheffected && startday != currentday)
         {
             currentHealth = maxHealth;

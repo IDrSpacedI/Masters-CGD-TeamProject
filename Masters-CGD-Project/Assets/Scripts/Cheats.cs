@@ -13,6 +13,7 @@ public class Cheats : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI speedDebugText;
     public bool cheats = true;
+    public GameObject spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +77,7 @@ public class Cheats : MonoBehaviour
             Gamemanager.Instance.totalenemies++;
 
             GameObject testobj = Instantiate(enemyPF, player.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
+            testobj.GetComponentInChildren<ChasePlayerEnemyState>().home = spawner;
             Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList.Add(testobj);
         }
     }

@@ -17,14 +17,19 @@ public class EndGame : MonoBehaviour
 
     public BuildInteraction build;
 
+    DaysCounter Day;
+    public int day;
+
+    private LightingManager lm;
+
     private void Start()
     {
-         
+         references();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.E) && action == true && active == true)
         {
             ChangeScene();
         }
@@ -33,8 +38,8 @@ public class EndGame : MonoBehaviour
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log("TRIGGER!!!!!!!!!!");
-        if (active == true)
+       // Debug.Log(day);
+        if (active == true && build.currentLevel == 3 && day == 6)
         {
             TextPrompt.SetActive(true);
             //Pickup.gameObject.SetActive(true);
@@ -60,7 +65,7 @@ public class EndGame : MonoBehaviour
     {
         StartCoroutine(AnimDelay());
             //load endgame scene
-            SceneManager.LoadScene("EndGame");
+            //SceneManager.LoadScene("EndGame");
 
     }
 
@@ -68,5 +73,13 @@ public class EndGame : MonoBehaviour
     {
         transition.Play("EndGameTransition");
         yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("EndGame");
+
+    }
+
+    private void references()
+    {
+        lm = GameObject.FindGameObjectWithTag("GM").GetComponent<LightingManager>();
+        day = lm.dayCount;
     }
 }

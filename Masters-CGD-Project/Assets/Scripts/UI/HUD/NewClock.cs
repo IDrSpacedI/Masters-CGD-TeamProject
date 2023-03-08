@@ -5,34 +5,20 @@ using UnityEngine.UI;
 
 public class NewClock : MonoBehaviour
 {
-
-    TimeManager tm;
+    private LightingManager lm;
     public RectTransform skyDome;
-    float nighthoursToDegree, dayHoursToDegree;
+    private float angle;
 
     void Start()
     {
-        tm = FindObjectOfType<TimeManager>();
-
-
-        nighthoursToDegree = 180 / (TimeManager.hoursInDay * tm.nightDuration);
-        dayHoursToDegree = 180 / (TimeManager.hoursInDay * (1 - tm.nightDuration));
-        
+        lm = GameObject.FindWithTag("GM").GetComponent<LightingManager>();
+        angle = (360 / TimeManager.hoursInDay) * lm.TimeOfDay;
     }
 
 
     void Update()
     {
-      if(((tm.getHour() < tm.sunriseHour || tm.getHour() > tm.GetSunset())  && tm.sunriseHour < tm.GetSunset())||
-        ((tm.getHour() < tm.sunriseHour || tm.getHour() > tm.GetSunset()) && tm.sunriseHour > tm.GetSunset()))
-
-
-      {
-            skyDome.Rotate(0, 0, -Time.deltaTime * TimeManager.hoursInDay * nighthoursToDegree / tm.dayDuration);
-      }
-      else
-      {
-            skyDome.Rotate(0, 0, -Time.deltaTime * TimeManager.hoursInDay * dayHoursToDegree / tm.dayDuration);
-      }
+        angle = (360 / TimeManager.hoursInDay) * lm.TimeOfDay;
+        skyDome.rotation = Quaternion.Euler(0, 0, - angle + 180);
     }
 }
