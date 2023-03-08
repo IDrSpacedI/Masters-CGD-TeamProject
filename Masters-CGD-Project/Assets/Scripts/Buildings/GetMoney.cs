@@ -45,6 +45,7 @@ public class GetMoney : MonoBehaviour
                 //FindObjectOfType<SoundManager>().PlaySound("coin");
                 FindObjectOfType<SoundManager>().PlaySound("BreakTree");
                 //Destroy(gameObject);
+                action = false;
                 this.gameObject.SetActive(false);
                 Available = true;
                 Invoke("respawn",Random.Range(10,15));
