@@ -37,14 +37,10 @@ public class MoneySystem : MonoBehaviour,IMoney
             Debug.Log("Money Added : "+amount);
             return true;
         }
-        if(currentMoney == maxMoney)
-        {
-            return false;
-        }
         else
         {
             currentMoney = maxMoney;
-            return true;
+            return false;
         }
     }
     public bool reduceMoney(int i)
