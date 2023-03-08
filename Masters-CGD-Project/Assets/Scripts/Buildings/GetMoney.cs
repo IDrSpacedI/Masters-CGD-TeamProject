@@ -39,7 +39,7 @@ public class GetMoney : MonoBehaviour
             //Debug.Log("ADD MONEY PLEASE");          
             if(player.gameObject.GetComponent<IMoney>().addMoney(amount))
             {
-                //MaxCoins.SetActive(false);
+                MaxCoins.SetActive(false);
                 TextPrompt.SetActive(false);
                 coinUI.SetActive(true);
                 //FindObjectOfType<SoundManager>().PlaySound("coin");
@@ -52,7 +52,7 @@ public class GetMoney : MonoBehaviour
             else
             {
                 Debug.Log("Max amount reached");
-                //MaxCoins.SetActive(true);
+                MaxCoins.SetActive(true);
                 StartCoroutine(Delayv2());
             }
             
