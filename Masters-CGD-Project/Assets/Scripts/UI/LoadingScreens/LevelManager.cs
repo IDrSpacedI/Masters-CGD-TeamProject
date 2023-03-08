@@ -17,6 +17,9 @@ public class LevelManager : MonoBehaviour
 
     public int targetScene;
 
+    public Animator mushroom;
+    public Animator Loading;
+
     public float MinLoadTime;
     public Image fade_Image;
     public float fadeTime;
@@ -50,6 +53,8 @@ public class LevelManager : MonoBehaviour
 
 
         loadingPanel.SetActive(true);
+        mushroom.Play("Mushroom");
+        Loading.Play("Loading");
 
         while (!Fade(0))
             yield return null;
