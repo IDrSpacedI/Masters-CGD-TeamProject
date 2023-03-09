@@ -50,21 +50,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public Animation coins;
 
 
-    //Different level objects
-    //public GameObject level1;
-    //public GameObject level2;
-    //public GameObject level3;
-
-    //VFX for the objects
-    //public GameObject level1FX;
-    //public GameObject level2FX;
-    //public GameObject level3FX;
-
-    //Bool to let the game know which levels are build
-    //public bool level1build = false;
-    //public bool level2build = false;
-    //public bool level3build = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -84,16 +69,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         interactText.text = "";
         buildTimerText.text = "";
 
-        //level1.SetActive(false);
-        //level2.SetActive(false);
-        //level3.SetActive(false);
-
-        //level1FX.SetActive(false);
-        //level2FX.SetActive(false);
-        //level3FX.SetActive(false);
-
-        //pos = this.transform.position;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -136,13 +113,21 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 LevelWall iLevelWall = levels[i].GetComponent<LevelWall>();
                 iLevelWall.levelFX.SetActive(true);
                 iLevelWall.levelFX.GetComponent<ParticleSystem>().Play();
-                finished = true;
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
                 Available = false;
             }
         }
         currentLevel++;
+    }
+
+    public void AnimationEnd()
+    {
+        finished = true;
+        //If it's not base allow 
+        if (!basebuilding)
+            levels[currentLevel].GetComponent<Outline>().enabled = true;
+        
     }
 
     public void DeUpgrade()
@@ -253,6 +238,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             {
                 TextBox.SetActive(false);
             }
+            if(!basebuilding && currentLevel > -1)
+                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
         }
     }
 
@@ -265,94 +252,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             TextBox.SetActive(false);
             Debug.Log("Interact time");
             CoinsUI.SetActive(false);
+
+            if (!basebuilding && currentLevel > -1)
+                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
         }
     }
+
 }
 
-/*
-    //trigger system to detect when the collider is touching the player :) old
-    private void OnTriggerStay(Collider other)
-    {
-        //only work if the object trigger has the "Player" tag
-        if (other.tag == "Player")
-        {
-            interactText.text = "Press E to interact";
-            Debug.Log("Interact time");
-
-            //list of If loops, could be more better but it works now, fix later xD
-            if (Input.GetKey(KeyCode.E) && level1build == false && level2build == false && level3build == false)
-            {
-                level1.SetActive(true);
-                level1FX.SetActive(true);
-                level1build = true;
-                buildTimeLeft = buildTime;
-            }
-            else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == false && level3build == false && buildTimeLeft <= 0)
-            {
-                level2.SetActive(true);
-                level2FX.SetActive(true);
-                level2build = true;
-                buildTimeLeft = buildTime;
-            }
-            else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == true && level3build == false && buildTimeLeft <= 0)
-            {
-                level3.SetActive(true);
-                level3FX.SetActive(true);
-                level3build = true;
-                interactButton.SetActive(false);
-                interactCollider.enabled = false;
-                interactText.text = "";
-            }
-
-        }
-    }
-    
-     //make sure the text on Hud disappear after the player leaves it
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            interactText.text = "";
-            Debug.Log("Interact time");
-        }
-    }*/
-
-//public void OnTriggerEnter(Collider other)
-//{
-//    if(other.gameObject.CompareTag("Builder"))
-//    {
-
-//        Available = false;
-
-//    }
-//}
-
-
-/*//list of If loops, could be more better but it works now, fix later xD
-if (Input.GetKey(KeyCode.E) && level1build == false && level2build == false && level3build == false)
-{
-    level1.SetActive(true);
-    level1FX.SetActive(true);
-    level1build = true;
-    buildTimeLeft = buildTime;
-    FindObjectOfType<SoundManager>().Play("coin");
-    return true;
-}
-else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == false && level3build == false && buildTimeLeft <= 0)
-{
-    level2.SetActive(true);
-    level2FX.SetActive(true);
-    level2build = true;
-    buildTimeLeft = buildTime;
-    return true;
-}
-else if (Input.GetKey(KeyCode.E) && level1build == true && level2build == true && level3build == false && buildTimeLeft <= 0)
-{
-    level3.SetActive(true);
-    level3FX.SetActive(true);
-    level3build = true;
-    interactButton.SetActive(false);
-    interactCollider.enabled = false;
-    interactText.text = "";
-    return true;
-}*/

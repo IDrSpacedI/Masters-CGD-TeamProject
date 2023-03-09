@@ -12,17 +12,24 @@ public class BuildState : State
     public bool ReturnState;
     public Animator animator;
 
+    private bool upgradeDone = false;
+
 
     public override State RunCurrentState()
     {
         try {
             animator.SetBool("building", true);
             animator.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
+            if(upgradeDone == false)
+            {
+                goState.destination.GetComponent<BuildInteraction>().Upgrade();
+                goState.destination.GetComponent<BuildInteraction>().Available = false;
+                upgradeDone = true;
+            }
 
-            goState.destination.GetComponent<BuildInteraction>().Upgrade();
-            goState.destination.GetComponent<BuildInteraction>().Available = false;
             if (goState.destination.GetComponent<BuildInteraction>().finished == true)
             {
+                upgradeDone = false;
                 return IdleState;
             }
         }
