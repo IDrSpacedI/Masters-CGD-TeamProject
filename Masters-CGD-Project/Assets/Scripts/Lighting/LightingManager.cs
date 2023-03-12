@@ -15,13 +15,19 @@ public class LightingManager : MonoBehaviour
 {
     [SerializeField] private Light DirectionslLight;
     [SerializeField] private DayNightCycle present;
-    [SerializeField,Range(0, 24)] public float TimeOfDay;
+    [SerializeField, Range(0, 24)] public float TimeOfDay;
     public States state;
     public TextMeshProUGUI stateText;
     public float speedFactor = 0.1f;
     public int dayCount;
     public TextMeshProUGUI dayTxt;
     private bool countCheck;
+
+    [Header("Glow Change")]
+    public List<Material> inUse;
+    public List<Material> bright;
+    public List<Material> dim;
+
 
     public void Start()
     {
@@ -37,11 +43,12 @@ public class LightingManager : MonoBehaviour
         {
             TimeOfDay += Time.deltaTime * speedFactor;
             TimeOfDay %= 24;
-            
+
 
             if (TimeOfDay > 20)
             {
                 state = States.night;
+                
                 Gamemanager.Instance.Time_to_attac = true;
             }
             else if (TimeOfDay > 5)
@@ -50,8 +57,9 @@ public class LightingManager : MonoBehaviour
                 Gamemanager.Instance.Time_to_attac = false;
                 countCheck = true;
             }
+            ChangeGlow(state.ToString());
 
-            UpdateLighting(TimeOfDay/24f);
+            UpdateLighting(TimeOfDay / 24f);
         }
         else
         {
@@ -59,7 +67,7 @@ public class LightingManager : MonoBehaviour
         }
 
         if (!(TimeOfDay < 23.9f && TimeOfDay > 0.1) && countCheck)
-		{
+        {
             countCheck = false;
             dayCount++;
             dayTxt.text = (dayCount + 1).ToString();
@@ -72,10 +80,10 @@ public class LightingManager : MonoBehaviour
     {
         RenderSettings.ambientLight = present.AmbientColor.Evaluate(timePercent);
         RenderSettings.fogColor = present.FogColor.Evaluate(timePercent);
-        if(DirectionslLight != null)
+        if (DirectionslLight != null)
         {
             DirectionslLight.color = present.DirectionalColor.Evaluate(timePercent);
-            DirectionslLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f)-90,90,0));
+            DirectionslLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90, 90, 0));
         }
     }
 
@@ -84,16 +92,16 @@ public class LightingManager : MonoBehaviour
         if (DirectionslLight != null)
             return;
 
-        if(RenderSettings.sun != null)
+        if (RenderSettings.sun != null)
         {
             DirectionslLight = RenderSettings.sun;
         }
         else
         {
             Light[] lights = GameObject.FindObjectsOfType<Light>();
-            foreach(Light light in lights)
+            foreach (Light light in lights)
             {
-                if(light.type == LightType.Directional)
+                if (light.type == LightType.Directional)
                 {
                     DirectionslLight = light;
                 }
@@ -102,4 +110,21 @@ public class LightingManager : MonoBehaviour
 
     }
 
+    private void ChangeGlow(string state)
+    {
+        if (state == "day")
+        {
+            for (int i = 0; i < inUse.Count; i++)
+            {
+                inUse[i].SetColor("_EmissionColor", Color.Lerp(dim[i].GetColor("_EmissionColor"), bright[i].GetColor("_EmissionColor"), 0.01f));
+            }
+        }
+        else if (state == "night")
+		{
+            for (int i = 0; i < inUse.Count; i++)
+            {
+                inUse[i].SetColor("_EmissionColor", Color.Lerp(bright[i].GetColor("_EmissionColor"), dim[i].GetColor("_EmissionColor"), 0.01f));
+            }
+        }
+    }
 }
