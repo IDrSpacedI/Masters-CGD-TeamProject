@@ -116,14 +116,14 @@ public class LightingManager : MonoBehaviour
         {
             for (int i = 0; i < inUse.Count; i++)
             {
-                inUse[i].SetColor("_EmissionColor", Color.Lerp(dim[i].GetColor("_EmissionColor"), bright[i].GetColor("_EmissionColor"), 0.02f));
+                inUse[i].SetColor("_EmissionColor", Color.Lerp(dim[i].GetColor("_EmissionColor"), bright[i].GetColor("_EmissionColor"), 0.01f));
             }
         }
         else if (state == "night")
 		{
             for (int i = 0; i < inUse.Count; i++)
             {
-                inUse[i].SetColor("_EmissionColor", Color.Lerp(bright[i].GetColor("_EmissionColor"), dim[i].GetColor("_EmissionColor"), 0.02f));
+                inUse[i].SetColor("_EmissionColor", Color.Lerp(bright[i].GetColor("_EmissionColor"), dim[i].GetColor("_EmissionColor"), 0.01f));
             }
         }
     }
