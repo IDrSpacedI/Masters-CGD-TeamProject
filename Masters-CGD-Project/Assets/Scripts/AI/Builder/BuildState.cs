@@ -29,6 +29,7 @@ public class BuildState : State
 
             if (goState.destination.GetComponent<BuildInteraction>().finished == true)
             {
+                animator.SetBool("building", false);
                 upgradeDone = false;
                 return IdleState;
             }

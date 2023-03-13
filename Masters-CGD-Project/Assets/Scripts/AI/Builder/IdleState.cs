@@ -45,11 +45,11 @@ public class IdleState : State
         {
             time += Time.deltaTime;
         }
-        /*else
+        else
         {
-            time = 0;
-            return wonderingState;
-        }*/
+            /*time = 0;
+            return wonderingState;*/
+        }
         return this;
 
     

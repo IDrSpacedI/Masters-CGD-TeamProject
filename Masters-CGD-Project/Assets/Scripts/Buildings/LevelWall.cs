@@ -10,6 +10,6 @@ public class LevelWall : MonoBehaviour
     [SerializeField] private int health;
     public List<GameObject> guards;
     public int slots;
-
-
+    public List<Vector3> positions;
+   
 }
