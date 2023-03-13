@@ -20,7 +20,7 @@ public class Pause : MonoBehaviour
     [Header("Health Reference")]
     public GameObject HUDElements;
     public GameObject UIBlur;
-    public Animator Pause_Anim;
+    
 
     public SoundManager S_Manager;
 
