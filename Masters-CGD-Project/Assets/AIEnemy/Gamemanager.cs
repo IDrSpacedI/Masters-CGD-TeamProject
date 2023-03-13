@@ -18,7 +18,7 @@ public class Gamemanager : MonoBehaviour
     public ArrayList Object = new ArrayList();
     //public GameObject gameWinUI;
     public int totalrecruits, totalmoneyspend,totalsoldires,totalbuilders,totalenemies,enemieskilled;
-void Awake()
+    void Awake()
     {
         Instance=this;
         DontDestroyOnLoad(this.gameObject);
