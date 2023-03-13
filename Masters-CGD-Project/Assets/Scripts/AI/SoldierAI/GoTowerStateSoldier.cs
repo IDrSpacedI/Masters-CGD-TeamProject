@@ -18,9 +18,9 @@ public class GoTowerStateSoldier : State
     public override State RunCurrentState()
     {
         //Check if another soldier stole the spot
-        if (tower.GetComponent<LevelWall>().slots == tower.GetComponent<LevelWall>().guards.Count)
+        if (tower.GetComponent<LevelWall>().slots.Count == tower.GetComponent<LevelWall>().guards.Count)
         {
-            return idleStateSoldier;
+            return idleStateSoldier; 
         }
         //Position with the right z
         Vector3 towerPosition = new Vector3(tower.transform.position.x, tower.transform.position.y, this.transform.position.z);
