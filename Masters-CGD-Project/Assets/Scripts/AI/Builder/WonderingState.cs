@@ -20,10 +20,17 @@ public class WonderingState : State
     public override State RunCurrentState()
     {
         foreach(GameObject objects in Gamemanager.Instance.Object){
-            if (objects.GetComponent<BuildInteraction>().Available == true)
+            try
             {
-                goState.destination = objects;
-                return goState;
+                if (objects.GetComponent<BuildInteraction>().Available == true)
+                {
+                    goState.destination = objects;
+                    return goState;
+                }
+            }
+            catch
+            {
+                continue;
             }
         }
 

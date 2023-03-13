@@ -47,8 +47,8 @@ public class IdleState : State
         }
         else
         {
-            /*time = 0;
-            return wonderingState;*/
+            time = 0;
+            return wonderingState;
         }
         return this;
 
