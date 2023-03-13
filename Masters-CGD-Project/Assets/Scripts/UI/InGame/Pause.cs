@@ -49,7 +49,12 @@ public class Pause : MonoBehaviour
     public void Resume()
     {//  sets the needed values to true
 
-        StartCoroutine(UnPaused());
+    
+        pauseMenuUI.SetActive(false);
+        HUDElements.SetActive(true);
+        clock.SetActive(true);
+        S_Manager.enabled = true;
+        Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -59,7 +64,12 @@ public class Pause : MonoBehaviour
 
     public void Pause_()
     {
-        StartCoroutine(Paused());
+  
+        pauseMenuUI.SetActive(true);
+        HUDElements.SetActive(false);
+        clock.SetActive(false);
+        S_Manager.enabled = false;
+        Time.timeScale = 0f;
         Cursor.visible = true;
         GameIsPaused = true;
         PlayerMovement.disableMovement = true;
@@ -81,29 +91,9 @@ public class Pause : MonoBehaviour
         txt.fontSize = 70;
     }
 
-    public IEnumerator Paused()
-    {
-        pauseMenuUI.SetActive(true);
-        HUDElements.SetActive(false);
-        clock.SetActive(false);
-        S_Manager.enabled = false;
-        Pause_Anim.Play("Pause");
-        yield return new WaitForSeconds(2f);
-        Time.timeScale = 0f;
-    }
-
-    public IEnumerator UnPaused()
-    {
-        Time.timeScale = 1f;
-        Pause_Anim.Play("Unpause");
-        yield return new WaitForSeconds(2f);
-        pauseMenuUI.SetActive(false);
-        HUDElements.SetActive(true);
-        clock.SetActive(true);
-        S_Manager.enabled = true;
 
 
-    }
+  
 }
 
     
