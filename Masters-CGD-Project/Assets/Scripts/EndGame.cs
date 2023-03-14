@@ -39,17 +39,18 @@ public class EndGame : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
        // Debug.Log(day);
-        if (active == true && build.currentLevel == 3 && day == 6)
-        {
-            TextPrompt.SetActive(true);
+        //if (active == true && build.currentLevel == 3 && day == 6)
+        //{
+           
             //Pickup.gameObject.SetActive(true);
-        }
+        //}
 
         if (collision.transform.tag == "Player")
         {
             //Debug.Log("touching");
             action = true;
-            
+            TextPrompt.SetActive(true);
+
         }
 
     }
