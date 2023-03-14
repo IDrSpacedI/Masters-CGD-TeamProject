@@ -17,8 +17,10 @@ public class Friend_Travel_State : State
 	public Animator aiAnimation;
 	private Vector3 desVec;
 
+
 	public override State RunCurrentState()
 	{
+		aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
 		desVec = new Vector3(destination.transform.position.x, transform.position.y, transform.position.z);
 		if (go)
 		{

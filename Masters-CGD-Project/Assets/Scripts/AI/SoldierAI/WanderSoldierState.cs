@@ -1,22 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class IdleStateSoldier : State
+
+public class WanderSoldierState : State
 {
     public EntityManager entityManager;
+
     [SerializeField] private GoTowerStateSoldier goTowerStateSoldier;
     [SerializeField] private GoBarricadeStateSoldier goBarricadeStateSoldier;
     [SerializeField] private AttackBarricadeSoldierState attackBarricadeSoldierState;
-    [SerializeField] private WanderSoldierState wanderSoldierState;
+    [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private LightingManager lightingManager;
     [SerializeField] private Animator aiAnimation;
-    
+
     private GameObject enemy = null;
     GameObject currentBarricade = null;
     float distance;
 
-    public void Start()
+    public Vector3 wonderPoint;
+    public float wonderRange;
+    public LayerMask whatIsGround;
+    public NavMeshAgent agent;
+    private bool walkPointSet;
+    private Vector3 walkPoint;
+
+    // Start is called before the first frame update
+    void Start()
     {
         entityManager = GameObject.Find("GameManager").GetComponent<EntityManager>();
         lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
@@ -58,35 +69,51 @@ public class IdleStateSoldier : State
                 }
             }
             //If there's no barricades anywhere do nothing
-            if(currentBarricade != null)
+            if (currentBarricade != null)
             {
                 goBarricadeStateSoldier.barricade = currentBarricade;
                 currentBarricade = null;
                 return goBarricadeStateSoldier;
             }
         }
+        aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
+        //If it's already heading somewhere continue
+        if (walkPointSet)
+        {
+            agent.SetDestination(walkPoint);
+        }
+        //If not, 
+        else
+        {
+            SetWalkPoint();
+        }
 
-        aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
-        return wanderSoldierState;
-        //TODO WANDER 
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        //Walkpoint Reached
+        if (distanceToWalkPoint.magnitude < 1f)
+        {
+            walkPointSet = false;
+            return idleStateSoldier;
+        }
+
+        aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
         return this;
+
+
     }
-
-
-
-
     //------------------------------------------------------
-    
+
     //Get the current level of the tower to check slots
     private GameObject GetTowerLevel(GameObject tower)
     {
         int level = tower.GetComponent<BuildInteraction>().currentLevel;
-        
+
         //if it's not level 0 (meaning nothing)
         if (level != -1)
-        {   
-           //return current level
-           return tower.GetComponent<BuildInteraction>().levels[level];
+        {
+            //return current level
+            return tower.GetComponent<BuildInteraction>().levels[level];
         }
         return null;
     }
@@ -99,9 +126,13 @@ public class IdleStateSoldier : State
         }
         return currentBarricade;
     }
-
-     void OnTriggerEnter(Collider other)
+    private void SetWalkPoint()
     {
-        if (other.tag == "Enemy") enemy = other.gameObject;
+        float randomX = Random.Range(-wonderRange, wonderRange);
+        walkPoint = new Vector3(wonderPoint.x + randomX, transform.position.y, transform.position.z);
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        {
+            walkPointSet = true;
+        }
     }
 }

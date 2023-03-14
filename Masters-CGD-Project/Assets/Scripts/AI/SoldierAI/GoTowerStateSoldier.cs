@@ -30,7 +30,7 @@ public class GoTowerStateSoldier : State
         if (distance <= 0.5)
         {
             //teleport to top of tower
-            //this.transform.position = new Vector3(this.transform.position.x, 4.024f, this.transform.position.y);
+            thisSoldier.transform.position = new Vector3(thisSoldier.transform.position.x, 4.024f, thisSoldier.transform.position.y);
             //add soldier to tower list
             tower.GetComponent<LevelWall>().guards.Add(thisSoldier);
             this.transform.position = tower.GetComponent<LevelWall>().slots[tower.GetComponent<LevelWall>().guards.IndexOf(thisSoldier)].transform.position;
