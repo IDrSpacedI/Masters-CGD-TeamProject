@@ -14,6 +14,7 @@ public class Pause : MonoBehaviour
     [Header("Game object references")]
     public GameObject pauseMenuUI;
     public GameObject clock;
+    public GameObject textInteract;
     [Header("References")]
     public LevelManager manager;
 
@@ -53,6 +54,7 @@ public class Pause : MonoBehaviour
         pauseMenuUI.SetActive(false);
         HUDElements.SetActive(true);
         clock.SetActive(true);
+        textInteract.SetActive(true);
         S_Manager.enabled = true;
         Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
@@ -68,6 +70,7 @@ public class Pause : MonoBehaviour
         pauseMenuUI.SetActive(true);
         HUDElements.SetActive(false);
         clock.SetActive(false);
+        textInteract.SetActive(false);
         S_Manager.enabled = false;
         Time.timeScale = 0f;
         Cursor.visible = true;
