@@ -19,6 +19,7 @@ public class GetMoney : MonoBehaviour
     public GameObject TextPrompt;
     public GameObject coinUI;
     public GameObject MaxCoins;
+   
 
     MoneySystem money;
 
@@ -45,6 +46,7 @@ public class GetMoney : MonoBehaviour
                 FindObjectOfType<SoundManager>().PlaySound("BreakTree");
                 //Destroy(gameObject);
                 action = false;
+                player.gameObject.GetComponent<Interactor>().collidedobject = null;
                 this.gameObject.SetActive(false);
                 Available = true;
                 Invoke("respawn",Random.Range(10,15));
