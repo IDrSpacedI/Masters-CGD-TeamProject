@@ -76,7 +76,7 @@ public class Pause : MonoBehaviour
         Cursor.visible = true;
         GameIsPaused = true;
         PlayerMovement.disableMovement = true;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
