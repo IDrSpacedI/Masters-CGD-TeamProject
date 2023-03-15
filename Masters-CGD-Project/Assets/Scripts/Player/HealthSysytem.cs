@@ -63,7 +63,9 @@ public class HealthSysytem : MonoBehaviour,IHealth
             //damageui.GetComponent<RawImage>().color = alpha;
             // tempvalue = 0;
             //StartCoroutine(delay(.5f));
-            damageui.GetComponent<Animator>().Play("damage effct");
+            //damageui.GetComponent<Animator>().Play("damage effct");
+            damageui.SetActive(true);
+            damageui.GetComponent<bloodeffect>().calleffect();
             FindObjectOfType<SoundManager>().PlaySound("HurtPlayer");
             currentHealth = currentHealth - amount;
             healtheffected = true;
