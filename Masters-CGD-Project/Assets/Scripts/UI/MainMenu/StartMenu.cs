@@ -15,9 +15,6 @@ public class StartMenu : MonoBehaviour
         {
             fade.Play("Fadein");
             StartCoroutine(speed());
-          
-           
-
         }
     }
 
@@ -26,6 +23,6 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         start.SetActive(false);
         menu.SetActive(true);
-       
+
     }
 }
