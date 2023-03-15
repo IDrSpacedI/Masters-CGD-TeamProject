@@ -45,7 +45,8 @@ public class Hiring : MonoBehaviour
                         hired = true;
                         travelState.destination = mainBase;
                         travelState.go = true;
-                        StartCoroutine(Text());
+                        other.gameObject.GetComponent<Interactor>().collidedobject = null;
+                       StartCoroutine(Text());
                     }
                     else
                     {
