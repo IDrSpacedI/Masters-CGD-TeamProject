@@ -231,8 +231,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
         if(other.gameObject.tag == "Player")
         {
-
-            TextBox.SetActive(true);
+            if (!other.gameObject.GetComponent<Interactor>().collidedobject)
+            {
+                other.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
+                TextBox.SetActive(true);
+            }
 
             if(Available == true)
             {
@@ -249,10 +252,13 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
         if (other.tag == "Player")
         {
-            TextBox.SetActive(false);
-            Debug.Log("Interact time");
-            CoinsUI.SetActive(false);
-
+            if (other.gameObject.GetComponent<Interactor>().collidedobject==this.gameObject)
+            {
+                other.gameObject.GetComponent<Interactor>().collidedobject =null;
+                TextBox.SetActive(false);
+                Debug.Log("Interact time");
+                CoinsUI.SetActive(false);
+            }
             if (!basebuilding && currentLevel > -1)
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
         }
