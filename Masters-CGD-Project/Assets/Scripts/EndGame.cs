@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class EndGame : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class EndGame : MonoBehaviour
 
     private LightingManager lm;
 
+    public CinemachineVirtualCamera cam1;
+    public GameObject Timeline;
+
     private void Start()
     {
          references();
@@ -33,23 +37,29 @@ public class EndGame : MonoBehaviour
         {
             ChangeScene();
         }
+
+        if(build.currentLevel == 3 && lm.dayCount == 6)
+        {
+            StartCoroutine(EndDelay());
+        }
     }
 
     //sets UI elemt to active when player enters
     void OnTriggerEnter(Collider collision)
     {
-       // Debug.Log(day);
-        if (active == true && build.currentLevel == 3 && day == 6)
-        {
-            TextPrompt.SetActive(true);
-            //Pickup.gameObject.SetActive(true);
-        }
+    
 
         if (collision.transform.tag == "Player")
         {
             //Debug.Log("touching");
             action = true;
-            
+
+            // Debug.Log(day);
+            if (active == true && build.currentLevel == 3 && lm.dayCount == 6)
+            {
+                TextPrompt.SetActive(true);
+                //Pickup.gameObject.SetActive(true);
+            }
         }
 
     }
@@ -74,6 +84,16 @@ public class EndGame : MonoBehaviour
         transition.Play("EndGameTransition");
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("EndGame");
+
+    }
+
+    public IEnumerator EndDelay()
+    {
+        cam1.Priority = 11;
+        yield return new WaitForSeconds(1f);
+        Timeline.SetActive(true);
+        yield return new WaitForSeconds(7f);
+        cam1.Priority = 9;
 
     }
 
