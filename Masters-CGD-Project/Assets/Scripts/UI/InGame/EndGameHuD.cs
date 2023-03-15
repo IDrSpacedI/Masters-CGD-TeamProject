@@ -12,6 +12,11 @@ public class EndGameHuD : MonoBehaviour
     public TextMeshProUGUI enemiesKilled;
     public TextMeshProUGUI enemiesGenerated;
 
+
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     void Update()
     {
         moneySpent.text = Gamemanager.Instance.totalmoneyspend.ToString();
