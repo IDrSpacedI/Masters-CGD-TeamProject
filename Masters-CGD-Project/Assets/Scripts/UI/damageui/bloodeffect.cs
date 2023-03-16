@@ -14,7 +14,7 @@ public class bloodeffect : MonoBehaviour
     }
     public void calleffect()
     {
-        Debug.Log("melvin awake is called");
+       // Debug.Log("melvin awake is called");
         alpha = transform.GetChild(0).gameObject.GetComponent<Image>().color;
         alpha.a = 1;
         transform.GetChild(0).gameObject.GetComponent<Image>().color = alpha;

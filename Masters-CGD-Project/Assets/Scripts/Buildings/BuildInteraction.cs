@@ -49,6 +49,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public GameObject CoinsUI;
     public Animation coins;
 
+    public List<GameObject> enmiesonattack;
 
     // Start is called before the first frame update
     void Start()
@@ -243,6 +244,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             }
             if(!basebuilding && currentLevel > -1)
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+        }
+        else if(other.gameObject.tag == "Enemy")
+        {
+            if(!enmiesonattack.Contains(other.gameObject))
+            enmiesonattack.Add(other.gameObject);
         }
     }
 

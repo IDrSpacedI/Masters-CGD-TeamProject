@@ -30,6 +30,7 @@ public class Interactor : MonoBehaviour
         if (numInteractables == 1)
         {
            // interactable = colliders[0].GetComponent<IInteractable>();
+          
             interactable = collidedobject.GetComponent<IInteractable>();
 
             if (interactable != null)
