@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 2
+  outlineWidth: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -179,7 +179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6660826742877042725
 Transform:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6660826743272526097
 Transform:
   m_ObjectHideFlags: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
   - {fileID: 6660826742453991138}
   - {fileID: 6660826743272526098}
   - {fileID: 6660826742877042726}
-  currentLevel: -1
+  currentLevel: 0
   basebuilding: 0
   interactCollider: {fileID: 6660826743310439280}
   interactButton: {fileID: 6150815632240188676}
@@ -382,6 +382,7 @@ MonoBehaviour:
   TextBox: {fileID: 0}
   CoinsUI: {fileID: 0}
   coins: {fileID: 0}
+  enmiesonattack: []
 --- !u!54 &6660826743310439287
 Rigidbody:
   m_ObjectHideFlags: 0

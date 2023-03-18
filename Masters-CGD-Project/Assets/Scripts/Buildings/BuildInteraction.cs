@@ -51,6 +51,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public List<GameObject> enmiesonattack;
 
+    private bool playerInRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         for (int i = 0; i < levels.Length; i++)
         {
             levels[i].SetActive(false);
+        }
+
+        if(currentLevel == 0)
+        {
+            levels[0].SetActive(true);
         }
 
         //make sure the text are invisible
@@ -125,10 +132,16 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public void AnimationEnd()
     {
         finished = true;
-        //If it's not base allow 
+        //If it's not base turn on outline
         if (!basebuilding)
             levels[currentLevel].GetComponent<Outline>().enabled = true;
-        
+        //If player is not in range put witdth to 0 (basically invisible)
+        if (!playerInRange)
+        {
+            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+        }
+        else
+            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
     }
 
     public void DeUpgrade()
@@ -250,6 +263,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             if(!enmiesonattack.Contains(other.gameObject))
             enmiesonattack.Add(other.gameObject);
         }
+        playerInRange = true;
     }
 
 
@@ -268,6 +282,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             if (!basebuilding && currentLevel > -1)
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
         }
+        playerInRange = false;
     }
 
 }
