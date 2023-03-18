@@ -36,7 +36,7 @@ public class HealthSysytem : MonoBehaviour,IHealth
     void Update()
     {
         currentday = lm.dayCount;
-        if (enemy.Count == 0 && healtheffected && startday != currentday)
+        if (manager.enemyList.Count == 0 && healtheffected && startday != currentday)
         {
             currentHealth = maxHealth;
             healpointlight.SetActive(true);

@@ -19,7 +19,8 @@ public class WonderingState : State
 
     public override State RunCurrentState()
     {
-        foreach(GameObject objects in Gamemanager.Instance.Object){
+        aiAnimation.SetBool("building", false);
+        foreach (GameObject objects in Gamemanager.Instance.Object){
             try
             {
                 if (objects.GetComponent<BuildInteraction>().Available == true)

@@ -10,12 +10,15 @@ public class AttackPlayerState : State
     [SerializeField] private int damage;
     //Create some time between attacks
     public float elapsedTime;
-    [SerializeField] private float TimeAttack;
+    [SerializeField] private float timeAttack;
 
     [SerializeField] private Animator aiAnimation;
     [SerializeField] private ChasePlayerEnemyState chasePlayerEnemyState;
     [SerializeField] private AttackAnimationEnemy attackAnimationEnemy;
     public EnemiesInRange enemiesInRange;
+
+    public UnityEngine.AI.NavMeshAgent navMeshAgent;
+    private bool isInCooldown = false;
 
     public override State RunCurrentState()
     {
@@ -23,13 +26,27 @@ public class AttackPlayerState : State
        if (!enemiesInRange.playerInRange)
         {
             attackAnimationEnemy.player = false;
+            //when the enemy comes back to this state it should be ready to attack
+            isInCooldown = false;
             return chasePlayerEnemyState;
         }
 
         //Play animation
-        attackAnimationEnemy.player = true;
-        aiAnimation.SetBool("attack", true);
-        aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
+        if(isInCooldown == false)
+        {
+            attackAnimationEnemy.player = true;
+            aiAnimation.SetBool("attack", true);
+            aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);
+            navMeshAgent.destination = player.transform.position;
+        }
+        else
+        {
+            aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
+            attackAnimationEnemy.player = false;
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime >= timeAttack)
+                isInCooldown = false;
+        }
         return this;
 
     }
@@ -37,6 +54,8 @@ public class AttackPlayerState : State
     {
         //Attack player
         player.GetComponent<IHealth>().reducehealth(damage);
+        isInCooldown = true;
+        elapsedTime = 0;
     }
 
 }

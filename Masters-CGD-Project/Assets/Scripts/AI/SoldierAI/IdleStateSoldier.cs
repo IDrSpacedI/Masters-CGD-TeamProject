@@ -6,14 +6,14 @@ public class IdleStateSoldier : State
 {
     public EntityManager entityManager;
     [SerializeField] private GoTowerStateSoldier goTowerStateSoldier;
-    [SerializeField] private GoBarricadeStateSoldier goBarricadeStateSoldier;
+    [SerializeField] public GoBarricadeStateSoldier goBarricadeStateSoldier;
     [SerializeField] private AttackBarricadeSoldierState attackBarricadeSoldierState;
     [SerializeField] private WanderSoldierState wanderSoldierState;
     [SerializeField] private LightingManager lightingManager;
     [SerializeField] private Animator aiAnimation;
-    
-    private GameObject enemy = null;
-    GameObject currentBarricade = null;
+
+    [SerializeField] private GameObject enemy = null;
+   public GameObject currentBarricade = null;
     float distance;
 
     public void Start()
@@ -102,6 +102,7 @@ public class IdleStateSoldier : State
 
      void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy") enemy = other.gameObject;
+        if (other.tag == "Enemy") 
+            enemy = other.gameObject;
     }
 }
