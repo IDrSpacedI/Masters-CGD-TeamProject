@@ -446,12 +446,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   damage: 1
-  elapsedTime: 5
-  TimeAttack: 5
+  elapsedTime: 0
+  timeAttack: 5
   aiAnimation: {fileID: 6344383261301875463}
   chasePlayerEnemyState: {fileID: 5163592262059642658}
   attackAnimationEnemy: {fileID: 6003248217479691576}
   enemiesInRange: {fileID: 5163592260621083169}
+  navMeshAgent: {fileID: 1318900214779027700}
 --- !u!1 &5163592261263874168
 GameObject:
   m_ObjectHideFlags: 0
