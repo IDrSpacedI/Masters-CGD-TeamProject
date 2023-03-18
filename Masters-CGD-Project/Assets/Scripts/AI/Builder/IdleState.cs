@@ -15,7 +15,6 @@ public class IdleState : State
 
     public override State RunCurrentState()
     {
-        
         aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
         aiAnimation.SetBool("building", false);
 
