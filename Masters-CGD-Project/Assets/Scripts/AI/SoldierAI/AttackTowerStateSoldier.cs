@@ -11,10 +11,16 @@ public class AttackTowerStateSoldier : State
     [SerializeField] private int damage;
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
+    [SerializeField] private LightingManager lightingManager;
+
+    public void Start()
+    {
+        lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
+    }
 
     public override State RunCurrentState()
     {
-        if (enemy == null)
+        if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18))
             return guardTowerStateSoldier;
 
         if (elapsedTime >= TimeAttack)

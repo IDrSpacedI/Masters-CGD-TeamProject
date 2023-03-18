@@ -13,18 +13,27 @@ public class AttackBarricadeSoldierState : State
 
     [SerializeField] private GuardBarricadeStateSoldier guardBarricadeStateSoldier;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
+    [SerializeField] private LightingManager lightingManager;
 
+    public void Start()
+    {
+        lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
+    }
     public override State RunCurrentState()
     {
+        //Set attack animation on
         aiAnimation.SetBool("attack", true);
-        if (enemy == null)
+        //If enemy is dead or it's daytime, turn off animation
+        if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18))
         {
             aiAnimation.SetBool("attack", false);
+            //If it came from idle, go back to idle
             if (idle == true)
             {
                 idle = false;
                 return idleStateSoldier;
             }
+            //if not, continue guarding
             return guardBarricadeStateSoldier;
         }
         return this;
