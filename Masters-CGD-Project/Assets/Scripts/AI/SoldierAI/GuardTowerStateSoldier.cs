@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GuardTowerStateSoldier : State
 {
-    [SerializeField] private AttackTowerStateSoldier attackStateSoldier; 
-    private GameObject enemy = null;
+    [SerializeField] private AttackTowerStateSoldier attackStateSoldier;
+    [SerializeField] private GameObject enemy = null;
     [SerializeField] private Animator aiAnimation;
 
     public override State RunCurrentState()

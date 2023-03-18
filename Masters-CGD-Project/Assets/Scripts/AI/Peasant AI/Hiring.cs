@@ -29,8 +29,14 @@ public class Hiring : MonoBehaviour
             moneysystem = other.gameObject;
             if (hired == false)
             {
-                interactbox.SetActive(true);
-                if (Input.GetKey(KeyCode.E))
+                if (!other.gameObject.GetComponent<Interactor>().collidedobject)
+                {
+                    other.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
+                    //TextBox.SetActive(true);
+                    interactbox.SetActive(true);
+                }
+                
+                if (Input.GetKey(KeyCode.E) && other.gameObject.GetComponent<Interactor>().collidedobject == this.gameObject)
                 {
                     if(moneysystem.GetComponent<MoneySystem>().reduceMoney(5) == true)
                     {
@@ -39,7 +45,8 @@ public class Hiring : MonoBehaviour
                         hired = true;
                         travelState.destination = mainBase;
                         travelState.go = true;
-                        StartCoroutine(Text());
+                        other.gameObject.GetComponent<Interactor>().collidedobject = null;
+                       StartCoroutine(Text());
                     }
                     else
                     {
@@ -62,7 +69,11 @@ public class Hiring : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            interactbox.SetActive(false);
+            if (other.gameObject.GetComponent<Interactor>().collidedobject == this.gameObject)
+            {
+                other.gameObject.GetComponent<Interactor>().collidedobject = null;
+                interactbox.SetActive(false);
+            }
         }
     }
 }

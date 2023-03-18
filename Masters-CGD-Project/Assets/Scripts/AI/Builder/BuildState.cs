@@ -18,9 +18,10 @@ public class BuildState : State
     public override State RunCurrentState()
     {
         try {
+            state.gameObject.transform.rotation = Quaternion.Euler(0,180,0);
             animator.SetBool("building", true);
             animator.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
-            if(upgradeDone == false)
+            if (upgradeDone == false)
             {
                 goState.destination.GetComponent<BuildInteraction>().Upgrade();
                 goState.destination.GetComponent<BuildInteraction>().Available = false;

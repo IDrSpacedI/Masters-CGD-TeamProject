@@ -19,6 +19,7 @@ public class GetMoney : MonoBehaviour
     public GameObject TextPrompt;
     public GameObject coinUI;
     public GameObject MaxCoins;
+   
 
     MoneySystem money;
 
@@ -45,6 +46,7 @@ public class GetMoney : MonoBehaviour
                 FindObjectOfType<SoundManager>().PlaySound("BreakTree");
                 //Destroy(gameObject);
                 action = false;
+                player.gameObject.GetComponent<Interactor>().collidedobject = null;
                 this.gameObject.SetActive(false);
                 Available = true;
                 Invoke("respawn",Random.Range(10,15));
@@ -77,9 +79,13 @@ public class GetMoney : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
-            //Debug.Log("touching");
-            TextPrompt.SetActive(true);
-            action = true;
+            if (!collision.gameObject.GetComponent<Interactor>().collidedobject)
+            {
+                collision.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
+                //Debug.Log("touching");
+                TextPrompt.SetActive(true);
+                action = true;
+            }
         }
 
     }
@@ -99,9 +105,14 @@ public class GetMoney : MonoBehaviour
     void OnTriggerExit(Collider collision)
     {
         // Debug.Log("Exitted");
-        TextPrompt.SetActive(false);
-        action = false;
-        if(collision == null)
+        if (collision.gameObject.GetComponent<Interactor>().collidedobject == this.gameObject)
+        {
+            collision.gameObject.GetComponent<Interactor>().collidedobject = null;
+            //Debug.Log("touching");
+            TextPrompt.SetActive(false);
+            action = false;
+        }
+        if (collision == null)
         {
             TextPrompt.SetActive(false);
         }
