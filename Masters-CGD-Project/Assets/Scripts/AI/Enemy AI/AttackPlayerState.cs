@@ -27,7 +27,7 @@ public class AttackPlayerState : State
         {
             attackAnimationEnemy.player = false;
             //when the enemy comes back to this state it should be ready to attack
-            isInCooldown = true;
+            isInCooldown = false;
             return chasePlayerEnemyState;
         }
 
