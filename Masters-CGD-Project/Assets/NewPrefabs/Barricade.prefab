@@ -50,7 +50,7 @@ MonoBehaviour:
   mainUpgrade: {fileID: 6513737722959695314}
   health: 1
   guards: []
-  slots: 0
+  slots: []
 --- !u!114 &1057798863677203512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   levels:
   - {fileID: 1643220239458584790}
   - {fileID: 8167953442171432838}
-  currentLevel: -1
+  currentLevel: 0
   basebuilding: 0
   interactCollider: {fileID: 6749977801773811147}
   interactButton: {fileID: 6579749123997982718}
@@ -324,6 +324,7 @@ MonoBehaviour:
   TextBox: {fileID: 0}
   CoinsUI: {fileID: 0}
   coins: {fileID: 0}
+  enmiesonattack: []
 --- !u!114 &6535222474664504978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +441,7 @@ MonoBehaviour:
   mainUpgrade: {fileID: 8167953442171432838}
   health: 1
   guards: []
-  slots: 0
+  slots: []
 --- !u!114 &7726470520459344420
 MonoBehaviour:
   m_ObjectHideFlags: 0
