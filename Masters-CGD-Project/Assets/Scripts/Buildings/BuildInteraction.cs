@@ -47,7 +47,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public GameObject TextBox;
 
     public GameObject CoinsUI;
-    public Animation coins;
+
 
     public List<GameObject> enmiesonattack;
 
@@ -123,6 +123,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 iLevelWall.levelFX.GetComponent<ParticleSystem>().Play();
                 iLevelWall.mainUpgrade.SetActive(true);
                 FindObjectOfType<SoundManager>().PlaySound("coin");
+                CoinsUI.SetActive(true);
                 Available = false;
             }
         }

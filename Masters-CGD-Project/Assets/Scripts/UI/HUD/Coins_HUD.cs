@@ -13,6 +13,8 @@ public class Coins_HUD : MonoBehaviour
     public MoneySystem M_System;
     private int MaxMoney;
     private int i;
+    public Animator[] anims;
+    private int c;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class Coins_HUD : MonoBehaviour
         {
             Coin[i].SetActive(false);
         }
+
+      
     }
 
     void Update()
@@ -38,18 +42,18 @@ public class Coins_HUD : MonoBehaviour
         Coins = M_System.currentMoney;
      
         for (i = 0; i < Coins; i++)
-            {
+        {
                 Coin[i].SetActive(true);
-            }
-            for (; i < MaxMoney; i++)
-            {
+        }
+        for (; i < MaxMoney; i++)
+        {
                 Coin[i].SetActive(false);
-            }
+        }
 
-          
-      
-
-
+        for (c = 0; c < anims.Length; c++)
+        {
+            anims[c].Play("Coins");
+        }
     }  
 
     public void check()
