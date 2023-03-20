@@ -7,6 +7,8 @@ public class GuardTowerStateSoldier : State
     [SerializeField] private AttackTowerStateSoldier attackStateSoldier;
     [SerializeField] private GameObject enemy = null;
     [SerializeField] private Animator aiAnimation;
+    [SerializeField] private GoTowerStateSoldier goTower;
+    [SerializeField] private IdleStateSoldier idleStateSoldier;
 
     public override State RunCurrentState()
     {
@@ -18,6 +20,11 @@ public class GuardTowerStateSoldier : State
             attackStateSoldier.enemy = enemy;
             return attackStateSoldier;
         }
+        if (!goTower.tower.activeSelf)
+		{
+            goTower.navMeshAgent.enabled = true;
+            return idleStateSoldier;
+		}
         return this;
     }
 
