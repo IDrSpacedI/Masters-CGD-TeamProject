@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class AttackTowerStateSoldier : State
@@ -12,6 +13,7 @@ public class AttackTowerStateSoldier : State
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
     [SerializeField] private LightingManager lightingManager;
+    public GameObject spear;
 
     public void Start()
     {
@@ -34,4 +36,14 @@ public class AttackTowerStateSoldier : State
         return this;
     }
 
+
+    public void JSpearPickUp()
+    {
+        spear.SetActive(true);
+    }
+
+    public void JSpearAttack()
+    {
+        spear.SetActive(false);
+    }
 }
