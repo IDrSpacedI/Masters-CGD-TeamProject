@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &131811924975249184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206117621023303303}
+  m_Layer: 0
+  m_Name: DummyGhost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &206117621023303303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131811924975249184}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 125.26584, y: -127.01231, z: 29.414223}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3441106283277228237}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013651468101361234
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +115,8 @@ MonoBehaviour:
   mainUpgrade: {fileID: 3441106282396444837}
   health: 0
   guards: []
-  slots: 0
+  slots: []
+  ghost: {fileID: 131811924975249184}
 --- !u!1 &3441106282132347100
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +353,8 @@ MonoBehaviour:
   mainUpgrade: {fileID: 3441106283932666805}
   health: 5
   guards: []
-  slots: 0
+  slots: []
+  ghost: {fileID: 131811924975249184}
 --- !u!1 &3441106283253144579
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +404,8 @@ MonoBehaviour:
   mainUpgrade: {fileID: 3441106282132347100}
   health: 5
   guards: []
-  slots: 0
+  slots: []
+  ghost: {fileID: 131811924975249184}
 --- !u!1 &3441106283277228233
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +448,7 @@ Transform:
   - {fileID: 3978230379532586384}
   - {fileID: 3978230378476749764}
   - {fileID: 3978230379184662251}
+  - {fileID: 206117621023303303}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -449,6 +484,8 @@ MonoBehaviour:
   upgradeTent: {fileID: 0}
   TextBox: {fileID: 2013651468101361234}
   CoinsUI: {fileID: 0}
+  coins: {fileID: 0}
+  enmiesonattack: []
 --- !u!54 &3441106283277228235
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -528,7 +565,8 @@ MonoBehaviour:
   mainUpgrade: {fileID: 3441106282714033458}
   health: 0
   guards: []
-  slots: 0
+  slots: []
+  ghost: {fileID: 131811924975249184}
 --- !u!1 &3441106283721859909
 GameObject:
   m_ObjectHideFlags: 0

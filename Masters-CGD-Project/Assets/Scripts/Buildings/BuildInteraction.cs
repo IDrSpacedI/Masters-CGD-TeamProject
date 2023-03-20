@@ -255,6 +255,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             {
                 other.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
                 TextBox.SetActive(true);
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
             }
 
             if(Available == true)
@@ -262,7 +263,10 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 TextBox.SetActive(false);
             }
             if(!basebuilding && currentLevel > -1)
+			{
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+            }
+                
             playerInRange = true;
         }
         else if(other.gameObject.tag == "Enemy")
@@ -283,6 +287,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             {
                 other.gameObject.GetComponent<Interactor>().collidedobject =null;
                 TextBox.SetActive(false);
+                levels[currentLevel].GetComponent<LevelWall>().ghost.SetActive(false);
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
                 CoinsUI.SetActive(false);
             }
             if (!basebuilding && currentLevel > -1)
