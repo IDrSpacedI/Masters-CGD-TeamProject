@@ -25,4 +25,6 @@ public class GuardTowerStateSoldier : State
     {
         if (other.tag == "Enemy") enemy = other.gameObject;
     }
+
+
 }
