@@ -14,6 +14,14 @@ public class IntroTimeline : MonoBehaviour
         StartCoroutine(SwapCamera());
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            cam1.Priority = 9;
+        }
+    }
+
     public IEnumerator SwapCamera()
     {
         yield return new WaitForSeconds(20f);
