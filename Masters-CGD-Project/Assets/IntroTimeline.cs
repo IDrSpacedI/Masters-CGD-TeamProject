@@ -6,12 +6,14 @@ using Cinemachine;
 public class IntroTimeline : MonoBehaviour
 {
     public CinemachineVirtualCamera cam1;
+    public GameObject Ui;
 
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SwapCamera());
+        Ui.SetActive(false);
     }
 
     private void Update()
@@ -26,6 +28,7 @@ public class IntroTimeline : MonoBehaviour
     {
         yield return new WaitForSeconds(20f);
         cam1.Priority = 9;
+        //Ui.SetActive(true);
     }
 
 }
