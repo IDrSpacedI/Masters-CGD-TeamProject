@@ -48,7 +48,7 @@ public class AttackTowerStateSoldier : State
         bodyAim.weight = 1;
     }
 
-    public void JSpearAttack()
+    public void JSpearThrow()
     {
         spear.SetActive(false);
         bodyAim.weight = 0;
