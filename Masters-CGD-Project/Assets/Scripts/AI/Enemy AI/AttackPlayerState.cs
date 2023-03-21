@@ -19,15 +19,27 @@ public class AttackPlayerState : State
 
     public UnityEngine.AI.NavMeshAgent navMeshAgent;
     private bool isInCooldown = false;
+    private bool hasSlowedPlayerDown = false;
+    public float slowDown;
 
     public override State RunCurrentState()
     {
-       //check if player is still in range
-       if (!enemiesInRange.playerInRange)
+        //Slow down player movement by half
+        if (!hasSlowedPlayerDown)
+        {
+            player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speed / slowDown;
+            hasSlowedPlayerDown = true;
+        }
+        //check if player is still in range
+        if (!enemiesInRange.playerInRange)
         {
             attackAnimationEnemy.player = false;
+            hasSlowedPlayerDown = false;
             //when the enemy comes back to this state it should be ready to attack
             isInCooldown = false;
+            //Make player speed normal
+            player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speed * slowDown;
+
             return chasePlayerEnemyState;
         }
 

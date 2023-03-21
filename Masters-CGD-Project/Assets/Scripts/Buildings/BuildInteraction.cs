@@ -51,7 +51,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public List<GameObject> enmiesonattack;
 
-    private bool playerInRange;
+    private bool playerInRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +71,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         if(currentLevel == 0)
         {
             levels[0].SetActive(true);
+            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+
         }
 
         //make sure the text are invisible
@@ -134,15 +136,19 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
         finished = true;
         //If it's not base turn on outline
-        if (!basebuilding)
+        if (!basebuilding){
             levels[currentLevel].GetComponent<Outline>().enabled = true;
-        //If player is not in range put witdth to 0 (basically invisible)
-        if (!playerInRange)
-        {
-            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+            if (!playerInRange)
+            {
+                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+            }
+            else 
+            {
+                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+            }
         }
-        else
-            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+        //If player is not in range put witdth to 0 (basically invisible)
+   
     }
 
     public void DeUpgrade()
@@ -244,12 +250,13 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             if (!other.gameObject.GetComponent<Interactor>().collidedobject)
             {
                 other.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
                 TextBox.SetActive(true);
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
             }
 
             if(Available == true)
@@ -257,33 +264,38 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 TextBox.SetActive(false);
             }
             if(!basebuilding && currentLevel > -1)
+			{
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+            }
+                
+            playerInRange = true;
         }
         else if(other.gameObject.tag == "Enemy")
         {
             if(!enmiesonattack.Contains(other.gameObject))
             enmiesonattack.Add(other.gameObject);
         }
-        playerInRange = true;
     }
 
 
     //make sure the text on Hud disappear after the player leaves it
     private void OnTriggerExit(Collider other)
     {
+
         if (other.tag == "Player")
         {
             if (other.gameObject.GetComponent<Interactor>().collidedobject==this.gameObject)
             {
                 other.gameObject.GetComponent<Interactor>().collidedobject =null;
                 TextBox.SetActive(false);
-                Debug.Log("Interact time");
+                levels[currentLevel].GetComponent<LevelWall>().ghost.SetActive(false);
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
                 CoinsUI.SetActive(false);
             }
             if (!basebuilding && currentLevel > -1)
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+            playerInRange = false;
         }
-        playerInRange = false;
     }
 
 }

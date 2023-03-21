@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class AttackTowerStateSoldier : State
 {
@@ -14,9 +15,11 @@ public class AttackTowerStateSoldier : State
     [SerializeField] private float TimeAttack;
     [SerializeField] private LightingManager lightingManager;
     public GameObject spear;
+    public MultiAimConstraint bodyAim;
 
     public void Start()
     {
+        spear.SetActive(false);
         lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
     }
 
@@ -40,10 +43,12 @@ public class AttackTowerStateSoldier : State
     public void JSpearPickUp()
     {
         spear.SetActive(true);
+        bodyAim.weight = 1;
     }
 
     public void JSpearAttack()
     {
         spear.SetActive(false);
+        bodyAim.weight = 0;
     }
 }

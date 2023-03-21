@@ -146,6 +146,8 @@ public class PlayerMovement : MonoBehaviour
             playerIdle = true;
             playerAnimtor.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
         }
+
+
     }
 
     //function used to allow the player to jump

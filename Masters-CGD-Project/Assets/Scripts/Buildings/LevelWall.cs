@@ -11,5 +11,6 @@ public class LevelWall : MonoBehaviour
     public List<GameObject> guards;
     //public int slots;
     public List<GameObject> slots;
+    public GameObject ghost;
    
 }
