@@ -18,6 +18,7 @@ public class GuardTowerStateSoldier : State
             //turn off the collision detection
             GetComponent<CapsuleCollider>().enabled = false;
             attackStateSoldier.enemy = enemy;
+            enemy = null;
             return attackStateSoldier;
         }
         if (!goTower.tower.activeSelf)
