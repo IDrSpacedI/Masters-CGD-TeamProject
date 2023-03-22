@@ -13,6 +13,7 @@ public class Interactor : MonoBehaviour
     public int numInteractables;
 
     private IInteractable interactable;
+    private IInteractable oldInteractable;
     public GameObject collidedobject;
 
 
@@ -25,13 +26,27 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //getting the interactable in range and adding it to the colliders list
+        //getting the interactables in range and adding it to the colliders list
         numInteractables = Physics.OverlapSphereNonAlloc(interactablePoint.position, radius, colliders, interactableMask);
-        if (numInteractables == 1)
+        if (numInteractables >= 1)
         {
-           // interactable = colliders[0].GetComponent<IInteractable>();
+            //choosing the first one in the range
+            interactable = colliders[0].GetComponent<IInteractable>();
           
-            interactable = collidedobject.GetComponent<IInteractable>();
+            if (interactable != oldInteractable || oldInteractable == null)
+            {
+                interactable.OnEnter();
+                try
+                {
+                    oldInteractable.OnLeave();
+                }
+                catch
+                {
+
+                }
+            }
+            
+            //interactable = collidedobject.GetComponent<IInteractable>();
 
             if (interactable != null)
             {
@@ -42,15 +57,22 @@ public class Interactor : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                     interactable.Interact(this);
             }
+            oldInteractable = interactable;
         }
         else
         {
-            //If there is no interactable in range, set interactable to null
-            if (interactable != null)
-                interactable = null;
-            //Turn off display if no interactable in range
-            if (InteractionPromptUI.isDisplayed)
-                InteractionPromptUI.closePrompt();
+            //set interactables to null and call the on leave function;
+            try
+            {
+                oldInteractable.OnLeave();
+            }
+            catch
+            {
+
+            }
+            interactable = null;
+            oldInteractable = null;
+
 
         }
 

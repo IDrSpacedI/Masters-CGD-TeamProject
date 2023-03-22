@@ -8,9 +8,11 @@ public class AttackTowerStateSoldier : State
 {
     public GameObject enemy;
     [SerializeField] private GuardTowerStateSoldier guardTowerStateSoldier;
+	[SerializeField] private GoTowerStateSoldier goTower;
+	[SerializeField] private IdleStateSoldier idleStateSoldier;
 
-    //Damage and time between attacks
-    [SerializeField] private int damage;
+	//Damage and time between attacks
+	[SerializeField] private int damage;
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
     [SerializeField] private LightingManager lightingManager;
@@ -38,7 +40,13 @@ public class AttackTowerStateSoldier : State
 
         }
 
-        return this;
+		if (!goTower.tower.activeSelf)
+		{
+			goTower.navMeshAgent.enabled = true;
+			return idleStateSoldier;
+		}
+
+		return this;
     }
 
 

@@ -16,10 +16,12 @@ public class ToolManager : MonoBehaviour
     public bool available = false;
 
     public GameObject TextPrompt;
+    private string promptText;
 
     // Start is called before the first frame update
     void Start()
     {
+        promptText = "Build";
         player = GameObject.FindGameObjectWithTag("Player");
         TextPrompt.SetActive(false);
         foreach (GameObject tool in tools)
@@ -31,7 +33,8 @@ public class ToolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (amount < max)
+		ChangePromtText(TextPrompt, "BuildText", promptText);
+		if (amount < max)
         {
             active = true;
             if (Input.GetKeyDown(KeyCode.E) && action)
@@ -45,7 +48,8 @@ public class ToolManager : MonoBehaviour
 		}
 		else
 		{
-            TextPrompt.SetActive(false);
+			promptText = "Build";
+			TextPrompt.SetActive(false);
             action = false;
             active = false;
         }
@@ -109,6 +113,7 @@ public class ToolManager : MonoBehaviour
         {
             if (active == true)
             {
+                promptText = "Buy";
                 TextPrompt.SetActive(true);
             }
             //Debug.Log("touching");
@@ -118,11 +123,24 @@ public class ToolManager : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        TextPrompt.SetActive(false);
+		promptText = "Build";
+		TextPrompt.SetActive(false);
         action = false;
         if (collision == null)
         {
-            TextPrompt.SetActive(false);
+			promptText = "Build";
+			TextPrompt.SetActive(false);
         }
     }
+
+    private void ChangePromtText(GameObject prompt, string textName, string newText)
+    {
+		foreach (Transform child in prompt.transform)
+		{
+			if (child.name == textName)
+			{
+				child.GetComponent<TextMeshProUGUI>().text = newText;
+			}
+		}
+	}
 }
