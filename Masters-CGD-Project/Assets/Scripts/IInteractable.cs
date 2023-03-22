@@ -9,5 +9,7 @@ public interface IInteractable
 
     //Interacting behaviour (differs with each building)
     public bool Interact(Interactor interactor);
+    public void OnEnter();
+    public void OnLeave();
 
 }

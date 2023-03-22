@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GetMoney : MonoBehaviour
+public class GetMoney : MonoBehaviour, IInteractable
 {
     public int amount;
     private GameObject player;
@@ -23,6 +23,8 @@ public class GetMoney : MonoBehaviour
 
     MoneySystem money;
 
+    public string InteractionPrompt => throw new System.NotImplementedException();
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -34,31 +36,31 @@ public class GetMoney : MonoBehaviour
 
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.E) && action == true)
-       {
-            //Debug.Log("ADD MONEY PLEASE");          
-            if(player.gameObject.GetComponent<IMoney>().addMoney(amount))
-            {
-                MaxCoins.SetActive(false);
-                TextPrompt.SetActive(false);
-                coinUI.SetActive(true);
-                //FindObjectOfType<SoundManager>().PlaySound("coin");
-                FindObjectOfType<SoundManager>().PlaySound("BreakTree");
-                //Destroy(gameObject);
-                action = false;
-                player.gameObject.GetComponent<Interactor>().collidedobject = null;
-                this.gameObject.SetActive(false);
-                Available = true;
-                Invoke("respawn",Random.Range(10,15));
-            }
-            else
-            {
-                Debug.Log("Max amount reached");
-                MaxCoins.SetActive(true);
-                StartCoroutine(Delayv2());
-            }
+       //if (Input.GetKeyDown(KeyCode.E) && action == true)
+       //{
+       //     //Debug.Log("ADD MONEY PLEASE");          
+       //     if(player.gameObject.GetComponent<IMoney>().addMoney(amount))
+       //     {
+       //         MaxCoins.SetActive(false);
+       //         TextPrompt.SetActive(false);
+       //         coinUI.SetActive(true);
+       //         //FindObjectOfType<SoundManager>().PlaySound("coin");
+       //         FindObjectOfType<SoundManager>().PlaySound("BreakTree");
+       //         //Destroy(gameObject);
+       //         action = false;
+       //         player.gameObject.GetComponent<Interactor>().collidedobject = null;
+       //         this.gameObject.SetActive(false);
+       //         Available = true;
+       //         Invoke("respawn",Random.Range(10,15));
+       //     }
+       //     else
+       //     {
+       //         Debug.Log("Max amount reached");
+       //         MaxCoins.SetActive(true);
+       //         StartCoroutine(Delayv2());
+       //     }
             
-       }
+       //}
       
     }
     void respawn()
@@ -73,20 +75,20 @@ public class GetMoney : MonoBehaviour
         //Debug.Log("TRIGGER!!!!!!!!!!");
         //if (active == true)
         //{
-        //    TextPrompt.SetActive(true);
-        //    //Pickup.gameObject.SetActive(true);
-        //}
+        ////    TextPrompt.SetActive(true);
+        ////    //Pickup.gameObject.SetActive(true);
+        ////}
 
-        if (collision.transform.tag == "Player")
-        {
-            if (!collision.gameObject.GetComponent<Interactor>().collidedobject)
-            {
-                collision.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
-                //Debug.Log("touching");
-                TextPrompt.SetActive(true);
-                action = true;
-            }
-        }
+        //if (collision.transform.tag == "Player")
+        //{
+        //    if (!collision.gameObject.GetComponent<Interactor>().collidedobject)
+        //    {
+        //        collision.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
+        //        //Debug.Log("touching");
+        //        TextPrompt.SetActive(true);
+        //        action = true;
+        //    }
+        //}
 
     }
 
@@ -94,6 +96,7 @@ public class GetMoney : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         MaxCoins.SetActive(false);
+        TextPrompt.SetActive(true);
     }
 
     public IEnumerator Delay()
@@ -102,19 +105,55 @@ public class GetMoney : MonoBehaviour
         coinUI.SetActive(false);
     }
 
-    void OnTriggerExit(Collider collision)
+    //void OnTriggerExit(Collider collision)
+    //{
+    //    // Debug.Log("Exitted");
+    //    if (collision.gameObject.GetComponent<Interactor>().collidedobject == this.gameObject)
+    //    {
+    //        collision.gameObject.GetComponent<Interactor>().collidedobject = null;
+    //        //Debug.Log("touching");
+    //        TextPrompt.SetActive(false);
+    //        action = false;
+    //    }
+    //    if (collision == null)
+    //    {
+    //        TextPrompt.SetActive(false);
+    //    }
+    //}
+
+    public bool Interact(Interactor interactor)
     {
-        // Debug.Log("Exitted");
-        if (collision.gameObject.GetComponent<Interactor>().collidedobject == this.gameObject)
+        if (player.gameObject.GetComponent<IMoney>().addMoney(amount))
         {
-            collision.gameObject.GetComponent<Interactor>().collidedobject = null;
-            //Debug.Log("touching");
+            MaxCoins.SetActive(false);
             TextPrompt.SetActive(false);
+            coinUI.SetActive(true);
+            //FindObjectOfType<SoundManager>().PlaySound("coin");
+            FindObjectOfType<SoundManager>().PlaySound("BreakTree");
+            //Destroy(gameObject);
             action = false;
+            this.gameObject.SetActive(false);
+            Invoke("respawn", Random.Range(10, 15));
+            return true;
         }
-        if (collision == null)
+        else
         {
+            Debug.Log("Max money reached");
+            MaxCoins.SetActive(true);
             TextPrompt.SetActive(false);
+            StartCoroutine(Delayv2());
+            return false;
         }
+    }
+
+    public void OnEnter()
+    {
+        TextPrompt.SetActive(true);
+    }
+
+    public void OnLeave()
+    {
+        MaxCoins.SetActive(false);
+        TextPrompt.SetActive(false);
     }
 }

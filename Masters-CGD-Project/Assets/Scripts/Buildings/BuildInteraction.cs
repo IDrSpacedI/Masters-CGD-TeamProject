@@ -12,7 +12,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     [SerializeField] public int currentLevel = -1;
 
-    [SerializeField] public bool basebuilding;
+    [SerializeField] public bool baseBuilding;
 
     //[SerializeField] private GameObject BaseBuilding;
 
@@ -135,10 +135,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     {
         finished = true;
         //If it's not base turn on outline
-        if (!basebuilding){
+        if (!baseBuilding){
             levels[currentLevel].GetComponent<Outline>().enabled = true;
             if (!playerInRange)
             {
+                //If player is not in range put witdth to 0 (basically invisible)
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
             }
             else 
@@ -146,7 +147,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
             }
         }
-        //If player is not in range put witdth to 0 (basically invisible)
    
     }
 
@@ -185,7 +185,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
-        if(basebuilding == false)
+        if(baseBuilding == false)
             
         {
            
@@ -215,6 +215,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             //        Upgrade();
             //    }   
             //}
+            Debug.Log("Inside");
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
             if (currentLevel == -1)
@@ -232,7 +233,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         if (currentLevel >=0)
         {
             Building_health-=i;
-            if (Building_health == 0)
+            if (Building_health <= 0)
             {
                 currentLevel = -1;
                 for (int j = 0; j < levels.Length; j++)
@@ -249,27 +250,27 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            if (!other.gameObject.GetComponent<Interactor>().collidedobject)
-            {
-                other.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
-                TextBox.SetActive(true);
-                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
-            }
+   //     if (other.gameObject.tag == "Player")
+   //     {
+   //         if (!other.gameObject.GetComponent<Interactor>().collidedobject)
+   //         {
+   //             other.gameObject.GetComponent<Interactor>().collidedobject = this.gameObject;
+   //             TextBox.SetActive(true);
+   //             levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
+   //         }
 
-            if(Available == true)
-            {
-                TextBox.SetActive(false);
-            }
-            if(!basebuilding && currentLevel > -1)
-			{
-                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
-            }
+   //         if(Available == true)
+   //         {
+   //             TextBox.SetActive(false);
+   //         }
+   //         if(!baseBuilding && currentLevel > -1)
+			//{
+   //             levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+   //         }
                 
-            playerInRange = true;
-        }
-        else if(other.gameObject.tag == "Enemy")
+   //         playerInRange = true;
+        //}
+        if(other.gameObject.tag == "Enemy")
         {
             if(!enmiesonattack.Contains(other.gameObject))
             enmiesonattack.Add(other.gameObject);
@@ -278,24 +279,51 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
 
     //make sure the text on Hud disappear after the player leaves it
-    private void OnTriggerExit(Collider other)
-    {
+    //private void OnTriggerExit(Collider other)
+    //{
 
-        if (other.tag == "Player")
+    //    if (other.tag == "Player")
+    //    {
+    //        if (other.gameObject.GetComponent<Interactor>().collidedobject == this.gameObject)
+    //        {
+    //            other.gameObject.GetComponent<Interactor>().collidedobject = null;
+    //            TextBox.SetActive(false);
+    //            levels[currentLevel].GetComponent<LevelWall>().ghost.SetActive(false);
+    //            levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
+    //            CoinsUI.SetActive(false);
+    //        }
+    //        if (!baseBuilding && currentLevel > -1)
+    //            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+    //        playerInRange = false;
+    //    }
+    //}
+
+    public void OnEnter()
+    {
+        TextBox.SetActive(true);
+        if(currentLevel != levels.Length - 1 && !baseBuilding)
         {
-            if (other.gameObject.GetComponent<Interactor>().collidedobject==this.gameObject)
-            {
-                other.gameObject.GetComponent<Interactor>().collidedobject =null;
-                TextBox.SetActive(false);
-                levels[currentLevel].GetComponent<LevelWall>().ghost.SetActive(false);
-                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
-                CoinsUI.SetActive(false);
-            }
-            if (!basebuilding && currentLevel > -1)
-                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
-            playerInRange = false;
+            levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
+
         }
+        if (Available == true)
+        {
+            TextBox.SetActive(false);
+        }
+
+        playerInRange = true;
     }
 
+    public void OnLeave()
+    {
+        TextBox.SetActive(false);
+        if (!baseBuilding)
+        {
+            levels[1].GetComponent<LevelWall>().ghost.SetActive(false);
+            levels[0].GetComponent<LevelWall>().ghost.SetActive(false);
+        }
+        CoinsUI.SetActive(false);
+        playerInRange = false;
+    }
 }
 
