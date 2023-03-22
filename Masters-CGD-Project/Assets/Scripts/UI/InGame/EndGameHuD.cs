@@ -16,6 +16,7 @@ public class EndGameHuD : MonoBehaviour
     private void Start()
     {
         Cursor.visible = true;
+        
     }
     void Update()
     {
