@@ -35,6 +35,11 @@ public class HealthSysytem : MonoBehaviour,IHealth
 
     void Update()
     {
+        if (currentHealth == 0)
+        {
+            FindObjectOfType<SoundManager>().PlaySound("LoseGame");
+            Invoke("playerDead", 1f);
+        }
         currentday = lm.dayCount;
         if (manager.enemyList.Count == 0 && healtheffected && startday != currentday)
         {
