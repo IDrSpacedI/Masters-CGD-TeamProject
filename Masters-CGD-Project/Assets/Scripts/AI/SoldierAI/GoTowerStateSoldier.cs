@@ -29,8 +29,6 @@ public class GoTowerStateSoldier : State
         //If player reached position guard tower
         if (distance <= 0.5)
         {
-            //teleport to top of tower
-            //thisSoldier.transform.position = new Vector3(thisSoldier.transform.position.x, 4.024f, thisSoldier.transform.position.y);
             //add soldier to tower list
             tower.GetComponent<LevelWall>().guards.Add(thisSoldier);
             thisSoldier.transform.position = tower.GetComponent<LevelWall>().slots[tower.GetComponent<LevelWall>().guards.IndexOf(thisSoldier)].transform.position;
