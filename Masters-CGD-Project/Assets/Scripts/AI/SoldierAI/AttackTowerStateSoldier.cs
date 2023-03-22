@@ -16,6 +16,7 @@ public class AttackTowerStateSoldier : State
     [SerializeField] private LightingManager lightingManager;
     public GameObject spear;
     public MultiAimConstraint bodyAim;
+    public Animator animator;
 
     public void Start()
     {
@@ -25,15 +26,16 @@ public class AttackTowerStateSoldier : State
 
     public override State RunCurrentState()
     {
+        animator.SetLayerWeight(1, 2);
+        animator.SetBool("spearattack",true);
+
         if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18))
+        {
+            guardTowerStateSoldier.GetComponent<CapsuleCollider>().enabled = true;
+            animator.SetLayerWeight(0, 2);
+            animator.SetBool("spearattack", false);
             return guardTowerStateSoldier;
 
-        if (elapsedTime >= TimeAttack)
-        {
-            //Attack enemy
-            Debug.Log("attack");
-            enemy.GetComponent<HealthManagmentNPC>().attack(damage);
-            elapsedTime = 0f;
         }
 
         return this;
@@ -46,9 +48,10 @@ public class AttackTowerStateSoldier : State
         bodyAim.weight = 1;
     }
 
-    public void JSpearAttack()
+    public void JSpearThrow()
     {
         spear.SetActive(false);
         bodyAim.weight = 0;
+        enemy.GetComponent<HealthManagmentNPC>().attack(damage);
     }
 }
