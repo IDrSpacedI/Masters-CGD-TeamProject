@@ -5,6 +5,7 @@ using UnityEngine;
 public class GuardTowerStateSoldier : State
 {
     [SerializeField] private AttackTowerStateSoldier attackStateSoldier;
+    public AttackAnimationSoldier attackAnimSoldier;
     [SerializeField] private GameObject enemy = null;
     [SerializeField] private Animator aiAnimation;
     [SerializeField] private GoTowerStateSoldier goTower;
@@ -18,6 +19,8 @@ public class GuardTowerStateSoldier : State
             //turn off the collision detection
             GetComponent<CapsuleCollider>().enabled = false;
             attackStateSoldier.enemy = enemy;
+            attackAnimSoldier.enemy = enemy;
+
             enemy = null;
             return attackStateSoldier;
         }
