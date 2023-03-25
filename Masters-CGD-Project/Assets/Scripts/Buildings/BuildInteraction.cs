@@ -53,6 +53,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     private bool playerInRange = false;
 
+    public GameObject waitingForBuilder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +99,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
         if (currentLevel == 3)
         {
-            //TextBox.SetActive(false);
             interactButton.SetActive(false);
             //Destroy(interactButton);
             //Destroy(TextBox);
@@ -132,6 +133,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public void AnimationEnd()
     {
+        waitingForBuilder.SetActive(false);
         finished = true;
         //If it's not base turn on ghostform
         if (!baseBuilding && currentLevel != levels.Length - 1)
@@ -143,7 +145,8 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             }
             else 
             {
-                //If player is in range turn on
+                //If player is in range turn on and turn on texbox
+                TextBox.SetActive(true);
                 levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
             }
         }
@@ -196,7 +199,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                     return false;
                 FindObjectOfType<SoundManager>().PlaySound("UpgradeSound");
                 Available = true;
+                waitingForBuilder.SetActive(true);
                 CoinsUI.SetActive(true);
+                TextBox.SetActive(false);
                 levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
             }
             else
@@ -301,12 +306,14 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public void OnEnter()
     {
         TextBox.SetActive(true);
+        //If it's not max level and it's not a base building, show ghost form
         if(currentLevel != levels.Length - 1 && !baseBuilding)
         {
             levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
 
         }
-        if (Available == true)
+        //If building is waiting for builders or is at max level don't show textbox
+        if (Available == true || currentLevel == levels.Length - 1)
         {
             TextBox.SetActive(false);
         }
@@ -317,6 +324,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public void OnLeave()
     {
         TextBox.SetActive(false);
+        //Turn off ghost form
         if (!baseBuilding && currentLevel != levels.Length)
         {
             levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
