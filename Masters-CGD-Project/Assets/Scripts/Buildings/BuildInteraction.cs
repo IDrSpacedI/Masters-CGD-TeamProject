@@ -71,7 +71,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         if(currentLevel == 0)
         {
             levels[0].SetActive(true);
-            levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
 
         }
 
@@ -134,17 +133,18 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public void AnimationEnd()
     {
         finished = true;
-        //If it's not base turn on outline
-        if (!baseBuilding){
-            levels[currentLevel].GetComponent<Outline>().enabled = true;
+        //If it's not base turn on ghostform
+        if (!baseBuilding && currentLevel != levels.Length - 1)
+        {
             if (!playerInRange)
             {
-                //If player is not in range put witdth to 0 (basically invisible)
-                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 0;
+                //If player is not in range put turn off ghost form
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
             }
             else 
             {
-                levels[currentLevel].GetComponent<Outline>().OutlineWidth = 2;
+                //If player is in range turn on
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(true);
             }
         }
    
@@ -197,6 +197,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
                 FindObjectOfType<SoundManager>().PlaySound("UpgradeSound");
                 Available = true;
                 CoinsUI.SetActive(true);
+                levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
             }
             else
             {
@@ -215,7 +216,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             //        Upgrade();
             //    }   
             //}
-            Debug.Log("Inside");
             if (moneySystem == null || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
                 return false;
             if (currentLevel == -1)
@@ -317,10 +317,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public void OnLeave()
     {
         TextBox.SetActive(false);
-        if (!baseBuilding)
+        if (!baseBuilding && currentLevel != levels.Length)
         {
-            levels[1].GetComponent<LevelWall>().ghost.SetActive(false);
-            levels[0].GetComponent<LevelWall>().ghost.SetActive(false);
+            levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
         }
         CoinsUI.SetActive(false);
         playerInRange = false;

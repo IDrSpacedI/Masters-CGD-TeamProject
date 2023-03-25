@@ -204,7 +204,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6660826742877042725}
   - component: {fileID: 6660826742877042724}
-  - component: {fileID: 5595112201792395975}
   m_Layer: 6
   m_Name: Level 3 Full
   m_TagString: Untagged
@@ -250,24 +249,6 @@ MonoBehaviour:
   - {fileID: 6190461793716376472}
   - {fileID: 1740550121248233557}
   ghost: {fileID: 4912623822330249295}
---- !u!114 &5595112201792395975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6660826742877042726}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &6660826743272526098
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +259,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6660826743272526097}
   - component: {fileID: 6660826743272526096}
-  - component: {fileID: 1769580627869631728}
   m_Layer: 6
   m_Name: Level 2 Full
   m_TagString: Untagged
@@ -322,24 +302,6 @@ MonoBehaviour:
   slots:
   - {fileID: 6592884511754365267}
   ghost: {fileID: 6591568686770830984}
---- !u!114 &1769580627869631728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6660826743272526098}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0.1370931, b: 0, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &6660826743310439281
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +367,7 @@ MonoBehaviour:
   - {fileID: 6660826743272526098}
   - {fileID: 6660826742877042726}
   currentLevel: 0
-  basebuilding: 0
+  baseBuilding: 0
   interactCollider: {fileID: 6660826743310439280}
   interactButton: {fileID: 6150815632240188676}
   interactText: {fileID: 0}

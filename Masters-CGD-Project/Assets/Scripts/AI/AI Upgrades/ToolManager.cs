@@ -72,6 +72,7 @@ public class ToolManager : MonoBehaviour
             if (!tool.activeSelf)
 			{
                 tool.SetActive(true);
+                //StartCoroutine(PulseOn(tool, 3.5f, 0.15f));
                 amount++;
                 i++;
 			}
@@ -82,7 +83,29 @@ public class ToolManager : MonoBehaviour
         }
 	}
 
-	public bool RemoveTools(int num)
+    IEnumerator PulseOn(GameObject iTool, float target, float length)
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + length)
+        {
+            iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(0f, target, (Time.time - startTime) / length);
+            yield return null;
+        }
+        iTool.GetComponent<Outline>().OutlineWidth = target;
+        StartCoroutine(PulseOff(iTool, target, length));
+    }
+    IEnumerator PulseOff(GameObject iTool, float startVal, float length)
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + length)
+        {
+            iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(startVal, 0f, (Time.time - startTime) / length);
+            yield return null;
+        }
+        iTool.GetComponent<Outline>().OutlineWidth = 0f;
+    }
+
+    public bool RemoveTools(int num)
 	{
         int i = 0;
         bool success = false;
@@ -107,7 +130,7 @@ public class ToolManager : MonoBehaviour
     }
 
 	//sets UI elemt to active when player enters
-	void OnTriggerEnter(Collider collision)
+	void OnTriggerStay(Collider collision)
     {
         if (collision.transform.tag == "Player")
         {
