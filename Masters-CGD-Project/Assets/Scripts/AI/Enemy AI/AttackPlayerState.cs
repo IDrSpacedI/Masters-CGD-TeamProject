@@ -30,7 +30,7 @@ public class AttackPlayerState : State
             player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speed / slowDown;
             hasSlowedPlayerDown = true;
         }
-        //check if player is still in range
+        //If player no longer in range
         if (!enemiesInRange.playerInRange)
         {
             attackAnimationEnemy.player = false;
@@ -39,7 +39,6 @@ public class AttackPlayerState : State
             isInCooldown = false;
             //Make player speed normal
             player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speed * slowDown;
-
             return chasePlayerEnemyState;
         }
 
@@ -68,6 +67,17 @@ public class AttackPlayerState : State
         player.GetComponent<IHealth>().reducehealth(damage);
         isInCooldown = true;
         elapsedTime = 0;
+    }
+
+    void OnDestroy()
+    {
+        //If enemy is destroyed make sure player speed goes back to normal
+        if (hasSlowedPlayerDown)
+        {
+            player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speed * slowDown;
+
+        }
+        Debug.Log("OnDestroy1");
     }
 
 }
