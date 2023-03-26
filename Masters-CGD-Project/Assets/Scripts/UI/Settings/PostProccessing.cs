@@ -45,6 +45,17 @@ public class PostProccessing : MonoBehaviour
 
     public void Awake()
     {
+        if(m_bloomOff  == true && m_dofOff == true)
+        {
+            ExampleSettingsCodedof();
+            ExampleSettingsCode();
+        }
+        else if(m_bloomOff == false && m_dofOff  == false)
+        {
+            ExampleSettingsCode2dof();
+            ExampleSettingsCode2();
+        }
+
         SetBloom();
         SetDoF();
         
