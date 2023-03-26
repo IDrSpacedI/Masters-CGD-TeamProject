@@ -55,11 +55,32 @@ public class SettingsMenu : MonoBehaviour
     /// sets volume based on the audio mixer
     /// </summary>
     /// <param name="volume"></param>
-    public void SetVolume(float volume)
+    public void SetVolume(float Mastervolume)
     {
-        Debug.Log(volume);
-        audioMixer.SetFloat("volume", volume);
+        Debug.Log(Mastervolume);
+        audioMixer.SetFloat("MasterVolume", Mastervolume);
     }
+
+    /// <summary>
+    /// sets volume based on the audio mixer
+    /// </summary>
+    /// <param name="volume"></param>
+    public void SetsfxVolume(float sfxvolume)
+    {
+        Debug.Log(sfxvolume);
+        audioMixer.SetFloat("SFXVolume", sfxvolume);
+    }
+    /// <summary>
+    /// sets volume based on the audio mixer
+    /// </summary>
+    /// <param name="volume"></param>
+    public void SetVBackgroundvolume(float backgroundvolume)
+    {
+        Debug.Log(backgroundvolume);
+        audioMixer.SetFloat("MusicVoume", backgroundvolume);
+    }
+
+
     /// <summary>
     /// set quality based on  the index
     /// </summary>
@@ -77,26 +98,4 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
-    // hover on button to increase or decrease size
-
-    public void onClickEnter(TextMeshProUGUI txt)
-    {
-        txt.fontSize = 120;
-
-
-    }
-
-    public void onClickExit(TextMeshProUGUI txt)
-    {
-        txt.fontSize = 90;
-
-
-    }
-
-
-    // load scene
-    public void Back()
-    {
-        SceneManager.LoadScene(0);
-    }
 }
