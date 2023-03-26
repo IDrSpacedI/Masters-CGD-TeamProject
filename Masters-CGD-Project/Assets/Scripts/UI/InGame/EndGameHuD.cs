@@ -16,6 +16,7 @@ public class EndGameHuD : MonoBehaviour
     private void Start()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     void Update()
     {
