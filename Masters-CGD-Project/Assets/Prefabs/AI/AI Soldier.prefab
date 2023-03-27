@@ -1093,6 +1093,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 491aac5cfc078b94b946792777eedb2f, type: 3}
   m_PrefabInstance: {fileID: 2800517184797177715}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &7138649135470177490
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034307238316165666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &135112487120079119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,7 +1173,22 @@ MonoBehaviour:
   enemyLocation: {fileID: 0}
   anim: {fileID: 8626638640706407138}
   enemy: {fileID: 0}
+  fighterAiArraySystem: {fileID: 1129158123979033881}
   enemyDistance: {x: 0, y: 0, z: 0}
+--- !u!114 &1129158123979033881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034307238316165666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a44408d88d7014aa4f7a252cd9c9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: []
+  attackDamage: 100
 --- !u!114 &1367988925310973461
 MonoBehaviour:
   m_ObjectHideFlags: 0

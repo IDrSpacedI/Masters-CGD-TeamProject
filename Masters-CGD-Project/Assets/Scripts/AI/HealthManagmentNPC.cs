@@ -9,6 +9,11 @@ public class HealthManagmentNPC : MonoBehaviour
     public EntityManager manager;
     // public int day, currentday;
     public List<GameObject> enemy;
+    public GameObject thisEnemy;
+
+    public bool removeFromList = false;
+
+    //public FighterAiArraySystem fighterAiArraySystem;
 
     void Start()
     {
@@ -40,8 +45,10 @@ public class HealthManagmentNPC : MonoBehaviour
     {
         if (health - damage <= 0)
         {
-            Debug.Log(this.name + " died");
-            if(this.gameObject.tag == "Enemy")
+            //Debug.Log(this.name + " died");
+            //fighterAiArraySystem.RemoveFromList(thisEnemy);
+            removeFromList= true;
+            if (this.gameObject.tag == "Enemy")
             {
                 Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList.Remove(this.gameObject);
                 //Gamemanager.Instance.totalenemies = Gamemanager.Instance.totalenemies - 1 ;

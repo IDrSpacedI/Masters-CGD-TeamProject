@@ -13,6 +13,8 @@ public class AttackAnimationSoldier : MonoBehaviour
     public Animator anim;
     public GameObject enemy;
 
+    public FighterAiArraySystem fighterAiArraySystem;
+
     public Vector3 enemyDistance;
 
     private void Update()
@@ -40,7 +42,7 @@ public class AttackAnimationSoldier : MonoBehaviour
         spear.SetActive(false);
         sword.SetActive(false);
         //bodyAim.weight = 0;
-        //enemy.GetComponent<HealthManagmentNPC>().attack(10000);
+        fighterAiArraySystem.DamageEnemy();
         Rigidbody spawnedSpear;
 
 
