@@ -139,7 +139,6 @@ public class GetMoney : MonoBehaviour, IInteractable
         else
         {
             Debug.Log("Max money reached");
-            FindObjectOfType<SoundManager>().PlaySound("AccessDenied");
             MaxCoins.SetActive(true);
             TextPrompt.SetActive(false);
             StartCoroutine(Delayv2());
