@@ -7,6 +7,8 @@ public class IntroTimeline : MonoBehaviour
 {
     public CinemachineVirtualCamera cam1;
     public GameObject Ui;
+    public GameObject cameraObj;
+
 
 
     // Start is called before the first frame update
@@ -14,6 +16,7 @@ public class IntroTimeline : MonoBehaviour
     {
         StartCoroutine(SwapCamera());
         Ui.SetActive(false);
+        cameraObj.SetActive(false);
     }
 
     private void Update()
@@ -28,7 +31,8 @@ public class IntroTimeline : MonoBehaviour
     {
         yield return new WaitForSeconds(20f);
         cam1.Priority = 9;
-        //Ui.SetActive(true);
+        Ui.SetActive(true);
+        cameraObj.SetActive(true);
     }
 
 }
