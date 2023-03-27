@@ -47,7 +47,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     public GameObject TextBox;
 
     public GameObject CoinsUI;
-    public Animation coins;
 
     public List<GameObject> enmiesonattack;
 

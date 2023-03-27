@@ -53,6 +53,7 @@ public class Coins_HUD : MonoBehaviour
           {
             coin_animator[a].Play("coin1");
           }
+          
       
 
 
