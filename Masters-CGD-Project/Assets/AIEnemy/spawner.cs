@@ -33,35 +33,11 @@ public class spawner : MonoBehaviour
         if (enemyupdatecount == 6 && enemies.Count == 0)
             endgame.ChangeScene();
     }
-        //    if (enemies.Count== 0)
-        //    {
-        //        //if (time < 10)
-        //        //    time += Time.deltaTime;
-        //        //else
-        //        //{
-        //        currentenemycount += enemyupdatecount;
-        //        for (int i = 0; i < currentenemycount; i++)
-        //        {
-        //            enemies.Add(Instantiate(enemyAI, transform.position, Quaternion.identity));
-        //            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().destination = Gamemanager.Instance.Enemy_Destination;
-        //            enemies[enemies.Count - 1].GetComponent<AIenemybotctrl>().Go_and_attack();
-        //        }
-        //        enemyupdatecount++;
-        //           // time = 0;
-        //           // }
-        //    }
-        //    else
-        //    {
-        //        for (int i = 0; i < enemies.Count; i++)
-        //            if (!enemies[i])
-        //                enemies.RemoveAt(i);
-        //    }
-        //}
 
 
         void spawnenemies()
     {
-        currentenemycount += enemyupdatecount;
+        currentenemycount += enemyupdatecount/2;
         for (int i = 0; i < currentenemycount; i++)
         {
             Gamemanager.Instance.totalenemies++;
