@@ -59,7 +59,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         PlayerMovement.disableMovement = false;
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         GameIsPaused = false;
 
     }
@@ -76,7 +76,7 @@ public class Pause : MonoBehaviour
         Cursor.visible = true;
         GameIsPaused = true;
         PlayerMovement.disableMovement = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
 
     }
 
