@@ -45,6 +45,8 @@ public class PostProccessing : MonoBehaviour
 
     public void Awake()
     {
+       
+
         SetBloom();
         SetDoF();
         

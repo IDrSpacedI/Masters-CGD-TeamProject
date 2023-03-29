@@ -8,6 +8,7 @@ public class IntroTimeline : MonoBehaviour
     public CinemachineVirtualCamera cam1;
     public GameObject Ui;
     public GameObject cameraObj;
+    public GameObject texinteraction;
 
 
 
@@ -17,6 +18,7 @@ public class IntroTimeline : MonoBehaviour
         StartCoroutine(SwapCamera());
         Ui.SetActive(false);
         cameraObj.SetActive(false);
+        texinteraction.SetActive(false);
     }
 
     private void Update()
@@ -33,6 +35,7 @@ public class IntroTimeline : MonoBehaviour
         cam1.Priority = 9;
         Ui.SetActive(true);
         cameraObj.SetActive(true);
+        texinteraction.SetActive(true);
     }
 
 }

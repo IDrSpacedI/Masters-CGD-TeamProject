@@ -11,11 +11,14 @@ public class EndGameHuD : MonoBehaviour
     public TextMeshProUGUI soldiers;
     public TextMeshProUGUI enemiesKilled;
     public TextMeshProUGUI enemiesGenerated;
+    
 
 
     private void Start()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 1;
     }
     void Update()
     {
