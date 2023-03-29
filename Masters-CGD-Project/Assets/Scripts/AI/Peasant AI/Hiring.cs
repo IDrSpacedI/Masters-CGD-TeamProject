@@ -60,7 +60,7 @@ public class Hiring : MonoBehaviour, IInteractable
     //
     public bool Interact(Interactor interactor)
     {
-        if (moneysystem.GetComponent<MoneySystem>().reduceMoney(5) == true)
+        if (hired == false && moneysystem.GetComponent<MoneySystem>().reduceMoney(5) == true)
         {
             interactbox.SetActive(false);
             interactboxHire.SetActive(true);
