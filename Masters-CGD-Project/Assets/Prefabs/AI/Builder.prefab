@@ -1235,7 +1235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3201445268114940366}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
-  m_LocalPosition: {x: -45.603786, y: -0.00000023841858, z: -3.1515589}
+  m_LocalPosition: {x: -45.603786, y: -0.039, z: -3.1515589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1278,7 +1278,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.019928, y: 1.6119347, z: 1.9442966}
-  m_Center: {x: 0.0663389, y: 0.79088926, z: 0.4721483}
+  m_Center: {x: -0.02, y: 0.66, z: 0.4721483}
 --- !u!114 &291503682949364599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,6 +1308,8 @@ MonoBehaviour:
   bloodvfx: {fileID: 0}
   manager: {fileID: 0}
   enemy: []
+  thisEnemy: {fileID: 0}
+  removeFromList: 0
 --- !u!1 &3201445268502521468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17bb0688927d0b044987a5803bb68178, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.169
+      value: 0.038
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17bb0688927d0b044987a5803bb68178, type: 3}
       propertyPath: m_LocalPosition.z
