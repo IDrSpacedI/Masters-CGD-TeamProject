@@ -8,13 +8,18 @@ public class GoTowerStateSoldier : State
 {
     public GameObject tower;
     public NavMeshAgent navMeshAgent;
+    public EntityManager entityManager;
     [SerializeField] private GameObject thisSoldier;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private GuardTowerStateSoldier guardTowerStateSoldier;
     [SerializeField] private Animator aiAnimation;
+    [SerializeField] private ChooseTower chooseTower;
 
 
-
+    void Start()
+    {
+        entityManager = GameObject.Find("GameManager").GetComponent<EntityManager>();
+    }
     public override State RunCurrentState()
     {
         //Check if another soldier stole the spot
@@ -35,6 +40,7 @@ public class GoTowerStateSoldier : State
             navMeshAgent.enabled = false;
             //Turn on collision detection
             guardTowerStateSoldier.GetComponent<CapsuleCollider>().enabled = true;
+            chooseTower.addToSoldiers();
             return guardTowerStateSoldier;
         }
 

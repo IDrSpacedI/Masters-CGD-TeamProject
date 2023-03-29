@@ -272,6 +272,7 @@ MonoBehaviour:
   goBarricadeStateSoldier: {fileID: 353824027399064963}
   attackBarricadeSoldierState: {fileID: 706240326250193685}
   wanderSoldierState: {fileID: 3174325622511077293}
+  chooseTower: {fileID: 3908870391578440781}
   lightingManager: {fileID: 0}
   aiAnimation: {fileID: 8626638640706407138}
   enemy: {fileID: 0}
@@ -339,6 +340,7 @@ MonoBehaviour:
   goBarricadeStateSoldier: {fileID: 353824027399064963}
   attackBarricadeSoldierState: {fileID: 706240326250193685}
   idleStateSoldier: {fileID: 5044487520595335817}
+  chooseTower: {fileID: 3908870391578440781}
   lightingManager: {fileID: 0}
   aiAnimation: {fileID: 8626638640706407138}
   wonderPoint: {x: 0, y: 0, z: 0}
@@ -408,6 +410,7 @@ MonoBehaviour:
   guardTowerStateSoldier: {fileID: 4759438627478677119}
   goTower: {fileID: 7687882576227368020}
   idleStateSoldier: {fileID: 5044487520595335817}
+  chooseTower: {fileID: 3908870391578440781}
   damage: 10
   elapsedTime: 5
   TimeAttack: 1
@@ -558,10 +561,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
   navMeshAgent: {fileID: 7216224356668882132}
+  entityManager: {fileID: 0}
   thisSoldier: {fileID: 7216224356668882134}
   idleStateSoldier: {fileID: 5044487520595335817}
   guardTowerStateSoldier: {fileID: 4759438627478677119}
   aiAnimation: {fileID: 8626638640706407138}
+  chooseTower: {fileID: 3908870391578440781}
 --- !u!1 &5786991958950516391
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +618,7 @@ MonoBehaviour:
   aiAnimation: {fileID: 8626638640706407138}
   goTower: {fileID: 7687882576227368020}
   idleStateSoldier: {fileID: 5044487520595335817}
+  chooseTower: {fileID: 3908870391578440781}
 --- !u!136 &6142942788545345235
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -721,6 +727,7 @@ GameObject:
   - component: {fileID: 7849425750728795728}
   - component: {fileID: 3411514275223160055}
   - component: {fileID: 1678370301051757926}
+  - component: {fileID: 3908870391578440781}
   m_Layer: 0
   m_Name: AI Soldier
   m_TagString: FriendlyNPC
@@ -829,6 +836,20 @@ MonoBehaviour:
   enemy: []
   thisEnemy: {fileID: 0}
   removeFromList: 0
+--- !u!114 &3908870391578440781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216224356668882134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a87ba57cee7f240aee124710cc69ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityManager: {fileID: 0}
+  directionTower: 
 --- !u!1 &8111969726361549120
 GameObject:
   m_ObjectHideFlags: 0

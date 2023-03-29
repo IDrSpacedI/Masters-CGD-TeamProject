@@ -10,9 +10,8 @@ public class AttackTowerStateSoldier : State
     [SerializeField] private GuardTowerStateSoldier guardTowerStateSoldier;
 	[SerializeField] private GoTowerStateSoldier goTower;
 	[SerializeField] private IdleStateSoldier idleStateSoldier;
-
-	//Damage and time between attacks
-	[SerializeField] private int damage;
+    [SerializeField] private ChooseTower chooseTower;
+    [SerializeField] private int damage;
     public float elapsedTime;
     [SerializeField] private float TimeAttack;
     [SerializeField] private LightingManager lightingManager;
@@ -42,7 +41,8 @@ public class AttackTowerStateSoldier : State
 
 		if (!goTower.tower.activeSelf)
 		{
-			goTower.navMeshAgent.enabled = true;
+            chooseTower.removeFromSoldiers();
+            goTower.navMeshAgent.enabled = true;
             animator.SetLayerWeight(0, 2);
             animator.SetBool("spearattack", false);
             return idleStateSoldier;

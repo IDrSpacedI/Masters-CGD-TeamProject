@@ -10,6 +10,8 @@ public class GuardTowerStateSoldier : State
     [SerializeField] private Animator aiAnimation;
     [SerializeField] private GoTowerStateSoldier goTower;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
+    [SerializeField] private ChooseTower chooseTower;
+
 
     public override State RunCurrentState()
     {
@@ -26,6 +28,7 @@ public class GuardTowerStateSoldier : State
         }
         if (!goTower.tower.activeSelf)
 		{
+            chooseTower.removeFromSoldiers();
             goTower.navMeshAgent.enabled = true;
             return idleStateSoldier;
 		}
