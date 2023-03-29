@@ -12,6 +12,8 @@ public class SettingsMenu : MonoBehaviour
 {
     [Header("Audio")]
     public AudioMixer audioMixer;
+    public AudioMixer sfxaudioMixer;
+    public AudioMixer bckaudioMixer;
     [Header("Aray")]
     Resolution[] resolutions;
     [Header("UI")]
@@ -68,7 +70,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetsfxVolume(float sfxvolume)
     {
         Debug.Log(sfxvolume);
-        audioMixer.SetFloat("SFXVolume", sfxvolume);
+        sfxaudioMixer.SetFloat("SFXVolume", sfxvolume);
     }
     /// <summary>
     /// sets volume based on the audio mixer
@@ -77,7 +79,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetVBackgroundvolume(float backgroundvolume)
     {
         Debug.Log(backgroundvolume);
-        audioMixer.SetFloat("MusicVoume", backgroundvolume);
+        bckaudioMixer.SetFloat("MusicVoume", backgroundvolume);
     }
 
 
