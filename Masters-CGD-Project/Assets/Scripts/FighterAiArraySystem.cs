@@ -7,7 +7,7 @@ public class FighterAiArraySystem : MonoBehaviour
 {
     public List<GameObject> enemy;
     public int attackDamage = 100;
-    public GameObject sourceObject;
+    public GameObject sourceObject, sourceObjectDefPos;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,10 @@ public class FighterAiArraySystem : MonoBehaviour
         if (enemy != null)
         {
             sourceObject.transform.position = enemy[0].transform.position;
+        }
+        else
+        {
+            sourceObject.transform.position = sourceObjectDefPos.transform.position;
         }
     }
 

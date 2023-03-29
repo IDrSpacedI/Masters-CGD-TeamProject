@@ -43,7 +43,9 @@ public class AttackTowerStateSoldier : State
 		if (!goTower.tower.activeSelf)
 		{
 			goTower.navMeshAgent.enabled = true;
-			return idleStateSoldier;
+            animator.SetLayerWeight(0, 2);
+            animator.SetBool("spearattack", false);
+            return idleStateSoldier;
 		}
 
 		return this;
