@@ -35,7 +35,7 @@ public class spawner : MonoBehaviour
 
 
         void spawnenemies()
-    {
+        {
         currentenemycount += enemyupdatecount;
         for (int i = 0; i < currentenemycount; i++)
         {
@@ -46,5 +46,5 @@ public class spawner : MonoBehaviour
         }
         Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList = enemies;
         enemyupdatecount = 0.5f;
-    }
+        }
 }

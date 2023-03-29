@@ -48,7 +48,7 @@ public class AttackAnimationSoldier : MonoBehaviour
 
 
         spawnedSpear = Instantiate(rigSpear, handLocation.position, transform.rotation);
-        rigSpear.velocity = new Vector3(enemyDistance.x, enemyDistance.y, enemyDistance.z);
+        rigSpear.velocity = new Vector3(fighterAiArraySystem.enemy[0].transform.position.x, fighterAiArraySystem.enemy[0].transform.position.y, fighterAiArraySystem.enemy[0].transform.position.z);
 
     }
 
