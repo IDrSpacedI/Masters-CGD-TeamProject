@@ -367,7 +367,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5273926337332655712}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -730,6 +730,8 @@ MonoBehaviour:
   bloodvfx: {fileID: 0}
   manager: {fileID: 0}
   enemy: []
+  thisEnemy: {fileID: 0}
+  removeFromList: 0
 --- !u!1 &8111969726361549120
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class spawner : MonoBehaviour
     public GameObject enemyAI;
     float time;
     List<GameObject> enemies = new List<GameObject>();
-    public int enemyupdatecount,currentenemycount;
+    public float enemyupdatecount,currentenemycount;
     //Checks if it has spawned for the day
     bool hasSpawnedForTheDay = true;
     public EndGame endgame;
@@ -30,14 +30,13 @@ public class spawner : MonoBehaviour
         {
             hasSpawnedForTheDay = false;
         }
-        if (enemyupdatecount == 6 && enemies.Count == 0)
-            endgame.ChangeScene();
+
     }
 
 
         void spawnenemies()
     {
-        currentenemycount += enemyupdatecount/2;
+        currentenemycount += enemyupdatecount;
         for (int i = 0; i < currentenemycount; i++)
         {
             Gamemanager.Instance.totalenemies++;
@@ -46,6 +45,6 @@ public class spawner : MonoBehaviour
             enemies.Add(enemy);
         }
         Gamemanager.Instance.gameObject.GetComponent<EntityManager>().enemyList = enemies;
-        enemyupdatecount++;
+        enemyupdatecount = 0.5f;
     }
 }
