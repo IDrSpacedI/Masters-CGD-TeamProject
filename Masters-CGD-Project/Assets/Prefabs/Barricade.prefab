@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &588643747489910918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8764529927207137371}
+  - component: {fileID: 1318491862729827358}
+  m_Layer: 6
+  m_Name: Barricade Animation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8764529927207137371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588643747489910918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6098169734424396624}
+  m_Father: {fileID: 8392317170676046872}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1318491862729827358
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588643747489910918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe6f168ccaef5a6468906ac4a4b5c8a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &641617379112344809
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +240,7 @@ Transform:
   - {fileID: 6408323165209591896}
   - {fileID: 7160589125126272619}
   - {fileID: 6098169733405827162}
-  - {fileID: 6098169734424396624}
+  - {fileID: 8764529927207137371}
   m_Father: {fileID: 3788502971654863991}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -313,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af516077c04ea8459123ec670ad55b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barricadeDoor: {fileID: 6098169734424396625}
+  barricadeDoor: {fileID: 588643747489910918}
 --- !u!1 &6098169734424396625
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6098169734424396624}
-  - component: {fileID: 6098169734424396719}
   m_Layer: 6
   m_Name: BarricadeDoor
   m_TagString: Untagged
@@ -344,29 +396,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3287935159636433756}
-  m_Father: {fileID: 8392317170676046872}
-  m_RootOrder: 3
+  m_Father: {fileID: 8764529927207137371}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6098169734424396719
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6098169734424396625}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe6f168ccaef5a6468906ac4a4b5c8a0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6368200656016927372
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368200656016927372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.22, y: -0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -443,7 +475,6 @@ MonoBehaviour:
   upgradeTent: {fileID: 0}
   TextBox: {fileID: 0}
   CoinsUI: {fileID: 0}
-  coins: {fileID: 0}
   enmiesonattack: []
   waitingForBuilder: {fileID: 8589387794573415508}
 --- !u!114 &6535222474664504978

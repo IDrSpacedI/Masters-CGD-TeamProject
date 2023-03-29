@@ -108,7 +108,7 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Changes which object is active in the image (current level is always -1 the real level)
     public void Upgrade()
     {
-        FindObjectOfType<SoundManager>().PlaySound("UpgradeSound");
+        FindObjectOfType<SoundManager>().PlaySound("BuildingSound");
         finished = false;
         for (int i = 0; i < levels.Length; i++)
         {
