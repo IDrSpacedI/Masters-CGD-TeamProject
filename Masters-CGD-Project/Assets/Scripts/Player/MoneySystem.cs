@@ -25,6 +25,7 @@ public class MoneySystem : MonoBehaviour,IMoney
             currentMoney = currentMoney - amount;
             return true;
         }
+        FindObjectOfType<SoundManager>().PlaySound("AccessDenied");
         return false;
     }
 
