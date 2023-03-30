@@ -77,7 +77,6 @@ public class AttackPlayerState : State
             player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speed * slowDown;
 
         }
-        Debug.Log("OnDestroy1");
     }
 
 }
