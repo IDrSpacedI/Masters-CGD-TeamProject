@@ -48,14 +48,10 @@ public class Coins_HUD : MonoBehaviour
                 Coin[i].SetActive(false);
             }
 
-
           for(a = 0; a < coin_animator.Length; a++)
           {
             coin_animator[a].Play("coin1");
           }
-          
-      
-
 
     }  
 
