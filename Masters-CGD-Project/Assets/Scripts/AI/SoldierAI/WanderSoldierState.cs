@@ -98,20 +98,6 @@ public class WanderSoldierState : State
     }
     //------------------------------------------------------
 
-    //Get the current level of the tower to check slots
-    private GameObject GetTowerLevel(GameObject tower)
-    {
-        int level = tower.GetComponent<BuildInteraction>().currentLevel;
-
-        //if it's not level 0 (meaning nothing)
-        if (level != -1)
-        {
-            //return current level
-            return tower.GetComponent<BuildInteraction>().levels[level];
-        }
-        return null;
-    }
-
     private GameObject CompareBarricadeDistance(GameObject tempBarricade)
     {
         if (currentBarricade == null || Vector3.Distance(this.transform.position, tempBarricade.transform.position) < distance)

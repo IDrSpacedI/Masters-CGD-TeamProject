@@ -21,6 +21,7 @@ public class GoBarricadeStateSoldier : State
         {
             //Turn on collision detection
             guardBarricadeStateSoldier.GetComponent<CapsuleCollider>().enabled = true;
+            guardBarricadeStateSoldier.barricade = barricade;
             return guardBarricadeStateSoldier;
         }
         aiAnimation.SetFloat("speed", 1f, 0.1f, Time.deltaTime);

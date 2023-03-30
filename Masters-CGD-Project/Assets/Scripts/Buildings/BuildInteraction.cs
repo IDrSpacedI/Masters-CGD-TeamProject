@@ -290,6 +290,15 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         }
     }
 
+    public void OnTriggerLeave(Collider other)
+    {
+        
+        if (other.gameObject.tag == "Enemy")
+        {        
+            enmiesonattack.Remove(other.gameObject);
+        }
+    }
+
     private void DisableBaseUpgradePrompt()
     {
         //only turn on the textbox if player in range

@@ -6,6 +6,7 @@ public class AttackBarricadeSoldierState : State
 {
     public GameObject enemy;
     public bool idle = false;
+    public GameObject barricade;
 
     [SerializeField] private int damage;
 
@@ -27,6 +28,7 @@ public class AttackBarricadeSoldierState : State
         if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18))
         {
             aiAnimation.SetBool("attack", false);
+            barricade.GetComponent<BuildInteraction>().enmiesonattack.Remove(enemy);
             //If it came from idle, go back to idle
             if (idle == true)
             {

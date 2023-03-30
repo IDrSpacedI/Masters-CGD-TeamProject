@@ -57,7 +57,7 @@ public class FighterAiArraySystem : MonoBehaviour
 
     public void DamageEnemy()
     {
-        if (enemy != null)
+        if (enemy.Count != 0)
         {
             enemy[0].GetComponent<HealthManagmentNPC>().attack(attackDamage);
             if(enemy[0].GetComponent<HealthManagmentNPC>().removeFromList == true)
@@ -67,7 +67,5 @@ public class FighterAiArraySystem : MonoBehaviour
 
         }
     }
-
-
 
 }
