@@ -48,6 +48,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
 
     public GameObject CoinsUI;
 
+    public GameObject notEnoughMoney;
+    public GameObject baseNeedsUpgrade;
+    public GameObject maxBuild;
+
+
     public List<GameObject> enmiesonattack;
 
     private bool playerInRange = false;
@@ -85,16 +90,6 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     // Update is called once per frame
     void Update()
     {
-        //Countdown timer for the builds
-        if(buildTimeLeft > 0)
-        {
-            buildTimeLeft -= Time.deltaTime;
-            buildTimerText.text = buildTimeLeft.ToString();
-        }
-        else
-        {
-            buildTimerText.text = "";
-        }
 
         if (currentLevel == 3)
         {
@@ -183,7 +178,11 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
     //Function called by interactor, contains the behaviour when interacted
     public bool Interact(Interactor interactor)
     {
-        //Debug.Log("Interact time");
+        //if it's last level, don't do anything when interacting
+        if(currentLevel == levels.Length - 1)
+        {
+                return false;
+        }
 
         var moneySystem = interactor.GetComponent<MoneySystem>();
 
@@ -193,9 +192,17 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
            
             if (GameObject.FindWithTag("Base").GetComponent<BuildInteraction>().currentLevel >= this.currentLevel)
             {
-                //GameObject.Find("---NewBase---").GetComponent<BuildInteraction>().currentLevel
-                if (moneySystem == null || Available == true || currentLevel == levels.Length - 1 || !moneySystem.spendMoney(5))
+                //if building waiting to be upgraded by builder, no prompt
+                if (Available == true)
                     return false;
+                //show prompt 
+                if (moneySystem == null || !moneySystem.spendMoney(5))
+                {
+                    notEnoughMoney.SetActive(true);
+                    Invoke("DisableNotEnoughMoneyPrompt", 2f);
+                    TextBox.SetActive(false);
+                    return false;
+                }
                 FindObjectOfType<SoundManager>().PlaySound("UpgradeSound");
                 Available = true;
                 waitingForBuilder.SetActive(true);
@@ -205,7 +212,9 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
             }
             else
             {
-                Debug.Log("Base Building needs to be upgraded");
+                Invoke("DisableBaseUpgradePrompt", 2f);
+                baseNeedsUpgrade.SetActive(true);
+                TextBox.SetActive(false);
             }
         }
         else
@@ -281,6 +290,35 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         }
     }
 
+    private void DisableBaseUpgradePrompt()
+    {
+        //only turn on the textbox if player in range
+        if (playerInRange)
+        {
+            TextBox.SetActive(true);
+            baseNeedsUpgrade.SetActive(false);
+        }
+    }
+
+    private void DisableNotEnoughMoneyPrompt()
+    {
+        //only turn on the textbox if player in range
+        if (playerInRange)
+        {
+            TextBox.SetActive(true);
+            notEnoughMoney.SetActive(false);
+        }
+    }
+
+    private void DisableMaxBuild()
+    {
+        if (playerInRange)
+        {
+            TextBox.SetActive(true);
+            maxBuild.SetActive(false);
+        }
+    }
+
 
     //make sure the text on Hud disappear after the player leaves it
     //private void OnTriggerExit(Collider other)
@@ -328,8 +366,14 @@ public class BuildInteraction : MonoBehaviour, IInteractable,IHealth
         {
             levels[currentLevel + 1].GetComponent<LevelWall>().ghost.SetActive(false);
         }
-        CoinsUI.SetActive(false);
         playerInRange = false;
+
+        //disable all possible textboxes 
+        CoinsUI.SetActive(false);
+        maxBuild.SetActive(false);
+        notEnoughMoney.SetActive(false);
+        baseNeedsUpgrade.SetActive(false);
+
     }
 }
 
