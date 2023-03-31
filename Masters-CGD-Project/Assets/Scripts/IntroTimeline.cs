@@ -20,15 +20,16 @@ public class IntroTimeline : MonoBehaviour
         Ui.SetActive(false);
         cameraObj.SetActive(false);
         texinteraction.SetActive(false);
+        PlayerMovement.disableMovement = true;
+
     }
 
     private void Update()
     {
-        if(!introcompleted)
-        PlayerMovement.disableMovement = true;
 
         if (Input.GetKeyDown(KeyCode.H))
         {
+            PlayerMovement.disableMovement = false;
             cam1.Priority = 9;
         }
     }
