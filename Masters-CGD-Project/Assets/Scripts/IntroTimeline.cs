@@ -9,6 +9,7 @@ public class IntroTimeline : MonoBehaviour
     public GameObject Ui;
     public GameObject cameraObj;
     public GameObject texinteraction;
+    bool introcompleted;
 
 
 
@@ -23,7 +24,10 @@ public class IntroTimeline : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
+        if(!introcompleted)
+        PlayerMovement.disableMovement = true;
+
+        if (Input.GetKeyDown(KeyCode.H))
         {
             cam1.Priority = 9;
         }
@@ -32,6 +36,8 @@ public class IntroTimeline : MonoBehaviour
     public IEnumerator SwapCamera()
     {
         yield return new WaitForSeconds(20f);
+        introcompleted = true;
+        PlayerMovement.disableMovement = false;
         cam1.Priority = 9;
         Ui.SetActive(true);
         cameraObj.SetActive(true);

@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         //just to make sure when the game starts the player is allowed to move (redundent, but just incase UwU)
-        disableMovement = false;
+      //  disableMovement = false;
         playerIdle = true;
     }
 
