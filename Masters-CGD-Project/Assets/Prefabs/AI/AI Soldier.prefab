@@ -341,6 +341,7 @@ MonoBehaviour:
   attackBarricadeSoldierState: {fileID: 706240326250193685}
   idleStateSoldier: {fileID: 5044487520595335817}
   chooseTower: {fileID: 3908870391578440781}
+  chooseBarricade: {fileID: 5555636697462786600}
   lightingManager: {fileID: 0}
   aiAnimation: {fileID: 8626638640706407138}
   wonderPoint: {x: 0, y: 0, z: 0}
@@ -728,6 +729,7 @@ GameObject:
   - component: {fileID: 3411514275223160055}
   - component: {fileID: 1678370301051757926}
   - component: {fileID: 3908870391578440781}
+  - component: {fileID: 5555636697462786600}
   m_Layer: 0
   m_Name: AI Soldier
   m_TagString: FriendlyNPC
@@ -850,6 +852,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityManager: {fileID: 0}
   directionTower: 
+--- !u!114 &5555636697462786600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216224356668882134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8bb7aaa2573ce41bc28bd65f2feab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityManager: {fileID: 0}
+  directionTower: 
 --- !u!1 &8111969726361549120
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   idle: 0
+  barricade: {fileID: 0}
   damage: 5
   aiAnimation: {fileID: 8626638640706407138}
   guardBarricadeStateSoldier: {fileID: 9107731802081385002}
@@ -964,7 +981,9 @@ MonoBehaviour:
   attackBarricadeSoldierState: {fileID: 706240326250193685}
   idleStateSoldier: {fileID: 5044487520595335817}
   lightingManager: {fileID: 0}
+  chooseBarricade: {fileID: 5555636697462786600}
   aiAnimation: {fileID: 8626638640706407138}
+  barricade: {fileID: 0}
 --- !u!1 &8684941417024771559
 GameObject:
   m_ObjectHideFlags: 0

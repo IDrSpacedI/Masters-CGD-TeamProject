@@ -8,6 +8,7 @@ public class GuardBarricadeStateSoldier : State
     [SerializeField] private AttackBarricadeSoldierState attackBarricadeSoldierState;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private LightingManager lightingManager;
+    [SerializeField] private ChooseBarricade chooseBarricade;
     [SerializeField] private Animator aiAnimation;
 
     public GameObject barricade;
@@ -34,6 +35,7 @@ public class GuardBarricadeStateSoldier : State
         if (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18)
         {
             GetComponent<CapsuleCollider>().enabled = false;
+            chooseBarricade.removeFromSoldiers();
             return idleStateSoldier;
         }
 

@@ -13,6 +13,7 @@ public class WanderSoldierState : State
     [SerializeField] private AttackBarricadeSoldierState attackBarricadeSoldierState;
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private ChooseTower chooseTower;
+    [SerializeField] private ChooseBarricade chooseBarricade;
     [SerializeField] private LightingManager lightingManager;
     [SerializeField] private Animator aiAnimation;
 
@@ -54,19 +55,13 @@ public class WanderSoldierState : State
         //If it's night, time to defend from the barricade
         if (lightingManager.TimeOfDay >= 18)
         {
-            //Check for the closest barricade
-            for (int i = 0; i < entityManager.barricadeList.Count; i++)
-            {
-                if (entityManager.barricadeList[i].GetComponent<BuildInteraction>().currentLevel >= 1)
-                {
-                    currentBarricade = CompareBarricadeDistance(entityManager.barricadeList[i]);
-                }
-            }
-            //If there's no barricades anywhere do nothing
+            currentBarricade = chooseBarricade.checkBarricades();
+            //check if there are any barricades
             if (currentBarricade != null)
             {
                 goBarricadeStateSoldier.barricade = currentBarricade;
                 currentBarricade = null;
+                chooseBarricade.addToSoldiers();
                 return goBarricadeStateSoldier;
             }
         }
