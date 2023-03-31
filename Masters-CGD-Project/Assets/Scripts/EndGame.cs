@@ -33,7 +33,7 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && action == true && active == true)
+        if (Input.GetKeyDown(KeyCode.E) && action == true && active == true && build.currentLevel == 3 && lm.dayCount == 6)
         {
             ChangeScene();
         }
