@@ -17,10 +17,10 @@ public class IntroTimeline : MonoBehaviour
     void Start()
     {
         StartCoroutine(SwapCamera());
-        Ui.SetActive(false);
-        cameraObj.SetActive(false);
-        texinteraction.SetActive(false);
         PlayerMovement.disableMovement = true;
+        Cursor.visible = false;
+        cam1.Priority = 9;
+
 
     }
 
@@ -31,6 +31,12 @@ public class IntroTimeline : MonoBehaviour
         {
             PlayerMovement.disableMovement = false;
             cam1.Priority = 9;
+            Ui.SetActive(true);
+            cameraObj.SetActive(true);
+            texinteraction.SetActive(true);
+            
+
+
         }
     }
 
@@ -42,6 +48,7 @@ public class IntroTimeline : MonoBehaviour
         cam1.Priority = 9;
         Ui.SetActive(true);
         cameraObj.SetActive(true);
+        texinteraction.SetActive(true);
         texinteraction.SetActive(true);
     }
 
