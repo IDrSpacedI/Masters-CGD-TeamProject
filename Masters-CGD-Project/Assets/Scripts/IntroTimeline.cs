@@ -17,16 +17,12 @@ public class IntroTimeline : MonoBehaviour
     void Start()
     {
         StartCoroutine(SwapCamera());
-        PlayerMovement.disableMovement = true;
+		PlayerMovement.disableMovement = true;
         Cursor.visible = false;
-        cam1.Priority = 9;
-
-
     }
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.H))
         {
             PlayerMovement.disableMovement = false;
@@ -34,9 +30,6 @@ public class IntroTimeline : MonoBehaviour
             Ui.SetActive(true);
             cameraObj.SetActive(true);
             texinteraction.SetActive(true);
-            
-
-
         }
     }
 

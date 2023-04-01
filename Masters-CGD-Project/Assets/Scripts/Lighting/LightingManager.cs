@@ -22,11 +22,10 @@ public class LightingManager : MonoBehaviour
     public int dayCount;
     public TextMeshProUGUI dayTxt;
     private bool countCheck;
+    private string temp = "day";
 
     [Header("Glow Change")]
     public List<Material> inUse;
-    public List<Material> bright;
-    public List<Material> dim;
 
 
     public void Start()
@@ -112,19 +111,30 @@ public class LightingManager : MonoBehaviour
 
     private void ChangeGlow(string state)
     {
-        if (state == "day")
+        if (temp != state)
         {
+            temp = state;
             for (int i = 0; i < inUse.Count; i++)
             {
-                inUse[i].SetColor("_EmissionColor", Color.Lerp(dim[i].GetColor("_EmissionColor"), bright[i].GetColor("_EmissionColor"), 0.01f));
-            }
-        }
-        else if (state == "night")
-		{
-            for (int i = 0; i < inUse.Count; i++)
-            {
-                inUse[i].SetColor("_EmissionColor", Color.Lerp(bright[i].GetColor("_EmissionColor"), dim[i].GetColor("_EmissionColor"), 0.01f));
+                StartCoroutine(IntensityChange(state, inUse[i]));
             }
         }
     }
+
+    IEnumerator IntensityChange(string state, Material mat)
+    {
+        for (float i = 0; i <= 4; i+=0.01f) { 
+            if (state == "day")
+            {
+				mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") / 1.01f);
+			}
+            else if (state == "night")
+            {
+				mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") * 1.01f);
+			}
+			yield return new WaitForSeconds(0.01f);
+		}
+		
+	}
+    
 }
