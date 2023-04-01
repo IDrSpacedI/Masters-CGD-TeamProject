@@ -11,7 +11,7 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.anyKey)
         {
             fade.Play("Fadein");
             StartCoroutine(speed());
