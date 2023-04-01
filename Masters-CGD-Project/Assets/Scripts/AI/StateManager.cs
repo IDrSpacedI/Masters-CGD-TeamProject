@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class StateManager : MonoBehaviour
     void Update()
     {
         RunStateMachine();
+
+        //if(currentState == )
+
     }
 
     private void RunStateMachine()
@@ -30,5 +34,7 @@ public class StateManager : MonoBehaviour
 
 
     }
+
+    
 
 }

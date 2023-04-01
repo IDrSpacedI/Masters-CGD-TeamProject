@@ -12,6 +12,8 @@ public class AttackAnimationSoldier : MonoBehaviour
     public Transform handLocation, enemyLocation;
     public Animator anim;
     public GameObject enemy;
+    public float spearSpeed;
+    private bool moveSpear = false;
 
     public FighterAiArraySystem fighterAiArraySystem;
 
@@ -19,13 +21,26 @@ public class AttackAnimationSoldier : MonoBehaviour
 
     private void Update()
     {
+        //if (moveSpear)
+        //{
+        //    Rigidbody spawnedSpear;
+        //    spawnedSpear = Instantiate(rigSpear, handLocation.position, transform.rotation);
+        //float speed = spearSpeed * Time.deltaTime;
+        //rigSpear.transform.position = Vector3.MoveTowards(transform.position, fighterAiArraySystem.enemy[0].transform.position, speed);
+        //}
 
+        //if(moveSpear)
+        //{
+        //    float speed = spearSpeed * Time.deltaTime;
+        //    rigSpear.transform.position = Vector3.MoveTowards(transform.position, fighterAiArraySystem.enemy[0].transform.position, speed);
+        //}
     }
 
 
     private void jswordattack()
     {
-        attackBarricadeSoldierState.Attack();
+        //attackBarricadeSoldierState.Attack();
+        fighterAiArraySystem.DamageEnemy();
     }
 
     public void JSpearPickUp()
@@ -37,20 +52,40 @@ public class AttackAnimationSoldier : MonoBehaviour
 
     public void JSpearThrow()
     {
+
         enemyDistance = enemy.transform.position;
 
         spear.SetActive(false);
         sword.SetActive(false);
         //bodyAim.weight = 0;
         fighterAiArraySystem.DamageEnemy();
+
+        //StartCoroutine(ThrowingSpear());
+
         Rigidbody spawnedSpear;
 
-
-
         spawnedSpear = Instantiate(rigSpear, handLocation.position, transform.rotation);
-        rigSpear.velocity = new Vector3(fighterAiArraySystem.enemy[0].transform.position.x, fighterAiArraySystem.enemy[0].transform.position.y, fighterAiArraySystem.enemy[0].transform.position.z);
+        //float speed = spearSpeed * Time.deltaTime;
+        //rigSpear.transform.position = Vector3.MoveTowards(transform.position, fighterAiArraySystem.enemy[0].transform.position, speed);
+        Vector3 direction = fighterAiArraySystem.enemy[0].transform.position - rigSpear.transform.position;
+        direction.Normalize();
+
+        rigSpear.AddForce(direction * 100);
+
+        //rigSpear.velocity = new Vector3(fighterAiArraySystem.enemy[0].transform.position.x, fighterAiArraySystem.enemy[0].transform.position.y, fighterAiArraySystem.enemy[0].transform.position.z);
 
     }
+
+    //IEnumerator ThrowingSpear()
+    //{
+    //    Rigidbody spawnedSpear;
+
+    //    spawnedSpear = Instantiate(rigSpear, handLocation.position, transform.rotation);
+    //    float speed = spearSpeed * Time.deltaTime;
+    //    rigSpear.transform.position = Vector3.MoveTowards(transform.position, fighterAiArraySystem.enemy[0].transform.position, speed);
+    //    yield return new WaitForSeconds(1);
+    //    moveSpear = false;
+    //}
 
 
 

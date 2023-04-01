@@ -16,6 +16,8 @@ public class AttackBarricadeSoldierState : State
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private LightingManager lightingManager;
 
+    public FighterAiArraySystem fighterAiArraySystem;
+
     public void Start()
     {
         lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
@@ -26,10 +28,11 @@ public class AttackBarricadeSoldierState : State
         aiAnimation.SetBool("attack", true);
         aiAnimation.SetLayerWeight(0, 2);
         //If enemy is dead or it's daytime, turn off animation
-        if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18 && idle == false))
+        if (fighterAiArraySystem.enemy.Count == 0 || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18 && idle == false))
         {
             aiAnimation.SetBool("attack", false);
-            barricade.GetComponent<BuildInteraction>().enmiesonattack.Remove(enemy);
+            //barricade.GetComponent<BuildInteraction>().enmiesonattack.Remove(enemy);
+
             //If it came from idle, go back to idle
             if (idle == true)
             {

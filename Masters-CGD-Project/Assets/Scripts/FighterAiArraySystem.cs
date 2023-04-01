@@ -24,7 +24,7 @@ public class FighterAiArraySystem : MonoBehaviour
             DamageEnemy();
         }
 
-        if (enemy != null)
+        if (enemy.Count > 0)
         {
             sourceObject.transform.position = enemy[0].transform.position;
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,8 @@ public class WanderSoldierState : State
     [SerializeField] private ChooseBarricade chooseBarricade;
     [SerializeField] private LightingManager lightingManager;
     [SerializeField] private Animator aiAnimation;
+
+    public FighterAiArraySystem fighterAiArraySystem;
 
     private GameObject enemy = null;
     GameObject currentBarricade = null;
@@ -45,6 +48,14 @@ public class WanderSoldierState : State
             enemy = null;
             return attackBarricadeSoldierState;
         }
+
+        if (fighterAiArraySystem.enemy.Count > 0)
+        {
+            attackBarricadeSoldierState.idle = true;
+            return attackBarricadeSoldierState;
+
+        }
+
         //Checking if any tower is available
         GameObject potentialTower = chooseTower.checkTowers();
         if (potentialTower != null)

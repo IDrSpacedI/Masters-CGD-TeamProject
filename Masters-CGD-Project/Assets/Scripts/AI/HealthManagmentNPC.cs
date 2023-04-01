@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class HealthManagmentNPC : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class HealthManagmentNPC : MonoBehaviour
     public GameObject thisEnemy;
 
     public bool removeFromList = false;
+
+    public RagdollManager ragdollManager;
+    public NavMeshAgent navMeshAgent;
+    public GameObject masterObject;
+    public float shrinkDelay = 3;
 
     //public FighterAiArraySystem fighterAiArraySystem;
 
@@ -54,7 +60,10 @@ public class HealthManagmentNPC : MonoBehaviour
                 //Gamemanager.Instance.totalenemies = Gamemanager.Instance.totalenemies - 1 ;
                 Gamemanager.Instance.enemieskilled++;
             }
-            Destroy(gameObject);
+            masterObject.gameObject.tag = "Dead"; //very important to ensure this entity is removed from any list as an active attack/defender
+            navMeshAgent.enabled = false;
+            ragdollManager.ActivateRagdoll();
+            StartCoroutine(ShrinkDestroy()); //Notworking? :<
             return;
         }
         health = health - damage;
@@ -66,5 +75,12 @@ public class HealthManagmentNPC : MonoBehaviour
     void disableeffect()
     {
         bloodvfx.SetActive(false);
+    }
+
+    IEnumerator ShrinkDestroy()
+    {
+        yield return new WaitForSeconds(shrinkDelay);
+        masterObject.transform.localScale = Vector3.Lerp(masterObject.transform.localScale, new Vector3(0,0,0), Time.deltaTime * shrinkDelay);
+        Destroy(masterObject, shrinkDelay);
     }
 }
