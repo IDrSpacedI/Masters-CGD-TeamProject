@@ -12,10 +12,18 @@ public class GuardTowerStateSoldier : State
     [SerializeField] private IdleStateSoldier idleStateSoldier;
     [SerializeField] private ChooseTower chooseTower;
 
+   
+
+    private void Start()
+    {
+       
+    }
 
     public override State RunCurrentState()
     {
         aiAnimation.SetFloat("speed", 0f, 0.1f, Time.deltaTime);
+
+
         if (enemy != null)
         {
             //turn off the collision detection

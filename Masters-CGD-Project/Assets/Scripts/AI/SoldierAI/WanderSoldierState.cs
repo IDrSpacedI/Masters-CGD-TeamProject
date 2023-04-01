@@ -31,11 +31,13 @@ public class WanderSoldierState : State
     private bool walkPointSet;
     private Vector3 walkPoint;
 
+
     // Start is called before the first frame update
     void Start()
     {
         entityManager = GameObject.Find("GameManager").GetComponent<EntityManager>();
         lightingManager = GameObject.Find("GameManager").GetComponent<LightingManager>();
+      
     }
     public override State RunCurrentState()
     {
