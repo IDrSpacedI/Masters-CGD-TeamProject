@@ -28,7 +28,7 @@ public class ChooseTower : MonoBehaviour
         for (int i = 0; i < entityManager.towerListLeft.Count; i++)
         {
             //Get the level of the wall
-            GameObject currentLevel = GetTowerLevel(entityManager.towerList[i]);
+            GameObject currentLevel = GetTowerLevel(entityManager.towerListLeft[i]);
             //check the numbers of slots if different from the count of the guards 
             if (currentLevel != null && currentLevel.GetComponent<LevelWall>().slots.Count != currentLevel.GetComponent<LevelWall>().guards.Count)
             {
@@ -41,7 +41,7 @@ public class ChooseTower : MonoBehaviour
         for (int i = 0; i < entityManager.towerListRight.Count; i++)
         {
             //Get the level of the wall
-            GameObject currentLevel = GetTowerLevel(entityManager.towerList[i]);
+            GameObject currentLevel = GetTowerLevel(entityManager.towerListRight[i]);
             //check the numbers of slots if different from the count of the guards 
             if (currentLevel != null && currentLevel.GetComponent<LevelWall>().slots.Count != currentLevel.GetComponent<LevelWall>().guards.Count)
             {

@@ -24,6 +24,7 @@ public class AttackBarricadeSoldierState : State
     {
         //Set attack animation on
         aiAnimation.SetBool("attack", true);
+        aiAnimation.SetLayerWeight(0, 2);
         //If enemy is dead or it's daytime, turn off animation
         if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18 && idle == false))
         {

@@ -14,17 +14,20 @@ public class ChooseBarricade : MonoBehaviour
     }
     public GameObject checkBarricades()
     {
-        GameObject towerLeft = null;
-        GameObject towerRight = null;
+        GameObject barricadeLeft = null;
+        GameObject barricadeRight = null;
         //Checking if any tower in the left is available
         for (int i = 0; i < entityManager.barricadesLeft.Count; i++)
         {
             //Get tower that is furthest away (the array is ordered from closest to furthest so it's easy)
             if (entityManager.barricadesLeft[i].GetComponent<BuildInteraction>().currentLevel >= 1)
             {
-                towerLeft = entityManager.barricadeList[i];
+                
+                barricadeLeft = entityManager.barricadesLeft[i];
             }
         }
+        
+
 
         //Checking if any tower in the right is available
         for (int i = 0; i < entityManager.barricadesRight.Count; i++)
@@ -32,17 +35,16 @@ public class ChooseBarricade : MonoBehaviour
             //Get tower that is furthest away (the array is ordered from closest to furthest so it's easy)
             if (entityManager.barricadesRight[i].GetComponent<BuildInteraction>().currentLevel >= 1)
             {
-                towerRight = entityManager.barricadeList[i];
+                barricadeRight = entityManager.barricadesRight[i];
             }
         }
 
-        if (entityManager.barricadeSoldiersOnRight.Count >= entityManager.barricadeSoldiersOnLeft.Count && towerRight != null)
+        if (entityManager.barricadeSoldiersOnRight.Count <= entityManager.barricadeSoldiersOnLeft.Count && barricadeRight != null)
         {
             directionTower = "Right";
-            return towerRight;
+            return barricadeRight;
         }
-        directionTower = "Left";
-        return towerLeft;
+        return barricadeLeft;
     }
 
     public void addToSoldiers()
