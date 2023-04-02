@@ -40,7 +40,7 @@ public class AttackAnimationSoldier : MonoBehaviour
     private void jswordattack()
     {
         //attackBarricadeSoldierState.Attack();
-        fighterAiArraySystem.DamageEnemy();
+        attackBarricadeSoldierState.Attack();
     }
 
     public void JSpearPickUp()
