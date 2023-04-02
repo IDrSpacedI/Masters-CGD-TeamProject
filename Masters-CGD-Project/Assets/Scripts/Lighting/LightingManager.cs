@@ -30,7 +30,9 @@ public class LightingManager : MonoBehaviour
 
     public void Start()
     {
-        state = States.none;
+        ResetIntensity();
+
+		state = States.none;
         dayTxt.text = (dayCount + 1).ToString();
     }
 
@@ -120,6 +122,14 @@ public class LightingManager : MonoBehaviour
             }
         }
     }
+
+    private void ResetIntensity()
+    {
+		for (int i = 0; i < inUse.Count; i++)
+		{
+			inUse[i].SetColor("_EmissionColor", Color.white);
+		}
+	}
 
     IEnumerator IntensityChange(string state, Material mat)
     {
