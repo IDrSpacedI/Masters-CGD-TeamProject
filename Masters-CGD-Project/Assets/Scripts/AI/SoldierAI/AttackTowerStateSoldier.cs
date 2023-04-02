@@ -27,7 +27,8 @@ public class AttackTowerStateSoldier : State
 
     public override State RunCurrentState()
     {
-        animator.SetLayerWeight(1, 2);
+        animator.SetLayerWeight(2, 1);
+        spear.SetActive(true);
         animator.SetBool("spearattack",true);
 
         if (enemy == null || (lightingManager.TimeOfDay >= 6 && lightingManager.TimeOfDay < 18))
@@ -35,6 +36,7 @@ public class AttackTowerStateSoldier : State
             guardTowerStateSoldier.GetComponent<CapsuleCollider>().enabled = true;
             animator.SetLayerWeight(0, 2);
             animator.SetBool("spearattack", false);
+            spear.SetActive(false);
             return guardTowerStateSoldier;
 
         }
@@ -45,6 +47,7 @@ public class AttackTowerStateSoldier : State
             goTower.navMeshAgent.enabled = true;
             animator.SetLayerWeight(0, 2);
             animator.SetBool("spearattack", false);
+            spear.SetActive(false);
             return idleStateSoldier;
 		}
 
