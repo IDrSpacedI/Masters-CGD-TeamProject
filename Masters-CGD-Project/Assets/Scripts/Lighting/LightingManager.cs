@@ -133,7 +133,7 @@ public class LightingManager : MonoBehaviour
 
     IEnumerator IntensityChange(string state, Material mat)
     {
-        for (float i = 0; i <= 4; i+=0.01f) { 
+        for (float i = 0; i <= 1; i+=0.01f) { 
             if (state == "day")
             {
 				mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor") / 1.01f);
