@@ -8,7 +8,7 @@ public class CreditsFinished : MonoBehaviour
 
    public void LoadScene()
    {
-        SceneManager.GetSceneByBuildIndex(1);
+        SceneManager.LoadScene(0);
    }
 
 }

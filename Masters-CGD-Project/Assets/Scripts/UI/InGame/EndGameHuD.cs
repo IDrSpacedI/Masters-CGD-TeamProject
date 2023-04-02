@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndGameHuD : MonoBehaviour
 {
@@ -29,4 +30,10 @@ public class EndGameHuD : MonoBehaviour
         enemiesKilled.text = Gamemanager.Instance.enemieskilled.ToString();
         enemiesGenerated.text = Gamemanager.Instance.totalenemies.ToString();
     }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
 }
