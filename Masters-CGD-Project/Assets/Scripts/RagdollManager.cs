@@ -6,6 +6,9 @@ public class RagdollManager : MonoBehaviour
 {
     //get all the rigidbodies from the character model
     Rigidbody[] rigidBodies;
+    Collider[] colliders;
+
+    //public CharacterController controller;
     //reference to the aniamtor
     public Animator animator;
 
@@ -14,7 +17,21 @@ public class RagdollManager : MonoBehaviour
     {
         //get all the rigidbodies from the character model
         rigidBodies = GetComponentsInChildren<Rigidbody>();
+        colliders = GetComponentsInChildren<Collider>();
+        //controller = GetComponent(typeof(CharacterController)) as CharacterController;
+        //controller.detectCollisions = false;
+
+        GameObject ingoreCollsionSystem = GameObject.FindWithTag("Player");
+
+        //if(ingoreCollsionSystem != null)
+        //{
+        //    controller = ingoreCollsionSystem.GetComponent<CharacterController>();
+        //    controller.detectCollisions = false;
+        //}
+
+
         DeactivateRagdoll();
+
     }
 
     // Update is called once per frame
@@ -39,6 +56,11 @@ public class RagdollManager : MonoBehaviour
         {
             rigidBody.isKinematic = true;
         }
+
+        foreach (var collider in colliders)
+        {
+            collider.enabled = false;
+        }
         animator.enabled = true;
 
     }
@@ -49,6 +71,11 @@ public class RagdollManager : MonoBehaviour
         foreach (var rigidBody in rigidBodies)
         {
             rigidBody.isKinematic = false;
+        }
+
+        foreach (var collider in colliders)
+        {
+            collider.enabled = true;
         }
         animator.enabled = false;
     }
