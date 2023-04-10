@@ -3,16 +3,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 public class AttackAnimationSoldier : MonoBehaviour
 {
     [SerializeField] AttackBarricadeSoldierState attackBarricadeSoldierState;
     public GameObject spear, sword;
     public Rigidbody rigSpear;
+
+    public GameObject rigSpear2;
+
     public Transform handLocation, enemyLocation;
     public Animator anim;
     public GameObject enemy;
-    public float spearSpeed;
+    public float spearSpeed = 2f;
     private bool moveSpear = false;
 
     public FighterAiArraySystem fighterAiArraySystem;
@@ -53,7 +57,9 @@ public class AttackAnimationSoldier : MonoBehaviour
     public void JSpearThrow()
     {
 
-        enemyDistance = enemy.transform.position;
+        //enemyDistance = enemy.transform.position;
+
+        enemyDistance = fighterAiArraySystem.enemy[0].transform.position;
 
         spear.SetActive(false);
         sword.SetActive(false);
@@ -64,6 +70,8 @@ public class AttackAnimationSoldier : MonoBehaviour
 
         Rigidbody spawnedSpear;
 
+        InstantiateProjectile(handLocation);
+
         spawnedSpear = Instantiate(rigSpear, handLocation.position, transform.rotation);
         //float speed = spearSpeed * Time.deltaTime;
         //rigSpear.transform.position = Vector3.MoveTowards(transform.position, fighterAiArraySystem.enemy[0].transform.position, speed);
@@ -71,6 +79,7 @@ public class AttackAnimationSoldier : MonoBehaviour
         direction.Normalize();
 
         rigSpear.AddForce(direction * 100);
+
 
         //rigSpear.velocity = new Vector3(fighterAiArraySystem.enemy[0].transform.position.x, fighterAiArraySystem.enemy[0].transform.position.y, fighterAiArraySystem.enemy[0].transform.position.z);
 
@@ -87,6 +96,10 @@ public class AttackAnimationSoldier : MonoBehaviour
     //    moveSpear = false;
     //}
 
-
+    public void InstantiateProjectile(Transform firepoint)
+    {
+        var projectileObj = Instantiate(rigSpear2, firepoint.position, Quaternion.identity) as GameObject;
+        projectileObj.GetComponent<Rigidbody>().velocity = (enemyDistance - firepoint.position).normalized * spearSpeed;
+    }
 
 }
