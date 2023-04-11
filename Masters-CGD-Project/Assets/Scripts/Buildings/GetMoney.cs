@@ -19,6 +19,7 @@ public class GetMoney : MonoBehaviour, IInteractable
     public GameObject TextPrompt;
     public GameObject coinUI;
     public GameObject MaxCoins;
+    public Outline outline;
    
 
     MoneySystem money;
@@ -149,11 +150,14 @@ public class GetMoney : MonoBehaviour, IInteractable
     public void OnEnter()
     {
         TextPrompt.SetActive(true);
+        outline.OutlineWidth = 2;
     }
 
     public void OnLeave()
     {
         MaxCoins.SetActive(false);
         TextPrompt.SetActive(false);
+        outline.OutlineWidth = 0;
+
     }
 }
