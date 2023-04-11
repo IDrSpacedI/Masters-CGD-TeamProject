@@ -10,6 +10,9 @@ public class Friend_Upgrade_State : State
 	public bool builder;
 	public GameObject armRef;
 	public bool soldier;
+	public bool added = true;
+
+	private bool returnToIdle;
 	IEnumerator WaitCoroutine()
 	{
 		yield return new WaitForSeconds(0.5f);
@@ -19,36 +22,32 @@ public class Friend_Upgrade_State : State
 	{
 		StartCoroutine(WaitCoroutine());
 
-		if (builder && toolRef.GetComponent<ToolManager>().available)
-		{
-			if (toolRef.GetComponent<ToolManager>().RemoveTools(1))
-			{
-				return idleState;
-			}
-			else
-			{
-				builder = false;
-				return idleState;
-			}
-		}
-		else if (soldier && armRef.GetComponent<ToolManager>().available)
-		{
-			if (armRef.GetComponent<ToolManager>().RemoveTools(1))
-			{
-				return idleState;
-			}
-			else
-			{
-				soldier = false;
-				return idleState;
-			}
-		}
-		else
-		{
-			soldier = false;
-			builder = false;
-			return idleState;
-		}
+        if (builder && toolRef.GetComponent<ToolManager>().available && !added)
+        {
+			added = false;
+			toolRef.GetComponent<ToolManager>().potentialUpgrades.Add(this);
+        }
+        else if (soldier && armRef.GetComponent<ToolManager>().available && !added)
+        {
+			added = false;
+			armRef.GetComponent<ToolManager>().potentialUpgrades.Add(this);
+        }
+        else if (returnToIdle)
+        {
+            return idleState;
+        }
+		return this;
+	}
+
+	public void returnToIdleSucesss()
+    {
+		returnToIdle = true;
+    }
+	public void returnToIdleFail()
+	{
+		soldier = false;
+		builder = false;
+		returnToIdle = true;
 	}
 }
 

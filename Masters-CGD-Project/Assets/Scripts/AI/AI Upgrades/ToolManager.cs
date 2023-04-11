@@ -9,6 +9,7 @@ public class ToolManager : MonoBehaviour
     private int amount;
     public int max;
     [SerializeField]private GameObject[] tools;
+    [SerializeField] public List<Friend_Upgrade_State> potentialUpgrades = new List<Friend_Upgrade_State>();
     public GameObject player;
 
     private bool active = true;
@@ -17,6 +18,7 @@ public class ToolManager : MonoBehaviour
 
     public GameObject TextPrompt;
     private string promptText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,16 @@ public class ToolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (potentialUpgrades.Count > 0)
+        {
+            for(int i = 0; i < potentialUpgrades.Count; i++)
+            {
+                if (RemoveTools(1))
+                    potentialUpgrades[i].returnToIdleSucesss();
+                else
+                    potentialUpgrades[i].returnToIdleFail();
+            }
+        }
 		ChangePromtText(TextPrompt, "BuildText", promptText);
 		if (amount < max)
         {
@@ -83,27 +95,27 @@ public class ToolManager : MonoBehaviour
         }
 	}
 
-    IEnumerator PulseOn(GameObject iTool, float target, float length)
-    {
-        float startTime = Time.time;
-        while (Time.time < startTime + length)
-        {
-            iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(0f, target, (Time.time - startTime) / length);
-            yield return null;
-        }
-        iTool.GetComponent<Outline>().OutlineWidth = target;
-        StartCoroutine(PulseOff(iTool, target, length));
-    }
-    IEnumerator PulseOff(GameObject iTool, float startVal, float length)
-    {
-        float startTime = Time.time;
-        while (Time.time < startTime + length)
-        {
-            iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(startVal, 0f, (Time.time - startTime) / length);
-            yield return null;
-        }
-        iTool.GetComponent<Outline>().OutlineWidth = 0f;
-    }
+    //IEnumerator PulseOn(GameObject iTool, float target, float length)
+    //{
+    //    float startTime = Time.time;
+    //    while (Time.time < startTime + length)
+    //    {
+    //        iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(0f, target, (Time.time - startTime) / length);
+    //        yield return null;
+    //    }
+    //    iTool.GetComponent<Outline>().OutlineWidth = target;
+    //    StartCoroutine(PulseOff(iTool, target, length));
+    //}
+    //IEnumerator PulseOff(GameObject iTool, float startVal, float length)
+    //{
+    //    float startTime = Time.time;
+    //    while (Time.time < startTime + length)
+    //    {
+    //        iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(startVal, 0f, (Time.time - startTime) / length);
+    //        yield return null;
+    //    }
+    //    iTool.GetComponent<Outline>().OutlineWidth = 0f;
+    //}
 
     public bool RemoveTools(int num)
 	{
