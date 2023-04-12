@@ -40,6 +40,7 @@ public class ToolManager : MonoBehaviour
         {
             foreach (Friend_Upgrade_State upgrade in potentialUpgrades)
 			{
+                Debug.Log("TEST: " + upgrade);
                 if (RemoveTools(1))
                 {
                     if (upgrade.returnToIdleSucesss())

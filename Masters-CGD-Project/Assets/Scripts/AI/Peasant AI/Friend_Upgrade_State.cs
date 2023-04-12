@@ -23,12 +23,11 @@ public class Friend_Upgrade_State : State
 	public void Start()
 	{
 		toolRefM = toolRef.GetComponent<ToolManager>();
-		armRefM = toolRef.GetComponent<ToolManager>();
+		armRefM = armRef.GetComponent<ToolManager>();
 	}
 
 	public override State RunCurrentState()
 	{
-		StartCoroutine(WaitCoroutine());
 		if (returnToIdle)
 		{
 			return idleState;
@@ -39,6 +38,7 @@ public class Friend_Upgrade_State : State
 		}
 		else if (soldier && armRefM.available && !added)
 		{
+			Debug.Log("ENTERED SOLDIER");
 			added = armRefM.AddPeasant(this);
 		}
 		return this;
