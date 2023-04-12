@@ -32,6 +32,7 @@ public class Cheats : MonoBehaviour
             SpawnPeasant();
             SpawnEnemy();
             TimeTravel();
+            AddMoney();
         }
         speedDebugText.text = "Speed: " + Time.timeScale;
     }
@@ -123,6 +124,14 @@ public class Cheats : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             lm.speedFactor = 1.0f;
+        }
+    }
+
+    void AddMoney()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            player.GetComponent<MoneySystem>().currentMoney += 5;
         }
     }
 }

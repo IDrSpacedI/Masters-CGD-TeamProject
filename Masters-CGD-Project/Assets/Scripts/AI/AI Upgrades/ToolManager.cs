@@ -9,7 +9,7 @@ public class ToolManager : MonoBehaviour
     private int amount;
     public int max;
     [SerializeField]private GameObject[] tools;
-    [SerializeField] public List<Friend_Upgrade_State> potentialUpgrades = new List<Friend_Upgrade_State>();
+    public List<Friend_Upgrade_State> potentialUpgrades;
     public GameObject player;
 
     private bool active = true;
@@ -23,7 +23,8 @@ public class ToolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        promptText = "Build";
+		potentialUpgrades = new List<Friend_Upgrade_State>();
+		promptText = "Build";
         player = GameObject.FindGameObjectWithTag("Player");
         TextPrompt.SetActive(false);
         foreach (GameObject tool in tools)
@@ -35,14 +36,21 @@ public class ToolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (potentialUpgrades.Count > 0)
+        if (potentialUpgrades.Count > 0 && available)
         {
-            for(int i = 0; i < potentialUpgrades.Count; i++)
-            {
+            foreach (Friend_Upgrade_State upgrade in potentialUpgrades)
+			{
                 if (RemoveTools(1))
-                    potentialUpgrades[i].returnToIdleSucesss();
+                {
+                    if (upgrade.returnToIdleSucesss())
+                        potentialUpgrades.Remove(upgrade);
+
+				}
                 else
-                    potentialUpgrades[i].returnToIdleFail();
+                {
+                    if (upgrade.returnToIdleFail())
+					    potentialUpgrades.Remove(upgrade);
+				}
             }
         }
 		ChangePromtText(TextPrompt, "BuildText", promptText);
@@ -84,7 +92,6 @@ public class ToolManager : MonoBehaviour
             if (!tool.activeSelf)
 			{
                 tool.SetActive(true);
-                //StartCoroutine(PulseOn(tool, 3.5f, 0.15f));
                 amount++;
                 i++;
 			}
@@ -94,28 +101,6 @@ public class ToolManager : MonoBehaviour
 			}
         }
 	}
-
-    //IEnumerator PulseOn(GameObject iTool, float target, float length)
-    //{
-    //    float startTime = Time.time;
-    //    while (Time.time < startTime + length)
-    //    {
-    //        iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(0f, target, (Time.time - startTime) / length);
-    //        yield return null;
-    //    }
-    //    iTool.GetComponent<Outline>().OutlineWidth = target;
-    //    StartCoroutine(PulseOff(iTool, target, length));
-    //}
-    //IEnumerator PulseOff(GameObject iTool, float startVal, float length)
-    //{
-    //    float startTime = Time.time;
-    //    while (Time.time < startTime + length)
-    //    {
-    //        iTool.GetComponent<Outline>().OutlineWidth = Mathf.Lerp(startVal, 0f, (Time.time - startTime) / length);
-    //        yield return null;
-    //    }
-    //    iTool.GetComponent<Outline>().OutlineWidth = 0f;
-    //}
 
     public bool RemoveTools(int num)
 	{
@@ -178,4 +163,13 @@ public class ToolManager : MonoBehaviour
 			}
 		}
 	}
+
+    public bool AddPeasant(Friend_Upgrade_State p)
+    {
+        potentialUpgrades.Add(p);
+        if (potentialUpgrades.Contains(p))
+            return true;
+        else
+            return false;
+    }
 }
