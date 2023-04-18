@@ -65,6 +65,7 @@ public class Hiring : MonoBehaviour, IInteractable
             interactbox.SetActive(false);
             interactboxHire.SetActive(true);
             hired = true;
+            Gamemanager.Instance.totalrecruits++;
             travelState.destination = mainBase;
             travelState.go = true;
             StartCoroutine(Text());

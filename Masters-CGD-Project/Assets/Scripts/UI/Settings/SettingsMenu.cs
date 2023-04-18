@@ -10,11 +10,7 @@ using UnityEngine.Rendering;
 // sid 1901981
 // script reference by Brackeys
 public class SettingsMenu : MonoBehaviour
-{
-    [Header("Audio")]
-    public AudioMixer audioMixer;
-    public AudioMixer sfxaudioMixer;
-    public AudioMixer bckaudioMixer;
+{ 
     [Header("Aray")]
     Resolution[] resolutions;
     [Header("UI")]
@@ -57,44 +53,7 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    /// <summary>
-    /// sets volume based on the audio mixer
-    /// </summary>
-    /// <param name="volume"></param>
-    public void SetVolume(float Mastervolume)
-    {
-        Debug.Log(Mastervolume);
-        audioMixer.SetFloat("MasterVolume", Mastervolume);
-    }
-
-    /// <summary>
-    /// sets volume based on the audio mixer
-    /// </summary>
-    /// <param name="volume"></param>
-    public void SetsfxVolume(float sfxvolume)
-    {
-        Debug.Log(sfxvolume);
-        sfxaudioMixer.SetFloat("SFXVolume", sfxvolume);
-    }
-    /// <summary>
-    /// sets volume based on the audio mixer
-    /// </summary>
-    /// <param name="volume"></param>
-    public void SetVBackgroundvolume(float backgroundvolume)
-    {
-        Debug.Log(backgroundvolume);
-        bckaudioMixer.SetFloat("MusicVoume", backgroundvolume);
-    }
-
-
-    /// <summary>
-    /// set quality based on  the index
-    /// </summary>
-    /// <param name="qualityIndex"></param>
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
+  
     /// <summary>
     /// updateds where the full screen is true or false
     /// </summary>
@@ -109,5 +68,6 @@ public class SettingsMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(value);
         QualitySettings.renderPipeline = qualityAssets[value];
     }
-
 }
+
+
