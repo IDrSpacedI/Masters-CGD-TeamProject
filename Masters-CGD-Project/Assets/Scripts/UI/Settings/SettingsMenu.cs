@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;                                                           
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 // script by 1901981
 // sid 1901981
 // script reference by Brackeys
@@ -18,6 +19,9 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     [Header("UI")]
     public TMP_Dropdown resoluitionDropdown;
+
+    public RenderPipelineAsset[] qualityAssets;
+    public TMP_Dropdown qualityDropdown;
 
     public void Start()
     {
@@ -98,6 +102,12 @@ public class SettingsMenu : MonoBehaviour
     public void setFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    public void ChangeLevel(int value)
+    {
+        QualitySettings.SetQualityLevel(value);
+        QualitySettings.renderPipeline = qualityAssets[value];
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Toggle : MonoBehaviour
+public class ToggleDebug : MonoBehaviour
 {
     [Header("Bool")]
     public bool toggler;

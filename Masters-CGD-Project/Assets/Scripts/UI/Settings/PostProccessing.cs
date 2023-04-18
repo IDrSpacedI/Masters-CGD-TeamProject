@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class PostProccessing : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PostProccessing : MonoBehaviour
     bool m_bloomOff = false;
     [SerializeField]
     bool m_dofOff = false;
+    [SerializedField] public Toggle toggle1, toggle2;
+
+
 
 
     [ContextMenu("Set 0 bloom")]
@@ -45,12 +49,36 @@ public class PostProccessing : MonoBehaviour
 
     public void Awake()
     {
-       
-
         SetBloom();
         SetDoF();
+
         
     }
+
+ 
+    public void DOFswitch()
+    {
+        if(toggle1.isOn == true)
+        {
+            ExampleSettingsCodedof();
+        }
+        else if(toggle1.isOn == false)
+        {
+            ExampleSettingsCode2dof();
+        }
+    }
+    public void Bloomswitch()
+    {
+        if (toggle2.isOn == true)
+        {
+            ExampleSettingsCode();
+        }
+        else if (toggle2.isOn == false)
+        {
+            ExampleSettingsCode2();
+        }
+    }
+
 
     public void SetBloom()
     {
@@ -90,7 +118,6 @@ public class PostProccessing : MonoBehaviour
     }
 }
 
-
-
-
-
+internal class SerializedFieldAttribute : Attribute
+{
+}
