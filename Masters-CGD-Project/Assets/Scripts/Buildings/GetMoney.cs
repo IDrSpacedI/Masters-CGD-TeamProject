@@ -20,6 +20,8 @@ public class GetMoney : MonoBehaviour, IInteractable
     public GameObject coinUI;
     public GameObject MaxCoins;
     public Outline outline;
+
+    public bool inRange = false;
    
 
     MoneySystem money;
@@ -97,7 +99,10 @@ public class GetMoney : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(2f);
         MaxCoins.SetActive(false);
-        TextPrompt.SetActive(true);
+        if (inRange)
+        {
+            TextPrompt.SetActive(true);
+        }
     }
 
     public IEnumerator Delay()
@@ -151,10 +156,12 @@ public class GetMoney : MonoBehaviour, IInteractable
     {
         TextPrompt.SetActive(true);
         outline.OutlineWidth = 2;
+        inRange = true;
     }
 
     public void OnLeave()
     {
+        inRange = false;
         MaxCoins.SetActive(false);
         TextPrompt.SetActive(false);
         outline.OutlineWidth = 0;
