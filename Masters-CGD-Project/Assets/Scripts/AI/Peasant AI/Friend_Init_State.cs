@@ -9,14 +9,18 @@ public class Friend_Init_State : State
 	public Friend_Travel_State travelState;
 	public Friend_Upgrade_State upgradeState;
 
-	public override State RunCurrentState()
+	private void Awake()
 	{
 		idleState.idleTime = 1;
 		idleState.spawnEffect.SetActive(false);
-		idleState.toolRef = upgradeState.toolRef = travelState.toolRef = GameObject.Find("GameManager").GetComponent<Gamemanager>().toolRef;
-		idleState.armRef = upgradeState.armRef = travelState.armRef = GameObject.Find("GameManager").GetComponent<Gamemanager>().armRef;
+		idleState.toolRef = upgradeState.toolRef = travelState.toolRef = GameObject.FindWithTag("GM").GetComponent<Gamemanager>().toolRef;
+		idleState.armRef = upgradeState.armRef = travelState.armRef = GameObject.FindWithTag("GM").GetComponent<Gamemanager>().armRef;
 		wonderState.wonderPoint = transform.position;
 		wonderState.wonderRange = 2.5f;
+	}
+
+	public override State RunCurrentState()
+	{
 		return idleState;
 	}
 }

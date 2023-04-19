@@ -57,4 +57,13 @@ public class mainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void setActivefalse(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+    public void setActivetrue(GameObject objs)
+    {
+        objs.SetActive(true);
+    }
+
 }

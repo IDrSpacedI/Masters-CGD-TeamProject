@@ -13,15 +13,19 @@ public class AudioOption : MonoBehaviour
     [Header("Sliders")]
     [SerializeField] Slider musicSlider; //slider for main track
     [SerializeField] Slider SFX; // sound effects
+    [SerializeField] Slider Master; // sound effects
     [Header("Strings ")]
-    public const string MIXER_MUSIC = "MusicVolume"; // music string
-   public const string MIXER_SFX = "SFXVoume"; // sft string
+    public const string MusicVolume = "MusicVoume"; // music string
+   public const string MasterVolume = "MasterVolume"; // sft string
+    public const string SFXVolume = "SFXVolume"; // sft string
+
     #endregion
     #region awake
     private void Awake()
     {
         musicSlider.onValueChanged.AddListener(setMusicVolume); // add lister
         SFX.onValueChanged.AddListener(setSFXcVolume); // add lister
+        Master.onValueChanged.AddListener(setMastercVolume); // add lister
     }
     #endregion
 
@@ -39,7 +43,7 @@ public class AudioOption : MonoBehaviour
     /// <param name="value"></param>
     public void setMusicVolume(float value)
     {
-        mixer.SetFloat(MIXER_MUSIC,Mathf.Log10(value) * 20);
+        mixer.SetFloat(MusicVolume, Mathf.Log10(value) * 20);
     }
     #endregion
     #region set sfx
@@ -49,7 +53,11 @@ public class AudioOption : MonoBehaviour
     /// <param name="value"></param>
     public void setSFXcVolume(float value)
     {
-        mixer.SetFloat(MIXER_SFX, Mathf.Log10(value) * 20);
+        mixer.SetFloat(SFXVolume, Mathf.Log10(value) * 20);
+    }
+    public void setMastercVolume(float value)
+    {
+        mixer.SetFloat(MasterVolume, Mathf.Log10(value) * 20);
     }
     #endregion
     #region on disable

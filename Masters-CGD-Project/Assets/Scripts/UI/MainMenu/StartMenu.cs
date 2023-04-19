@@ -25,4 +25,7 @@ public class StartMenu : MonoBehaviour
         menu.SetActive(true);
 
     }
+
+
 }
+

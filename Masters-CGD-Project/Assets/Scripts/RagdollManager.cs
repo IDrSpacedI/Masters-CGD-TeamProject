@@ -17,7 +17,11 @@ public class RagdollManager : MonoBehaviour
     {
         //get all the rigidbodies from the character model
         rigidBodies = GetComponentsInChildren<Rigidbody>();
+
+
         colliders = GetComponentsInChildren<Collider>();
+
+
         //controller = GetComponent(typeof(CharacterController)) as CharacterController;
         //controller.detectCollisions = false;
 
@@ -61,6 +65,7 @@ public class RagdollManager : MonoBehaviour
         {
             collider.enabled = false;
         }
+
         animator.enabled = true;
 
     }
@@ -77,6 +82,7 @@ public class RagdollManager : MonoBehaviour
         {
             collider.enabled = true;
         }
+
         animator.enabled = false;
     }
 }
