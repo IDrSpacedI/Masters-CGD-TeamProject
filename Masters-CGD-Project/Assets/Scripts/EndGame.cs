@@ -17,6 +17,7 @@ public class EndGame : MonoBehaviour
     public Animator transition;
 
     public BuildInteraction build;
+    public bool hasCalled = false;
 
     DaysCounter Day;
     public int day;
@@ -33,14 +34,16 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && action == true && active == true && build.currentLevel == 3 && lm.dayCount == 5)
+        if (Input.GetKeyDown(KeyCode.E) && action == true && active == true && build.currentLevel == 3 && lm.dayCount >= 5)
         {
             ChangeScene();
         }
 
-        if(build.currentLevel == 3 && lm.dayCount == 6)
+        if(build.currentLevel == 3 && lm.dayCount >= 5 && !hasCalled)
         {
+            hasCalled = true;
             StartCoroutine(EndDelay());
+
         }
     }
 
