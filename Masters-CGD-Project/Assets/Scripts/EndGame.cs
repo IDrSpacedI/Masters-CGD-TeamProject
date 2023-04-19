@@ -58,7 +58,7 @@ public class EndGame : MonoBehaviour
             action = true;
 
             // Debug.Log(day);
-            if (active == true && build.currentLevel == 3 && lm.dayCount == 6)
+            if (active == true && build.currentLevel == 3 && lm.dayCount >= 5)
             {
                 TextPrompt.SetActive(true);
                 //Pickup.gameObject.SetActive(true);
@@ -77,8 +77,7 @@ public class EndGame : MonoBehaviour
     public void ChangeScene()
     {
         StartCoroutine(AnimDelay());
-            //load endgame scene
-            //SceneManager.LoadScene("EndGame");
+        SceneManager.LoadScene("EndGame");
 
     }
 
