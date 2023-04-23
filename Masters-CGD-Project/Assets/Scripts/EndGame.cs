@@ -26,6 +26,8 @@ public class EndGame : MonoBehaviour
 
     public CinemachineVirtualCamera cam1;
     public GameObject Timeline;
+    public GameObject HUD;
+    public GameObject texInteraction;
 
     private void Start()
     {
@@ -94,8 +96,12 @@ public class EndGame : MonoBehaviour
         cam1.Priority = 11;
         yield return new WaitForSeconds(1f);
         Timeline.SetActive(true);
+        HUD.SetActive(false);
+        texInteraction.SetActive(false);
         yield return new WaitForSeconds(7f);
         cam1.Priority = 9;
+        HUD.SetActive(true);
+        texInteraction.SetActive(true);
 
     }
 

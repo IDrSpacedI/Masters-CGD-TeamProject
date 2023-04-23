@@ -9,19 +9,16 @@ public class ToggleDebug : MonoBehaviour
     public bool toggler;
     [Header("Array")]
     public GameObject[] canvas;
-    [Header("Animators")]
-    public Animator animator;
-    public Animator c_anim;
     public GameObject debug;
-
     private bool toggleStateHealthMoney = false;
     public GameObject[] healthMoney;
 
-    public void Awake()
+    public void Start()
     {
-        // play animation
-        animator.Play("HUD");
-        c_anim.Play("Clock");
+        for(int i = 0; i < canvas.Length; i++)
+        {
+            canvas[i].SetActive(false);
+        }
     }
 
     void Update()
