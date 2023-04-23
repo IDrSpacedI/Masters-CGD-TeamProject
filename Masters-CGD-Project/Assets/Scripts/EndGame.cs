@@ -28,6 +28,8 @@ public class EndGame : MonoBehaviour
     public GameObject Timeline;
     public GameObject HUD;
     public GameObject texInteraction;
+    public GameObject clock;
+
 
     private void Start()
     {
@@ -98,10 +100,12 @@ public class EndGame : MonoBehaviour
         Timeline.SetActive(true);
         HUD.SetActive(false);
         texInteraction.SetActive(false);
+        clock.SetActive(false);
         yield return new WaitForSeconds(7f);
         cam1.Priority = 9;
         HUD.SetActive(true);
         texInteraction.SetActive(true);
+        clock.SetActive(true);
 
     }
 
