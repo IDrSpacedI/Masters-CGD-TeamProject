@@ -6,19 +6,25 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
+// script by Oliver Lancashire
+//sid 1901981
+// refence  - Ian Brown
 public class PostProccessing : MonoBehaviour
 {
+    [Header("references to post processing")]
     [SerializeField]
     Volume m_globalVol;
     [SerializeField]
     bool m_bloomOff = false;
     [SerializeField]
     bool m_dofOff = false;
-    [SerializedField] public Toggle toggle1, toggle2;
+    public Toggle toggle1, toggle2;
 
 
 
-
+    /// <summary>
+    /// can turn on /off bloom
+    /// </summary>
     [ContextMenu("Set 0 bloom")]
     public void ExampleSettingsCode()
     {
@@ -26,6 +32,9 @@ public class PostProccessing : MonoBehaviour
         SetBloom();
     }
 
+    /// <summary>
+    /// can turn on /off bloom
+    /// </summary>
     [ContextMenu("Set 1 bloom")]
     public void ExampleSettingsCode2()
     {
@@ -33,13 +42,18 @@ public class PostProccessing : MonoBehaviour
         SetBloom();
     }
 
+    /// <summary>
+    /// can turn on /off dof
+    /// </summary>
     [ContextMenu("Set 0 dof")]
     public void ExampleSettingsCodedof()
     {
         PlayerPrefs.SetInt("DofOff", 0);
         SetDoF();
     }
-
+    /// <summary>
+    /// can turn on /off dof
+    /// </summary>
     [ContextMenu("Set 1 dof")]
     public void ExampleSettingsCode2dof()
     {
@@ -49,13 +63,15 @@ public class PostProccessing : MonoBehaviour
 
     public void Awake()
     {
+        // functions run at start
         SetBloom();
         SetDoF();
 
-        
     }
 
- 
+    /// <summary>
+    ///checks if dof is on/ off
+    /// </summary>
     public void DOFswitch()
     {
         if(toggle1.isOn == true)
@@ -67,6 +83,9 @@ public class PostProccessing : MonoBehaviour
             ExampleSettingsCode2dof();
         }
     }
+    /// <summary>
+    /// checks if bool is on/off
+    /// </summary>
     public void Bloomswitch()
     {
         if (toggle2.isOn == true)
@@ -79,7 +98,9 @@ public class PostProccessing : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// function to turn on or off bloom
+    /// </summary>
     public void SetBloom()
     {
         m_bloomOff = !m_bloomOff;
@@ -97,7 +118,9 @@ public class PostProccessing : MonoBehaviour
             b.active = !m_bloomOff;
         }
     }
-
+    /// <summary>
+    /// function to turn on or off dof
+    /// </summary>
     public void SetDoF()
     {
         m_dofOff = !m_dofOff;
@@ -118,6 +141,3 @@ public class PostProccessing : MonoBehaviour
     }
 }
 
-internal class SerializedFieldAttribute : Attribute
-{
-}

@@ -5,35 +5,41 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-// scipt by Oliver Lancashire
+// script by Oliver Lancashire
 //sid 1901981
-// Script Reference How to make a LOADING BAR in Unity - Brackeys
+// script reference  - https://www.youtube.com/watch?v=XUK4OkqtnBo - skillcap games
+
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("stattic references")]
     public static LevelManager levelManager;
-
+    [Header("game object")]
     public GameObject loadingPanel;
-
+    [Header("int")]
     public int targetScene;
-
+    [Header("animations")]
     public Animator mushroom;
     public Animator Loading;
-
+    [Header("floats")]
     public float MinLoadTime;
-    public Image fade_Image;
     public float fadeTime;
-
+    [Header("image")]
+    public Image fade_Image;
+    [Header("bool")]
     private bool isLoading;
 
     private void Awake()
     {
-
+        // sets objects
         loadingPanel.SetActive(false);
         fade_Image.gameObject.SetActive(false);
     }
 
-
+    /// <summary>
+    /// load chosen scene
+    /// </summary>
+    /// <param name="index"></param>
     public void LoadScene(int index)
     {
         targetScene = index;
@@ -41,6 +47,10 @@ public class LevelManager : MonoBehaviour
  
     }
     
+    /// <summary>
+    /// run method to play animation and include smooth transition between scenes
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator LoadSceneRoutine()
     {
 
@@ -88,6 +98,11 @@ public class LevelManager : MonoBehaviour
         isLoading = false;
     }
 
+    /// <summary>
+    /// function to complete fade transtion
+    /// </summary>
+    /// <param name="target"></param>
+    /// <returns></returns>
     private bool Fade(float target)
     {
         fade_Image.CrossFadeAlpha(target, fadeTime, true);

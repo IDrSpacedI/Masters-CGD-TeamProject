@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+// script by Oliver Lancashire
+// sid 1901981
+
 // kap koder - https://www.youtube.com/watch?v=pbuJUaO-wpY&t=107s
 public class AudioOption : MonoBehaviour
 {
@@ -60,14 +63,5 @@ public class AudioOption : MonoBehaviour
         mixer.SetFloat(MasterVolume, Mathf.Log10(value) * 20);
     }
     #endregion
-    #region on disable
-    /// <summary>
-    /// saving the sliders values
-    /// </summary>
-    //public void OnDisable()
-    //{
-    //    PlayerPrefs.SetFloat(Audiomanager.MUSIC_KEY, musicSlider.value);
-    //    PlayerPrefs.SetFloat(Audiomanager.SFX_KEY, SFX.value);
-    //}
-    #endregion
+ 
 }

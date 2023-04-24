@@ -15,7 +15,7 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     [Header("UI")]
     public TMP_Dropdown resoluitionDropdown;
-
+    [Header("quality")]
     public RenderPipelineAsset[] qualityAssets;
     public TMP_Dropdown qualityDropdown;
 
@@ -62,7 +62,10 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullScreen;
     }
-
+    /// <summary>
+    /// changes quality level
+    /// </summary>
+    /// <param name="value"></param>
     public void ChangeLevel(int value)
     {
         QualitySettings.SetQualityLevel(value);

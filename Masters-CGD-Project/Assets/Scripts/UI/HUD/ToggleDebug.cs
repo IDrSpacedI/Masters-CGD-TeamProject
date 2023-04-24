@@ -14,7 +14,8 @@ public class ToggleDebug : MonoBehaviour
     public GameObject[] healthMoney;
 
     public void Start()
-    {
+    {  
+        // sets debug to not active
         for(int i = 0; i < canvas.Length; i++)
         {
             canvas[i].SetActive(false);

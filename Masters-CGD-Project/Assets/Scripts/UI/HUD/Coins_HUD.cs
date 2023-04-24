@@ -11,13 +11,17 @@ public class Coins_HUD : MonoBehaviour
     public GameObject[] Coin;
     [Header("money system")]
     public MoneySystem M_System;
+    [Header("ints")]
     private int MaxMoney;
     private int i;
-    public Animator[] coin_animator;
     private int a;
+    [Header("animation")]
+    public Animator[] coin_animator;
+ 
 
     void Start()
     {
+        // start amount of coin u|I
         MaxMoney = M_System.maxMoney;
         Coins = M_System.currentMoney;
         for (i = 0; i < Coins; i++)

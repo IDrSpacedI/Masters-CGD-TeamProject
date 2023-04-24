@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// script by Oliver Lancashire
+// sid 1901981
 public class StartMenu : MonoBehaviour
 {
     public Animator fade;
@@ -11,6 +13,7 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
+        // any key to load
         if (Input.anyKey)
         {
             fade.Play("Fadein");
@@ -18,6 +21,10 @@ public class StartMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  changes menu
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator speed()
     {
         yield return new WaitForSeconds(1.3f);

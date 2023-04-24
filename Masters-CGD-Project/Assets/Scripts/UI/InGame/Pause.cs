@@ -21,11 +21,14 @@ public class Pause : MonoBehaviour
     [Header("Health Reference")]
     public GameObject HUDElements;
     public GameObject UIBlur;
-    
 
+    [Header("sound reference")]
     public SoundManager S_Manager;
 
-
+    /// <summary>
+    /// load scene
+    /// </summary>
+    /// <param name="index"></param>
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
@@ -47,10 +50,12 @@ public class Pause : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// runs function to play game and set everything back to true
+    /// </summary>
     public void Resume()
-    {//  sets the needed values to true
+    {
 
-    
         pauseMenuUI.SetActive(false);
         HUDElements.SetActive(true);
         clock.SetActive(true);
@@ -64,9 +69,11 @@ public class Pause : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// pause entire game
+    /// </summary>
     public void Pause_()
     {
-  
         pauseMenuUI.SetActive(true);
         HUDElements.SetActive(false);
         clock.SetActive(false);

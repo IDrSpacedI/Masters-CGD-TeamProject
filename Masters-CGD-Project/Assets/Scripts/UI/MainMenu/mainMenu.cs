@@ -8,10 +8,7 @@ using UnityEngine.SceneManagement;
 // sid 1901981
 
 public class mainMenu : MonoBehaviour
-{
-
-    public Animator mainmenuTextAnim;
- 
+{ 
     public void Awake()
     {
         // sets curser visible
@@ -20,7 +17,6 @@ public class mainMenu : MonoBehaviour
         
     }
 
- 
 
     // hover on button to increase or decrease size
     public void onClickEnter(TextMeshProUGUI txt)
@@ -46,21 +42,26 @@ public class mainMenu : MonoBehaviour
 
     }
 
-
-    public void buttonHover(int selection)
-    {
-        mainmenuTextAnim.SetInteger("Selection", selection);
-    }
-
+    /// <summary>
+    /// quit function
+    /// </summary>
     public void OnApplicationQuit()
     {
         Application.Quit();
     }
 
+    /// <summary>
+    /// sets object to false
+    /// </summary>
+    /// <param name="obj"></param>
     public void setActivefalse(GameObject obj)
     {
         obj.SetActive(false);
     }
+    /// <summary>
+    /// sets object to true
+    /// </summary>
+    /// <param name="objs"></param>
     public void setActivetrue(GameObject objs)
     {
         objs.SetActive(true);
